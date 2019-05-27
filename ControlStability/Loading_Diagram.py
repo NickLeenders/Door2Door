@@ -1,10 +1,7 @@
-import sys
-sys.path.insert(0, '../Aerodynamics/')
-from aerodynamics_parameters import aero_vals
-
 from math import *
 from OEW_CG import *
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 x_payload = [2.46, 2.66]
@@ -13,7 +10,7 @@ x_fuel = 0.5
 w_fuel = 90
 x_cargo = 4.8
 w_cargo = 40
-mac = 2.2
+mac = 1.3
 
 " *** Cargo *** "
 cargo_cg = [function_OEW_CG()]
@@ -59,13 +56,28 @@ fuel_mass.append(fuel_mass[0] + w_fuel)
 margin_min = min(cargo_cg + payload_cg_fb + fuel_cg)*0.98
 margin_max = max(cargo_cg + payload_cg_bf + fuel_cg)*1.02
 
+#convert values with respect to MAC
+cargo_cg_mac = (((np.array(cargo_cg)-mac)/mac)*100)
+payload_cg_fb_mac = (((np.array(payload_cg_fb)-mac)/mac)*100)
+payload_cg_bf_mac = (((np.array(payload_cg_bf)-mac)/mac)*100)
+fuel_cg_mac = (((np.array(fuel_cg)-mac)/mac)*100)
+margin_min_mac = (((np.array(margin_min)-mac)/mac)*100)
+margin_max_mac = (((np.array(margin_max)-mac)/mac)*100)
 
-plt.plot(cargo_cg, cargo_mass, '-x')
-plt.plot(payload_cg_fb, payload_mass_fb,'-x')
-plt.plot(payload_cg_bf, payload_mass_bf,'-x')
-plt.plot(fuel_cg, fuel_mass,'-x')
-plt.plot([margin_min, margin_min], [1100, max(fuel_mass)],'-x')
-plt.plot([margin_max, margin_max], [1100, max(fuel_mass)],'-x')
+# plt.plot(cargo_cg, cargo_mass, '-x')
+# plt.plot(payload_cg_fb, payload_mass_fb,'-x')
+# plt.plot(payload_cg_bf, payload_mass_bf,'-x')
+# plt.plot(fuel_cg, fuel_mass,'-x')
+# plt.plot([margin_min, margin_min], [1100, max(fuel_mass)],'-x')
+# plt.plot([margin_max, margin_max], [1100, max(fuel_mass)],'-x')
+
+plt.plot(cargo_cg_mac, cargo_mass, '-x')
+plt.plot(payload_cg_fb_mac, payload_mass_fb,'-x')
+plt.plot(payload_cg_bf_mac, payload_mass_bf,'-x')
+plt.plot(fuel_cg_mac, fuel_mass,'-x')
+plt.plot([margin_min_mac, margin_min_mac], [1100, max(fuel_mass)],'-x')
+plt.plot([margin_max_mac, margin_max_mac], [1100, max(fuel_mass)],'-x')
+
 
 plt.grid()
 plt.xlabel("Center of Gravity (C.G.)")
@@ -73,9 +85,5 @@ plt.ylabel("Mass [kg]")
 plt.title("Loading Diagram Eagle")
 plt.gca().legend(('Cargo','Passenger (F-B)','Passenger (B-F)', "Fuel", '2% Safety Margin', '2% Safety Margin'))
 plt.show()
-
-
-print (margin_min)
-print (margin_max)
 
 
