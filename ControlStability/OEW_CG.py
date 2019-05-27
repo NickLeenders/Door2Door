@@ -59,7 +59,6 @@ def function_XCG():
 
 
 def function_ZCG():
-    get_values()
     X_CG = (
                    z_tail * w_tail + z_structure * w_structure + z_propeller * w_propeller + z_wing * w_wing + z_drivetrain * w_drivetrain \
                    + z_fuel * w_fuel + z_cell * w_cell + z_payload * w_payload + z_battery * w_battery + z_tank * w_tank) / (

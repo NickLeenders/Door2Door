@@ -1,3 +1,5 @@
+# For the structures guys: Please make your modules update the values in these class so Control and other people can use them.
+
 class x_positions():
     def __init__(self):
         self.x_tail = 5.4
