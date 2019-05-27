@@ -72,15 +72,16 @@ def loading_diagram():
     plt.plot(payload_cg_fb_mac, payload_mass_fb,'-x')
     plt.plot(payload_cg_bf_mac, payload_mass_bf,'-x')
     plt.plot(fuel_cg_mac, fuel_mass,'-x')
-    plt.plot([margin_min_mac, margin_min_mac], [1100, max(fuel_mass)],'-x')
-    plt.plot([margin_max_mac, margin_max_mac], [1100, max(fuel_mass)],'-x')
+    plt.plot([margin_min_mac, margin_min_mac], [function_total_EOW_mass(), max(fuel_mass)],'-x')
+    plt.plot([margin_max_mac, margin_max_mac], [function_total_EOW_mass(), max(fuel_mass)],'-x')
 
 
     plt.grid()
-    plt.xlabel("Center of Gravity (C.G.)")
+    plt.xlabel("Position Center of Gravity (% mac)")
     plt.ylabel("Mass [kg]")
     plt.title("Loading Diagram Eagle")
     plt.gca().legend(('Cargo','Passenger (F-B)','Passenger (B-F)', "Fuel", '2% Safety Margin', '2% Safety Margin'))
     plt.show()
+
 
 print (loading_diagram())
