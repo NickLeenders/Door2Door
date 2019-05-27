@@ -10,5 +10,5 @@ class aero_vals():
         self.cm_ac = 1 # moment coefficient around aerodynamic center
         self.l_h = 2.6 # distance wing ac to horizontal tail ac
         self.x_ac = 2 # x distance of the ac
-        self.mac = 1.3 # mean aerodynamic chord
+        self.mac = 2.2 # mean aerodynamic chord
         self.downwash_factor = 0.15 # (de/da) d_epsilon over d_alpha
