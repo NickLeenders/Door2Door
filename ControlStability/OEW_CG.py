@@ -1,58 +1,68 @@
-from math import *
+import sys
+sys.path.insert(0, '../Airframe/')
+from masses_cg_positions import x_positions, z_positions, w_components
 
+w_tail = w_components().w_tail
+w_structure = w_components().w_structure
+w_propeller = w_components().w_propeller
+w_wing = w_components().w_wing
+w_drivetrain = w_components().w_drivetrain
+w_fuel = w_components().w_fuel
+w_cell = w_components().w_cell
+w_payload = w_components().w_payload
+w_battery = w_components().w_battery
+w_tank = w_components().w_tank
 
-x_tail = 5.4
-x_structure = 3
-x_propeller = 2.5
-x_wing = 2.8
-x_drivetrain = 3.97
-x_fuel = 0.5
-x_cell = 0.5
-x_payload = 2.61
-x_battery = 2.61
-x_tank = 0.5
+z_tail = z_positions().z_tail
+z_structure = z_positions().z_structure
+z_propeller = z_positions().z_propeller
+z_wing = z_positions().z_wing
+z_drivetrain = z_positions().z_drivetrain
+z_fuel = z_positions().z_fuel
+z_cell = z_positions().z_cell
+z_payload = z_positions().z_payload
+z_battery = z_positions().z_battery
+z_tank = z_positions().z_tank
 
-z_tail = 1.4
-z_structure = 1.2
-z_propeller = 1.4
-z_wing = 1.4
-z_drivetrain = 0.15
-z_fuel = 0.5
-z_cell = 0.5
-z_payload = 0.6
-z_battery = 0.15
-z_tank = 0.5
+x_tail = x_positions().x_tail
+x_structure = x_positions().x_structure
+x_propeller = x_positions().x_propeller
+x_wing = x_positions().x_wing
+x_drivetrain = x_positions().x_drivetrain
+x_fuel = x_positions().x_fuel
+x_cell = x_positions().x_cell
+x_payload = x_positions().x_payload
+x_battery = x_positions().x_battery
+x_tank = x_positions().x_tank
 
-w_tail = 20.71
-w_structure = 385.5112
-w_propeller = 260
-w_wing = 162.488
-w_drivetrain = 30
-w_fuel = 90
-w_cell = 63.29
-w_payload = 360
-w_battery = 75
-w_tank = 108
 
 def function_OEW_CG():
-    OEW_CG = (x_tail*w_tail + x_structure*w_structure + x_propeller*w_propeller + x_wing*w_wing + x_drivetrain*w_drivetrain \
-          + x_cell*w_cell + x_battery*w_battery + x_tank*w_tank)/(w_tail + w_structure \
-          + w_propeller + w_wing + w_drivetrain + w_cell + w_battery + w_tank)
+    OEW_CG = (
+                     x_tail * w_tail + x_structure * w_structure + x_propeller * w_propeller + x_wing * w_wing + x_drivetrain * w_drivetrain \
+                     + x_cell * w_cell + x_battery * w_battery + x_tank * w_tank) / (w_tail + w_structure \
+                                                                                     + w_propeller + w_wing + w_drivetrain + w_cell + w_battery + w_tank)
     return OEW_CG
+
+
 def function_total_EOW_mass():
     mass_OEW_CG = (w_tail + w_structure + w_propeller + w_wing + w_drivetrain + w_cell + w_battery + w_tank)
     return mass_OEW_CG
 
+
 def function_XCG():
-    X_CG = (x_tail*w_tail + x_structure*w_structure + x_propeller*w_propeller + x_wing*w_wing + x_drivetrain*w_drivetrain \
-          + x_fuel*w_fuel + x_cell*w_cell + x_payload*w_payload + x_battery*w_battery + x_tank*w_tank)/(w_tail + w_structure \
-          + w_propeller + w_wing + w_drivetrain + w_fuel + w_cell + w_payload + w_battery + w_tank)
+    X_CG = (
+                   x_tail * w_tail + x_structure * w_structure + x_propeller * w_propeller + x_wing * w_wing + x_drivetrain * w_drivetrain \
+                   + x_fuel * w_fuel + x_cell * w_cell + x_payload * w_payload + x_battery * w_battery + x_tank * w_tank) / (
+                   w_tail + w_structure \
+                   + w_propeller + w_wing + w_drivetrain + w_fuel + w_cell + w_payload + w_battery + w_tank)
     return X_CG
 
+
 def function_ZCG():
-    X_CG = (z_tail*w_tail + z_structure*w_structure + z_propeller*w_propeller + z_wing*w_wing + z_drivetrain*w_drivetrain \
-          + z_fuel*w_fuel + z_cell*w_cell + z_payload*w_payload + z_battery*w_battery + z_tank*w_tank)/(w_tail + w_structure \
-          + w_propeller + w_wing + w_drivetrain + w_fuel + w_cell + w_payload + w_battery + w_tank)
+    get_values()
+    X_CG = (
+                   z_tail * w_tail + z_structure * w_structure + z_propeller * w_propeller + z_wing * w_wing + z_drivetrain * w_drivetrain \
+                   + z_fuel * w_fuel + z_cell * w_cell + z_payload * w_payload + z_battery * w_battery + z_tank * w_tank) / (
+                   w_tail + w_structure \
+                   + w_propeller + w_wing + w_drivetrain + w_fuel + w_cell + w_payload + w_battery + w_tank)
     return (X_CG)
-
-
