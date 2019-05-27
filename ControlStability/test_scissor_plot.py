@@ -1,4 +1,5 @@
-from scissor_plot import create_plot
+from scissor_plot import create_plot,control_curve
 
-create_plot()
+
+value = control_curve(1)
 pass
