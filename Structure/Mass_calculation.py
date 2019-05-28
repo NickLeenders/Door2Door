@@ -46,3 +46,12 @@ def wing_weight():
     W_w = roskam_convert(W_w,1,to_roskam=False)
     return W_w
 
+def emp_weight():
+     W_tot = roskam_convert(w_components().MTOW,1)
+     S_h = roskam_convert(emp_vals().S_h,3)
+     A_h = emp_vals().A_h
+     trh = roskam_convert(emp_vals().trh,2)
+     S_v = roskam_convert(emp_vals().S_v,3)
+     A_v = emp_vals().A_v
+     trv = roskam_convert(emp_vals().trv,2)
+     
