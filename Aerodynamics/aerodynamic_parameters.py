@@ -43,14 +43,15 @@ class aero_vals():
         self.gamma = 1.4  # -
         self.mu = 1.8 * 10 ** -5  # kg/ms(at 15 celsius but alsmost doesn't change)
         self.cl=1.5
+        self.b = 8.8  # Wing Span
         self.roll_rate = 60*pi/180 # TODO Roll Rate Class 
         self.ca_c = 0.2  # TODO chord aileron over chord wing (control/stability Aileron Sizing Tommy)
         self.aileron_effectiveness = 0.41 # TODO aileron effectiveness (control/stability Aileron Sizing Tommy)
         self.ar_wing = 7.33 # TODO aspect ratio main wing
         self.aileron_inner_perc = 0.7 # TODO Inner board Aileron Sizing (control/stability Aileron Sizing Tommy)
         self.aileron_outer_perc = 0.9 # TODO Outer board Aileron Sizing (control/stability Aileron Sizing Tommy)
-        self.aileron_inner_pos = self.aileron_inner_perc*(self.wingspan/2) # TODO Inner Board position Aileron
-        self.aileron_outer_pos = self.aileron_outer_perc*(self.wingspan/2) # TODO Outer Board position Aileron
+        self.aileron_inner_pos = self.aileron_inner_perc*(self.b/2) # TODO Inner Board position Aileron
+        self.aileron_outer_pos = self.aileron_outer_perc*(self.b/2) # TODO Outer Board position Aileron
         self.aileron_max_defl = 25*pi/180 # TODO Maxium Aileron Deflection
 
 class wing_vals():
