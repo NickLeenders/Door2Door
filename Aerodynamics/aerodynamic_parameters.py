@@ -13,7 +13,19 @@ class aero_vals():
         self.mac_position = 2.2 # TODO Longitudinal position of the MAC
         self.downwash_factor = 0.3835 # TODO (de/da) d_epsilon over d_alpha
         self.n_ult = 4.5 # TODO Ultimate load factor
-
+        self.h= 1219.2 # altitude in meters
+        self.rho0=1.225 # kg/m^3
+        self.T0=288.15 # K
+        self.rho= findrho(altitude)
+        self.vinfcr=240/3.6 # m/s
+        self.vstall = 20.0 # m/s
+        self.vinf_takeoff = 1.2 * vstall  # m/s
+        self.lapse = 0.0065  # degree/m
+        self.g = 9.80665  # m/s^2
+        self.R = 287  # J/kg
+        self.gamma = 1.4  # -
+        self.mu = 1.8 * 10 ** -5  # kg/ms(at 15 celsius but alsmost doesn't change)
+        self.cl=1.5
 
 class wing_vals():
     def __init__(self):
