@@ -54,7 +54,7 @@ def ISA(h, R, lapse, g, T0, rho0):
 #####
 
 #TO
-takeOff_t = ThrustCalculator(25.2, 0.0, 1500 / 2.5, 0, 0.8, 1)
+takeOff_t = ThrustCalculator(28, 0.0, 1500 / 2.5, 0, 0.8, 1)
 takeOff_l = Propellers(takeOff_t.thrust, takeOff_t.velocity,
                                 takeOff_t.rho, takeOff_t.cl, 1)
 

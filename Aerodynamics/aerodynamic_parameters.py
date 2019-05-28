@@ -1,8 +1,8 @@
 # Aerodynamic people, make a program that edits the values in this class
 import sys
-
+pi=3.1415
 sys.path.insert(0, '../PowerElectrical/')
-import isa
+from isa import IsaCalculator
 
 class aero_vals():
     def __init__(self):
@@ -22,7 +22,7 @@ class aero_vals():
         self.h= 1219.2 # altitude in meters
         self.rho0=1.225 # kg/m^3
         self.T0=288.15 # K
-        self.rho, self.T, self.p = isa.IsaCalculator(self.h)
+        self.rho, self.T, self.p = IsaCalculator(self.h)
         self.vinfcr=240/3.6 # m/s
         self.vstall = 20.0 # m/s
         self.vinf_takeoff = 25.2  # m/s

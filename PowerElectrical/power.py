@@ -1,9 +1,13 @@
-import PowerElectrical.isa as isa
 import math
 import sys
 sys.path.insert(0, '../Aerodynamics/')
 import aero
+
+sys.path.insert(0, '../PowerElectrical/')
+from isa import IsaCalculator
+
 class ThrustCalculator:
+
     """Preliminary required thrust calculation for one phase"""
     b = 8.8
     c_avg = 1.2
@@ -18,7 +22,7 @@ class ThrustCalculator:
     def __init__(self, velocity, altitude, duration, rateOfClimb=0.0, acceleration=0.0, driving=0):
         self.velocity = velocity
         self.altitude = altitude
-        self.rho, self.T, self.p = isa.IsaCalculator(altitude)
+        self.rho, self.T, self.p = IsaCalculator(altitude)
         self.duration = duration
         if abs(rateOfClimb) < 1.0E-5:
             self.cl = (self.mass*9.80665)/(self.S*0.5*self.rho*self.velocity**2)
