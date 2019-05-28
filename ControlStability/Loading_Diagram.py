@@ -35,8 +35,6 @@ def loading_diagram():
         cg_mass_update = cg_mass_update + x_positions().x_passenger[i]*w_components().w_passenger[i]
         mass_update = mass_update + w_components().w_passenger[i]
 
-    #x_positions().x_passenger.reverse()
-    #w_components().w_passenger.reverse()
     x_passenger = x_positions().x_passenger
     w_passenger = w_components().w_passenger
     x_passenger.reverse()
@@ -72,15 +70,15 @@ def loading_diagram():
     plt.plot(payload_cg_fb_mac, payload_mass_fb,'-x')
     plt.plot(payload_cg_bf_mac, payload_mass_bf,'-x')
     plt.plot(fuel_cg_mac, fuel_mass,'-x')
-    plt.plot([margin_min_mac, margin_min_mac], [function_total_EOW_mass(), max(fuel_mass)],'-x')
-    plt.plot([margin_max_mac, margin_max_mac], [function_total_EOW_mass(), max(fuel_mass)],'-x')
+    plt.plot([margin_min_mac, margin_min_mac], [function_total_EOW_mass(), max(fuel_mass)],'-yx')
+    plt.plot([margin_max_mac, margin_max_mac], [function_total_EOW_mass(), max(fuel_mass)],'-yx')
 
 
     plt.grid()
-    plt.xlabel("Position Center of Gravity (% mac)")
+    plt.xlabel("c.g./mac")
     plt.ylabel("Mass [kg]")
-    plt.title("Loading Diagram Eagle")
-    plt.gca().legend(('Cargo','Passenger (F-B)','Passenger (B-F)', "Fuel", '2% Safety Margin', '2% Safety Margin'))
+    plt.title("Loading Diagram")
+    plt.gca().legend(('Cargo','Passenger (F-B)','Passenger (B-F)', "Fuel", '2% Safety Margin'), loc=6)
     plt.show()
 
 
