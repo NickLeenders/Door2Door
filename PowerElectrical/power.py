@@ -4,7 +4,7 @@ import Aerodynamics.aero as aero
 
 class ThrustCalculator:
     """Preliminary required thrust calculation for one phase"""
-    b = 8.44
+    b = 8.8
     c_avg = 1.2
     S = b*c_avg
     A = b/c_avg
@@ -35,7 +35,7 @@ class ThrustCalculator:
 def main():
     #drive1_t = ThrustCalculator(29.0, 0.0, 50000.0/29.0, 0, 0, 1)
 
-    takeOff_t = ThrustCalculator(36.0, 0.0, 1500 / 2.5, 0, 4.0 / 3.0, 1)
+    takeOff_t = ThrustCalculator(36.0, 0.0, 1500 / 2.5, 0, 0.8, 1)
     takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
                                 takeOff_t.rho, takeOff_t.cl, 1)
 
