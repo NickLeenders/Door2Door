@@ -14,8 +14,10 @@ class x_positions():
         self.x_fuel = 0.5
         self.x_cell = 0.5
         self.x_payload = 2.61
+        self.x_passenger = [2.46, 2.66]         #c.g. position front passenger and back passengers (1-3 configuration)
         self.x_battery = 2.61
         self.x_tank = 0.5
+        self.x_cargo = 4.8
 
 
 class z_positions():
@@ -43,5 +45,7 @@ class w_components():
         self.w_fuel = 90
         self.w_cell = 63.29
         self.w_payload = 360
+        self.w_passenger = [80, 240]    #mass of the front passenger and back passenger
         self.w_battery = 75
         self.w_tank = 108
+        self.w_cargo = 40
