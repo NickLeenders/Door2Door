@@ -1,7 +1,8 @@
 import isa
 import math
-import Aerodynamics.aero as aero
-
+import sys
+sys.path.insert(0, '../Aerodynamics/')
+import aero
 class ThrustCalculator:
     """Preliminary required thrust calculation for one phase"""
     b = 8.8
