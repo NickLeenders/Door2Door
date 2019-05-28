@@ -1,6 +1,6 @@
 from math import *
 import numpy as np
-
+#Program for determinig the aileron size
 import sys
 sys.path.insert(0, '../Aerodynamics/')
 from aerodynamic_parameters import aero_vals
