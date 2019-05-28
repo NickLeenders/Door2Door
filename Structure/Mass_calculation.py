@@ -1,7 +1,7 @@
 import numpy as np
 import sys
 sys.path.insert(0, '../Airframe/')
-from masses_cg_positions import x_positions, z_positions, w_components
+import masses_cg_positions
 sys.path.insert(0, '../Aerodynamics/')
 from aerodynamic_parameters import wing_vals , emp_vals , aero_vals
 
