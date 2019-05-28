@@ -1,6 +1,5 @@
 import math
 import numpy as np
-import PowerElectrical.power as power
 
 def drag(cd0, cl, b, c, e, v, rho):
     cd = cd0 + (cl**2)/(math.pi*(b/c)*e)
