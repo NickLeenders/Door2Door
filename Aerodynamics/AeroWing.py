@@ -1,8 +1,14 @@
-Masstotal=1558.0 #kg
+import sys
+sys.path.insert(0, '../Aerodynamics/')
+from aerodynamic_parameters import aero_vals
+sys.path.insert(0, '../Airframe/')
+from masses_cg_positions import x_positions, z_positions, w_components
+
+Masstotal= w_components().MTOW
 Ws_cr=Masstotal*9.80665 #N
 We_cr= #N
 
-
+h= aero_vals().h
 
 #variables
 sweepquart=0 #deg
