@@ -37,6 +37,5 @@ b = [[(M_fuel+M_cell+M_tank+M_Frontpass+M_Rearpass+M_ElecM+M_Emp+M_Wing)*9.81],\
 
 c = np.linalg.solve(a,b)
 
-def truss_forces:
-    t1 = M_fuel/2 + M_cell/2 + M_tank/2 + M_frontpass/2 - 
+
     
