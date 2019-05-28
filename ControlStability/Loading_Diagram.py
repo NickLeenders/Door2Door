@@ -61,12 +61,12 @@ def loading_diagram():
     margin_max = max(cargo_cg + payload_cg_bf + fuel_cg)*1.02
 
     #convert values with respect to MAC
-    cargo_cg_mac = (((np.array(cargo_cg)-aero_vals().mac)/aero_vals().mac)*100)
-    payload_cg_fb_mac = (((np.array(payload_cg_fb)-aero_vals().mac)/aero_vals().mac)*100)
-    payload_cg_bf_mac = (((np.array(payload_cg_bf)-aero_vals().mac)/aero_vals().mac)*100)
-    fuel_cg_mac = (((np.array(fuel_cg)-aero_vals().mac)/aero_vals().mac)*100)
-    margin_min_mac = (((np.array(margin_min)-aero_vals().mac)/aero_vals().mac)*100)
-    margin_max_mac = (((np.array(margin_max)-aero_vals().mac)/aero_vals().mac)*100)
+    cargo_cg_mac = (((np.array(cargo_cg)-aero_vals().mac)/aero_vals().mac))
+    payload_cg_fb_mac = (((np.array(payload_cg_fb)-aero_vals().mac)/aero_vals().mac))
+    payload_cg_bf_mac = (((np.array(payload_cg_bf)-aero_vals().mac)/aero_vals().mac))
+    fuel_cg_mac = (((np.array(fuel_cg)-aero_vals().mac)/aero_vals().mac))
+    margin_min_mac = (((np.array(margin_min)-aero_vals().mac)/aero_vals().mac))
+    margin_max_mac = (((np.array(margin_max)-aero_vals().mac)/aero_vals().mac))
 
     plt.plot(cargo_cg_mac, cargo_mass, '-x')
     plt.plot(payload_cg_fb_mac, payload_mass_fb,'-x')
