@@ -10,7 +10,7 @@ class aero_vals():
         self.cm_ac = -0.30 # TODO moment coefficient around aerodynamic center
         self.l_h = 2.6 # TODO distance wing ac to horizontal tail ac
         self.x_ac = 0.1 # TODO x distance of the ac
-        self.mac = wing_vals().MAC
+        self.mac_position = 2.2 # TODO Longitudinal position of the MAC
         self.downwash_factor = 0.3835 # TODO (de/da) d_epsilon over d_alpha
         self.n_ult = 4.5 # TODO Ultimate load factor
 
