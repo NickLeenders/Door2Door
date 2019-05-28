@@ -3,6 +3,6 @@ import numpy as np
 
 control_value = control_curve(1)
 stability_value = stability_curve(1)
-x_cg = np.linspace(2.0, 3.0, num=10)
+x_cg = np.linspace(-1.0, 1.0, num=10)
 create_plot(x_cg)
 pass
