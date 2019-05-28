@@ -91,6 +91,9 @@ env.bak/
 venv.bak/
 .DS_Store
 .idea
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/*.iws
 
 # Spyder project settings
 .spyderproject

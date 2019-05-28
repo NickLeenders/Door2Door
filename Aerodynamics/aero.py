@@ -1,6 +1,6 @@
 import math
 import numpy as np
-
+import PowerElectrical.power as power
 
 def drag(cd0, cl, b, c, e, v, rho):
     cd = cd0 + (cl**2)/(math.pi*(b/c)*e)
@@ -89,3 +89,11 @@ class Propellers:
                                        (self.b - self.numberHLP*self.diameterHLP - self.numberCP*0.5*self.diameterCP)*self.c_avg*v_infty**2)
         self.cl_effective = cl*(self.lift_powered/self.lift_noPower)
 
+
+def main():
+    takeOff_t = power.ThrustCalculator(28.28, 0.0, 1500 / 2.5, 0, 0.8, 1)
+
+    return
+
+if __name__ == "__main__":
+    main()

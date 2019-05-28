@@ -8,6 +8,7 @@ class aero_vals():
     def __init__(self):
         self.vh_over_v = 1  # TODO (v_h/v) factor
         self.cl_h = -0.5  # TODO lift coefficient from horizontal tail
+        self.cl_a = 4.5 # TODO airfoil lift curve slope
         self.cl_alpha_h = 3.82 # TODO lift rate coefficient of horizontal tail
         self.cl_a_minus_h = 1.5  # TODO cl from aircraft less horizontal tail
         self.cl_alpha_a_minus_h = 4.9 # TODO lift rate coefficient of aircraft less tail
@@ -31,6 +32,19 @@ class aero_vals():
         self.gamma = 1.4  # -
         self.mu = 1.8 * 10 ** -5  # kg/ms(at 15 celsius but alsmost doesn't change)
         self.cl=1.5
+        self.surface_area = 10.56 # TODO Wing Surface Area
+        self.wingspan = 8.8 # TODO Wing Span
+        self.roll_rate = 60*pi/180 # TODO Roll Rate Class I
+        self.taper_ratio = 0.9 # TODO taper ratio
+        self.ca_c = 0.2  # TODO chord aileron over chord wing (control/stability Aileron Sizing Tommy)
+        self.aileron_effectiveness = 0.41 # TODO aileron effectiveness (control/stability Aileron Sizing Tommy)
+        self.ar_wing = 7.33 # TODO aspect ratio main wing
+        self.aileron_inner_perc = 0.7 # TODO Inner board Aileron Sizing (control/stability Aileron Sizing Tommy)
+        self.aileron_outer_perc = 0.9 # TODO Outer board Aileron Sizing (control/stability Aileron Sizing Tommy)
+        self.aileron_inner_pos = self.aileron_inner_perc*(self.wingspan/2) # TODO Inner Board position Aileron
+        self.aileron_outer_pos = self.aileron_outer_perc*(self.wingspan/2) # TODO Outer Board position Aileron
+        self.aileron_max_defl = 25*pi/180 # TODO Maxium Aileron Deflection
+        self.cruise_speed = 240/3.6 # TODO Cruise Speed
 
 class wing_vals():
     def __init__(self):
