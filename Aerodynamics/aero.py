@@ -88,3 +88,4 @@ class Propellers:
                                        self.numberCP*0.5*self.diameterCP*self.c_avg*self.v_wakeCP**2 +
                                        (self.b - self.numberHLP*self.diameterHLP - self.numberCP*0.5*self.diameterCP)*self.c_avg*v_infty**2)
         self.cl_effective = cl*(self.lift_powered/self.lift_noPower)
+
