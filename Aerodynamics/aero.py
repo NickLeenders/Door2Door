@@ -9,7 +9,7 @@ def drag(cd0, cl, b, c, e, v, rho):
 
 class Propellers:
 
-    numberHLP = 12
+    numberHLP = 8
     diameterHLP = 0.576
     maxpowerHLP = 14400
     efficiencyHLP = 0.75
@@ -19,7 +19,7 @@ class Propellers:
     maxpowerCP = 48120
     efficiencyCP = 0.8
 
-    b = 8.44
+    b = 8.8
     c_avg = 1.2
     S = b * c_avg
     A = b / c_avg
