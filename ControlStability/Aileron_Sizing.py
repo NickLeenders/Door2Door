@@ -4,7 +4,7 @@ import numpy as np
 import sys
 sys.path.insert(0, '../Aerodynamics/')
 from aerodynamic_parameters import aero_vals
-# Try to comment
+#Program for determining the aileron size
 def aileron_sizing():
     Cr = (3*aero_vals().chord*(1+aero_vals().taper_ratio))/(2*(1 + aero_vals().taper_ratio + aero_vals().taper_ratio**2))
 
