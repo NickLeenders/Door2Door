@@ -22,8 +22,8 @@ dihedral=0 #deg
 twist=0 #deg/m
 cl_max=1.5
 
-b= 4.4 #m
-c= 1.2 #m
+b= 8.8 #m
+c= 0.852#m
 ######
 
 # ISA
@@ -88,8 +88,11 @@ print('########## Sreq and cl_des')
 print(Sreq)
 print(cl_des)
 
-print()
+print(Re_cr/(10**6), 'Million')
+print(Mach_cr)
 
+print(rho_cr)
+print(aero_vals().mu/rho_cr)
 #cd_cr=0.05
 #wingdrag= q_cr*Sreq*cd_cr
 #print(wingdrag)

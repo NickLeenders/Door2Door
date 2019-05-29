@@ -28,7 +28,7 @@ class aero_vals():
         self.rho0=1.225 # kg/m^3
         self.T0=288.15 # K
 
-        self.rho, self.T, self.p = IsaCalculator(self.h)
+        self.rho_cr, self.T_cr, self.p_cr = IsaCalculator(self.h)
         self.vinfcr=250/3.6 # m/s
         self.vstall = 20.0 # m/s
         self.vinf_takeoff = 25.2  # m/s
