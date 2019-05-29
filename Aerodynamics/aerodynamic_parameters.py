@@ -1,8 +1,12 @@
 # Aerodynamic people, make a program that edits the values in this class
+
 import sys
 pi=3.1415
 sys.path.insert(0, '../PowerElectrical/')
 from isa import IsaCalculator
+
+from math import *
+
 
 class aero_vals():
     def __init__(self):
@@ -22,20 +26,24 @@ class aero_vals():
         self.h= 1219.2 # altitude in meters
         self.rho0=1.225 # kg/m^3
         self.T0=288.15 # K
-        self.rho_cr, self.T_cr, self.p_cr = IsaCalculator(self.h)
-        self.vinfcr=250/3.6 # m/s
+
+        self.rho, self.T, self.p = IsaCalculator(self.h)
+        self.vinfcr=240/3.6 # m/s
         self.vstall = 20.0 # m/s
         self.vinf_takeoff = 25.2  # m/s
+
+        #self.rho= findrho(altitude)
+        self.vinfcr=240/3.6 # m/s
+        self.vstall = 20.0 # m/s
+        self.vinf_takeoff = 1.2 * self.vstall  # m/s
+
         self.lapse = 0.0065  # degree/m
         self.g = 9.80665  # m/s^2
         self.R = 287  # J/kg
         self.gamma = 1.4  # -
         self.mu = 1.8 * 10 ** -5  # kg/ms(at 15 celsius but alsmost doesn't change)
         self.cl=1.5
-        self.surface_area = 10.56 # TODO Wing Surface Area
-        self.wingspan = 8.8 # TODO Wing Span
-        self.roll_rate = 60*pi/180 # TODO Roll Rate Class I
-        self.taper_ratio = 0.9 # TODO taper ratio
+        self.roll_rate = 60*pi/180 # TODO Roll Rate Class 
         self.ca_c = 0.2  # TODO chord aileron over chord wing (control/stability Aileron Sizing Tommy)
         self.aileron_effectiveness = 0.41 # TODO aileron effectiveness (control/stability Aileron Sizing Tommy)
         self.ar_wing = 7.33 # TODO aspect ratio main wing
@@ -44,7 +52,6 @@ class aero_vals():
         self.aileron_inner_pos = self.aileron_inner_perc*(self.wingspan/2) # TODO Inner Board position Aileron
         self.aileron_outer_pos = self.aileron_outer_perc*(self.wingspan/2) # TODO Outer Board position Aileron
         self.aileron_max_defl = 25*pi/180 # TODO Maxium Aileron Deflection
-        self.cruise_speed = 240/3.6 # TODO Cruise Speed
 
 class wing_vals():
     def __init__(self):

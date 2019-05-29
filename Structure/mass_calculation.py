@@ -1,10 +1,9 @@
 import numpy as np
 import sys
-sys.path.insert(0, '../Airframe/')
-from masses_cg_positions import x_positions, z_positions, w_components
+
 sys.path.insert(0, '../Aerodynamics/')
 from aerodynamic_parameters import wing_vals , emp_vals , aero_vals
-
+MTOW = 1634
 
 
 def roskam_convert(val,ty,to_roskam = True):
@@ -38,7 +37,7 @@ def roskam_convert(val,ty,to_roskam = True):
     return fin
 
 def wing_weight():
-    W_tot = roskam_convert(w_components().MTOW,1)
+    W_tot = roskam_convert(MTOW,1)
     S = roskam_convert(wing_vals().S,3)
     n_ult = aero_vals().n_ult
     A = wing_vals().A
