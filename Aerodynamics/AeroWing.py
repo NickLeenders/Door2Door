@@ -8,8 +8,8 @@ from power import ThrustCalculator
 from aero import Propellers
 
 Masstotal= 1588 #w_components().MTOW
-Ws_cr=Masstotal*aero_vals().g #N
-We_cr=(Masstotal-90)*aero_vals().g#N
+Ws_cr=Masstotal*9.80665 #N
+We_cr=(Masstotal-90)*9.80665 #N
 
 rho0=1.225
 h= aero_vals().h
@@ -33,23 +33,23 @@ c= 0.852#m
 #    return(T_cr, rho_cr)
 ######
 
-rho_cr=aero_vals().rho_cr
+rho_cr=test.rho_cr
 T_cr=aero_vals().T_cr
 
 
 #TO
 takeOff_t = ThrustCalculator(28, 0.0, 1500 / 2.5, 0, 0.8, 1)
 takeOff_l = Propellers(takeOff_t.thrust, takeOff_t.velocity,
-                                takeOff_t.rho, takeOff_t.cl, 1)
+                                takeOff_t.rho, takeOff_t.aero_vals.cl, 1)
 
 #CRUISE
 Cruise_t = ThrustCalculator(69.4, h, 1500, 0, 0.8, 0)
 Cruise_l = Propellers(Cruise_t.thrust, Cruise_t.velocity,
-                                Cruise_t.rho, Cruise_t.cl, 0)
+                                Cruise_t.rho, Cruise_t.aero_vals.cl, 0)
 
 
-v_takeoff= 0.238125*takeOff_l.v_wakeCP+0.72*takeOff_l.v_wakeHLP+0.05511875*28
-v_cr= 0.238125*Cruise_l.v_wakeCP+0.72*Cruise_l.v_wakeHLP+0.05511875*69.4
+v_takeoff= 0.173*takeOff_l.v_wakeCP+0.524*takeOff_l.v_wakeHLP+0.313*28
+v_cr= 0.173*Cruise_l.v_wakeCP+0.524*Cruise_l.v_wakeHLP+0.313*69.4
 
 #print(takeOff_l.v_wakeHLP)
 #print(takeOff_l.v_wakeCP)
