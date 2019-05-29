@@ -7,7 +7,6 @@ from isa import IsaCalculator
 
 from math import *
 
-
 class aero_vals():
     def __init__(self):
         self.vh_over_v = 1  # TODO (v_h/v) factor

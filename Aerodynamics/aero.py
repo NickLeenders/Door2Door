@@ -1,6 +1,11 @@
 import math
 import numpy as np
 
+sys.path.insert(0, '../Aerodynamics/')
+import aerodynamic_parameters
+sys.path.insert(0, '../PowerElectrical/')
+import power
+
 def drag(cd0, cl, b, c, e, v, rho):
     cd = cd0 + (cl**2)/(math.pi*(b/c)*e)
     d = cd*b*c*0.5*rho*v**2
@@ -8,9 +13,11 @@ def drag(cd0, cl, b, c, e, v, rho):
 
 class Propellers:
 
-    numberHLP = 8
-    diameterHLP = 0.576
-    maxpowerHLP = 14400
+    numberHLP = 4
+    #diameterHLP = 0.576
+    diameterHLP = 2*0.576
+    #maxpowerHLP = 14400
+    maxpowerHLP = 24000
     efficiencyHLP = 0.75
 
     numberCP = 2
@@ -82,11 +89,11 @@ class Propellers:
                 #self.powerCPalt2 = -self.numberCP*0.5*rho*math.pi*(self.diameterCP**2)*(v_infty**3)*self.a_CP*(1-self.a_CP)**2
             assert self.powerCP <= self.numberCP*self.maxpowerCP*self.efficiencyCP, "Not enough propeller power for these thrust values"
 
-        self.lift_noPower = cl*self.S*0.5*rho*v_infty**2
+
         self.lift_powered = cl*0.5*rho*(self.numberHLP*self.diameterHLP*self.c_avg*self.v_wakeHLP**2 +
                                        self.numberCP*0.5*self.diameterCP*self.c_avg*self.v_wakeCP**2 +
                                        (self.b - self.numberHLP*self.diameterHLP - self.numberCP*0.5*self.diameterCP)*self.c_avg*v_infty**2)
-        self.cl_effective = cl*(self.lift_powered/self.lift_noPower)
+
 
 
 def main():
