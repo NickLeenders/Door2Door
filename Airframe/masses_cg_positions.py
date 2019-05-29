@@ -2,8 +2,7 @@
 import numpy as np
 import sys
 sys.path.insert(0, '../Structure/')
-#from Mass_calculation import wing_weight
-import Mass_calculation
+from mass_calculation import wing_weight
 class x_positions():
     def __init__(self):
         self.x_tail = 5.4

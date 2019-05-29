@@ -1,5 +1,12 @@
 # Aerodynamic people, make a program that edits the values in this class
+
+import sys
+pi=3.1415
+sys.path.insert(0, '../PowerElectrical/')
+from isa import IsaCalculator
+
 from math import *
+
 
 class aero_vals():
     def __init__(self):
@@ -9,8 +16,9 @@ class aero_vals():
         self.cl_alpha_h = 3.82 # TODO lift rate coefficient of horizontal tail
         self.cl_a_minus_h = 1.5  # TODO cl from aircraft less horizontal tail
         self.cl_alpha_a_minus_h = 4.9 # TODO lift rate coefficient of aircraft less tail
-        self.chord = 3.8  # TODO chord from the main wing
+        self.chord = 1.2  # TODO chord from the main wing
         self.cm_ac = -0.30 # TODO moment coefficient around aerodynamic center
+        self.cd0 = 0.05 # TODO drag coefficient at zero lift
         self.l_h = 2.6 # TODO distance wing ac to horizontal tail ac
         self.x_ac = 0.1 # TODO x distance of the ac
         self.mac_position = 2.2 # TODO Longitudinal position of the MAC
@@ -19,24 +27,32 @@ class aero_vals():
         self.h= 1219.2 # altitude in meters
         self.rho0=1.225 # kg/m^3
         self.T0=288.15 # K
-        #self.rho= findrho(altitude)
+
+        self.rho, self.T, self.p = IsaCalculator(self.h)
         self.vinfcr=240/3.6 # m/s
         self.vstall = 20.0 # m/s
+        self.vinf_takeoff = 25.2  # m/s
+
+        #self.rho= findrho(altitude)
+        self.vinfcr = 240/3.6 # m/s
+        self.vstall = 20.0 # m/s
         self.vinf_takeoff = 1.2 * self.vstall  # m/s
+
         self.lapse = 0.0065  # degree/m
         self.g = 9.80665  # m/s^2
         self.R = 287  # J/kg
         self.gamma = 1.4  # -
         self.mu = 1.8 * 10 ** -5  # kg/ms(at 15 celsius but alsmost doesn't change)
         self.cl=1.5
+        self.b = 8.8  # Wing Span
         self.roll_rate = 60*pi/180 # TODO Roll Rate Class 
         self.ca_c = 0.2  # TODO chord aileron over chord wing (control/stability Aileron Sizing Tommy)
         self.aileron_effectiveness = 0.41 # TODO aileron effectiveness (control/stability Aileron Sizing Tommy)
         self.ar_wing = 7.33 # TODO aspect ratio main wing
         self.aileron_inner_perc = 0.7 # TODO Inner board Aileron Sizing (control/stability Aileron Sizing Tommy)
         self.aileron_outer_perc = 0.9 # TODO Outer board Aileron Sizing (control/stability Aileron Sizing Tommy)
-        self.aileron_inner_pos = self.aileron_inner_perc*(self.wingspan/2) # TODO Inner Board position Aileron
-        self.aileron_outer_pos = self.aileron_outer_perc*(self.wingspan/2) # TODO Outer Board position Aileron
+        self.aileron_inner_pos = self.aileron_inner_perc*(self.b/2) # TODO Inner Board position Aileron
+        self.aileron_outer_pos = self.aileron_outer_perc*(self.b/2) # TODO Outer Board position Aileron
         self.aileron_max_defl = 25*pi/180 # TODO Maxium Aileron Deflection
 
 class wing_vals():
