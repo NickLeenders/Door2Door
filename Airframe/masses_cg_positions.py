@@ -35,7 +35,6 @@ class z_positions():
 
 class w_components():
     def __init__(self):
-        self.MTOW = 1634
         self.w_tail = 20.71
         self.w_structure = 385.5112
         self.w_propeller = 260
