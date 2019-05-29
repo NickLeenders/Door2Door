@@ -2,33 +2,32 @@ import math
 import sys
 sys.path.insert(0, '../Aerodynamics/')
 import aero
-
+import aerodynamic_parameters
 sys.path.insert(0, '../PowerElectrical/')
 from isa import IsaCalculator
 
 class ThrustCalculator:
 
     """Preliminary required thrust calculation for one phase"""
-    b = 8.8
-    c_avg = 1.2
-    S = b*c_avg
-    A = b/c_avg
-    cd0 = 0.07
-    e = 0.8
-    mass = 1558
-    mu = 0.015
-    range = 400000
+
 
     def __init__(self, velocity, altitude, duration, rateOfClimb=0.0, acceleration=0.0, driving=0):
+
+        self.aero_vals = aerodynamic_parameters.aero_vals()
+        self.wing_vals = aerodynamic_parameters.wing_vals()
+        self.emp_vals = aerodynamic_parameters.emp_vals()
+
+        self.mass = 1558 #TODO take from airfrme
+        self.range = 400000
+        self.mu = 0.015 #TODO take mu value for ground system
+
         self.velocity = velocity
         self.altitude = altitude
         self.rho, self.T, self.p = IsaCalculator(altitude)
         self.duration = duration
-        if abs(rateOfClimb) < 1.0E-5:
-            self.cl = (self.mass*9.80665)/(self.S*0.5*self.rho*self.velocity**2)
-        elif rateOfClimb > 1.0E-5:
-            self.cl = math.sqrt(3*math.pi*self.cd0*self.A*self.e)
-        self.drag = aero.drag(self.cd0, self.cl, self.b, self.c_avg, self.e, self.velocity, self.rho)
+
+        self.drag = aero.drag(self.aero_vals.cd0, self.aero_vals.cl, self.wing_vals.b, self.wing_vals.MAC,
+                              self.wing_vals.e, self.velocity, self.rho)
         self.acceleration = acceleration
         if driving != 0:
             self.friction = self.mass*9.80665*self.mu
@@ -57,13 +56,13 @@ class ThrustCalculator:
 def main():
     #drive1_t = ThrustCalculator(29.0, 0.0, 50000.0/29.0, 0, 0, 1)
 
-    takeOff_t = ThrustCalculator(28.28, 0.0, 1500 / 2.5, 0, 0.8, 1)
+    takeOff_t = ThrustCalculator(25.0, 0.0, 1500 / 2.5, 0, 0.8, 1)
     takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
                                 takeOff_t.rho, takeOff_t.cl, 1)
 
     print(takeOff_l.lift_powered)
     print(takeOff_t.mass*9.80665)
-    print(takeOff_t.thrust)
+    print(takeOff_l.v_wakeCP)
     print(takeOff_t.cl)
 
     # iterating = True
