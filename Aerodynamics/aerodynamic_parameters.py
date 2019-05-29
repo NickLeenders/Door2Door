@@ -32,7 +32,7 @@ class aero_vals():
         self.vinfcr = 240/3.6 # m/s
         self.vstall = 20.0 # m/s
         self.vinf_takeoff = 1.2 * self.vstall  # m/s
-        self.cl=1.5
+        self.cl=1.5 
         self.roll_rate = 60*pi/180 # TODO Roll Rate Class 
         self.ca_c = 0.2  # TODO chord aileron over chord wing (control/stability Aileron Sizing Tommy)
         self.aileron_effectiveness = 0.41 # TODO aileron effectiveness (control/stability Aileron Sizing Tommy)
