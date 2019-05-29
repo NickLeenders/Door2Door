@@ -5,6 +5,8 @@ import aero
 import aerodynamic_parameters
 sys.path.insert(0, '../PowerElectrical/')
 from isa import IsaCalculator
+sys.path.insert(0, '../Airframe/')
+import total_masses
 
 class ThrustCalculator:
 
@@ -17,7 +19,9 @@ class ThrustCalculator:
         self.wing_vals = aerodynamic_parameters.wing_vals()
         self.emp_vals = aerodynamic_parameters.emp_vals()
 
-        self.mass = 1558 #TODO take from airfrme
+        self.mass_vals = total_masses.total_mass()
+
+        self.mass = self.mass_vals.MTOW
         self.range = 400000
         self.mu = 0.015 #TODO take mu value for ground system
 
