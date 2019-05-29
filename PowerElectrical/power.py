@@ -68,6 +68,8 @@ def main():
     print(takeOff_t.mass*9.80665)
     print(takeOff_l.v_wakeCP)
     print(takeOff_t.cl)
+    print(takeOff_l.powerCP)
+    print(takeOff_l.powerHLP)
 
     # iterating = True
     # while (iterating):
