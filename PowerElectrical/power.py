@@ -5,23 +5,20 @@ import aero
 import aerodynamic_parameters
 sys.path.insert(0, '../PowerElectrical/')
 from isa import IsaCalculator
-sys.path.insert(0, '../Airframe/')
-import total_masses
+#sys.path.insert(0, '../Airframe/')
+#import total_masses
 
 class ThrustCalculator:
 
     """Preliminary required thrust calculation for one phase"""
 
 
-    def __init__(self, velocity, altitude, duration, rateOfClimb=0.0, acceleration=0.0, driving=0):
+    def __init__(self, mass, velocity, altitude, duration, rateOfClimb=0.0, acceleration=0.0, driving=0):
 
         self.aero_vals = aerodynamic_parameters.aero_vals()
         self.wing_vals = aerodynamic_parameters.wing_vals()
         self.emp_vals = aerodynamic_parameters.emp_vals()
-
-        self.mass_vals = total_masses.total_mass()
-
-        self.mass = self.mass_vals.MTOW
+        self.mass = mass
         self.range = 400000
         self.mu = 0.015 #TODO take mu value for ground system
 
@@ -60,14 +57,13 @@ class ThrustCalculator:
 def main():
     #drive1_t = ThrustCalculator(29.0, 0.0, 50000.0/29.0, 0, 0, 1)
 
-    takeOff_t = ThrustCalculator(25.0, 0.0, 1500 / 2.5, 0, 0.8, 1)
+    takeOff_t = ThrustCalculator(1928.0, 25.0, 0.0, 1500 / 2.5, 0, 0.8, 1)
     takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
-                                takeOff_t.rho, takeOff_t.cl, 1)
+                                takeOff_t.rho, takeOff_t.aero_vals.cl, 1)
 
     print(takeOff_l.lift_powered)
     print(takeOff_t.mass*9.80665)
     print(takeOff_l.v_wakeCP)
-    print(takeOff_t.cl)
     print(takeOff_l.powerCP)
     print(takeOff_l.powerHLP)
 
