@@ -38,8 +38,8 @@ class aero_vals():
         self.aileron_effectiveness = 0.41 # TODO aileron effectiveness (control/stability Aileron Sizing Tommy)
         self.aileron_inner_perc = 0.7 # TODO Inner board Aileron Sizing (control/stability Aileron Sizing Tommy)
         self.aileron_outer_perc = 0.9 # TODO Outer board Aileron Sizing (control/stability Aileron Sizing Tommy)
-        self.aileron_inner_pos = self.aileron_inner_perc*(self.b/2) # TODO Inner Board position Aileron
-        self.aileron_outer_pos = self.aileron_outer_perc*(self.b/2) # TODO Outer Board position Aileron
+        #self.aileron_inner_pos = self.aileron_inner_perc*(self.b/2) # TODO Inner Board position Aileron
+        #self.aileron_outer_pos = self.aileron_outer_perc*(self.b/2) # TODO Outer Board position Aileron
         self.aileron_max_defl = 25*pi/180 # TODO Maxium Aileron Deflection
 
 class wing_vals():

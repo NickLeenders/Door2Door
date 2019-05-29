@@ -33,7 +33,7 @@ c= 0.852#m
 #    return(T_cr, rho_cr)
 ######
 
-rho_cr=test.rho_cr
+rho_cr=aero_vals().rho_cr
 T_cr=aero_vals().T_cr
 
 
