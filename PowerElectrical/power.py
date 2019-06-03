@@ -67,6 +67,10 @@ def main():
     print(takeOff_l.powerCP)
     print(takeOff_l.powerHLP)
 
+    cruise = ThrustCalculator(1928.0, 69.4, 1500, 400000/69.4) #+ climb.duration)
+
+    print(cruise.thrust)
+
     # iterating = True
     # while (iterating):
     #     takeOff_t = ThrustCalculator(36.0, 0.0, 1500/2.5, 0, 4.0/3.0, 1)

@@ -14,9 +14,8 @@ def drag(cd0, cl, b, c, e, v, rho):
 
 class Propellers:
 
-    numberHLP = 4
-    #diameterHLP = 0.576
-    diameterHLP = 2*0.576
+    numberHLP = 8
+    diameterHLP = 0.576
     #maxpowerHLP = 14400
     maxpowerHLP = 24000
     efficiencyHLP = 0.75
