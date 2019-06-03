@@ -1,3 +1,4 @@
+# git remote add origin https://github.com/NickLeenders/Door2Door.git
+# git init
 # :snowman:
-# Dont forget to place your bets before 5:00 pm !
 # Door2Door
