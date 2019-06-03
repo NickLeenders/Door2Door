@@ -8,7 +8,7 @@ sys.path.insert(0, '../PowerElectrical/')
 import power
 
 def drag(cd0, cl, b, c, e, v, rho):
-    cd = cd0 + (cl**2)/(math.pi*(b/c)*e)
+    cd = cd0 + (cl_cr**2)/(math.pi*(b/c)*e)
     d = cd*b*c*0.5*rho*v**2
     return d
 

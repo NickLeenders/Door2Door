@@ -23,17 +23,23 @@ class aero_vals():
         self.n_ult = 4.5 # TODO Ultimate load factor
         self.h= 1219.2 # altitude in meters
 
+        self.mu = 1.8*10**-5  #
+        self.rho0=1.225 #
+        self.T0 = 288.15 #K
         self.rho_cr, self.T_cr, self.p_cr = IsaCalculator(self.h)
         self.vinfcr=250/3.6 # m/s
         self.vstall = 20.0 # m/s
         self.vinf_takeoff = 25.2  # m/s
+        self.gamma = 1.4  #-
+        self.R = 287  # -
+
 
         #self.rho= findrho(altitude)
         self.vinfcr = 240/3.6 # m/s
         self.vstall = 20.0 # m/s
         self.vinf_takeoff = 1.2 * self.vstall  # m/s
-        self.cl=1.5 #TODO this should be initialised with a function,
-                    # so that the aero_vals object will have the correct Cl for the airspeed
+        self.cl_cr=0.6 #TODO this should be initialised with a function,
+        self.cl_takeoff=1.5            # so that the aero_vals object will have the correct Cl for the airspeed
         self.roll_rate = 60*pi/180 # TODO Roll Rate Class
 
 class wing_vals():
