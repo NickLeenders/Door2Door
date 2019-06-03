@@ -27,8 +27,12 @@ class ThrustCalculator:
         self.rho, self.T, self.p = IsaCalculator(altitude)
         self.duration = duration
 
-        self.drag = aero.drag(self.aero_vals.cd0, self.aero_vals.cl, self.wing_vals.b, self.wing_vals.MAC,
+        if (self.velocity > 40.0):
+            self.drag = aero.drag(self.aero_vals.cd0, self.aero_vals.cl_cr, self.wing_vals.b, self.wing_vals.MAC,
                               self.wing_vals.e, self.velocity, self.rho)
+        else:
+            self.drag = aero.drag(self.aero_vals.cd0, self.aero_vals.cl_takeoff, self.wing_vals.b, self.wing_vals.MAC,
+                                  self.wing_vals.e, self.velocity, self.rho)
         self.acceleration = acceleration
         if driving != 0:
             self.friction = self.mass*9.80665*self.mu
