@@ -85,4 +85,6 @@ if __name__ == "__main__":
     plt.xticks([1, 2, 3, 4])
     plt.xlabel('Iteration')
     plt.ylabel('Mass [kg]')
+    plt.title('MTOW Estimation Iteration')
+
     plt.show()

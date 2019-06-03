@@ -16,8 +16,8 @@ class Propellers:
 
     numberHLP = 8
     diameterHLP = 0.576
-    #maxpowerHLP = 14400
-    maxpowerHLP = 24000
+    maxpowerHLP = 14400
+    #maxpowerHLP = 24000
     efficiencyHLP = 0.75
 
     numberCP = 2
