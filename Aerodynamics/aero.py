@@ -48,7 +48,7 @@ class Propellers:
                 self.a_CP = (v_infty - self.v_wakeCP) / (2.0 * v_infty)
                 self.thrustCP = self.numberCP * rho * (1.0 / 8.0) * math.pi * (self.diameterCP ** 2) * (
                         self.v_wakeCP ** 2 - v_infty ** 2)
-                self.powerCP = self.thrustCP * v_infty * (1.0 - self.a_CP)
+                self.powerCP = self.thrustCP * v_infty * (1.0 - self.a_CP) / self.numberCP
                 self.v_wakeHLP = v_infty
                 self.a_HLP = 0.0
                 self.thrustHLP = 0.0
@@ -59,8 +59,8 @@ class Propellers:
                 self.a_HLP = (v_infty - self.v_wakeHLP) / (2.0 * v_infty)
                 self.thrustHLP = self.numberHLP * rho * (1.0 / 8.0) * math.pi * (self.diameterHLP ** 2) * (
                         self.v_wakeHLP ** 2 - v_infty ** 2)
-                self.powerHLP = self.thrustHLP*v_infty*(1.0 - self.a_HLP)
-            #assert self.powerHLP <= self.numberHLP*self.maxpowerHLP*self.efficiencyHLP, "Not enough propeller power for these thrust values"
+                self.powerHLP = self.thrustHLP*v_infty*(1.0 - self.a_HLP) / self.numberHLP
+            assert self.powerHLP <= self.maxpowerHLP*self.efficiencyHLP, "Not enough propeller power for these thrust values"
         elif (stol==1):
             self.powerHLP = self.maxpowerHLP*self.efficiencyHLP
             coefficientsHLP = [1, -2, 1, 2 * self.maxpowerHLP * self.efficiencyHLP / (
@@ -75,7 +75,7 @@ class Propellers:
                 self.a_HLP = (v_infty - self.v_wakeHLP) / (2.0 * v_infty)
                 self.thrustHLP = self.numberHLP * rho * (1.0 / 8.0) * math.pi * (self.diameterHLP ** 2) * (
                         self.v_wakeHLP ** 2 - v_infty ** 2)
-                self.powerHLP = self.thrustHLP * v_infty * (1.0 - self.a_HLP)
+                self.powerHLP = self.thrustHLP * v_infty * (1.0 - self.a_HLP) / self.numberHLP
                 self.v_wakeCP = v_infty
                 self.a_CP = 0.0
                 self.thrustCP = 0.0
@@ -84,10 +84,10 @@ class Propellers:
                 self.v_wakeCP = math.sqrt(((8.0*(thrust - self.thrustHLP)) / (self.numberCP * rho * math.pi * (self.diameterCP ** 2))) + v_infty**2)
                 self.a_CP = (v_infty - self.v_wakeCP) / (2.0*v_infty)
                 self.thrustCP = self.numberCP * rho * (1.0/8.0) * math.pi * (self.diameterCP**2) * (self.v_wakeCP ** 2 - v_infty ** 2)
-                self.powerCP = self.thrustCP*v_infty*(1.0-self.a_CP)
+                self.powerCP = self.thrustCP*v_infty*(1.0-self.a_CP) / self.numberCP
                 #self.powerCPalt1 = -self.numberCP*(1.0/8.0)*math.pi*(self.diameterCP**2)*rho*(v_infty**2 - self.v_wakeCP**2)*v_infty*(1.0-self.a_CP)
                 #self.powerCPalt2 = -self.numberCP*0.5*rho*math.pi*(self.diameterCP**2)*(v_infty**3)*self.a_CP*(1-self.a_CP)**2
-            #assert self.powerCP <= self.numberCP*self.maxpowerCP*self.efficiencyCP, "Not enough propeller power for these thrust values"
+            assert self.powerCP <= self.maxpowerCP*self.efficiencyCP, "Not enough propeller power for these thrust values"
 
 
         self.lift_powered = cl*0.5*rho*(self.numberHLP*self.diameterHLP*self.c_avg*self.v_wakeHLP**2 +
