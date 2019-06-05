@@ -1,5 +1,6 @@
 import numpy as np
 import sys
+import matplotlib.pyplot as plt
 
 sys.path.insert(0, '../Airframe/')
 import masses_cg_positions
@@ -78,3 +79,12 @@ if __name__ == "__main__":
 
     print("MTOW = ", MTOW)
     print("Wing weight = ", wing_weight)
+    iterations = np.arange(len(MTOW))
+    plt.figure()
+    plt.plot(iterations[1:], MTOW[1:], label='MTOW Iteration')
+    plt.xticks([1, 2, 3, 4])
+    plt.xlabel('Iteration')
+    plt.ylabel('Mass [kg]')
+    plt.title('MTOW Estimation Iteration')
+
+    plt.show()
