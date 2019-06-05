@@ -42,6 +42,8 @@ class aero_vals():
         self.cl_takeoff=1.5            # so that the aero_vals object will have the correct Cl for the airspeed
         self.roll_rate = 60*pi/180 # TODO Roll Rate Class
 
+        self.frontal_area = 2.4*1.7
+
 class wing_vals():
     def __init__(self):
         self.S = 10.56 #Surface Area

@@ -40,7 +40,7 @@ class ThrustCalculator:
             self.friction = self.mass*9.80665*self.mu
         else:
             self.friction = 0.0
-        self.thrust = self.drag + self.mass*self.acceleration + self.friction + rateOfClimb*self.mass*9.80665/velocity
+        self.thrust = self.drag + self.mass*self.acceleration + self.friction
 
 
 # def takeoff_cl()
@@ -67,7 +67,7 @@ def main():
     energy = []
 
     dt = 1.0
-    acc = 1.5
+    acc = 1.1
     takeOff_power = []
     takeOff_energy = []
 
@@ -191,7 +191,7 @@ def main():
     plt.show()
 
     print(sum(energy))
-    print(energy[2])
+    print(max(power))
 
     return
 
