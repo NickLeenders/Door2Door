@@ -82,7 +82,9 @@ class emp_vals():
         
         self.S_v = 1.2 #Vertial tail surface area
         self.b_v = 1 #Span of vertical tail surface
+        self.c_v = 1.2 #Chord of vertical tail surface
         self.A_v = (self.b_v)**2/self.S_v #Vertical tail aspect ratio
+        self.tcv= 0.10 # Thickness chord ratio vertical tail
         self.trv = 0.16 #Max thickness of vertical tail
         self.sweep_v = 0 #Sweep at 0.25c of vertical tail
         self.num_vtail = 1
