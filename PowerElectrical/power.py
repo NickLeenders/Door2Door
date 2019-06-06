@@ -40,7 +40,7 @@ class ThrustCalculator:
             self.friction = self.mass*9.80665*self.mu
         else:
             self.friction = 0.0
-        self.thrust = self.drag + self.mass*self.acceleration + self.friction + rateOfClimb*self.mass*9.80665/velocity
+        self.thrust = self.drag + self.mass*self.acceleration + self.friction
 
 
 # def takeoff_cl()
@@ -67,7 +67,7 @@ def main():
     energy = []
 
     dt = 1.0
-    acc = 1.5
+    acc = 1.1
     takeOff_power = []
     takeOff_energy = []
 
@@ -98,7 +98,7 @@ def main():
     energy.append((climb_l.powerHLP * climb_l.numberHLP +
                    climb_l.powerCP * climb_l.numberCP) * climb_t.duration)
 
-    cruise_t = ThrustCalculator(1928.0, 69.4, 1500, 400000.0/69.4 + climb_t.duration)
+    cruise_t = ThrustCalculator(1928.0, 69.4, 1500, 400000.0/69.4)
     cruise_l = aero.Propellers(cruise_t.thrust, cruise_t.velocity,
                               cruise_t.rho, cruise_t.aero_vals.cl_cr, 0)
     power.append((cruise_l.powerHLP * cruise_l.numberHLP +
@@ -191,7 +191,7 @@ def main():
     plt.show()
 
     print(sum(energy))
-    print(energy[2])
+    print(max(power))
 
     return
 
