@@ -65,6 +65,7 @@ def main():
 
     power = []
     energy = []
+    massHydrogen = []
 
     dt = 1.0
     acc = 1.1
