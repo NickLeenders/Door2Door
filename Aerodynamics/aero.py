@@ -2,14 +2,45 @@ import sys
 import math
 import numpy as np
 import sys
+from aerodynamic_parameters import wing_vals
 sys.path.insert(0, '../Aerodynamics/')
 import aerodynamic_parameters
 sys.path.insert(0, '../PowerElectrical/')
 import power
 
 def drag(cd0, cl, b, c, e, v, rho):
-    cd = cd0 + (cl**2)/(math.pi*(b/c)*e)
-    d = cd*b*c*0.5*rho*v**2
+    cdw = 0.018 #cd0 + (cl**2)/(math.pi*(b/c)*e)
+
+    lf=5.5 #length fuselage
+    df=(2.4+1.5)*(2.0/math.pi) #'diameter fuselage'
+    lambdaf=lf/df #ratio
+    ln=2.3 #nose to circular distance
+    #taper=wing_vals().taper_ratio
+    #tct=0.18
+    #tcr=0.18
+    #Sexpw=S-1.2*2.4
+    cfe=0.0045
+    S = wing_vals().S
+
+
+    taperh=1.0
+    tcth=0.12
+    tcrh=0.12
+    Sexph=3.84
+
+    taperv=1.0
+    tctv = 0.12
+    tcrv = 0.12
+    Sexpv = 1.2*1.5
+
+    Swetf=math.pi*df*lf*((0.5+0.135*ln/lf)**(2/3))*(1.015+0.3/(lambdaf**1.5))
+    Swetv = 2 * Sexpv * (1 + 0.25 * tcrv * (1 + taperv * tctv / tcrv) / (1 + taperv))
+    Sweth = 2 * Sexph * (1 + 0.25 * tcrh * (1 + taperh * tcth / tcrh) / (1 + taperh))
+
+    CD0=cfe*(Sweth+Swetv+Swetf)/(S)
+    cd=CD0+cdw
+    d = cd * S * 0.5 * 1.09 * 69.4** 2
+
     return d
 
 class Propellers:

@@ -5,7 +5,7 @@ sys.path.insert(0, '../Airframe/')
 #from masses_cg_positions import x_positions, z_positions, w_components
 sys.path.insert(0, '../PowerElectrical/')
 from power import ThrustCalculator
-from aero import Propellers
+from aero import Propellers, drag
 
 Masstotal= 1928.0 #w_components().MTOW
 Ws_cr=Masstotal*9.80665 #N
@@ -13,6 +13,7 @@ We_cr=(Masstotal-90)*9.80665 #N
 
 
 h= aero_vals().h
+
 
 
 #variables
@@ -106,6 +107,7 @@ print(cl_des)
 
 
 
-drag=0.5*1.09*v_cr**2*Sreq*cd
+#drag=0.5*1.09*v_cr**2*Sreq*cd
+drag=drag(0,0,0,0,0,0,0)
 print(drag)
 print(wing_vals().taper_ratio, wing_vals().MAC)
