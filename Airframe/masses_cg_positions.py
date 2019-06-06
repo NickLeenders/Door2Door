@@ -2,19 +2,20 @@
 import numpy as np
 import sys
 
+
 class x_positions:
     def __init__(self):
-        self.x_tail = 5.4
-        self.x_structure = 3
+        self.x_tail = 5.0
+        self.x_structure = 2.75
         self.x_propeller = 2.5
-        self.x_wing = 2.8
-        self.x_drivetrain = 3.97
-        self.x_fuel = 0.5
-        self.x_cell = 0.5
+        self.x_wing = 2.875
+        self.x_drivetrain = 0.8717
+        self.x_fuel = 2.41
+        self.x_cell = 1.725
         self.x_payload = 2.61
-        self.x_passenger = [2.46, 2.66]         #c.g. position front passenger and back passengers (1-3 configuration)
+        self.x_passenger = [2.46, 2.66]  # c.g. position front passenger and back passengers (1-3 configuration)
         self.x_battery = 2.61
-        self.x_tank = 0.5
+        self.x_tank = 2.41
         self.x_cargo = 4.8
 
 
@@ -36,13 +37,13 @@ class w_components:
     def __init__(self, wing_weight):
         self.w_tail = 20.71
         self.w_structure = 385.5112
-        self.w_propeller = 260
+        self.w_propeller = 316.48  # 16.36kg (8x), 30kg (2x) and including motor that are 8.2kg (8x), 30kg (2x)
         self.w_wing = wing_weight
         self.w_drivetrain = 30
-        self.w_fuel = 90
-        self.w_cell = 63.29
+        self.w_fuel = 16.64
+        self.w_cell = 86
         self.w_payload = 360
-        self.w_passenger = 80   #mass of the front passenger and back passenger
-        self.w_battery = 75
-        self.w_tank = 108
+        self.w_passenger = 80  # mass of the front passenger and back passenger
+        self.w_battery = 50
+        self.w_tank = 33.28
         self.w_cargo = 40
