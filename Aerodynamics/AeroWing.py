@@ -21,6 +21,7 @@ taper=1 #-
 dihedral=0 #deg
 twist=0 #deg/m
 cl_max=1.5
+cd=0.015
 
 b= 8.8 #m
 c= 0.852#m
@@ -37,31 +38,32 @@ rho_cr=aero_vals().rho_cr
 T_cr=aero_vals().T_cr
 
 
-vtakeoff=40 #
+vtakeoff=39 #
 vcruise=69.4 #
+vstall=vtakeoff/1.2
 
 #TO
-takeOff_t = ThrustCalculator(1928.0, 40, 0.0, 1500 / 2.5, 0, 0.8, 1)
+takeOff_t = ThrustCalculator(1928.0, vstall, 0.0, 1500 / 2.5, 0, 0.8, 1)
 takeOff_l = Propellers(takeOff_t.thrust, takeOff_t.velocity,
-                                takeOff_t.rho, takeOff_t.aero_vals.cl, 1)
+                                takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff, 1)
 
 #CRUISE
-Cruise_t = ThrustCalculator(1928.0, 69.4, h, 1500, 0, 0.8, 0)
+Cruise_t = ThrustCalculator(1928.0, vcruise, h, 1500, 0, 0.8, 0)
 Cruise_l = Propellers(Cruise_t.thrust, Cruise_t.velocity,
-                                Cruise_t.rho, Cruise_t.aero_vals.cl, 0)
+                                Cruise_t.rho, Cruise_t.aero_vals.cl_cr, 0)
 
 
 v_takeoff= 0.173*takeOff_l.v_wakeCP+0.524*takeOff_l.v_wakeHLP+0.313*vtakeoff
 v_cr= 0.173*Cruise_l.v_wakeCP+0.524*Cruise_l.v_wakeHLP+0.313*vcruise
 
-print(takeOff_l.v_wakeHLP)
-print(takeOff_l.v_wakeCP)
-print(v_takeoff)
+#print(takeOff_l.v_wakeHLP)
+#print(takeOff_l.v_wakeCP)
+#print(v_takeoff)
 
-print('next')
-print(Cruise_l.v_wakeHLP)
-print(Cruise_l.v_wakeCP)
-print(v_cr)
+#print('next')
+#print(Cruise_l.v_wakeHLP)
+#print(Cruise_l.v_wakeCP)
+#print(v_cr)
 
 
 
@@ -101,10 +103,10 @@ print(cl_des)
 #wingdrag= q_cr*Sreq*cd_cr
 #print(wingdrag)
 
-cding=0.018
-cdding=0.014
 
-drag1=0.5*1.09*v_cr**2*10*cding
-drag2=0.5*1.09*v_cr**2*10*cdding
 
-print('drag1', drag1,'drag2', drag2)
+
+drag=0.5*1.09*v_cr**2*Sreq*cd
+
+
+print('drag', drag)
