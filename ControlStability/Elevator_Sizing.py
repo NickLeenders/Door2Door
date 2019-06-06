@@ -96,16 +96,16 @@ CL1 = (2*m*g)/(P0*Vc**2*S)
 
 de = -((((T*zt1/(q*S*C)) + Cm0)*CLa + (CL1-CL0)*Cma)/(CLa*Cmde - Cma*CLde))
 
-#plot
+
 Vc_list = np.arange(1,187,1)
 q_list = []
 CL1_list = []
 for i in range(len(Vc_list)):
     q_list.append(0.5*P0*Vc_list[i]**2)
-    CL1_list.append((2*m*g)/(P0*Vc_list[i]**2*S))
+    CL1_list.append((2*m*g)/(Pc*Vc_list[i]**2*S))
 
 
-Vc_list_knot1 = np.array(Vc_list)/0.5144
+Vc_list_knot1 = np.array(V0_list)/0.5144
 de_list = []
 
 for j in range(len(q_list)):
@@ -113,6 +113,10 @@ for j in range(len(q_list)):
     de_list.append(de1)
 
 plt.plot(Vc_list_knot1, de_list)
+plt.xlabel('Speed (knot)')
+plt.ylabel(r'$\delta_E (deg)$')
 plt.xlim(50,360)
 plt.ylim(-25, 3)
+plt.grid()
+plt.title("Variation of elevator deflection with respect to aircraft speed at sea level")
 plt.show()
