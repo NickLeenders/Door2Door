@@ -24,24 +24,26 @@ class aero_vals():
         self.h= 1219.2 # altitude in meters
         self.b = 8.8
 
+        self.mu = 1.8*10**-5  #
+        self.rho0=1.225 #
+        self.T0 = 288.15 #K
         self.rho_cr, self.T_cr, self.p_cr = IsaCalculator(self.h)
         self.vinfcr=250/3.6 # m/s
         self.vstall = 20.0 # m/s
         self.vinf_takeoff = 25.2  # m/s
+        self.gamma = 1.4  #-
+        self.R = 287  # -
+
 
         #self.rho= findrho(altitude)
         self.vinfcr = 240/3.6 # m/s
         self.vstall = 20.0 # m/s
         self.vinf_takeoff = 1.2 * self.vstall  # m/s
-        self.cl=1.5 
-        self.roll_rate = 60*pi/180 # TODO Roll Rate Class 
-        self.ca_c = 0.2  # TODO chord aileron over chord wing (control/stability Aileron Sizing Tommy)
-        self.aileron_effectiveness = 0.41 # TODO aileron effectiveness (control/stability Aileron Sizing Tommy)
-        self.aileron_inner_perc = 0.7 # TODO Inner board Aileron Sizing (control/stability Aileron Sizing Tommy)
-        self.aileron_outer_perc = 0.9 # TODO Outer board Aileron Sizing (control/stability Aileron Sizing Tommy)
-        self.aileron_inner_pos = self.aileron_inner_perc*(self.b/2) # TODO Inner Board position Aileron
-        self.aileron_outer_pos = self.aileron_outer_perc*(self.b/2) # TODO Outer Board position Aileron
-        self.aileron_max_defl = 25*pi/180 # TODO Maxium Aileron Deflection
+        self.cl_cr=0.6 #TODO this should be initialised with a function,
+        self.cl_takeoff=1.5            # so that the aero_vals object will have the correct Cl for the airspeed
+        self.roll_rate = 60*pi/180 # TODO Roll Rate Class
+
+        self.frontal_area = 2.4*1.7
 
 class wing_vals():
     def __init__(self):
@@ -59,7 +61,14 @@ class wing_vals():
             self.y_MAC = self.b/4
         else:
             self.y_MAC = (self.root_chord - self.MAC)/(self.root_chord - self.tip_chord) * self.b/2 #Y position of the MAC
-        
+        self.ca_c = 0.2  # TODO chord aileron over chord wing (control/stability Aileron Sizing Tommy)
+        self.aileron_effectiveness = 0.41  # TODO aileron effectiveness (control/stability Aileron Sizing Tommy)
+        self.aileron_inner_perc = 0.7  # TODO Inner board Aileron Sizing (control/stability Aileron Sizing Tommy)
+        self.aileron_outer_perc = 0.9  # TODO Outer board Aileron Sizing (control/stability Aileron Sizing Tommy)
+        self.aileron_inner_pos = self.aileron_inner_perc * (self.b / 2)  # TODO Inner Board position Aileron
+        self.aileron_outer_pos = self.aileron_outer_perc * (self.b / 2)  # TODO Outer Board position Aileron
+        self.aileron_max_defl = 25 * pi / 180  # TODO Maxium Aileron Deflection
+
 class emp_vals():
     def __init__(self):
         self.S_h = 2.88 #Horizontal tail surface area
