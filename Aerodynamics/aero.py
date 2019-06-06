@@ -14,15 +14,19 @@ def drag(cd0, cl, b, c, e, v, rho):
 
 class Propellers:
 
+    # Yuneec Power Drive 20
+    #
     numberHLP = 8
     diameterHLP = 0.576
     maxpowerHLP = 14400
     #maxpowerHLP = 24000
     efficiencyHLP = 0.75
 
+    #Yuneec Power Drive 60
+    #
     numberCP = 2
     diameterCP = 1.524
-    maxpowerCP = 48120
+    maxpowerCP = 60000
     efficiencyCP = 0.8
 
     b = 8.8
