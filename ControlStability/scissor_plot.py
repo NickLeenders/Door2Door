@@ -20,7 +20,7 @@ def control_curve(x_cg_mac):
 
 
 def stability_curve(x_cg_mac):
-    stability_margin = 0.05
+    stability_margin = 0.06
     sh_over_s = 1 / ((aero_vals().cl_alpha_h / aero_vals().cl_alpha_a_minus_h) * (
             aero_vals().l_h / wing_vals().MAC) * (
                              1 - aero_vals().downwash_factor) * aero_vals().vh_over_v ** 2) * x_cg_mac - (
@@ -34,15 +34,16 @@ def stability_curve(x_cg_mac):
 def create_plot(x_cg):
     first_curve = stability_curve(x_cg)
     second_curve = control_curve(x_cg)
+    plt.xlabel("c.g./mac")
+    plt.ylabel(r'$S_h/S$')
+    plt.title("Scissor Plot")
     plt.plot(x_cg, second_curve)
     plt.plot(x_cg, first_curve)
-    plt.plot([loading_diagram()[0], loading_diagram()[0]], [0, 1.4],'-yx')
-    plt.plot([loading_diagram()[1], loading_diagram()[1]], [0, 1.4],'-yx')
-    plt.axis([0, 0.4, 0, 1.5])
+    plt.plot([loading_diagram()[0], loading_diagram()[0]], [0, 1.0],'-yx')
+    plt.plot([loading_diagram()[1], loading_diagram()[1]], [0, 1.0],'-yx')
+    plt.axis([0, 0.4, 0, 1.0])
     plt.show()
     pass
-
-
 
 
 
