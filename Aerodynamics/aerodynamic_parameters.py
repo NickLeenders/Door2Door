@@ -22,6 +22,7 @@ class aero_vals():
         self.downwash_factor = 0.3835 # TODO (de/da) d_epsilon over d_alpha
         self.n_ult = 4.5 # TODO Ultimate load factor
         self.h= 1219.2 # altitude in meters
+        self.b = 8.8
 
         self.rho_cr, self.T_cr, self.p_cr = IsaCalculator(self.h)
         self.vinfcr=250/3.6 # m/s
