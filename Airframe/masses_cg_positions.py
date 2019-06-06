@@ -1,9 +1,8 @@
 # For the structures guys: Please make your modules update the values in these class so Control and other people can use them.
 import numpy as np
 import sys
-sys.path.insert(0, '../Structure/')
-from mass_calculation import wing_weight
-class x_positions():
+
+class x_positions:
     def __init__(self):
         self.x_tail = 5.4
         self.x_structure = 3
@@ -19,7 +18,7 @@ class x_positions():
         self.x_cargo = 4.8
 
 
-class z_positions():
+class z_positions:
     def __init__(self):
         self.z_tail = 1.4
         self.z_structure = 1.2
@@ -33,18 +32,17 @@ class z_positions():
         self.z_tank = 0.5
 
 
-class w_components():
-    def __init__(self):
-        self.MTOW = 1634
+class w_components:
+    def __init__(self, wing_weight):
         self.w_tail = 20.71
         self.w_structure = 385.5112
         self.w_propeller = 260
-        self.w_wing = wing_weight()
+        self.w_wing = wing_weight
         self.w_drivetrain = 30
         self.w_fuel = 90
         self.w_cell = 63.29
         self.w_payload = 360
-        self.w_passenger = [80, 240]    #mass of the front passenger and back passenger
+        self.w_passenger = 80   #mass of the front passenger and back passenger
         self.w_battery = 75
         self.w_tank = 108
         self.w_cargo = 40

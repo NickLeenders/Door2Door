@@ -1,5 +1,11 @@
+import sys
 import math
 import numpy as np
+import sys
+sys.path.insert(0, '../Aerodynamics/')
+import aerodynamic_parameters
+sys.path.insert(0, '../PowerElectrical/')
+import power
 
 def drag(cd0, cl, b, c, e, v, rho):
     cd = cd0 + (cl**2)/(math.pi*(b/c)*e)
@@ -8,14 +14,19 @@ def drag(cd0, cl, b, c, e, v, rho):
 
 class Propellers:
 
+    # Yuneec Power Drive 20
+    #
     numberHLP = 8
     diameterHLP = 0.576
     maxpowerHLP = 14400
+    #maxpowerHLP = 24000
     efficiencyHLP = 0.75
 
+    #Yuneec Power Drive 60
+    #
     numberCP = 2
     diameterCP = 1.524
-    maxpowerCP = 48120
+    maxpowerCP = 60000
     efficiencyCP = 0.8
 
     b = 8.8
@@ -41,7 +52,7 @@ class Propellers:
                 self.a_CP = (v_infty - self.v_wakeCP) / (2.0 * v_infty)
                 self.thrustCP = self.numberCP * rho * (1.0 / 8.0) * math.pi * (self.diameterCP ** 2) * (
                         self.v_wakeCP ** 2 - v_infty ** 2)
-                self.powerCP = self.thrustCP * v_infty * (1.0 - self.a_CP)
+                self.powerCP = self.thrustCP * v_infty * (1.0 - self.a_CP) / self.numberCP
                 self.v_wakeHLP = v_infty
                 self.a_HLP = 0.0
                 self.thrustHLP = 0.0
@@ -52,8 +63,8 @@ class Propellers:
                 self.a_HLP = (v_infty - self.v_wakeHLP) / (2.0 * v_infty)
                 self.thrustHLP = self.numberHLP * rho * (1.0 / 8.0) * math.pi * (self.diameterHLP ** 2) * (
                         self.v_wakeHLP ** 2 - v_infty ** 2)
-                self.powerHLP = self.thrustHLP*v_infty*(1.0 - self.a_HLP)
-            assert self.powerHLP <= self.numberHLP*self.maxpowerHLP*self.efficiencyHLP, "Not enough propeller power for these thrust values"
+                self.powerHLP = self.thrustHLP*v_infty*(1.0 - self.a_HLP) / self.numberHLP
+            assert self.powerHLP <= self.maxpowerHLP*self.efficiencyHLP, "Not enough propeller power for these thrust values"
         elif (stol==1):
             self.powerHLP = self.maxpowerHLP*self.efficiencyHLP
             coefficientsHLP = [1, -2, 1, 2 * self.maxpowerHLP * self.efficiencyHLP / (
@@ -68,7 +79,7 @@ class Propellers:
                 self.a_HLP = (v_infty - self.v_wakeHLP) / (2.0 * v_infty)
                 self.thrustHLP = self.numberHLP * rho * (1.0 / 8.0) * math.pi * (self.diameterHLP ** 2) * (
                         self.v_wakeHLP ** 2 - v_infty ** 2)
-                self.powerHLP = self.thrustHLP * v_infty * (1.0 - self.a_HLP)
+                self.powerHLP = self.thrustHLP * v_infty * (1.0 - self.a_HLP) / self.numberHLP
                 self.v_wakeCP = v_infty
                 self.a_CP = 0.0
                 self.thrustCP = 0.0
@@ -77,16 +88,16 @@ class Propellers:
                 self.v_wakeCP = math.sqrt(((8.0*(thrust - self.thrustHLP)) / (self.numberCP * rho * math.pi * (self.diameterCP ** 2))) + v_infty**2)
                 self.a_CP = (v_infty - self.v_wakeCP) / (2.0*v_infty)
                 self.thrustCP = self.numberCP * rho * (1.0/8.0) * math.pi * (self.diameterCP**2) * (self.v_wakeCP ** 2 - v_infty ** 2)
-                self.powerCP = self.thrustCP*v_infty*(1.0-self.a_CP)
+                self.powerCP = self.thrustCP*v_infty*(1.0-self.a_CP) / self.numberCP
                 #self.powerCPalt1 = -self.numberCP*(1.0/8.0)*math.pi*(self.diameterCP**2)*rho*(v_infty**2 - self.v_wakeCP**2)*v_infty*(1.0-self.a_CP)
                 #self.powerCPalt2 = -self.numberCP*0.5*rho*math.pi*(self.diameterCP**2)*(v_infty**3)*self.a_CP*(1-self.a_CP)**2
-            assert self.powerCP <= self.numberCP*self.maxpowerCP*self.efficiencyCP, "Not enough propeller power for these thrust values"
+            assert self.powerCP <= self.maxpowerCP*self.efficiencyCP, "Not enough propeller power for these thrust values"
 
-        self.lift_noPower = cl*self.S*0.5*rho*v_infty**2
+
         self.lift_powered = cl*0.5*rho*(self.numberHLP*self.diameterHLP*self.c_avg*self.v_wakeHLP**2 +
                                        self.numberCP*0.5*self.diameterCP*self.c_avg*self.v_wakeCP**2 +
                                        (self.b - self.numberHLP*self.diameterHLP - self.numberCP*0.5*self.diameterCP)*self.c_avg*v_infty**2)
-        self.cl_effective = cl*(self.lift_powered/self.lift_noPower)
+
 
 
 def main():
