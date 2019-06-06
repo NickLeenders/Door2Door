@@ -10,7 +10,7 @@ from isa import IsaCalculator
 import matplotlib.pyplot as plt
 import numpy as np
 sys.path.insert(0, '../Structure/')
-from mass_calculation import mass_iteration
+import mass_calculation
 
 class ThrustCalculator:
 
@@ -44,15 +44,17 @@ class ThrustCalculator:
             self.friction = 0.0
         self.thrust = self.drag + self.mass*self.acceleration + self.friction
 
-#def enginePower(thrust, velocity, rpm):
-    #wheelDiameter =
-    #P =
-    #return
-
+def enginePower(thrust, velocity):
+    backWheelDiameter = 0.63 #m
+    frontWheelDiameter = 0.5245 #m
+    backWheelRPM = velocity*60.0/(math.pi*backWheelDiameter)
+    frontWheelRPM = velocity * 60.0 / (math.pi * frontWheelDiameter)
+    totalPower = 2.0*math.pi*thrust*(2.0*frontWheelRPM + backWheelRPM)/60.0
+    return totalPower
 
 def main():
 
-    MTOW = mass_iteration(1630.0)
+    MTOW = mass_calculation.mass_iteration(1630.0)
     SED_hydrogen = (120.0+142.0)*1.0E6/2.0 #Taking average between 120 MJ/kg and 142 MJ/kg
 
     power = []
@@ -61,7 +63,9 @@ def main():
 
     #DRIVE 1
     drive1_t = ThrustCalculator(MTOW - massHydrogen, 29.0, 0.0, 50000.0/29.0, 0, 0, 1)
-
+    power.append(enginePower(drive1_t.thrust, drive1_t.velocity))
+    energy.append(power[-1]*drive1_t.duration)
+    massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * drive1_t.duration
 
     #TAKE-OFF
     dt = 1.0
@@ -132,18 +136,11 @@ def main():
                    landing_l.powerCP * landing_l.numberCP) * landing_t.duration)
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * landing_t.duration
 
-    # drive2_t = ThrustCalculator(1928.0, 29.0, 0.0, 50000.0 / 29.0, 0, 0, 1)
-    # drive2_l = aero.Propellers(drive2_t.thrust, drive2_t.velocity,
-                                #drive2_t.rho, drive2_t.aero_vals.cl_takeoff, 1)
-    # energy.append((drive2_l.powerHLP * landing_l.numberHLP +
-                   #landing_l.powerCP * landing_l.numberCP) * landing_t.duration)
-
-    # iterating = True
-    # while (iterating):
-    #     takeOff_t = ThrustCalculator(36.0, 0.0, 1500/2.5, 0, 4.0/3.0, 1)
-    #     takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
-    #                                       takeOff_t.rho, takeOff_t.cl, 0)
-    #     if(takeOff_l.lift_powered < takeOff_t.mass*9.80665):
+    # DRIVE 2
+    drive2_t = ThrustCalculator(MTOW - massHydrogen, 29.0, 0.0, 50000.0 / 29.0, 0, 0, 1)
+    power.append(enginePower(drive2_t.thrust, drive2_t.velocity))
+    energy.append(power[-1] * drive2_t.duration)
+    massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * drive2_t.duration
 
     print("Hydrogen mass: ", massHydrogen)
     print("Hydrogen volume: ", massHydrogen/70.8)
