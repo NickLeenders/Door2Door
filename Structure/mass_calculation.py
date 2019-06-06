@@ -67,6 +67,17 @@ def emp_weight():
     trv = roskam_convert(emp_vals().trv, 2)
 
 
+def mass_iteration(initial_MTOW):
+    MTOW = [5, initial_MTOW]
+    i = 1
+    epsilon = 0.5
+    while (MTOW[i] - MTOW[i - 1]) > epsilon:
+        Wing_weight = wing_weight(MTOW[i])
+        W_components = masses_cg_positions.w_components(Wing_weight)
+        MTOW.append(total_mass(W_components).MTOW)
+        i = i + 1
+    return MTOW[-1], Wing_weight
+
 if __name__ == "__main__":
     MTOW = [5, 1630]
     i = 1
@@ -77,14 +88,14 @@ if __name__ == "__main__":
         MTOW.append(total_mass(W_components).MTOW)
         i = i + 1
 
-    print("MTOW = ", MTOW)
-    print("Wing weight = ", wing_weight)
-    iterations = np.arange(len(MTOW))
-    plt.figure()
-    plt.plot(iterations[1:], MTOW[1:], label='MTOW Iteration')
-    plt.xticks([1, 2, 3, 4])
-    plt.xlabel('Iteration')
-    plt.ylabel('Mass [kg]')
-    plt.title('MTOW Estimation Iteration')
+#    print("MTOW = ", MTOW)
+#    print("Wing weight = ", wing_weight)
+#    iterations = np.arange(len(MTOW))
+#    plt.figure()
+#    plt.plot(iterations[1:], MTOW[1:], label='MTOW Iteration')
+#    plt.xticks([1, 2, 3, 4])
+#    plt.xlabel('Iteration')
+#    plt.ylabel('Mass [kg]')
+#    plt.title('MTOW Estimation Iteration')
 
     plt.show()
