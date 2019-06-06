@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0, '../Aerodynamics/')
-from aerodynamic_parameters import aero_vals
+from aerodynamic_parameters import aero_vals, wing_vals
 sys.path.insert(0, '../Airframe/')
 #from masses_cg_positions import x_positions, z_positions, w_components
 sys.path.insert(0, '../PowerElectrical/')
@@ -20,11 +20,11 @@ sweepquart=0 #deg
 taper=1 #-
 dihedral=0 #deg
 twist=0 #deg/m
-cl_max=1.5
-cd=0.015
+cl_max=1.5 #1.5 #1.85
+cd=0.018 #0.018 #0.032
 
 b= 8.8 #m
-c= 0.852#m
+c= 1.083#m
 ######
 
 # ISA
@@ -43,12 +43,12 @@ vcruise=69.4 #
 vstall=vtakeoff/1.2
 
 #TO
-takeOff_t = ThrustCalculator(1928.0, vstall, 0.0, 1500 / 2.5, 0, 0.8, 1)
+takeOff_t = ThrustCalculator(1928.0, vstall, 0.0, 0.5, 0, 1.1, 1)
 takeOff_l = Propellers(takeOff_t.thrust, takeOff_t.velocity,
                                 takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff, 1)
 
 #CRUISE
-Cruise_t = ThrustCalculator(1928.0, vcruise, h, 1500, 0, 0.8, 0)
+Cruise_t = ThrustCalculator(1928.0, vcruise, h, 400000.0/69.4)
 Cruise_l = Propellers(Cruise_t.thrust, Cruise_t.velocity,
                                 Cruise_t.rho, Cruise_t.aero_vals.cl_cr, 0)
 
@@ -107,6 +107,5 @@ print(cl_des)
 
 
 drag=0.5*1.09*v_cr**2*Sreq*cd
-
-
-print('drag', drag)
+print(drag)
+print(wing_vals().taper_ratio, wing_vals().MAC)
