@@ -49,8 +49,8 @@ def propEfficiency(BHP, V, rho, Dp, Nv):
         return PropEfficiency
 
     #Iterate to get a solution
-    Delta = 0.0
-    while (Delta < 0.0001):
+    Delta = 0.5
+    while (Delta >= 0.0001):
         T = Np*BHP*550.0 / V                          #Thrust (lbf)
 
         w = 0.5*(math.sqrt(V*V + 2*T / (rho*A)) - V)  #Induced velocity (ft/s)

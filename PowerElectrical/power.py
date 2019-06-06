@@ -45,16 +45,17 @@ class ThrustCalculator:
         self.thrust = self.drag + self.mass*self.acceleration + self.friction
 
 def enginePower(thrust, velocity):
-    backWheelDiameter = 0.63 #m
-    frontWheelDiameter = 0.5245 #m
-    backWheelRPM = velocity*60.0/(math.pi*backWheelDiameter)
-    frontWheelRPM = velocity * 60.0 / (math.pi * frontWheelDiameter)
-    totalPower = 2.0*math.pi*thrust*(2.0*frontWheelRPM + backWheelRPM)/60.0
+    #backWheelDiameter = 0.63 #m
+    #frontWheelDiameter = 0.5245 #m
+    #backWheelRPM = velocity*60.0/(math.pi*backWheelDiameter)
+    #frontWheelRPM = velocity * 60.0 / (math.pi * frontWheelDiameter)
+    #totalPower = 2.0*math.pi*thrust*(2.0*frontWheelRPM + backWheelRPM)/60.0
+    totalPower = thrust*velocity/0.9 #transmission efficiency = 0.9
     return totalPower
 
 def main():
 
-    MTOW = mass_calculation.mass_iteration(1630.0)
+    MTOW = mass_calculation.mass_iteration(1630.0)[0]
     SED_hydrogen = (120.0+142.0)*1.0E6/2.0 #Taking average between 120 MJ/kg and 142 MJ/kg
 
     power = []
@@ -73,8 +74,8 @@ def main():
     takeOff_power = []
     takeOff_energy = []
 
-    for t in np.arange(0, 39.0/acc, dt):
-        takeOff_t = ThrustCalculator(MTOW - massHydrogen, acc*dt, 0.0, dt, 0, acc, 1)
+    for t in np.arange(5*dt, 39.0/acc, dt):
+        takeOff_t = ThrustCalculator(MTOW - massHydrogen, acc*t, 0.0, dt, 0, acc, 1)
         takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
                                     takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff, 1)
         takeOff_power.append((takeOff_l.powerHLP * takeOff_l.numberHLP +
@@ -150,19 +151,19 @@ def main():
         power[i] = power[i] / (1000.0)
 
     ind = np.arange(len(energy))
-    colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue', 'black', 'red']
+    colors = ['blue', 'gold', 'yellowgreen', 'lightcoral', 'lightskyblue', 'black', 'red', 'purple']
 
     #Energy Bar Chart
     plt.figure(0)
     plt.bar(ind, energy, label='Energy', color=colors)
-    plt.xticks(ind, ('Take-off', 'Climb', 'Cruise', 'Reserve', 'Descent', 'Landing'))
+    plt.xticks(ind, ('Drive 1', 'Take-off', 'Climb', 'Cruise', 'Reserve', 'Descent', 'Landing', 'Drive 2'))
     plt.xlabel('Phase')
     plt.ylabel('Energy [kW-h]')
     plt.title("Total Energy Required in Each Phase")
 
     #Energy breakdown pie chart
     plt.figure(1)
-    labels = 'Take-off', 'Climb', 'Cruise', 'Reserve', 'Descent', 'Landing'
+    labels = 'Drive 1', 'Take-off', 'Climb', 'Cruise', 'Reserve', 'Descent', 'Landing', 'Drive 2'
     patches, texts = plt.pie(energy, colors=colors)
     plt.legend(patches, labels, loc="best")
     plt.axis('equal')
@@ -172,14 +173,14 @@ def main():
     #Power bar chart
     plt.figure(2)
     plt.bar(ind, power, label='Power', color=colors)
-    plt.xticks(ind, ('Take-off', 'Climb', 'Cruise', 'Reserve', 'Descent', 'Landing'))
+    plt.xticks(ind, ('Drive 1', 'Take-off', 'Climb', 'Cruise', 'Reserve', 'Descent', 'Landing', 'Drive 2'))
     plt.xlabel('Phase')
     plt.ylabel('Power [kW]')
     plt.title("Total Power Required in Each Phase")
 
     # Power breakdown pie chart
     plt.figure(3)
-    labels = 'Take-off', 'Climb', 'Cruise', 'Reserve', 'Descent', 'Landing'
+    labels = 'Drive 1', 'Take-off', 'Climb', 'Cruise', 'Reserve', 'Descent', 'Landing', 'Drive 2'
     patches, texts = plt.pie(power, colors=colors)
     plt.legend(patches, labels, loc="best")
     plt.axis('equal')
