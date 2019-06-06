@@ -36,9 +36,9 @@ def create_plot(x_cg):
     second_curve = control_curve(x_cg)
     plt.plot(x_cg, second_curve)
     plt.plot(x_cg, first_curve)
-    plt.plot([loading_diagram()[0], loading_diagram()[0]], [0, 1.0],'-yx')
-    plt.plot([loading_diagram()[1], loading_diagram()[1]], [0, 1.0],'-yx')
-    plt.axis([0, 0.4, 0, 1])
+    plt.plot([loading_diagram()[0], loading_diagram()[0]], [0, 1.4],'-yx')
+    plt.plot([loading_diagram()[1], loading_diagram()[1]], [0, 1.4],'-yx')
+    plt.axis([0, 0.4, 0, 1.5])
     plt.show()
     pass
 

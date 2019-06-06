@@ -69,3 +69,4 @@ def function_ZCG():
                    w_tail + w_structure \
                    + w_propeller + w_wing + w_drivetrain + w_fuel + w_cell + w_payload + w_battery + w_tank)
     return (X_CG)
+
