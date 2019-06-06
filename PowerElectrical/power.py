@@ -98,7 +98,7 @@ def main():
     energy.append((climb_l.powerHLP * climb_l.numberHLP +
                    climb_l.powerCP * climb_l.numberCP) * climb_t.duration)
 
-    cruise_t = ThrustCalculator(1928.0, 69.4, 1500, 400000.0/69.4 + climb_t.duration)
+    cruise_t = ThrustCalculator(1928.0, 69.4, 1500, 400000.0/69.4)
     cruise_l = aero.Propellers(cruise_t.thrust, cruise_t.velocity,
                               cruise_t.rho, cruise_t.aero_vals.cl_cr, 0)
     power.append((cruise_l.powerHLP * cruise_l.numberHLP +
