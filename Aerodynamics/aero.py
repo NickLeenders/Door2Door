@@ -12,22 +12,78 @@ def drag(cd0, cl, b, c, e, v, rho):
     d = cd*b*c*0.5*rho*v**2
     return d
 
+def propEfficiency(BHP, V, rho, Dp, Nv):
+    """This routine estimates the propeller efficiency for a constant speed propeller,
+
+    by iterating the propulsive disk equations with a user supplied viscous profile efficiency."""
+
+    #Input variables:
+
+    #   BHP = Engine watts --> horse power at condition in BHP
+
+    #   V   = Velocity at condition in m/s --> ft/s
+
+    #   H   = Pressure Altitude in m --> ft
+
+    #   Dp = Propeller diameter in m --> ft
+
+    #   Nv = User entered viscous profile efficiency
+
+
+    #Convert input
+    BHP = BHP / 745.7 #Convert to HP
+    Dp = Dp * 3.28084 #Convert to feet
+    V = V * 3.28084   #Convert to ft/s
+    Dp = Dp * 3.28084 #Convert to feet
+
+    #Presets
+    A = 3.14159265358979*(Dp ** 2.0)/4.0                  #Prop area (ftˆ2)
+
+    rho = rho*0.00194032    #Air density at pressure alt
+
+    Np = 0.5                                            #Initial propeller efficiency
+
+    #Check the value of V to prevent a function crash
+    if (V == 0.0):
+        PropEfficiency = 0.0
+        return PropEfficiency
+
+    #Iterate to get a solution
+    Delta = 0.0
+    while (Delta < 0.0001):
+        T = Np*BHP*550.0 / V                          #Thrust (lbf)
+
+        w = 0.5*(math.sqrt(V*V + 2*T / (rho*A)) - V)  #Induced velocity (ft/s)
+
+        Ni = 1.0 / (1.0 + w / V)                            #Ideal efficiency
+
+        Npnew = Nv * Ni                                 #New efficiency
+
+        Delta = abs(Np - Npnew)                         #Difference
+
+        Np = Npnew                                     #Set a new Np before next iteration
+
+    PropEfficiency = Np
+
+    return PropEfficiency
+
 class Propellers:
 
     # Yuneec Power Drive 20
     #
     numberHLP = 8
     diameterHLP = 0.576
-    maxpowerHLP = 14400
-    #maxpowerHLP = 24000
-    efficiencyHLP = 0.75
+    maxpowerHLP = 20000
+    #efficiencyHLP = 0.75
+    weightHLP = 16.36 + 8.2 #Prop + engine
 
     #Yuneec Power Drive 60
     #
     numberCP = 2
     diameterCP = 1.524
     maxpowerCP = 60000
-    efficiencyCP = 0.8
+    #efficiencyCP = 0.8
+    weightCP = 30.0 + 30.0 #Prop + engine
 
     b = 8.8
     c_avg = 1.2
@@ -37,7 +93,8 @@ class Propellers:
 
 
     def __init__(self, thrust, v_infty, rho, cl, stol=0):
-
+        self.efficiencyHLP = propEfficiency(self.maxpowerHLP, v_infty, rho, self.diameterHLP, 0.87)
+        self.efficiencyCP = propEfficiency(self.maxpowerCP, v_infty, rho, self.diameterCP, 0.9)
         if (stol==0):
             self.powerCP = self.maxpowerCP*self.efficiencyCP
             coefficientsCP = [1, -2, 1, 2 * self.powerCP / (
