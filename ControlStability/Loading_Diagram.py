@@ -16,8 +16,8 @@ def loading_diagram():
     cargo_cg = [function_OEW_CG()]
     cargo_mass = [function_total_EOW_mass()]
 
-    cargo_cg.append((cargo_cg[0]*cargo_mass[0] + x_positions().x_cargo*w_components().w_cargo)/(cargo_mass[0] + w_components().w_cargo))
-    cargo_mass.append(cargo_mass[0] + w_components().w_cargo)
+    cargo_cg.append((cargo_cg[0]*cargo_mass[0] + x_positions().x_cargo*w_components(wing_weight(1630)).w_cargo)/(cargo_mass[0] + w_components(wing_weight(1630)).w_cargo))
+    cargo_mass.append(cargo_mass[0] + w_components(wing_weight(1630)).w_cargo)
 
     " *** Payload *** "
 
@@ -30,13 +30,13 @@ def loading_diagram():
     cg_mass_update = 0
     mass_update = 0
     for i in range(len(x_positions().x_passenger)):
-        payload_mass_fb.append(cargo_mass[-1] + mass_update + w_components().w_passenger[i])
-        payload_cg_fb.append((cargo_cg[-1]*cargo_mass[-1] + cg_mass_update + x_positions().x_passenger[i]*w_components().w_passenger[i])/(cargo_mass[-1] + mass_update + w_components().w_passenger[i]))
-        cg_mass_update = cg_mass_update + x_positions().x_passenger[i]*w_components().w_passenger[i]
-        mass_update = mass_update + w_components().w_passenger[i]
+        payload_mass_fb.append(cargo_mass[-1] + mass_update + w_components(wing_weight(1630)).w_passenger[i])
+        payload_cg_fb.append((cargo_cg[-1]*cargo_mass[-1] + cg_mass_update + x_positions().x_passenger[i]*w_components(wing_weight(1630)).w_passenger[i])/(cargo_mass[-1] + mass_update + w_components(wing_weight(1630)).w_passenger[i]))
+        cg_mass_update = cg_mass_update + x_positions().x_passenger[i]*w_components(wing_weight(1630)).w_passenger[i]
+        mass_update = mass_update + w_components(wing_weight(1630)).w_passenger[i]
 
     x_passenger = x_positions().x_passenger
-    w_passenger = w_components().w_passenger
+    w_passenger = w_components(wing_weight(1630)).w_passenger
     x_passenger.reverse()
     w_passenger.reverse()
 
@@ -52,8 +52,8 @@ def loading_diagram():
     fuel_cg = [payload_cg_fb[-1]]
     fuel_mass = [payload_mass_fb[-1]]
 
-    fuel_cg.append((fuel_cg[0]*fuel_mass[0] + x_positions().x_fuel*w_components().w_fuel)/(fuel_mass[0] + w_components().w_fuel))
-    fuel_mass.append(fuel_mass[0] + w_components().w_fuel)
+    fuel_cg.append((fuel_cg[0]*fuel_mass[0] + x_positions().x_fuel*w_components(wing_weight(1630)).w_fuel)/(fuel_mass[0] + w_components(wing_weight(1630)).w_fuel))
+    fuel_mass.append(fuel_mass[0] + w_components(wing_weight(1630)).w_fuel)
 
     margin_min = min(cargo_cg + payload_cg_fb + fuel_cg)*0.98
     margin_max = max(cargo_cg + payload_cg_bf + fuel_cg)*1.02
@@ -81,5 +81,6 @@ def loading_diagram():
     plt.gca().legend(('Cargo','Passenger (F-B)','Passenger (B-F)', "Fuel", '2% Safety Margin'), loc=6)
     plt.show()
 
+    return margin_min_mac, margin_max_mac
 
 print (loading_diagram())
