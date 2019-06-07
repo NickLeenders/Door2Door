@@ -198,7 +198,7 @@ def inert_req(E,max_def,tol):
             rnge[0] = mid
     return mid
 
-moi = inert_req(68.9e9,0.02,1e-9)
+moi = inert_req(68.9e9,0.05,1e-9)
         
         
 
