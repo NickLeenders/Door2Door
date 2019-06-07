@@ -2,7 +2,7 @@ import sys
 import math
 import numpy as np
 import sys
-from aerodynamic_parameters import wing_vals
+from aerodynamic_parameters import wing_vals, aero_vals, emp_vals
 sys.path.insert(0, '../Aerodynamics/')
 import aerodynamic_parameters
 sys.path.insert(0, '../PowerElectrical/')
@@ -41,7 +41,59 @@ def drag(cd0, cl, b, c, e, v, rho):
     cd=CD0+cdw
     d = cd * S * 0.5 * 1.09 * 69.4** 2
 
-    return d
+#Part 2 Drag estimatio
+
+    # Zero Wing Drag Coefficient
+    Re1=(aero_vals().vinfcr)*(wing_vals().MAC)*(aero_vals().rho_cr)/(aero_vals().mu)
+    Cflaminar1 = 1.328/math.sqrt(Re1)
+    Cfturbulent1= 0.455/((math.log(Re1)**2.58 * (1+0.144*aero_vals().Mach**2)**0.65))
+    klaminar = 0.00635
+    Cf_c1 = klaminar * Cflaminar1 + (1 - klaminar) * Cfturbulent1
+    xi= 0.5
+    FF1=(1.0+(0.6/xi)*(wing_vals().tc)+100.0*(wing_vals().tc)**4.)*(1.34*aero_vals().Mach**0.18*(math.cos(1/180*math.pi))**0.28)
+    Q1=1.0
+    Swet1 = 2 * wing_vals().S * (1 + 0.25 * wing_vals().tc * (1 + wing_vals().taper_ratio * wing_vals().tip_chord / wing_vals().root_chord) / (1 + wing_vals().taper_ratio))
+    Cdof1=Cf_c1*FF1*Q1*Swet1/wing_vals().S
+
+    # Zero Fuselage Drag Coefficient
+    Re2 = aero_vals().vinfcr * 5.5 * aero_vals().rho_cr / aero_vals().mu
+    Cflaminar2 = 1.328 / math.sqrt(Re2)
+    Cfturbulent2 = 0.455 / ((math.log(Re2) ** 2.58 * (1 + 0.144 * aero_vals().Mach ** 2) ** 0.65))
+    Cf_c2 = klaminar * Cflaminar2 + (1 - klaminar) * Cfturbulent2
+    FF2 = 1+(60/(lf/df)**3)+((lf/df)/400)
+    Q2 = 1.0
+    Swet2 = math.pi * df * lf * ((0.5 + 0.135 * ln / lf) ** (2 / 3)) * (1.015 + 0.3 / (lambdaf ** 1.5))
+    Cdof2 = Cf_c2 * FF2 * Q2 * Swet2 / wing_vals().S
+
+    # Zero Empanage Drag horizontal tail Coefficient
+    Re3 = aero_vals().vinfcr * emp_vals().c_h * aero_vals().rho_cr / aero_vals().mu
+    Cflaminar3 = 1.328 / math.sqrt(Re3)
+    Cfturbulent3 = 0.455 / ((math.log(Re3) ** 2.58 * (1 + 0.144 * aero_vals().Mach ** 2) ** 0.65))
+    klaminar = 0.00635
+    Cf_c3 = klaminar * Cflaminar3 + (1 - klaminar) * Cfturbulent3
+    xi = 0.5
+    FF3 = (1.0 + (0.6 / xi)*(emp_vals().tch) + 100.0*(emp_vals().tch) ** 4.)*(1.34 * aero_vals().Mach ** 0.18 * (math.cos(1 / 180 * math.pi)) ** 0.28)
+    Q3 = 1.04
+    Swet3 = 2 * Sexph * (1 + 0.25 * tcrh * (1 + taperh * tcth / tcrh) / (1 + taperh))
+    Cdof3 = Cf_c3 * FF3 * Q3 * Swet3 / wing_vals().S
+
+    # Zero Empanage Drag vertical tail Coefficient
+    Re4 = aero_vals().vinfcr * emp_vals().c_v * aero_vals().rho_cr / aero_vals().mu
+    Cflaminar4 = 1.328 / math.sqrt(Re4)
+    Cfturbulent4 = 0.455 / ((math.log(Re4) ** 2.58 * (1 + 0.144 * aero_vals().Mach ** 2) ** 0.65))
+    klaminar = 0.00635
+    Cf_c4 = klaminar * Cflaminar4 + (1 - klaminar) * Cfturbulent4
+    xi = 0.5
+    FF4 = (1.0 + (0.6 / xi) * (emp_vals().tcv) + 100.0 * (emp_vals().tcv) ** 4.)*(
+        1.34 * aero_vals().Mach ** 0.18 * (math.cos(1 / 180 * math.pi)) ** 0.28)
+    Q4 = 1.04
+    Swet4 = 2 * Sexpv * (1 + 0.25 * tcrv * (1 + taperv * tctv / tcrv) / (1 + taperv))
+    Cdof4 = Cf_c4 * FF4 * Q4 * Swet4 / wing_vals().S
+
+    # Total zero drag coefficient
+    Cdo = Cdof2 + Cdof1 + Cdof3 + Cdof4
+
+    return Cdo
 
 def propEfficiency(BHP, V, rho, Dp, Nv):
     """This routine estimates the propeller efficiency for a constant speed propeller,
@@ -68,7 +120,7 @@ def propEfficiency(BHP, V, rho, Dp, Nv):
     Dp = Dp * 3.28084 #Convert to feet
 
     #Presets
-    A = 3.14159265358979*(Dp ** 2.0)/4.0                  #Prop area (ftˆ2)
+    A = 3.14159265358979*(Dp ** 2.0)/4.0                  #Prop area (ft2)
 
     rho = rho*0.00194032    #Air density at pressure alt
 
