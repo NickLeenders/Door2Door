@@ -13,7 +13,7 @@ class x_positions:
         self.x_fuel = 2.41
         self.x_cell = 1.725
         self.x_payload = 2.61
-        self.x_passenger = [2.46, 2.66]  # c.g. position front passenger and back passengers (1-3 configuration)
+        self.x_passenger = [2.00, 2.80]  # c.g. position front passenger and back passengers (1-3 configuration)
         self.x_battery = 2.61
         self.x_tank = 2.41
         self.x_cargo = 4.8
