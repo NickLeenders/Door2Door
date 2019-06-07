@@ -99,3 +99,4 @@ if __name__ == "__main__":
 #    plt.title('MTOW Estimation Iteration')
 
     plt.show()
+    print (wing_weight(MTOW[-1]))

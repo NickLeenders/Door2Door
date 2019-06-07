@@ -41,9 +41,10 @@ class w_components:
         self.w_wing = wing_weight
         self.w_drivetrain = 30
         self.w_fuel = 16.64
-        self.w_cell = 86
+        self.w_cell = 86 #
         self.w_payload = 360
-        self.w_passenger = [80, 80]   #mass of the front passenger and back passenger
+        self.w_passenger = 80  # mass of the front passenger and back passenger
         self.w_battery = 50
         self.w_tank = 33.28
         self.w_cargo = 40
+        self.w_motor = 50 # ground motor
