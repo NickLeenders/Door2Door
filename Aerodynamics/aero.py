@@ -71,7 +71,7 @@ def drag(cd0, cl, b, c, e, v, rho):
     Cfturbulent3 = 0.455 / ((math.log(Re3) ** 2.58 * (1 + 0.144 * aero_vals().Mach ** 2) ** 0.65))
     klaminar = 0.00635
     Cf_c3 = klaminar * Cflaminar3 + (1 - klaminar) * Cfturbulent3
-    xi = 0.5
+    xi = 0.347
     FF3 = (1.0 + (0.6 / xi)*(emp_vals().tch) + 100.0*(emp_vals().tch) ** 4.)*(1.34 * aero_vals().Mach ** 0.18 * (math.cos(1 / 180 * math.pi)) ** 0.28)
     Q3 = 1.04
     Swet3 = 2 * Sexph * (1 + 0.25 * tcrh * (1 + taperh * tcth / tcrh) / (1 + taperh))
@@ -83,7 +83,7 @@ def drag(cd0, cl, b, c, e, v, rho):
     Cfturbulent4 = 0.455 / ((math.log(Re4) ** 2.58 * (1 + 0.144 * aero_vals().Mach ** 2) ** 0.65))
     klaminar = 0.00635
     Cf_c4 = klaminar * Cflaminar4 + (1 - klaminar) * Cfturbulent4
-    xi = 0.5
+    xi = 0.347
     FF4 = (1.0 + (0.6 / xi) * (emp_vals().tcv) + 100.0 * (emp_vals().tcv) ** 4.)*(
         1.34 * aero_vals().Mach ** 0.18 * (math.cos(1 / 180 * math.pi)) ** 0.28)
     Q4 = 1.04
@@ -92,8 +92,8 @@ def drag(cd0, cl, b, c, e, v, rho):
 
     # Total zero drag coefficient
     Cdo = Cdof2 + Cdof1 + Cdof3 + Cdof4
-
-    return Cdo
+    d=600
+    return d
 
 def propEfficiency(BHP, V, rho, Dp, Nv):
     """This routine estimates the propeller efficiency for a constant speed propeller,
