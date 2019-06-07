@@ -34,8 +34,8 @@ class z_positions:
 
 
 class w_components:
-    def __init__(self, wing_weight):
-        self.w_tail = 20.71
+    def __init__(self, wing_weight,emp_weight):
+        self.w_tail = emp_weight
         self.w_structure = 385.5112
         self.w_propeller = 316.48  # 16.36kg (8x), 30kg (2x) and including motor that are 8.2kg (8x), 30kg (2x)
         self.w_wing = wing_weight
