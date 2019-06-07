@@ -24,7 +24,7 @@ T_CP_one = T_per_CP * 0.5* Cruise_l.numberCP
 T_HLP_one = T_per_HLP * 0.5 * Cruise_l.numberHLP
 
 N_A = T_per_HLP *y_positions().y_prop_position[0] +  T_per_HLP *y_positions().y_prop_position[1] + T_per_HLP *y_positions().y_prop_position[2] + T_per_HLP *y_positions().y_prop_position[3]+  T_per_CP*y_positions().y_prop_position[-1]
-N_A = T_per_HLP *np.sum(y_positions().y_prop_position[0:4]) +  T_per_CP*y_positions().y_prop_position[-1]
+
 
 print (T_per_CP)
 print(T_per_HLP)
