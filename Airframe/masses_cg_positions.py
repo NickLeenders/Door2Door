@@ -18,6 +18,10 @@ class x_positions:
         self.x_tank = 2.41
         self.x_cargo = 4.8
 
+class y_positions:
+    def __init__(self):
+        self.y_prop_position = [1.5, 2.1, 2.7, 3.3, 4.4] # centerline of main body to tip of the wing for one side symmetric
+
 
 class z_positions:
     def __init__(self):
@@ -31,6 +35,7 @@ class z_positions:
         self.z_payload = 0.6
         self.z_battery = 0.15
         self.z_tank = 0.5
+
 
 
 class w_components:
