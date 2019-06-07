@@ -31,15 +31,17 @@ def moi_calc(n_stiff,h,w):
                 xdst = x_dist[i-1] + spacing
                 x_dist.append(xdst)
                 i=i+1
-        for k in range (len (x_dist)):
-            
     else:
         while i < (top_stiff-1)/2:
             xdst = (i+1) * spacing
             x_dist.append(xdst)
             i = i+1
-    moi_z = 0
+    moi_x = (w/2 * w/2 * t_skin * h*2) + (2/12 * t_skin * w * w * w)
+    for k in range(len(x_dist)):
+        moi_add = x_dist[k] * x_dist[k] * A_stiff * 4
+        moi_x  = moi_x + moi_add
+    return moi_z , moi_x
     
 
 
-a = moi_calc(22,3,15)
+a = moi_calc(12,0.15,0.8)
