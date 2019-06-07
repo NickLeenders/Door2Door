@@ -29,17 +29,15 @@ class aero_vals():
         self.T0 = 288.15 #K
         self.rho_cr, self.T_cr, self.p_cr = IsaCalculator(self.h)
         self.vinfcr=250/3.6 # m/s
-        self.vstall = 20.0 # m/s
-        self.vinf_takeoff = 25.2  # m/s
         self.gamma = 1.4  #-
         self.R = 287  # -
 
 
         #self.rho= findrho(altitude)
         self.vinfcr = 240/3.6 # m/s
-        self.vstall = 20.0 # m/s
-        self.vinf_takeoff = 1.2 * self.vstall  # m/s
-        self.cl_cr=0.6 #TODO this should be initialised with a function,
+        self.vinf_takeoff = 39  # m/s
+        self.vstall = self.vinf_takeoff/1.2 # m/s
+        self.cl_cr=0.657 #TODO this should be initialised with a function,
         self.cl_takeoff=1.5            # so that the aero_vals object will have the correct Cl for the airspeed
         self.roll_rate = 60*pi/180 # TODO Roll Rate Class
 
@@ -47,15 +45,14 @@ class aero_vals():
 
 class wing_vals():
     def __init__(self):
-        self.S = 10.56 #Surface Area
+        self.S = 9.5288 #Surface Area
         self.b = 8.8 #Wing Span
         self.A = (self.b)**2/self.S #Aspect Ratio
         self.e = 0.8
-        self.ar_wing = 7.33  # TODO aspect ratio main wing
-        self.sweep_ang = 0 #Sweep Angle
-        self.taper_ratio = 1 #Taper Ratio
-        self.root_chord = 1.2 #Root Chord
-        self.tip_chord = self.root_chord * self.taper_ratio #Tip Chord
+        self.sweep_ang = -2.5 #Sweep Angle
+        self.root_chord = 1.15 #Root Chord
+        self.tip_chord = 1.01 #Tip Chord
+        self.taper_ratio = self.tip_chord/self.root_chord # Taper Ratio
         self.MAC = self.root_chord - (2*(self.root_chord-self.tip_chord)*(0.5*self.root_chord+self.tip_chord)/(3*(self.root_chord+self.tip_chord))) #MAC length
         if self.taper_ratio == 1:
             self.y_MAC = self.b/4
