@@ -11,10 +11,10 @@ import power
 import matplotlib.pyplot as plt
 
 
-def moi_calc(n_stiff,h,w):
+def moi_calc(n_stiff,h,w,t):
     top_stiff = n_stiff/2
     A_stiff = 0.00006
-    t_skin = 0.008
+    t_skin = t
     y_dst = h/2
     moi_z = (A_stiff * h/2 * h/2 * n_stiff) + (h/2 * h/2 * t_skin * w) + (1/12 * t_skin * h*h*h)
     spacing = w / (top_stiff-1)
@@ -44,4 +44,4 @@ def moi_calc(n_stiff,h,w):
     
 
 
-a = moi_calc(12,0.15,0.8)
+a = moi_calc(,0.15,0.8,0.008)

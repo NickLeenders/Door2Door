@@ -181,7 +181,7 @@ def wing_deflec(data,grph,E,I_xx,I_zz):
     v_x = max(int_x_2)
     return v_z , v_x    
 
-a = wing_load()
+a = wing_load(grph=True)
 b = wing_deflec(a[0],a[1],69.9e9,1e-6,1e-5)
 
 def inert_req(E,max_def,tol):
