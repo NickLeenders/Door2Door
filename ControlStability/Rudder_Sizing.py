@@ -51,4 +51,4 @@ print ("The chord of the rudder is: ", C_R, "[m]")
 print ("The span of the rudder is: ", b_R, "[m]")
 print ("The area of the rudder is: ", A_R, "[m^2]")
 #N_A = #Na= -TLyt
-1
+
