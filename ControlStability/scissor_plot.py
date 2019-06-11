@@ -20,7 +20,7 @@ def control_curve(x_cg_mac):
 
 
 def stability_curve(x_cg_mac):
-    stability_margin = 0.06
+    stability_margin = 0.05
     sh_over_s = 1 / ((aero_vals().cl_alpha_h / aero_vals().cl_alpha_a_minus_h) * (
             aero_vals().l_h / wing_vals().MAC) * (
                              1 - aero_vals().downwash_factor) * aero_vals().vh_over_v ** 2) * x_cg_mac - (
