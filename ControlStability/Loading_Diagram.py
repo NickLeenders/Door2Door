@@ -67,20 +67,20 @@ def loading_diagram():
     margin_max_mac = (((np.array(margin_max)-aero_vals().mac_position)/wing_vals().MAC))*1.02
 
 
-    # plt.plot(cargo_cg_mac, cargo_mass, '-x')
-    # plt.plot(payload_cg_fb_mac, payload_mass_fb,'-x')
-    # plt.plot(payload_cg_bf_mac, payload_mass_bf,'-x')
-    # plt.plot(fuel_cg_mac, fuel_mass,'-x')
-    # plt.plot([margin_min_mac, margin_min_mac], [function_total_EOW_mass(), max(fuel_mass)],'-yx')
-    # plt.plot([margin_max_mac, margin_max_mac], [function_total_EOW_mass(), max(fuel_mass)],'-yx')
-    #
-    #
-    # plt.grid()
-    # plt.xlabel("c.g./mac")
-    # plt.ylabel("Mass [kg]")
-    # plt.title("Loading Diagram")
-    # plt.gca().legend(('Cargo','Passenger (F-B)','Passenger (B-F)', "Fuel", '2% Safety Margin'), loc=6)
-    # plt.show()
+    plt.plot(cargo_cg_mac, cargo_mass, '-x')
+    plt.plot(payload_cg_fb_mac, payload_mass_fb,'-x')
+    plt.plot(payload_cg_bf_mac, payload_mass_bf,'-x')
+    plt.plot(fuel_cg_mac, fuel_mass,'-x')
+    plt.plot([margin_min_mac, margin_min_mac], [function_total_EOW_mass(), max(fuel_mass)],'-yx')
+    plt.plot([margin_max_mac, margin_max_mac], [function_total_EOW_mass(), max(fuel_mass)],'-yx')
+
+
+    plt.grid()
+    plt.xlabel("c.g./mac")
+    plt.ylabel("Mass [kg]")
+    plt.title("Loading Diagram")
+    plt.gca().legend(('Cargo','Passenger (F-B)','Passenger (B-F)', "Fuel", '2% Safety Margin'), loc=6)
+    plt.show()
 
     return margin_min_mac, margin_max_mac, margin_min_mac*1.08+2.275, margin_max_mac*1.08+2.275
 
