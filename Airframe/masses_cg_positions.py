@@ -45,7 +45,7 @@ class w_components:
         self.w_fuel = 16.66
         self.w_cell = 63.29
         self.w_payload = 360
-        self.w_passenger = np.array([80, 80])   #mass of the front passenger and back passenger
+        self.w_passenger = 80  #mass of the front passenger and back passenger
         self.w_battery = 75
         self.w_tank = 4*16.66
         self.w_cargo = 40
