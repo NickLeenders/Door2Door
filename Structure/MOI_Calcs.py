@@ -42,12 +42,12 @@ def moi_calc(n_stiff,h,w,t):
         moi_x  = moi_x + moi_add
     return moi_z , moi_x
     
-def gen_wingbox(moi_req,h,w,show=True):
+def gen_wingbox(moi_req,h,w,t,show=True):
     check = 0
     n_stiff = 4
     while check==0:
-        moi_z , moi_x = moi_calc(n_stiff,h,w)
-        if moi_z > moi_req:
+        moi_z , moi_x = moi_calc(n_stiff,h,w,t)
+        if moi_z > moi_req * 1.5:
             check = 1
         else:
             n_stiff = n_stiff + 2
@@ -82,7 +82,5 @@ def gen_wingbox(moi_req,h,w,show=True):
             plt.plot(x_stiff,-h/2,'ro')
             x_stiff = x_stiff + space
     return n_stiff,moi_z,moi_x
-a = gen_wingbox(3.45e-5,0.13,0.9,show=True)
+a = gen_wingbox(3.18e-5,0.15,0.8,0.012,show=True)
 
-
-a = moi_calc(,0.15,0.8,0.008)
