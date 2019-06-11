@@ -42,6 +42,7 @@ def create_plot(x_cg):
     plt.plot([loading_diagram()[0], loading_diagram()[0]], [0, 1.0],'-yx')
     plt.plot([loading_diagram()[1], loading_diagram()[1]], [0, 1.0],'-yx')
     plt.axis([0, 0.7, 0, 1.0])
+    plt.gca().legend(('Controllability', 'Stability', 'C.G. Range'), loc=2)
     plt.grid()
     plt.show()
     pass
