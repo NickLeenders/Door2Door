@@ -17,7 +17,7 @@ class aero_vals():
         self.cd0 = 0.05 # TODO drag coefficient at zero lift
         self.l_h = 2.4 # TODO distance wing ac to horizontal tail ac
         self.x_ac = 0.243 # TODO x distance of the ac
-        self.mac_position = 2.275 # TODO Longitudinal position of the MAC
+        self.mac_position = 2.27 # TODO Longitudinal position of the MAC
         self.downwash_factor = 0.225 # TODO (de/da) d_epsilon over d_alpha
         self.n_ult = 4.5 # TODO Ultimate load factor
         self.h= 1219.2 # altitude in meters
