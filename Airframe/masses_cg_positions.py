@@ -1,6 +1,7 @@
 # For the structures guys: Please make your modules update the values in these class so Control and other people can use them.
 import numpy as np
 import sys
+
 sys.path.insert(0, '../PowerElectrical/')
 from power import IsaCalculator
 
@@ -19,11 +20,19 @@ class x_positions:
         self.x_battery = 2.61
         self.x_tank = 3.490
         self.x_cargo = 4.27
+        self.x_wheel_fr = 0.86775
+        self.x_wheel_bk = 4.984
+
+
+class y_positions:
+    def __init__(self):
+        self.y_prop_position = [1.5, 2.1, 2.7, 3.3,
+                                4.4]  # centerline of main body to tip of the wing for one side symmetric
 
 
 class z_positions:
     def __init__(self):
-        #TODO All not exact distances
+        # TODO All not exact distances
         self.z_tail = 1.163
         self.z_structure = 1.2
         self.z_propeller = 1.7
@@ -34,19 +43,21 @@ class z_positions:
         self.z_payload = 0.7
         self.z_battery = 0.35
         self.z_tank = 0.7
+        self.z_cargo = 0.5
 
 
 class w_components:
-    def __init__(self, wing_weight,emp_weight):
+    def __init__(self, wing_weight, emp_weight):
         self.w_tail = emp_weight
-        self.w_structure = 385.5112 #TODO not done yet
+        self.w_structure = 385.5112  # TODO not done yet
         self.w_propeller = 316.48  # 16.36kg (8x), 30kg (2x) and including motor that are 8.2kg (8x), 30kg (2x)
         self.w_wing = wing_weight
         self.w_drivetrain = 158.75
         self.w_fuel = 16.66
         self.w_cell = 63.29
         self.w_payload = 360
-        self.w_passenger = 80.0   #TODO add seat weight to this
-        self.w_battery = 75 #TODO not done yet
-        self.w_tank = 4*16.66 #TODO not done yet
+        self.w_passenger = 80.0  # TODO add seat weight to this
+        self.w_battery = 75  # TODO not done yet
+        self.w_tank = 4 * 16.66  # TODO not done yet
         self.w_cargo = 40
+        self.w_motor = 50  # ground motor
