@@ -57,15 +57,20 @@ def wing_weight(MTOW):
     return W_w
 
 
-def emp_weight():
-    W_tot = roskam_convert(total_mass().MTOW, 1)
+def emp_weight(MTOW):
+    W_tot = MTOW
     S_h = roskam_convert(emp_vals().S_h, 3)
     A_h = emp_vals().A_h
     trh = roskam_convert(emp_vals().trh, 2)
     S_v = roskam_convert(emp_vals().S_v, 3)
     A_v = emp_vals().A_v
     trv = roskam_convert(emp_vals().trv, 2)
-
+    W_h = ((3.184*W_tot**0.887)*(S_h**0.101)*(A_h**0.138))/(174.04*trh**0.223)
+    W_h = roskam_convert(W_h,1,to_roskam=False)
+    W_v = ((1.68*W_tot**0.567)*(S_v**(0.1249))*(A_v**(0.482)))/(639.95*trv**0.747)
+    W_v = roskam_convert(W_v,1,to_roskam=False)
+    W_emp = W_h + W_v
+    return W_emp
 
 def mass_iteration(initial_MTOW):
     MTOW = [5, initial_MTOW]
@@ -73,7 +78,9 @@ def mass_iteration(initial_MTOW):
     epsilon = 0.5
     while (MTOW[i] - MTOW[i - 1]) > epsilon:
         Wing_weight = wing_weight(MTOW[i])
-        W_components = masses_cg_positions.w_components(Wing_weight)
+        Emp_weight = emp_weight(MTOW[i])
+        W_components = masses_cg_positions.w_components(Wing_weight, Emp_weight)
+        
         MTOW.append(total_mass(W_components).MTOW)
         i = i + 1
     return MTOW[-1], Wing_weight
@@ -84,11 +91,11 @@ if __name__ == "__main__":
     epsilon = 0.5
     while (MTOW[i] - MTOW[i - 1]) > epsilon:
         Wing_weight = wing_weight(MTOW[i])
-        W_components = masses_cg_positions.w_components(Wing_weight)
+        Emp_weight = emp_weight(MTOW[i])
+        W_components = masses_cg_positions.w_components(Wing_weight, Emp_weight)
         MTOW.append(total_mass(W_components).MTOW)
         i = i + 1
-
-#    print("MTOW = ", MTOW)
+    print("MTOW = ", MTOW[-1])
 #    print("Wing weight = ", wing_weight)
 #    iterations = np.arange(len(MTOW))
 #    plt.figure()
