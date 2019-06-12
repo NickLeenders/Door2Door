@@ -17,7 +17,8 @@ class x_positions:
         self.x_battery = 2.61
         self.x_tank = 2.41
         self.x_cargo = 4.8
-
+        self.x_wheel_fr = 0.86775
+        self.x_wheel_bk = 4.984
 
 class z_positions:
     def __init__(self):
@@ -48,3 +49,4 @@ class w_components:
         self.w_tank = 33.28
         self.w_cargo = 40
         self.w_motor = 50 # ground motor
+        
