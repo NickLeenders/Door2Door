@@ -71,21 +71,20 @@ class wing_vals():
 
 class emp_vals():
     def __init__(self):
-        self.S_h = 3.84 #Horizontal tail surface area
+        self.S_h = 2.287 #Horizontal tail surface area
         self.b_h = 2.4 #Horizontal tail wing span
-        self.c_h= 1.6 #Horizontal tail wing chord
+        self.c_h= 0.9525 #Horizontal tail wing chord Cr+Ct/2
+        self.taper_h = 0.7 #Taper ratio horizontal tail
         self.A_h = (self.b_h)**2/self.S_h #Horizontal tail aspect ratio
         self.trh = 0.15 #Maximum Thickness of horizontal tail
         self.tch=0.10 # Thickness chord ratio horizontal tail
         self.num_htail = 1 #Number of horizontal tails
         
-        self.S_v = 1.2 #Vertial tail surface area
-        self.b_v = 1 #Span of vertical tail surface
-        self.c_v = 1.2 #Chord of vertical tail surface
+        self.S_v = 1.3976 #Vertial tail surface area
+        self.b_v = 1.3531 #Span of vertical tail surface
+        self.c_v = 1.03385 #Chord of vertical tail surface
         self.A_v = (self.b_v)**2/self.S_v #Vertical tail aspect ratio
         self.tcv= 0.10 # Thickness chord ratio vertical tail
         self.trv = 0.16 #Max thickness of vertical tail
         self.sweep_v = 0 #Sweep at 0.25c of vertical tail
         self.num_vtail = 1
-
-
