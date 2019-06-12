@@ -20,6 +20,10 @@ class x_positions:
         self.x_tank = 2.41
         self.x_cargo = 4.8
 
+class y_positions:
+    def __init__(self):
+        self.y_prop_position = [1.5, 2.1, 2.7, 3.3, 4.4] # centerline of main body to tip of the wing for one side symmetric
+
 
 class z_positions:
     def __init__(self):
@@ -33,6 +37,8 @@ class z_positions:
         self.z_payload = 0.6
         self.z_battery = 0.15
         self.z_tank = 0.5
+        self.z_cargo = 0.5
+
 
 
 class w_components:
@@ -45,11 +51,7 @@ class w_components:
         self.w_fuel = 16.66
         self.w_cell = 63.29
         self.w_payload = 360
-<<<<<<< HEAD
         self.w_passenger = 80.0   #mass of the front passenger and back passenger
-=======
-        self.w_passenger = 80  #mass of the front passenger and back passenger
->>>>>>> cc13e19a7566c91dab2d90395d63ada1b76d2018
         self.w_battery = 75
         self.w_tank = 4*16.66
         self.w_cargo = 40

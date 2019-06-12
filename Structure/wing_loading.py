@@ -201,5 +201,6 @@ def inert_req(E,max_def,tol):
 moi = inert_req(87.11e9,0.04,1e-9)
         
         
-
+#FINAL VALUE
+b = wing_deflec(a[0],a[1],228e9,2.184e-4,6.739e-6)
 
