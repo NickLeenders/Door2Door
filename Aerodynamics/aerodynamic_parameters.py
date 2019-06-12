@@ -10,15 +10,15 @@ class aero_vals():
     def __init__(self):
         self.vh_over_v = 0.8  # TODO (v_h/v) factor
         self.cl_h = -0.8 # TODO lift coefficient from horizontal tail
-        self.cl_alpha_h = 4.8 # TODO lift rate coefficient of horizontal tail
+        self.cl_alpha_h = 4.3 # TODO lift rate coefficient of horizontal tail
         self.cl_a_minus_h = 1.5  # TODO cl from aircraft less horizontal tail
         self.cl_alpha_a_minus_h = 6.3 # TODO lift rate coefficient of aircraft less tail
-        self.cm_ac = -0.35# TODO moment coefficient around aerodynamic center
-        self.cd0 = 0.05 # TODO drag coefficient at zero lift
+        self.cm_ac = -0.08# TODO moment coefficient around aerodynamic center
+        self.cd0 = 0.006 # TODO drag coefficient at zero lift
         self.l_h = 2.4 # TODO distance wing ac to horizontal tail ac
-        self.x_ac = 0.243 # TODO x distance of the ac
-        self.mac_position = 2.27 # TODO Longitudinal position of the MAC
-        self.downwash_factor = 0.225 # TODO (de/da) d_epsilon over d_alpha
+        self.x_ac = 0.25 # TODO x distance of the ac
+        self.mac_position = 2.241 # TODO Longitudinal position of the MAC
+        self.downwash_factor = 0.395 # TODO (de/da) d_epsilon over d_alpha
         self.n_ult = 4.5 # TODO Ultimate load factor
         self.h= 1219.2 # altitude in meters
         self.b = 8.8
