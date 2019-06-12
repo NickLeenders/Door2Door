@@ -8,7 +8,8 @@ import aerodynamic_parameters
 sys.path.insert(0, '../PowerElectrical/')
 import power
 
-def drag(cd0, cl, b, c, e, v, rho):
+def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise, 2=take-off
+
     #cdw = 0.018 #cd0 + (cl**2)/(math.pi*(b/c)*e)
 
     #lf=5.5 #length fuselage
@@ -99,31 +100,50 @@ def drag(cd0, cl, b, c, e, v, rho):
     cdfus_cr = 0.19 #
     cdnac_cr=0.2  #
 
-    dwing_cr = cdw_cr*0.5*1.09*(69.4*1.02439)**2*9.5
-    dhtail_cr = cdh_cr*0.5*1.09*69.4**2*2.3
-    dvtail_cr = cdv_cr*0.5*1.09*69.4**2*1.4
-    dfus_cr= cdfus_cr*0.5*1.09*69.4**2*1.4
-    dnac_cr=0.5*1.09*69.4**2*(math.pi*0.14**2)*cdnac_cr
-
-    dcruise=dwing_cr+dhtail_cr+dvtail_cr +dfus_cr+dnac_cr
-
     cdw_to = 0.090  # (at cl=1.5) TO
     cdh_to = 0.045  # (at cl=0.12) TO
     cdv_to = 0.013  # (at cl=0) TO
-    cdfus_to = 0.19   #
+    cdfus_to = 0.3   #
     cdnac_to= 0.2  #
 
+    cdw_dr = 0  # (at cl=1.5) TO
+    cdh_dr = 0  # (at cl=0.12) TO
+    cdv_dr = 0.013  # (at cl=0) TO
+    cdfus_dr = 0.19  #
+    cdnac_dr = 0  #
 
-    dwing_to = cdw_to * 0.5 * 1.225 * (39 * 1.235) ** 2 * 9.5
-    dhtail_to = cdh_to * 0.5 * 1.225 * 39 ** 2 * 2.3
-    dvtail_to = cdv_to * 0.5 * 1.225 * 39 ** 2 * 1.4
-    dfus_to= cdfus_to * 0.5 * 1.225 * 39 ** 2 * (2.4*1.5)
-    dnac_to=0.5 * 1.225 * 39 ** 2 * (math.pi * 0.14 ** 2) * cdnac_to
+    if number==2:
+        cdw=cdw_to
+        cdh=cdh_to
+        cdv=cdv_to
+        cdfus=cdfus_to
+        cdnac=cdnac_to
 
-    dto=dwing_to +dhtail_to+dvtail_to+dfus_to+dnac_to
+    elif number==1:
+        cdw=cdw_cr
+        cdh=cdh_cr
+        cdv=cdv_cr
+        cdfus=cdfus_cr
+        cdnac=cdnac_cr
 
-    d=dcruise
-    #d = 600
+    elif number==0:
+        cdw = cdw_dr
+        cdh = cdh_dr
+        cdv = cdv_dr
+        cdfus = cdfus_dr
+        cdnac = cdnac_dr
+    else:
+        print("First input should be number: 0= driving, 1=cruise, 2=take-off")
+
+    d_nac=0.28
+
+    dwing= cdw * 0.5 * rho*((v_inf) ** 2 * wing_vals().S*.313 + (v_wakeCP) ** 2 * wing_vals().S*0.173+ (v_wakeHLP) ** 2 * wing_vals().S*0.524)
+    dhtail = cdh * 0.5 * rho * v_inf ** 2 * emp_vals().S_h
+    dvtail = cdv * 0.5 * rho * v_inf ** 2 * emp_vals().S_v
+    dfus= cdfus * 0.5 * rho * v_inf ** 2 * (2.4*1.5)
+    dnac= cdnac * 0.5 * rho * v_inf ** 2 * (math.pi * (d_nac/2) ** 2)
+
+    d=dwing+dfus+dhtail+dvtail+dnac
     return d
 
 def propEfficiency(BHP, V, rho, Dp, Nv):
