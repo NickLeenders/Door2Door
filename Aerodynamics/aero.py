@@ -95,7 +95,7 @@ def drag(cd0, cl, b, c, e, v, rho):
 
     cdw_cr = 0.022  # (at cl=0.7) CRUISE
     cdh_cr = 0.011  # (at cl=0.12) CRUISE
-    cdv_cr = 0.008  # (at cl=0) CRUISE
+    cdv_cr = 0.013  # (at cl=0) CRUISE
     cdfus_cr = 0.19 #
 
     dwing_cr = cdw_cr*0.5*1.09*(69.4*1.02439)**2*9.5
@@ -108,7 +108,7 @@ def drag(cd0, cl, b, c, e, v, rho):
 
     cdw_to = 0.090  # (at cl=1.5) TO
     cdh_to = 0.045  # (at cl=0.12) TO
-    cdv_to = 0.008  # (at cl=0) TO
+    cdv_to = 0.013  # (at cl=0) TO
     cdfus_to = 0.19   #
 
     dwing_to = cdw_to * 0.5 * 1.225 * (39 * 1.235) ** 2 * 9.5
