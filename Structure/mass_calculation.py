@@ -107,3 +107,4 @@ if __name__ == "__main__":
 
     plt.show()
 
+    print (wing_weight(MTOW[-1]))
