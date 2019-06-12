@@ -120,6 +120,7 @@ def drag(cd0, cl, b, c, e, v, rho):
 
     d=dcruise
     #d = 600
+
     return d
 
 def propEfficiency(BHP, V, rho, Dp, Nv):
@@ -186,7 +187,7 @@ class Propellers:
     maxpowerHLP = 20000
     #efficiencyHLP = 0.75
     weightHLP = 16.36 + 8.2 #Prop + engine
-    torqueHLP = 27.0*5252.0/2400.0
+    torqueHLP = (27.0*5252.0/2400.0)*1.356
     shaftDiameterHLP = math.sqrt(60.0*27.0/2400.0)*2.54
 
     #Yuneec Power Drive 60
@@ -196,7 +197,7 @@ class Propellers:
     maxpowerCP = 60000
     #efficiencyCP = 0.8
     weightCP = 30.0 + 30.0 #Prop + engine
-    torqueCP = 80.0 * 5252.0 / 2400.0
+    torqueCP = (80.0 * 5252.0 / 2400.0)*1.356
     shaftDiameterCP = math.sqrt(60.0 * 80.0 / 2400.0)*2.54
 
     b = 8.8

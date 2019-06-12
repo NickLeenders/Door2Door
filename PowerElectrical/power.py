@@ -45,19 +45,14 @@ class ThrustCalculator:
         self.thrust = self.drag + self.mass*self.acceleration + self.friction
 
 def enginePower(thrust, velocity):
-    #backWheelDiameter = 0.63 #m
-    #frontWheelDiameter = 0.5245 #m
-    #backWheelRPM = velocity*60.0/(math.pi*backWheelDiameter)
-    #frontWheelRPM = velocity * 60.0 / (math.pi * frontWheelDiameter)
-    #totalPower = 2.0*math.pi*thrust*(2.0*frontWheelRPM + backWheelRPM)/60.0
     totalPower = thrust*velocity/0.9 #transmission efficiency = 0.9
     return totalPower
 
-def tankSizing(pressure, volumeHydrogen, yieldStrength, safetyFactor):
+def tankSizing(pressure, volumeHydrogen, yieldStrength, density, safetyFactor):
     radiusHydrogen = (volumeHydrogen*3.0/(4.0*math.pi))**(1.0/3.0)
-    thickness = pressure*radiusHydrogen/(2.0*safetyFactor*yieldStrength)
-
-    return
+    thickness = pressure*radiusHydrogen*safetyFactor/(2.0*yieldStrength)
+    mass = density*(4.0/3.0)*math.pi*((radiusHydrogen + thickness)**3 - (radiusHydrogen)**3)
+    return mass, thickness
 
 def cellPotential(i, p_atm):
     ###Constants
@@ -185,7 +180,7 @@ def fuelCalc():
     print("HLP eff: ", landStart_l.efficiencyHLP, "CP eff: ", landStart_l.efficiencyCP)
 
     #LANDING
-    landing_t = ThrustCalculator(MTOW - massHydrogen, 31.0, 750.0, 1928.0/(31.0*math.sin(math.atan(1.0/3.0))))
+    landing_t = ThrustCalculator(MTOW - massHydrogen, 39.0, 750.0, 1928.0/(31.0*math.sin(math.atan(1.0/3.0))))
     landing_l = aero.Propellers(landing_t.thrust, landing_t.velocity,
                                   landing_t.rho, landing_t.aero_vals.cl_takeoff, 1)
     power.append((landing_l.powerHLP * landing_l.numberHLP +
@@ -196,6 +191,9 @@ def fuelCalc():
     print("####Landing####")
     print("Altitude: ", landing_t.altitude, "Velocity: ", landing_t.velocity)
     print("HLP eff: ", landing_l.efficiencyHLP, "CP eff: ", landing_l.efficiencyCP)
+    print("Thrust when landing:")
+    print(landing_l.thrustCP)
+    print(landing_l.thrustHLP)
 
     # DRIVE 2
     drive2_t = ThrustCalculator(MTOW - massHydrogen, 29.0, 0.0, 50000.0 / 29.0, 0, 0, 1)
@@ -263,6 +261,10 @@ def fuelCalc():
     }
     maxPowerPhase = switch[index_max]
 
+    print("Power per phase: ")
+    for i in range(8):
+        print(power[i])
+
     #Size fuel cell for several possible current densities i [A / cm^2]
     V = []
     A = []
@@ -288,9 +290,13 @@ def fuelCalc():
     plt.show()
 
     materials = ["epoxy", "al2o3", "aluminum"]
+    yieldStrength = [738.0E6, 252.0E6, 505.0E6]
+    density = [1.58E3, 3.4E3, 2.61E3]
 
     for i in range(3):
-        print(tankSizing(200000, massHydrogen/70.8, yieldStrength, safetyFactor))
+        print("Structural tank mass if using ", materials[i])
+        print(tankSizing(200000, massHydrogen / 70.8, yieldStrength[i], density[i], 2.0)[0])
+        print(tankSizing(200000, massHydrogen/70.8, yieldStrength[i], density[i], 2.0)[1])
 
     return #massHydrogen
 
