@@ -97,26 +97,30 @@ def drag(cd0, cl, b, c, e, v, rho):
     cdh_cr = 0.011  # (at cl=0.12) CRUISE
     cdv_cr = 0.013  # (at cl=0) CRUISE
     cdfus_cr = 0.19 #
+    cdnac_cr=0.2  #
 
     dwing_cr = cdw_cr*0.5*1.09*(69.4*1.02439)**2*9.5
     dhtail_cr = cdh_cr*0.5*1.09*69.4**2*2.3
     dvtail_cr = cdv_cr*0.5*1.09*69.4**2*1.4
     dfus_cr= cdfus_cr*0.5*1.09*69.4**2*1.4
+    dnac_cr=0.5*1.09*69.4**2*(math.pi*0.14**2)*cdnac_cr
 
-
-    dcruise=dwing_cr+dhtail_cr+dvtail_cr +dfus_cr
+    dcruise=dwing_cr+dhtail_cr+dvtail_cr +dfus_cr+dnac_cr
 
     cdw_to = 0.090  # (at cl=1.5) TO
     cdh_to = 0.045  # (at cl=0.12) TO
     cdv_to = 0.013  # (at cl=0) TO
     cdfus_to = 0.19   #
+    cdnac_to= 0.2  #
+
 
     dwing_to = cdw_to * 0.5 * 1.225 * (39 * 1.235) ** 2 * 9.5
     dhtail_to = cdh_to * 0.5 * 1.225 * 39 ** 2 * 2.3
     dvtail_to = cdv_to * 0.5 * 1.225 * 39 ** 2 * 1.4
     dfus_to= cdfus_to * 0.5 * 1.225 * 39 ** 2 * (2.4*1.5)
+    dnac_to=0.5 * 1.225 * 39 ** 2 * (math.pi * 0.14 ** 2) * cdnac_to
 
-    dto=dwing_to +dhtail_to+dvtail_to+dfus_to
+    dto=dwing_to +dhtail_to+dvtail_to+dfus_to+dnac_to
 
     d=dcruise
     #d = 600
