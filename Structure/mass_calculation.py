@@ -58,7 +58,7 @@ def wing_weight(MTOW):
 
 
 def emp_weight(MTOW):
-    W_tot = MTOW
+    W_tot = roskam_convert(MTOW, 1)
     S_h = roskam_convert(emp_vals().S_h, 3)
     A_h = emp_vals().A_h
     trh = roskam_convert(emp_vals().trh, 2)
@@ -106,3 +106,4 @@ if __name__ == "__main__":
 #    plt.title('MTOW Estimation Iteration')
 
     plt.show()
+
