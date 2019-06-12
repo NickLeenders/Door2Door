@@ -7,7 +7,7 @@ sys.path.insert(0, '../PowerElectrical/')
 from power import ThrustCalculator
 from aero import Propellers, drag
 
-Masstotal= 1928.0 #w_components().MTOW
+Masstotal= 1.1*1928.0 #w_components().MTOW
 Ws_cr=Masstotal*9.80665 #N
 We_cr=(Masstotal-90)*9.80665 #N
 
@@ -111,3 +111,4 @@ print(cl_des)
 drag=drag(0,0,0,0,0,0,0)
 print(drag)
 print(wing_vals().taper_ratio, wing_vals().MAC)
+print(vtakeoff)

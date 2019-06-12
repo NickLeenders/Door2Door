@@ -16,7 +16,7 @@ def wing_load(static= False,show=True,grph=False):
     cruiseT = power.ThrustCalculator(MTOW,aero_vals().vinfcr,1500 , 400000/aero_vals().vinfcr)
     cruiseL = Propellers(cruiseT.thrust, cruiseT.velocity,
                               cruiseT.rho, cruiseT.aero_vals.cl_cr, 0)
-    L =(MTOW * 9.81)/(wing_vals().b - 2.4)
+    L =(MTOW * 9.81*3.5)/(wing_vals().b - 2.4)
     W_w = (Wing_w*9.81)/(wing_vals().b - 2.4)
     T_cp = cruiseL.thrustCP / cruiseL.numberCP
     T_hlp = cruiseL.thrustHLP / cruiseL.numberHLP
@@ -181,7 +181,8 @@ def wing_deflec(data,grph,E,I_xx,I_zz):
     v_x = max(int_x_2)
     return v_z , v_x    
 
-a = wing_load(grph=False)
+a = wing_load(grph=True)
+b = wing_deflec(a[0],a[1],69.9e9,1e-6,1e-5)
 
 def inert_req(E,max_def,tol):
     a = wing_load()
@@ -197,7 +198,7 @@ def inert_req(E,max_def,tol):
             rnge[0] = mid
     return mid
 
-moi = inert_req(68.9e9,0.02,1e-9)
+moi = inert_req(87.11e9,0.04,1e-9)
         
         
 #FINAL VALUE
