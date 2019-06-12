@@ -11,10 +11,10 @@ import power
 import matplotlib.pyplot as plt
 
 
-def moi_calc(n_stiff,h,w):
+def moi_calc(n_stiff,h,w,t):
     top_stiff = n_stiff/2
     A_stiff = 0.00006
-    t_skin = 0.008
+    t_skin = t
     y_dst = h/2
     moi_z = (A_stiff * h/2 * h/2 * n_stiff) + (h/2 * h/2 * t_skin * w) + (1/12 * t_skin * h*h*h)
     spacing = w / (top_stiff-1)
@@ -42,12 +42,12 @@ def moi_calc(n_stiff,h,w):
         moi_x  = moi_x + moi_add
     return moi_z , moi_x
     
-def gen_wingbox(moi_req,h,w,show=True):
+def gen_wingbox(moi_req,h,w,t,show=True):
     check = 0
     n_stiff = 4
     while check==0:
-        moi_z , moi_x = moi_calc(n_stiff,h,w)
-        if moi_z > moi_req:
+        moi_z , moi_x = moi_calc(n_stiff,h,w,t)
+        if moi_z > moi_req * 1.5:
             check = 1
         else:
             n_stiff = n_stiff + 2
@@ -82,4 +82,5 @@ def gen_wingbox(moi_req,h,w,show=True):
             plt.plot(x_stiff,-h/2,'ro')
             x_stiff = x_stiff + space
     return n_stiff,moi_z,moi_x
-a = gen_wingbox(3.45e-5,0.13,0.9,show=True)
+a = gen_wingbox(3.18e-5,0.15,0.8,0.012,show=True)
+

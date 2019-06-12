@@ -1,6 +1,8 @@
 # For the structures guys: Please make your modules update the values in these class so Control and other people can use them.
 import numpy as np
 import sys
+sys.path.insert(0, '../PowerElectrical/')
+from power import IsaCalculator
 
 
 class x_positions:
@@ -40,17 +42,16 @@ class z_positions:
 
 
 class w_components:
-    def __init__(self, wing_weight):
-        self.w_tail = 20.71
+    def __init__(self, wing_weight,emp_weight):
+        self.w_tail = emp_weight
         self.w_structure = 385.5112
         self.w_propeller = 316.48  # 16.36kg (8x), 30kg (2x) and including motor that are 8.2kg (8x), 30kg (2x)
         self.w_wing = wing_weight
         self.w_drivetrain = 30
-        self.w_fuel = 16.64
-        self.w_cell = 86
+        self.w_fuel = 16.66
+        self.w_cell = 63.29
         self.w_payload = 360
-        self.w_passenger = [80, 240]   #mass of the front passenger and back passenger
-        self.w_battery = 50
-        self.w_tank = 33.28
+        self.w_passenger = 80.0   #mass of the front passenger and back passenger
+        self.w_battery = 75
+        self.w_tank = 4*16.66
         self.w_cargo = 40
-
