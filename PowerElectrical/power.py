@@ -53,7 +53,49 @@ def enginePower(thrust, velocity):
     totalPower = thrust*velocity/0.9 #transmission efficiency = 0.9
     return totalPower
 
-def main():
+def tankSizing(pressure, volumeHydrogen, yieldStrength, safetyFactor):
+    radiusHydrogen = (volumeHydrogen*3.0/(4.0*math.pi))**(1.0/3.0)
+    thickness = pressure*radiusHydrogen/(2.0*safetyFactor*yieldStrength)
+
+    return
+
+def cellPotential(i, p_atm):
+    ###Constants
+    #Faraday's constant
+    F = 96485.33212 # C/mol
+    #Gas constant
+    R = 8.314462618 # J/(K mol)
+    #Entropy of reaction
+    ds = -163.28 # J / (mol K)
+
+    ###Cell specs
+    #Operational temperature
+    T = 333.15 #K
+    #Partial pressures
+    P_a = 1.51 #atm
+    P_c = p_atm #atm
+    X_h2 = 1.0
+    X_o2 = 0.21
+
+    ###Model F's fitting parameters
+    b = 0.06642 #V/decade
+    i_loss = 0.001225 #A cm^2
+    i_0 = 3.7980 #A cm^2
+    resistance = 0.1083 #ohm cm^2
+    m = 0.005248 #V
+    n = 2.2421 #cm^2 / A
+
+    V_rev = 1.229 - ds/(2.0*F)*(T - 298.15) - (R*T/(2.0*F))*math.log(1.0/((P_a*X_h2)*(P_c*X_o2)**0.5))
+
+    V = V_rev - b*math.log((i + i_loss)/i_0) - resistance*i - m*math.exp(n*i)
+
+    return V
+
+def cellSizing(powerReq, i, p_atm):
+    A_cell = powerReq/(cellPotential(i, p_atm)*i) #cm^2
+    return A_cell*0.0001 #m^2
+
+def fuelCalc():
 
     MTOW = mass_calculation.mass_iteration(1630.0)[0]
     SED_hydrogen = (120.0+142.0)*1.0E6/2.0 #Taking average between 120 MJ/kg and 142 MJ/kg
@@ -86,6 +128,9 @@ def main():
 
     power.append(sum(takeOff_power)/len(takeOff_power))
     energy.append(sum(takeOff_energy))
+    print("####Take-off####")
+    print("Altitude: ", takeOff_t.altitude, "Velocity: ", takeOff_t.velocity)
+    print("HLP eff: ", takeOff_l.efficiencyHLP, "CP eff: ", takeOff_l.efficiencyCP)
 
     #CLIMB
     climb_t = ThrustCalculator(MTOW - massHydrogen, math.sqrt(2*(MTOW - massHydrogen)*9.80665/(takeOff_t.wing_vals.S*takeOff_t.rho*math.sqrt(3*math.pi*takeOff_t.aero_vals.cd0*takeOff_t.wing_vals.A*takeOff_t.wing_vals.e))), 750.0, 1500.0/7.44, 7.44)
@@ -96,6 +141,9 @@ def main():
     energy.append((climb_l.powerHLP * climb_l.numberHLP +
                    climb_l.powerCP * climb_l.numberCP) * climb_t.duration)
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * climb_t.duration
+    print("####Climb####")
+    print("Altitude: ", climb_t.altitude, "Velocity: ", climb_t.velocity)
+    print("HLP eff: ", climb_l.efficiencyHLP, "CP eff: ", climb_l.efficiencyCP)
 
     #CRUISE
     cruise_t = ThrustCalculator(MTOW - massHydrogen, 69.4, 1500, 400000.0/69.4)
@@ -106,6 +154,9 @@ def main():
     energy.append((cruise_l.powerHLP * cruise_l.numberHLP +
                    cruise_l.powerCP * cruise_l.numberCP) * cruise_t.duration)
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * cruise_t.duration
+    print("####Cruise####")
+    print("Altitude: ", cruise_t.altitude, "Velocity: ", cruise_t.velocity)
+    print("HLP eff: ", cruise_l.efficiencyHLP, "CP eff: ", cruise_l.efficiencyCP)
 
     #RESERVE
     reserve_t = ThrustCalculator(MTOW - massHydrogen, 69.0, 1500.0, 45*60)
@@ -116,6 +167,9 @@ def main():
     energy.append((reserve_l.powerHLP * reserve_l.numberHLP +
                    reserve_l.powerCP * reserve_l.numberCP) * reserve_t.duration)
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * reserve_t.duration
+    print("####Reserve####")
+    print("Altitude: ", reserve_t.altitude, "Velocity: ", reserve_t.velocity)
+    print("HLP eff: ", reserve_l.efficiencyHLP, "CP eff: ", reserve_l.efficiencyCP)
 
     #DESCENT
     landStart_t = ThrustCalculator(MTOW - massHydrogen, 31.0, 1500.0, 600)
@@ -126,6 +180,9 @@ def main():
     energy.append((landStart_l.powerHLP * landStart_l.numberHLP +
                    landStart_l.powerCP * landStart_l.numberCP) * landStart_t.duration)
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * landStart_t.duration
+    print("####Descent####")
+    print("Altitude: ", landStart_t.altitude, "Velocity: ", landStart_t.velocity)
+    print("HLP eff: ", landStart_l.efficiencyHLP, "CP eff: ", landStart_l.efficiencyCP)
 
     #LANDING
     landing_t = ThrustCalculator(MTOW - massHydrogen, 31.0, 750.0, 1928.0/(31.0*math.sin(math.atan(1.0/3.0))))
@@ -136,6 +193,9 @@ def main():
     energy.append((landing_l.powerHLP * landing_l.numberHLP +
                    landing_l.powerCP * landing_l.numberCP) * landing_t.duration)
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * landing_t.duration
+    print("####Landing####")
+    print("Altitude: ", landing_t.altitude, "Velocity: ", landing_t.velocity)
+    print("HLP eff: ", landing_l.efficiencyHLP, "CP eff: ", landing_l.efficiencyCP)
 
     # DRIVE 2
     drive2_t = ThrustCalculator(MTOW - massHydrogen, 29.0, 0.0, 50000.0 / 29.0, 0, 0, 1)
@@ -187,13 +247,53 @@ def main():
     plt.tight_layout()
     plt.title("Total Power Required in Each Phase")
 
-    plt.show()
-
     print("Total energy: ", sum(energy))
     print("Maximum power: ", max(power))
 
-    return
+    #Find phase with max power usage:
+    index_max = min(range(len(power)), key=power.__getitem__)
+    switch = {0: drive1_t,
+              1: takeOff_t,
+              2: climb_t,
+              3: cruise_t,
+              4: reserve_t,
+              5: landStart_t,
+              6: landing_t,
+              7: drive2_t
+    }
+    maxPowerPhase = switch[index_max]
+
+    #Size fuel cell for several possible current densities i [A / cm^2]
+    V = []
+    A = []
+    I = np.linspace(0.10, 1.5, 30)
+    for i in I:
+        V.append(cellPotential(i, maxPowerPhase.p))
+        A.append(cellSizing(max(power), i, maxPowerPhase.p))
+
+    plt.figure(4)
+    fig, ax1 = plt.subplots()
+    ax1.plot(I, V, 'bo', label='Voltage [V]')
+    ax1.set_ylabel('Voltage [V]', color='b')
+    ax1.tick_params('y', colors='b')
+
+    ax2 = ax1.twinx()
+    ax2.plot(I, A, 'r+', label='Cell Area [m^2]')
+    ax2.set_ylabel('Cell Area [m^2]', color='r')
+    ax2.tick_params('y', colors='r')
+
+    plt.xlabel('Current Density [A/cm^2]')
+    plt.title("H2 Fuel Cell Sizing at Max Power Condition")
+
+    plt.show()
+
+    materials = ["epoxy", "al2o3", "aluminum"]
+
+    for i in range(3):
+        print(tankSizing(200000, massHydrogen/70.8, yieldStrength, safetyFactor))
+
+    return #massHydrogen
 
 
 if __name__ == "__main__":
-    main()
+    fuelCalc()
