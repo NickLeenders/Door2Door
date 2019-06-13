@@ -17,7 +17,7 @@ class aero_vals():
         self.cd0 = 0.006 # TODO drag coefficient at zero lift
         self.l_h = 2.4 # TODO distance wing ac to horizontal tail ac
         self.x_ac = 0.25 # TODO x distance of the ac
-        self.mac_position = 2.241 # TODO Longitudinal position of the MAC
+        self.mac_position = 2.227 # TODO Longitudinal position of the MAC
         self.downwash_factor = 0.395 # TODO (de/da) d_epsilon over d_alpha
         self.n_ult = 4.5 # TODO Ultimate load factor
         self.h= 1219.2 # altitude in meters
@@ -81,8 +81,8 @@ class emp_vals():
         self.num_htail = 1 #Number of horizontal tails
         
         self.S_v = 1.29 #Vertial tail surface area
-        self.b_v = 1.2999 #Span of vertical tail surface
-        self.c_v = 0.9946 #Chord of vertical tail surface Cr+Ct/2
+        self.b_v = 1.3534 #Span of vertical tail surface
+        self.c_v = 0.95315 #Chord of vertical tail surface Cr+Ct/2
         self.A_v = (self.b_v)**2/self.S_v #Vertical tail aspect ratio
         self.tcv= 0.10 # Thickness chord ratio vertical tail
         self.trv = 0.16 #Max thickness of vertical tail

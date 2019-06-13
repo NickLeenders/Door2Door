@@ -9,13 +9,13 @@ from isa import IsaCalculator
 sys.path.insert(0, '../Airframe/')
 from masses_cg_positions import y_positions
 
-S_v_effective = 0.59*emp_vals().S_v
+S_v_effective = 0.6*emp_vals().S_v
 b_R_b_v = 0.54 #ratio between rudder span and vertical tail span (source)
 b_R = b_R_b_v*emp_vals().b_v #[m] rudder span
 d_R_left = 30 #[degrees]
 d_R_right = -30 #[degrees]
-l_v_cgaft = 2.03
-l_v_cgfwd = 2.14
+l_v_cgaft = 2.18
+l_v_cgfwd = 2.29
 
 
 V_min_contr = 0.8*aero_vals().vstall #[m/s] minimal controllable speed, 0.8 safety factor (source)
