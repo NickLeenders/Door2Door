@@ -14,7 +14,7 @@ class aero_vals():
         self.cl_a_minus_h = 1.5  # TODO cl from aircraft less horizontal tail
         self.cl_alpha_a_minus_h = 6.3 # TODO lift rate coefficient of aircraft less tail
         self.cm_ac = -0.08# TODO moment coefficient around aerodynamic center
-        self.cd0 = 0.006 # TODO drag coefficient at zero lift
+        self.cd0 =0.04794141815595157 # TODO drag coefficient at zero lift
         self.l_h = 2.4 # TODO distance wing ac to horizontal tail ac
         self.x_ac = 0.25 # TODO x distance of the ac
         self.mac_position = 2.241 # TODO Longitudinal position of the MAC
