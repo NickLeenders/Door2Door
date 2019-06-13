@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 sys.path.insert(0, '../Structure/')
 import mass_calculation
+from mpl_toolkits.mplot3d import axes3d
+from matplotlib import style
 
 class ThrustCalculator:
 
@@ -48,11 +50,27 @@ def enginePower(thrust, velocity):
     totalPower = thrust*velocity/0.9 #transmission efficiency = 0.9
     return totalPower
 
-def tankSizing(pressure, volumeHydrogen, yieldStrength, density, safetyFactor):
+def heatCapacityH2(T):
+    # heat capacity in J/(g*K):
+    C = 14.43877 - 1.691*T + 0.10687*T*T - 0.00174*T*T*T
+    return C
+
+def tankSizing(pressure, massHydrogen, volumeHydrogen, yieldStrength, density, safetyFactor, missionDuration, thermalConductivity, densityFoam):
     radiusHydrogen = (volumeHydrogen*3.0/(4.0*math.pi))**(1.0/3.0)
+    #structural tank:
     thickness = pressure*radiusHydrogen*safetyFactor/(2.0*yieldStrength)
     mass = density*(4.0/3.0)*math.pi*((radiusHydrogen + thickness)**3 - (radiusHydrogen)**3)
-    return mass, thickness
+    #foam insulator:
+    SA = 4.0*math.pi*(radiusHydrogen + thickness)**2
+    Thot = 80.0 + 273.15
+    Tcold = 16.0
+    Q_max = massHydrogen*1000.0*heatCapacityH2(Tcold)*3.5/missionDuration
+    thicknessI = thermalConductivity*SA*(Thot - Tcold)/Q_max
+    massI = densityFoam * (4.0 / 3.0) * math.pi * ((radiusHydrogen + thickness + thicknessI) ** 3 - (radiusHydrogen + thickness) ** 3)
+    #total (w/o liner for now):
+    massTotal = mass + massI
+    thicknessTotal = thickness + thicknessI
+    return massTotal, thicknessTotal, mass, thickness, massI, thicknessI, radiusHydrogen
 
 def cellPotential(i, p_atm):
     ###Constants
@@ -195,14 +213,14 @@ def fuelCalc():
     print(landing_l.thrustCP)
     print(landing_l.thrustHLP)
 
-    # DRIVE 2
+    #DRIVE 2
     drive2_t = ThrustCalculator(MTOW - massHydrogen, 29.0, 0.0, 50000.0 / 29.0, 0, 0, 1)
     power.append(enginePower(drive2_t.thrust, drive2_t.velocity))
     energy.append(power[-1] * drive2_t.duration)
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * drive2_t.duration
 
     print("Hydrogen mass: ", massHydrogen)
-    print("Hydrogen volume: ", massHydrogen/70.8)
+    print("Hydrogen volume: ", massHydrogen/66.5)
 
     for i in range(0, len(energy)):
         energy[i] = energy[i]/(3.6E6)
@@ -273,7 +291,7 @@ def fuelCalc():
         V.append(cellPotential(i, maxPowerPhase.p))
         A.append(cellSizing(max(power), i, maxPowerPhase.p))
 
-    plt.figure(4)
+    plt.figure(5)
     fig, ax1 = plt.subplots()
     ax1.plot(I, V, 'bo', label='Voltage [V]')
     ax1.set_ylabel('Voltage [V]', color='b')
@@ -287,18 +305,83 @@ def fuelCalc():
     plt.xlabel('Current Density [A/cm^2]')
     plt.title("H2 Fuel Cell Sizing at Max Power Condition")
 
-    plt.show()
+    missionDuration = 0.0
+    for i in range(8):
+        missionDuration += switch[i].duration
 
-    materials = ["epoxy", "al2o3", "aluminum"]
+    materials = ["Carbon Fiber", "Al2O3 Laminate", "Aluminum 8091"]
     yieldStrength = [738.0E6, 252.0E6, 505.0E6]
     density = [1.58E3, 3.4E3, 2.61E3]
 
-    for i in range(3):
-        print("Structural tank mass if using ", materials[i])
-        print(tankSizing(200000, massHydrogen / 70.8, yieldStrength[i], density[i], 2.0)[0])
-        print(tankSizing(200000, massHydrogen/70.8, yieldStrength[i], density[i], 2.0)[1])
+    materialsI = ["Melamine Foam", "Aerogel", "Expanded PS Foam"]
+    thermalConductivity = [0.032, 0.011, 0.033]
+    densityFoam = [9.0, 70.0, 18.0]
 
-    return #massHydrogen
+    style.use('ggplot')
+    fig = plt.figure()
+    ax13d = fig.add_subplot(111, projection='3d')
+
+    structuralMaterials = []
+    insulatingMaterials = []
+    tankMasses = []
+    tankThicknesses = []
+
+    for i in range(len(materials)):
+        for j in range(len(materialsI)):
+            print("#########################")
+            print("If using ", materials[i], " for structure and ", materialsI[j], " for insulation")
+            tankSize = tankSizing(220000, massHydrogen, massHydrogen / 66.5, yieldStrength[i], density[i], 2.0, missionDuration,
+                       thermalConductivity[j], densityFoam[j])
+            print("Total tank mass:")
+            print(tankSize[0], " kg")
+            print("Total tank thickness: ")
+            print(tankSize[1]*1000.0, " mm")
+
+            structuralMaterials.append(i)
+            insulatingMaterials.append(j)
+            tankMasses.append(tankSize[0])
+            tankThicknesses.append(tankSize[1]*1000.0)
+
+
+            print("Structural tank mass:")
+            print(tankSize[2], " kg")
+            print("Structural tank thickness: ")
+            print(tankSize[3]*1000.0, " mm")
+            print("Insulating tank mass:")
+            print(tankSize[4], " kg")
+            print("Insulating tank thickness: ")
+            print(tankSize[5]*1000.0, " mm")
+
+    print("Internal Radius of tank (hydrogen):")
+    print(tankSize[6] * 1000.0, " mm")
+
+    colors3D = ['gold', 'lightcoral', 'lightskyblue', 'gold', 'lightcoral', 'lightskyblue', 'gold', 'lightcoral', 'lightskyblue']
+
+    dx = 0.5*np.ones(len(structuralMaterials))
+    dy = 0.5*np.ones(len(insulatingMaterials))
+    ax13d.bar3d(structuralMaterials, insulatingMaterials, np.zeros(len(structuralMaterials)), dx, dy, tankMasses, color=colors3D)
+    #ax13d.set_xlabel('Structural Material')
+    #ax13d.set_ylabel('Insulating Material')
+    ax13d.set_zlabel('Tank Mass [kg]')
+    plt.xticks(np.arange(3), materials, rotation=10)
+    plt.yticks(0.7 + np.arange(3), materialsI, rotation=-20)
+    plt.title("Tank Masses for Material Selection")
+
+    fig = plt.figure()
+    ax13d = fig.add_subplot(111, projection='3d')
+
+    dx = 0.5 * np.ones(len(structuralMaterials))
+    dy = 0.5 * np.ones(len(insulatingMaterials))
+    ax13d.bar3d(structuralMaterials, insulatingMaterials, np.zeros(len(structuralMaterials)), dx, dy, tankThicknesses, colors3D)
+    # ax13d.set_xlabel('Structural Material')
+    # ax13d.set_ylabel('Insulating Material')
+    ax13d.set_zlabel('Tank Thickness [mm]')
+    plt.xticks(np.arange(3), materials, rotation=10)
+    plt.yticks(0.7 + np.arange(3), materialsI, rotation=-20)
+    plt.title("Tank Thicknesses for Material Selection")
+
+    plt.show()
+    return
 
 
 if __name__ == "__main__":
