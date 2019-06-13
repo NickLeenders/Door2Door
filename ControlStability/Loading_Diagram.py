@@ -84,6 +84,6 @@ def loading_diagram():
     # plt.gca().legend(('Cargo','Passenger (F-B)','Passenger (B-F)', "Fuel", '2% Safety Margin'), loc=2)
     # plt.show()
 
-    return margin_min_mac, margin_max_mac, margin_min_mac*1.08+2.3, margin_max_mac*1.08+2.275
+    return margin_min_mac, margin_max_mac, margin_min_mac*1.08+2.241, margin_max_mac*1.08+2.241
 
 print (loading_diagram())

@@ -16,7 +16,7 @@ g = 9.80665
 Iyy = 1825
 theta_dot_dot = 12/57.3
 mu = 0.04
-T = 4800
+T = 3927.303
 
 m = 1930
 Sh = 9.5288*0.24
@@ -32,15 +32,15 @@ nh = 0.96
 be_bh = 1.0
 
 xmg = 5.0
-xcg = 2.59
+xcg = 2.5544
 xach = 4.73
-xacwf = 2.537
-zd = 1.0
+xacwf = 2.511
+zd = 1.037
 zmg = 0.15
-zt = 1.4
-zcg = 1.0
-h = 1.4
-h0 = 1.0
+zt = 1.7
+zcg = 1.037
+h = 1.7
+h0 = 1.037
 
 def elevator_sizing():
     # Calculation
@@ -67,13 +67,9 @@ def elevator_sizing():
     Mlwf = Lto*(xmg-xacwf)
     Ma = m*a*(zcg-zmg)
 
-    print (Mw)
-    print (Md)
-    print (Mt)
-    print (Mlwf)
-    print (Ma)
-
     Lh = (Mlwf + Macwf + Ma + Mw + Md + Mt - Iyy*theta_dot_dot)/(xach-xmg)
+
+    print (Lh)
 
     CLh = (2*Lh)/(aero_vals().rho0*aero_vals().vstall**2*Sh)
     e0 = (2*CLto/(pi*wing_vals().A))*57.3
@@ -89,8 +85,8 @@ def elevator_sizing():
     te = (ah/57.3+(aero_vals().cl_h/aero_vals().cl_alpha_h))/(defl_max/57.3)
     ce_ch = (te*sqrt(0.7)/(0.8))**2
     # print(ah)
-    # print (te)
-    # print (ce_ch)
+    print (te)
+    print (ce_ch)
 
     Vh = (aero_vals().l_h*Sh)/(wing_vals().S*wing_vals().MAC)
     Cmde = -aero_vals().cl_alpha_h*nh*Vh*be_bh*te
