@@ -68,7 +68,6 @@ def loading_diagram():
     margin_min_mac = (((np.array(margin_min)-aero_vals().mac_position)/wing_vals().MAC))*0.98
     margin_max_mac = (((np.array(margin_max)-aero_vals().mac_position)/wing_vals().MAC))*1.02
 
-
     # plt.plot(cargo_cg_mac, cargo_mass, '-x')
     # plt.plot(payload_cg_fb_mac, payload_mass_fb,'-x')
     # plt.plot(payload_cg_bf_mac, payload_mass_bf,'-x')
