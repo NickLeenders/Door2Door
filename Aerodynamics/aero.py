@@ -94,13 +94,13 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
     # Total zero drag coefficient
     #Cdo = Cdof2 + Cdof1 + Cdof3 + Cdof4
 
-    cdw_cr = 0.022  # (at cl=0.7) CRUISE
+    cdw_cr = 0.025  # (at cl=0.7) CRUISE
     cdh_cr = 0.011  # (at cl=0.12) CRUISE
     cdv_cr = 0.013  # (at cl=0) CRUISE
     cdfus_cr = 0.19 #
     cdnac_cr=0.2  #
 
-    cdw_to = 0.090  # (at cl=1.5) TO
+    cdw_to = 0.095  # (at cl=1.4) TO
     cdh_to = 0.045  # (at cl=0.12) TO
     cdv_to = 0.013  # (at cl=0) TO
     cdfus_to = 0.3   #
