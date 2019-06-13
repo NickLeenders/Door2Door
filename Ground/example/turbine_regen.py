@@ -22,23 +22,54 @@ import math
 def wind():
     wind_speed = []
     i=0
-    while i < 31:
+    while i < 72:
         wind_speed.append(i)
-        i+=2
+        i+=1
         
     return wind_speed
-print(wind())
 
-def power(wind_speed):
+
+def power_high(wind_speed):
     power = []
     rho = 1.225
-    area = (1.524/2)**2 * math.pi
-    eff = 0.05 #Theoretical limit is 59.6% average wind turbine is 35-45%
+    area = (0.576/2)**2 * math.pi
+    eff = 0.25 #Theoretical limit is 59.6% average wind turbine is 35-45%
     for i in wind_speed:
         power_speed = rho * area * i**3 * eff
         power.append(power_speed)
     return power
-print(power(wind()))
+
+def power_cruise(wind_speed):
+    power = []
+    rho = 1.225
+    area = (1.524/2)**2 * math.pi
+    eff = 0.25 #Theoretical limit is 59.6% average wind turbine is 35-45%
+    for i in wind_speed:
+        power_speed = rho * area * i**3 * eff
+        power.append(power_speed)
+    return power
+
+
+
+
+def get_weather_data(filename='landing5.csv', **kwargs):
+
+    if 'datapath' not in kwargs:
+        kwargs['datapath'] = os.path.join(os.path.split(
+            os.path.dirname(__file__))[0], 'example')
+    file = os.path.join(kwargs['datapath'], filename)
+    # read csv file
+    weather_df = pd.read_csv(
+        file, index_col=0, header=[0, 1],
+        date_parser=lambda idx: pd.to_datetime(idx, utc=True))
+    # change type of index to datetime and set time zone
+    weather_df.index = pd.to_datetime(weather_df.index).tz_convert(
+        'Europe/Berlin')
+    # change type of height from str to int by resetting columns
+    l0 = [_[0] for _ in weather_df.columns]
+    l1 = [int(_[1]) for _ in weather_df.columns]
+    weather_df.columns = [l0, l1]
+    return weather_df
 
 
 
@@ -53,9 +84,8 @@ def initialize_wind_turbines():
         'hub_height': 5,  # in m
         'rotor_diameter': 0.576,  # in m
         'power_curve': pd.DataFrame(
-            data={'value': [p * 1 for p in [
-                      0.0, 0.12768236791908238, 1.021458943352659, 3.447423933815225, 8.171671546821273, 15.9602959898853, 27.5793914705218, 43.79505219624526, 65.37337237457018, 93.08044621301106, 127.6823679190824, 169.94523170029868, 220.6351317641744, 280.51816231822403, 350.36041756996207, 430.92799172690303]],  # in W
-                  'wind_speed': [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]})  # in m/s
+            data={'value': power_high(wind()),  # in W
+                  'wind_speed': wind()})  # in m/s
     }
     # initialize WindTurbine object
     high_lift_turbine = WindTurbine(**high_lift_turbine)
@@ -63,13 +93,12 @@ def initialize_wind_turbines():
 
     cruise_turbine = {
         'name': 'high lift prop',
-        'nominal_power': 193.0677,  # in W
+        'nominal_power': 4000,  # in W
         'hub_height': 5,  # in m
         'rotor_diameter': 1.524,  # in m
         'power_curve': pd.DataFrame(
-            data={'value': [p * 1 for p in [
-                      0.0, 0.8938319931279862, 7.15065594502389, 24.133463814455627, 57.20524756019112, 111.72899914099828, 193.06771051564502, 306.58437364289927, 457.64198048152895, 651.6035229903019, 893.8319931279863, 1189.6903828533495, 1544.5416841251601, 1963.7488889021859, 2452.674989143194, 3016.682976806954]],  # in W
-                  'wind_speed': [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]})  # in m/s
+            data={'value': power_cruise(wind()),  # in W
+                  'wind_speed': wind()})  # in m/s
     }
     # initialize WindTurbine object
     cruise_turbine = WindTurbine(**cruise_turbine)    
@@ -80,18 +109,14 @@ def initialize_wind_turbines():
 
 def calculate_power_output(weather, high_lift_turbine, cruise_turbine):
     
-    # power output calculation for my_turbine
-    # initialize ModelChain with default parameters and use run_model method
-    # to calculate power output
     mc_my_turbine = ModelChain(high_lift_turbine).run_model(weather)
-    # write power output time series to WindTurbine object
+
     high_lift_turbine.power_output = mc_my_turbine.power_output
     
     mc_my_turbine = ModelChain(cruise_turbine).run_model(weather)
-    # write power output time series to WindTurbine object
     cruise_turbine.power_output = mc_my_turbine.power_output
 
-    # power output calculation for e126
+    
     # own specifications for ModelChain setup
     modelchain_data = {
         'wind_speed_model': 'logarithmic',  # 'logarithmic' (default),
@@ -113,7 +138,7 @@ def calculate_power_output(weather, high_lift_turbine, cruise_turbine):
     return
 
 
-def plot_or_print(high_lift_turbine, cruise_turbine):
+def plot(high_lift_turbine, cruise_turbine):
 
 
     # plot or print turbine power output
@@ -125,6 +150,9 @@ def plot_or_print(high_lift_turbine, cruise_turbine):
     else:
         print(high_lift_turbine.power_output)
         print(cruise_turbine.power_output)
+    total_power =  sum(cruise_turbine.power_output)
+    total_energy = (total_power/3600)/1000
+    print(total_energy)
 
 
     # plot or print power curve
@@ -140,13 +168,12 @@ def plot_or_print(high_lift_turbine, cruise_turbine):
 
 
 
-def run_example():
-
-    weather = get_weather_data('weather.csv')
+def run_landing():
+    weather = get_weather_data('landing5.csv')
     high_lift_turbine, cruise_turbine = initialize_wind_turbines()
     calculate_power_output(weather, high_lift_turbine, cruise_turbine)
-    plot_or_print(high_lift_turbine, cruise_turbine)
+    plot(high_lift_turbine, cruise_turbine)
     
 
 if __name__ == "__main__":
-    run_example()
+    run_landing()
