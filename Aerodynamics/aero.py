@@ -112,6 +112,15 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
     cdfus_dr = 0.19  #
     cdnac_dr = 0  #
 
+
+    cdw0=0.008  #
+    cdh0=0.008  #
+    cdv0=0.013  #
+    cdfus0=0.19  #
+    cdnac0= 0.2
+
+
+
     if number==2:
         cdw=cdw_to
         cdh=cdh_to
@@ -135,16 +144,19 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
     else:
         print("First input should be number: 0= driving, 1=cruise, 2=take-off")
 
+    area_fus=1.5*2.4
     d_nac=0.28
+
+    cd0 = (cdw0 * wing_vals().S + cdh0 * emp_vals().S_h + cdv0 * emp_vals().S_v + cdfus0*area_fus + cdnac0*math.pi*(d_nac/2)**2)/(wing_vals().S+emp_vals().S_h+emp_vals().S_v+area_fus+math.pi*(d_nac/2)**2)
 
     dwing= cdw * 0.5 * rho*((v_inf) ** 2 * wing_vals().S*.313 + (v_wakeCP) ** 2 * wing_vals().S*0.173+ (v_wakeHLP) ** 2 * wing_vals().S*0.524)
     dhtail = cdh * 0.5 * rho * v_inf ** 2 * emp_vals().S_h
     dvtail = cdv * 0.5 * rho * v_inf ** 2 * emp_vals().S_v
-    dfus= cdfus * 0.5 * rho * v_inf ** 2 * (2.4*1.5)
+    dfus= cdfus * 0.5 * rho * v_inf ** 2 * area_fus
     dnac= cdnac * 0.5 * rho * v_inf ** 2 * (math.pi * (d_nac/2) ** 2)
 
     d=dwing+dfus+dhtail+dvtail+dnac
-    return d
+    return d, cd0
 
 def propEfficiency(BHP, V, rho, Dp, Nv):
     """This routine estimates the propeller efficiency for a constant speed propeller,

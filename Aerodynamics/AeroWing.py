@@ -15,13 +15,12 @@ We_cr=(Masstotal-90)*9.80665 #N
 h= aero_vals().h
 
 
-
 #variables
 sweepquart=0 #deg
 taper=1 #-
 dihedral=0 #deg
 twist=0 #deg/m
-cl_max=1.5 #1.5 #1.85
+cl_max=1.4 #1.5 #1.85
 cd=0.018 #0.018 #0.032
 
 b= 8.8 #m
@@ -108,7 +107,5 @@ print(cl_des)
 
 
 #drag=0.5*1.09*v_cr**2*Sreq*cd
-drag=drag(0,0,0,0,0,0,0)
-print(drag)
 print(wing_vals().taper_ratio, wing_vals().MAC)
 print(vtakeoff)
