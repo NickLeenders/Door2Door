@@ -1,0 +1,235 @@
+! MAPDL input file written by Workbench Study version 19.1
+! Writing time: 06/13/2019 19:50:38
+/com,--- Data in consistent MKS units.
+/units,MKS
+/nopr
+/config,noeldb,1 	! Write element results into the results file instead of the default which is both results file AND database.
+/wb,file,start,study 	! Signify a Workbench Study input file
+fini
+/prep7
+toffst,273.15 		! Temperature offset from absolute zero
+tref,22 		! This is internally used to set tunif command
+shpp,off,,nowarn 	! Turn off shape checking because checks are already performed inside WB mesher
+/nolist
+etcon,set 		! Allow MAPDL to choose best keyopts for 180x elements
+local,13,0,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000
+
+local,14,0,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000
+
+local,15,0,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000
+
+local,16,0,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000
+
+local,17,0,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000
+
+local,12,0,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000
+
+csys,0 			! Setting current coordinate system to global
+/com,*********** Write element types ***********
+et,1,187 		! Element type for Physics Options 1
+
+et,2,154 		! Element type for Force 1
+keyo,2,2,1 		! Apply load in local reference frame
+keyo,2,7,1 		! Use original area so load is constant in large deformation
+keyo,2,11,2 		! Use real and not project area
+et,3,154 		! Element type for Force 1
+keyo,3,2,1 		! Apply load in local reference frame
+keyo,3,7,1 		! Use original area so load is constant in large deformation
+keyo,3,11,2 		! Use real and not project area
+et,4,154 		! Element type for Force 1
+keyo,4,2,1 		! Apply load in local reference frame
+keyo,4,7,1 		! Use original area so load is constant in large deformation
+keyo,4,11,2 		! Use real and not project area
+et,5,154 		! Element type for Force 1
+keyo,5,2,1 		! Apply load in local reference frame
+keyo,5,7,1 		! Use original area so load is constant in large deformation
+keyo,5,11,2 		! Use real and not project area
+et,6,154 		! Element type for Force 1
+keyo,6,2,1 		! Apply load in local reference frame
+keyo,6,7,1 		! Use original area so load is constant in large deformation
+keyo,6,11,2 		! Use real and not project area
+
+et,7,154 		! Element type for Force 2
+keyo,7,2,1 		! Apply load in local reference frame
+keyo,7,7,1 		! Use original area so load is constant in large deformation
+keyo,7,11,2 		! Use real and not project area
+et,8,154 		! Element type for Force 2
+keyo,8,2,1 		! Apply load in local reference frame
+keyo,8,7,1 		! Use original area so load is constant in large deformation
+keyo,8,11,2 		! Use real and not project area
+et,9,154 		! Element type for Force 2
+keyo,9,2,1 		! Apply load in local reference frame
+keyo,9,7,1 		! Use original area so load is constant in large deformation
+keyo,9,11,2 		! Use real and not project area
+et,10,154 		! Element type for Force 2
+keyo,10,2,1 		! Apply load in local reference frame
+keyo,10,7,1 		! Use original area so load is constant in large deformation
+keyo,10,11,2 		! Use real and not project area
+et,11,154 		! Element type for Force 2
+keyo,11,2,1 		! Apply load in local reference frame
+keyo,11,7,1 		! Use original area so load is constant in large deformation
+keyo,11,11,2 		! Use real and not project area
+
+et,12,154 		! Element type for Force 3
+keyo,12,2,1 		! Apply load in local reference frame
+keyo,12,7,1 		! Use original area so load is constant in large deformation
+keyo,12,11,2 		! Use real and not project area
+et,13,154 		! Element type for Force 3
+keyo,13,2,1 		! Apply load in local reference frame
+keyo,13,7,1 		! Use original area so load is constant in large deformation
+keyo,13,11,2 		! Use real and not project area
+
+et,14,154 		! Element type for Force 4
+keyo,14,2,1 		! Apply load in local reference frame
+keyo,14,7,1 		! Use original area so load is constant in large deformation
+keyo,14,11,2 		! Use real and not project area
+et,15,154 		! Element type for Force 4
+keyo,15,2,1 		! Apply load in local reference frame
+keyo,15,7,1 		! Use original area so load is constant in large deformation
+keyo,15,11,2 		! Use real and not project area
+et,16,154 		! Element type for Force 4
+keyo,16,2,1 		! Apply load in local reference frame
+keyo,16,7,1 		! Use original area so load is constant in large deformation
+keyo,16,11,2 		! Use real and not project area
+et,17,154 		! Element type for Force 4
+keyo,17,2,1 		! Apply load in local reference frame
+keyo,17,7,1 		! Use original area so load is constant in large deformation
+keyo,17,11,2 		! Use real and not project area
+
+et,18,154 		! Element type for Force 5
+keyo,18,2,1 		! Apply load in local reference frame
+keyo,18,7,1 		! Use original area so load is constant in large deformation
+keyo,18,11,2 		! Use real and not project area
+et,19,154 		! Element type for Force 5
+keyo,19,2,1 		! Apply load in local reference frame
+keyo,19,7,1 		! Use original area so load is constant in large deformation
+keyo,19,11,2 		! Use real and not project area
+et,20,154 		! Element type for Force 5
+keyo,20,2,1 		! Apply load in local reference frame
+keyo,20,7,1 		! Use original area so load is constant in large deformation
+keyo,20,11,2 		! Use real and not project area
+et,21,154 		! Element type for Force 5
+keyo,21,2,1 		! Apply load in local reference frame
+keyo,21,7,1 		! Use original area so load is constant in large deformation
+keyo,21,11,2 		! Use real and not project area
+/com,*********** Done writing element types ***********
+/com,*********** Write materials ***********
+/wb,mat,start 		! Starting to write materials
+mp,reft,2,22 		! C
+mp,dens,2,4620 		! kg m^-3
+mp,alpx,2,9.4E-06 		! C^-1
+mp,ex,2,96000000000 		! Pa
+mp,prxy,2,0.36 		! 
+/wb,mat,end 		! Done writing materials
+/com,*********** Read mesh ***********
+/input,'mesh','dat'
+
+/com,*********** Read load elements ***********
+/input,'load','dat'
+
+/com,*********** Read components ***********
+/input,'component','dat'
+
+alls
+cm,_AllNodes,node
+cm,_AllElems,elem
+fini
+*get,_numnode,node,0,count
+*get,_numelem,elem,0,count
+/gopr
+/com,--- Number of total nodes = %_numnode%
+/com,--- Number of total elements = %_numelem%
+/gst,on,on
+/com,****************************************************************************
+/com,*************************    SOLUTION       ********************************
+/com,****************************************************************************
+/solu
+antype,static
+/com,****************************************************
+/com,*********** Solve for Load Step 1 ***********
+/com, Start writing variable values
+*set,_val1,0
+*set,_val2,0
+*set,_val3,-26071.2933541752
+*set,_val4,0
+*set,_val5,0
+*set,_val6,-14723.4747100378
+*set,_val7,0
+*set,_val8,0
+*set,_val9,-21545.8875504646
+*set,_val10,0
+*set,_val11,0
+*set,_val12,-17326.9744734902
+*set,_val13,0
+*set,_val14,0
+*set,_val15,-3180.6620398887
+*set,_val16,0
+*set,_val17,0
+*set,_val18,0
+/com, Done writing variable values
+d,C1,ux,%_val16% 		! Contributions from Support 1
+d,C1,uy,%_val17% 		! Contributions from Support 1
+d,C1,uz,%_val18% 		! Contributions from Support 1
+/nopr
+esel,s,type,,2
+esel,a,type,,3
+esel,a,type,,4
+esel,a,type,,5
+esel,a,type,,6
+sfe,all,3,pres,1,%_val3% 		! Applying Force 1 z
+alls
+esel,s,type,,7
+esel,a,type,,8
+esel,a,type,,9
+esel,a,type,,10
+esel,a,type,,11
+sfe,all,3,pres,1,%_val6% 		! Applying Force 2 z
+alls
+esel,s,type,,12
+esel,a,type,,13
+sfe,all,3,pres,1,%_val9% 		! Applying Force 3 z
+alls
+esel,s,type,,14
+esel,a,type,,15
+esel,a,type,,16
+esel,a,type,,17
+sfe,all,3,pres,1,%_val12% 		! Applying Force 4 z
+alls
+esel,s,type,,18
+esel,a,type,,19
+esel,a,type,,20
+esel,a,type,,21
+sfe,all,3,pres,1,%_val15% 		! Applying Force 5 z
+alls
+/gopr
+rescontrol,linear
+outres,erase
+outres,all,none 		! Don't write any results to the result file
+time,1 				! Step end time
+stabilize,off 			! Deactivate stabilization
+neqit,0 			! Program controlled number of equilibrium iterations
+outres,nsol,all 		! Writing nodal DOF solution at every substep
+outres,rsol,all 		! Writing nodal reaction loads at every substep
+outres,strs,all 		! Writing element nodal stresses at every substep
+alls
+! check interactive state
+*get,ANSINTER_,active,,int
+*if,ANSINTER_,ne,0,then
+/eof
+*endif
+! *********** SOLVE COMMAND ***********
+solve
+/com,****************************************************
+/com,*********** Finished Solve for Load Step 1 ***********
+/com,
+fini
+/post1
+fini
+*get,ANSINTER_,active,,int
+*if,ANSINTER_,eq,0,then
+! Write file.success to verify the run made it this far
+/output,'file',success
+/com, Update of solution is successful...
+/output,'output','lis',,Append
+*endif
+/wb,file,end 			! Done with Workbench Study generated input
