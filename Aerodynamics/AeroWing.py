@@ -6,8 +6,9 @@ sys.path.insert(0, '../Airframe/')
 sys.path.insert(0, '../PowerElectrical/')
 from power import ThrustCalculator
 from aero import Propellers, drag
+import mass_calculation
 
-Masstotal= 1.1*1928.0 #w_components().MTOW
+Masstotal= 1.1*mass_calculation.mass_iteration(1630.0)[0]  #w_components().MTOW
 Ws_cr=Masstotal*9.80665 #N
 We_cr=(Masstotal-90)*9.80665 #N
 
@@ -20,11 +21,14 @@ sweepquart=0 #deg
 taper=1 #-
 dihedral=0 #deg
 twist=0 #deg/m
-cl_max=1.4 #1.5 #1.85
-cd=0.018 #0.018 #0.032
 
-b= 8.8 #m
-c= 1.083#m
+
+
+clextra=0.9
+CLextra=0.9*clextra*0.36*math.cos(0.0306154311)
+cl_max=1.4 +CLextra  
+
+
 ######
 
 # ISA
