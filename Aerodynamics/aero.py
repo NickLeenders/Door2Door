@@ -8,7 +8,8 @@ import aerodynamic_parameters
 sys.path.insert(0, '../PowerElectrical/')
 import power
 
-def drag(cd0, cl, b, c, e, v, rho):
+def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise, 2=take-off
+
     #cdw = 0.018 #cd0 + (cl**2)/(math.pi*(b/c)*e)
 
     #lf=5.5 #length fuselage
@@ -95,32 +96,67 @@ def drag(cd0, cl, b, c, e, v, rho):
 
     cdw_cr = 0.022  # (at cl=0.7) CRUISE
     cdh_cr = 0.011  # (at cl=0.12) CRUISE
-    cdv_cr = 0.008  # (at cl=0) CRUISE
+    cdv_cr = 0.013  # (at cl=0) CRUISE
     cdfus_cr = 0.19 #
-
-    dwing_cr = cdw_cr*0.5*1.09*(69.4*1.02439)**2*9.5
-    dhtail_cr = cdh_cr*0.5*1.09*69.4**2*2.3
-    dvtail_cr = cdv_cr*0.5*1.09*69.4**2*1.4
-    dfus_cr= cdfus_cr*0.5*1.09*69.4**2*1.4
-
-
-    dcruise=dwing_cr+dhtail_cr+dvtail_cr +dfus_cr
+    cdnac_cr=0.2  #
 
     cdw_to = 0.090  # (at cl=1.5) TO
     cdh_to = 0.045  # (at cl=0.12) TO
-    cdv_to = 0.008  # (at cl=0) TO
-    cdfus_to = 0.19   #
+    cdv_to = 0.013  # (at cl=0) TO
+    cdfus_to = 0.3   #
+    cdnac_to= 0.2  #
 
-    dwing_to = cdw_to * 0.5 * 1.225 * (39 * 1.235) ** 2 * 9.5
-    dhtail_to = cdh_to * 0.5 * 1.225 * 39 ** 2 * 2.3
-    dvtail_to = cdv_to * 0.5 * 1.225 * 39 ** 2 * 1.4
-    dfus_to= cdfus_to * 0.5 * 1.225 * 39 ** 2 * (2.4*1.5)
+    cdw_dr = 0  # (at cl=1.5) TO
+    cdh_dr = 0  # (at cl=0.12) TO
+    cdv_dr = 0.013  # (at cl=0) TO
+    cdfus_dr = 0.19  #
+    cdnac_dr = 0  #
 
-    dto=dwing_to +dhtail_to+dvtail_to+dfus_to
 
-    d=dcruise
-    #d = 600
-    return d
+    cdw0=0.008  #
+    cdh0=0.008  #
+    cdv0=0.013  #
+    cdfus0=0.19  #
+    cdnac0= 0.2
+
+
+
+    if number==2:
+        cdw=cdw_to
+        cdh=cdh_to
+        cdv=cdv_to
+        cdfus=cdfus_to
+        cdnac=cdnac_to
+
+    elif number==1:
+        cdw=cdw_cr
+        cdh=cdh_cr
+        cdv=cdv_cr
+        cdfus=cdfus_cr
+        cdnac=cdnac_cr
+
+    elif number==0:
+        cdw = cdw_dr
+        cdh = cdh_dr
+        cdv = cdv_dr
+        cdfus = cdfus_dr
+        cdnac = cdnac_dr
+    else:
+        print("First input should be number: 0= driving, 1=cruise, 2=take-off")
+
+    area_fus=1.5*2.4
+    d_nac=0.28
+
+    cd0 = (cdw0 * wing_vals().S + cdh0 * emp_vals().S_h + cdv0 * emp_vals().S_v + cdfus0*area_fus + cdnac0*math.pi*(d_nac/2)**2)/(wing_vals().S+emp_vals().S_h+emp_vals().S_v+area_fus+math.pi*(d_nac/2)**2)
+
+    dwing= cdw * 0.5 * rho*((v_inf) ** 2 * wing_vals().S*.313 + (v_wakeCP) ** 2 * wing_vals().S*0.173+ (v_wakeHLP) ** 2 * wing_vals().S*0.524)
+    dhtail = cdh * 0.5 * rho * v_inf ** 2 * emp_vals().S_h
+    dvtail = cdv * 0.5 * rho * v_inf ** 2 * emp_vals().S_v
+    dfus= cdfus * 0.5 * rho * v_inf ** 2 * area_fus
+    dnac= cdnac * 0.5 * rho * v_inf ** 2 * (math.pi * (d_nac/2) ** 2)
+
+    d=dwing+dfus+dhtail+dvtail+dnac
+    return d, cd0
 
 def propEfficiency(BHP, V, rho, Dp, Nv):
     """This routine estimates the propeller efficiency for a constant speed propeller,
@@ -186,7 +222,7 @@ class Propellers:
     maxpowerHLP = 20000
     #efficiencyHLP = 0.75
     weightHLP = 16.36 + 8.2 #Prop + engine
-    torqueHLP = 27.0*5252.0/2400.0
+    torqueHLP = (27.0*5252.0/2400.0)*1.356
     shaftDiameterHLP = math.sqrt(60.0*27.0/2400.0)*2.54
 
     #Yuneec Power Drive 60
@@ -196,7 +232,7 @@ class Propellers:
     maxpowerCP = 60000
     #efficiencyCP = 0.8
     weightCP = 30.0 + 30.0 #Prop + engine
-    torqueCP = 80.0 * 5252.0 / 2400.0
+    torqueCP = (80.0 * 5252.0 / 2400.0)*1.356
     shaftDiameterCP = math.sqrt(60.0 * 80.0 / 2400.0)*2.54
 
     b = 8.8

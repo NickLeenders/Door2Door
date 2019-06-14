@@ -10,15 +10,15 @@ class aero_vals():
     def __init__(self):
         self.vh_over_v = 0.8  # TODO (v_h/v) factor
         self.cl_h = -0.8 # TODO lift coefficient from horizontal tail
-        self.cl_alpha_h = 4.8 # TODO lift rate coefficient of horizontal tail
+        self.cl_alpha_h = 4.3 # TODO lift rate coefficient of horizontal tail
         self.cl_a_minus_h = 1.5  # TODO cl from aircraft less horizontal tail
         self.cl_alpha_a_minus_h = 6.3 # TODO lift rate coefficient of aircraft less tail
-        self.cm_ac = -0.35# TODO moment coefficient around aerodynamic center
-        self.cd0 = 0.05 # TODO drag coefficient at zero lift
+        self.cm_ac = -0.08# TODO moment coefficient around aerodynamic center
+        self.cd0 =0.04794141815595157 # TODO drag coefficient at zero lift
         self.l_h = 2.4 # TODO distance wing ac to horizontal tail ac
-        self.x_ac = 0.243 # TODO x distance of the ac
-        self.mac_position = 2.275 # TODO Longitudinal position of the MAC
-        self.downwash_factor = 0.225 # TODO (de/da) d_epsilon over d_alpha
+        self.x_ac = 0.25 # TODO x distance of the ac
+        self.mac_position = 2.241 # TODO Longitudinal position of the MAC
+        self.downwash_factor = 0.395 # TODO (de/da) d_epsilon over d_alpha
         self.n_ult = 4.5 # TODO Ultimate load factor
         self.h= 1219.2 # altitude in meters
         self.b = 8.8
@@ -71,20 +71,21 @@ class wing_vals():
 
 class emp_vals():
     def __init__(self):
-        self.S_h = 2.287 #Horizontal tail surface area
+        self.S_h = 1.4674 #Horizontal tail surface area
         self.b_h = 2.4 #Horizontal tail wing span
-        self.c_h= 0.9525 #Horizontal tail wing chord Cr+Ct/2
-        self.taper_h = 0.7 #Taper ratio horizontal tail
+        self.c_h= 0.6113 #Horizontal tail wing chord Cr+Ct/2
+        self.taper_h = 0.64 #Taper ratio horizontal tail
         self.A_h = (self.b_h)**2/self.S_h #Horizontal tail aspect ratio
         self.trh = 0.15 #Maximum Thickness of horizontal tail
         self.tch=0.10 # Thickness chord ratio horizontal tail
         self.num_htail = 1 #Number of horizontal tails
         
-        self.S_v = 1.3976 #Vertial tail surface area
-        self.b_v = 1.3531 #Span of vertical tail surface
-        self.c_v = 1.03385 #Chord of vertical tail surface
+        self.S_v = 1.29 #Vertial tail surface area
+        self.b_v = 1.2999 #Span of vertical tail surface
+        self.c_v = 0.9946 #Chord of vertical tail surface Cr+Ct/2
         self.A_v = (self.b_v)**2/self.S_v #Vertical tail aspect ratio
         self.tcv= 0.10 # Thickness chord ratio vertical tail
         self.trv = 0.16 #Max thickness of vertical tail
         self.sweep_v = 0 #Sweep at 0.25c of vertical tail
         self.num_vtail = 1
+
