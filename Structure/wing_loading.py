@@ -13,9 +13,18 @@ import matplotlib.pyplot as plt
 #DEFINE PARAMETERS
 def wing_load(static= False,show=True,grph=False):
     MTOW, Wing_w = mass_iteration(1630)
-    cruiseT = power.ThrustCalculator(MTOW,aero_vals().vinfcr,1500 , 400000/aero_vals().vinfcr)
+
+    cruiseT = power.ThrustCalculator(MTOW, 69.4, 69.4, 69.4, 1500, 400000.0/69.4)
     cruiseL = Propellers(cruiseT.thrust, cruiseT.velocity,
                               cruiseT.rho, cruiseT.aero_vals.cl_cr, 0)
+    temp = cruiseT
+    temp.thrust = 0.0
+    while (abs(cruiseT.thrust - temp.thrust) > 0.005):
+        temp = cruiseT
+        cruiseT = ThrustCalculator(MTOW - massHydrogen, 69.4, cruiseL.v_wakeCP, cruiseL.v_wakeHLP, 1500.0, 400000.0/69.4)
+        cruiseL = aero.Propellers(cruiseT.thrust, cruiseT.velocity,
+                                  cruise.rho, cruiseT.aero_vals.cl_cr, 0)
+
     L =(MTOW * 9.81*3.5)/(wing_vals().b - 2.4)
     W_w = (Wing_w*9.81)/(wing_vals().b - 2.4)
     T_cp = cruiseL.thrustCP / cruiseL.numberCP
@@ -23,7 +32,7 @@ def wing_load(static= False,show=True,grph=False):
     W_hlp = 52 *9.81 #LINK THESE LATER
     W_cp = 74 *9.81  #LINK THESE LATER
     c = 1.2 #link this
-    D = ((drag(aero_vals().cd0,cruiseT.aero_vals.cl_cr,wing_vals().b,wing_vals().MAC,cruiseT.wing_vals.e,cruiseT.velocity,cruiseT.rho))/2)/(wing_vals().b/2)
+    D = drag(1, cruiseT.velocity, cruiseL.v_wakeCP, cruiseT.v_wakeHLP, cruiseT.rho)[0]
     b = wing_vals().b - 2.4
     y = [0.3,0.9,1.5,2.1,3.2]
     if static:
@@ -104,22 +113,22 @@ def wing_load(static= False,show=True,grph=False):
         
         data =[ys,shr_z, shr_x , mom_x , mom_z]
         if grph:
-             plt.subplot(421)
-             plt.title('Moment Diagram (y-z plane)')
+             plt.subplot(321)
+             plt.title('Moment Diagram (x axis)')
              plt.xlabel('y [m]')
              plt.ylabel('Internal Moment [Nm]')
              plt.plot(ys,mom_x)
-             plt.subplot(422)
-             plt.title('Moment Diagram (x-y plane)')
+             plt.subplot(322)
+             plt.title('Moment Diagram (z axis)')
              plt.xlabel('y [m]')
              plt.ylabel('Internal Moment [Nm]')
              plt.plot(ys,mom_z)
-             plt.subplot(423)
+             plt.subplot(325)
              plt.title('Shear Diagram (y-z plane)')
              plt.xlabel('y [m]')
              plt.ylabel('Internal Shear [N]')
              plt.plot(ys,shr_z)
-             plt.subplot(424)
+             plt.subplot(326)
              plt.title('Shear Diagram (x-y plane)')
              plt.xlabel('y [m]')
              plt.ylabel('Internal Shear [N]')
