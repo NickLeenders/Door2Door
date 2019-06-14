@@ -7,6 +7,7 @@ sys.path.insert(0, '../Aerodynamics/')
 import aerodynamic_parameters
 sys.path.insert(0, '../PowerElectrical/')
 import power
+from isa import IsaCalculator
 
 def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise, 2=take-off
 
@@ -244,8 +245,8 @@ class Propellers:
     torqueCP = (80.0 * 5252.0 / 2400.0)*1.356
     shaftDiameterCP = math.sqrt(60.0 * 80.0 / 2400.0)*2.54
 
-    b = 8.8
-    c_avg = 1.2
+    b = wing_vals().b
+    c_avg = wing_vals().MAC
     S = b * c_avg
     A = b / c_avg
 
