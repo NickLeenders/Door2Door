@@ -45,6 +45,8 @@ C_R_C_v = (tau_R*np.sqrt(0.7)/0.8)**2 #if this is larger than 0.5, use fully mov
 C_R = C_R_C_v*emp_vals().c_v #[m], rudder chord
 A_R = C_R*b_R #[m^2], rudder area
 
+print (N_A)
+print (C_n_dr)
 print (C_R_C_v)
 print (tau_R)
 print ("The chord of the rudder is: ", C_R, "[m]")

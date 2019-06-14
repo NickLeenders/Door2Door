@@ -67,42 +67,44 @@ def elevator_sizing():
     Mlwf = Lto*(xmg-xacwf)
     Ma = m*a*(zcg-zmg)
 
+    print (Mw)
+    print (Md)
+    print (Mt)
+    print(Mlwf)
+    print (Ma)
+
     Lh = (Mlwf + Macwf + Ma + Mw + Md + Mt - Iyy*theta_dot_dot)/(xach-xmg)
-
+    print (Iyy*theta_dot_dot)
     print (Lh)
-
     CLh = (2*Lh)/(aero_vals().rho0*aero_vals().vstall**2*Sh)
     e0 = (2*CLto/(pi*wing_vals().A))*57.3
     deda = (2*aero_vals().cl_alpha_a_minus_h/(pi*wing_vals().A))
     e = (e0/57.3 + deda*aw/57.3) * 57.3
-    # print (CLh)
-    # print (e0)
-    # print (deda)
-    # print (e)
+
 
 
     ah = aw + ih - e
     te = (ah/57.3+(aero_vals().cl_h/aero_vals().cl_alpha_h))/(defl_max/57.3)
     ce_ch = (te*sqrt(0.7)/(0.8))**2
     # print(ah)
-    print (te)
-    print (ce_ch)
+    # print (te)
+    # print (ce_ch)
 
     Vh = (aero_vals().l_h*Sh)/(wing_vals().S*wing_vals().MAC)
     Cmde = -aero_vals().cl_alpha_h*nh*Vh*be_bh*te
     CLde = aero_vals().cl_alpha_h*nh*(Sh/wing_vals().S)*be_bh*te
     CLhde = aero_vals().cl_alpha_h*te
 
-    # print (Vh)
-    # print (Cmde)
-    # print (CLde)
-    # print (CLhde)
+    print (Cmde)
+    print (CLde)
+    print (CLhde)
+
 
 
     Cma = aero_vals().cl_alpha_a_minus_h*((xcg-xacwf)/wing_vals().MAC) - (aero_vals().cl_alpha_h*nh*(Sh/wing_vals().S)*(aero_vals().l_h/wing_vals().MAC)*(1-deda))
     q = 0.5*aero_vals().rho0*aero_vals().vinfcr**2
     CL1 = (2*m*g)/(aero_vals().rho0*aero_vals().vinfcr**2*wing_vals().S)
-    # print (Cma)
+    print (Cma)
     # print (q)
     # print (CL1)
     de = (-((((-T*(zt-zcg)/(q*wing_vals().S*wing_vals().MAC)) + Cm0)*aero_vals().cl_alpha_a_minus_h + (CL1-CL0)*Cma)/(aero_vals().cl_alpha_a_minus_h*Cmde - Cma*CLde)))*57.3
@@ -140,8 +142,9 @@ def elevator_sizing():
     plt.ylabel(r'$\delta_E (deg)$')
     plt.xlim(0,70)
     plt.ylim(-40, 3)
+    plt.gca().invert_yaxis()
     plt.grid()
-    plt.gca().legend(('Sea level', 'Cruise altitude'), loc=6)
+    plt.gca().legend(('Sea level', 'Cruise altitude'), loc=2)
     plt.title("Variation of elevator deflection with respect to aircraft speed")
     plt.show()
 

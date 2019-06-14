@@ -23,4 +23,4 @@ def aileron_sizing():
     print (Cr)
     return clda, clp, P, t
 
-print (aileron_sizing())
+print (wing_vals().aileron_effectiveness)
