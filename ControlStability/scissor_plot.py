@@ -20,7 +20,7 @@ def control_curve(x_cg_mac):
 
 
 def stability_curve(x_cg_mac):
-    stability_margin = 0.06
+    stability_margin = 0.05
     sh_over_s = 1 / ((aero_vals().cl_alpha_h / aero_vals().cl_alpha_a_minus_h) * (
             aero_vals().l_h / wing_vals().MAC) * (
                              1 - aero_vals().downwash_factor) * aero_vals().vh_over_v ** 2) * x_cg_mac - (
@@ -42,6 +42,7 @@ def create_plot(x_cg):
     plt.plot([loading_diagram()[0], loading_diagram()[0]], [0, 1.0],'-yx')
     plt.plot([loading_diagram()[1], loading_diagram()[1]], [0, 1.0],'-yx')
     plt.axis([0, 0.7, 0, 1.0])
+    plt.gca().legend(('Controllability', 'Stability', 'C.G. Range'), loc=2)
     plt.grid()
     plt.show()
     pass
