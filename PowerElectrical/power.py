@@ -19,7 +19,7 @@ class ThrustCalculator:
     """Preliminary required thrust calculation for one phase"""
 
 
-    def __init__(self, mass, velocity, altitude, duration, rateOfClimb=0.0, acceleration=0.0, driving=0):
+    def __init__(self, mass, velocity, v_wakeCP, v_wakeHLP, altitude, duration, rateOfClimb=0.0, acceleration=0.0, driving=0):
 
         self.aero_vals = aerodynamic_parameters.aero_vals()
         self.wing_vals = aerodynamic_parameters.wing_vals()
@@ -33,13 +33,18 @@ class ThrustCalculator:
         self.rho, self.T, self.p = IsaCalculator(altitude)
         self.duration = duration
 
-        if (self.velocity > 40.0):
-            self.drag = aero.drag(self.aero_vals.cd0, self.aero_vals.cl_cr, self.wing_vals.b, self.wing_vals.MAC,
-                              self.wing_vals.e, self.velocity, self.rho)
-        else:
-            self.drag = aero.drag(self.aero_vals.cd0, self.aero_vals.cl_takeoff, self.wing_vals.b, self.wing_vals.MAC,
-                                  self.wing_vals.e, self.velocity, self.rho)
+        self.v_wakeCP = v_wakeCP
+        self.v_wakeHLP = v_wakeHLP
+
+        if (self.velocity > 40.0 and driving==0):
+            self.drag = aero.drag(1, self.velocity, self.v_wakeCP, self.v_wakeHLP, self.rho)[0]
+        elif (driving==0):
+            self.drag = aero.drag(2, self.velocity, self.v_wakeCP, self.v_wakeHLP, self.rho)[0]
+        elif (driving==1):
+            self.drag = aero.drag(0, self.velocity, self.v_wakeCP, self.v_wakeHLP, self.rho)[0]
+
         self.acceleration = acceleration
+
         if driving != 0:
             self.friction = self.mass*9.80665*self.mu
         else:
@@ -118,7 +123,7 @@ def fuelCalc():
     massHydrogen = 0.0
 
     #DRIVE 1
-    drive1_t = ThrustCalculator(MTOW - massHydrogen, 29.0, 0.0, 50000.0/29.0, 0, 0, 1)
+    drive1_t = ThrustCalculator(MTOW - massHydrogen, 29.0, 29.0, 29.0, 0.0, 50000.0/29.0, 0, 0, 1)
     power.append(enginePower(drive1_t.thrust, drive1_t.velocity))
     energy.append(power[-1]*drive1_t.duration)
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * drive1_t.duration
@@ -130,9 +135,21 @@ def fuelCalc():
     takeOff_energy = []
 
     for t in np.arange(5*dt, 39.0/acc, dt):
-        takeOff_t = ThrustCalculator(MTOW - massHydrogen, acc*t, 0.0, dt, 0, acc, 1)
+        takeOff_t = ThrustCalculator(MTOW - massHydrogen, acc*t, acc*t, acc*t, 0.0, dt, 0, acc, 1)
         takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
                                     takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff, 1)
+        temp = takeOff_t
+        temp.thrust = 0.0
+        while (abs(takeOff_t.thrust - temp.thrust) > 0.005):
+            temp = takeOff_t
+            takeOff_t = ThrustCalculator(MTOW - massHydrogen, acc * t, takeOff_l.v_wakeCP, takeOff_l.v_wakeHLP, 0.0, dt, 0, acc, 1)
+            takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
+                                        takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff, 1)
+        print("#########################")
+        print("Take-off:")
+        print("Weight: ", (MTOW - massHydrogen)*9.80665)
+        print("Lift: ", takeOff_l.lift_powered)
+
         takeOff_power.append((takeOff_l.powerHLP * takeOff_l.numberHLP +
                       takeOff_l.powerCP * takeOff_l.numberCP))
         takeOff_energy.append((takeOff_l.powerHLP * takeOff_l.numberHLP +
@@ -141,84 +158,139 @@ def fuelCalc():
 
     power.append(sum(takeOff_power)/len(takeOff_power))
     energy.append(sum(takeOff_energy))
-    print("####Take-off####")
     print("Altitude: ", takeOff_t.altitude, "Velocity: ", takeOff_t.velocity)
     print("HLP eff: ", takeOff_l.efficiencyHLP, "CP eff: ", takeOff_l.efficiencyCP)
+    print("HLP thrust: ", takeOff_l.thrustHLP, "CP thrust: ", takeOff_l.thrustCP)
 
     #CLIMB
-    climb_t = ThrustCalculator(MTOW - massHydrogen, math.sqrt(2*(MTOW - massHydrogen)*9.80665/(takeOff_t.wing_vals.S*takeOff_t.rho*math.sqrt(3*math.pi*takeOff_t.aero_vals.cd0*takeOff_t.wing_vals.A*takeOff_t.wing_vals.e))), 750.0, 1500.0/7.44, 7.44)
+    climb_t = ThrustCalculator(MTOW - massHydrogen, 45.0, 45.0, 45.0, 750.0, 1500.0/7.44, 7.44)
     climb_l = aero.Propellers(climb_t.thrust, climb_t.velocity,
-                                climb_t.rho, climb_t.aero_vals.cl_cr, 0)
+                                climb_t.rho, climb_t.aero_vals.cl_takeoff, 1)
+    temp = climb_t
+    temp.thrust = 0.0
+    while (abs(climb_t.thrust - temp.thrust) > 0.005):
+        temp = climb_t
+        climb_t = ThrustCalculator(MTOW - massHydrogen, 45.0, climb_l.v_wakeCP, climb_l.v_wakeHLP, 750.0, 1500.0/7.44, 7.44)
+        climb_l = aero.Propellers(climb_t.thrust, climb_t.velocity,
+                                    climb_t.rho, climb_t.aero_vals.cl_takeoff, 1)
+    print("#########################")
+    print("Climb:")
+    print("Weight: ", (MTOW - massHydrogen)*9.80665)
+    print("Lift: ", climb_l.lift_powered)
+
     power.append((climb_l.powerHLP * climb_l.numberHLP +
                    climb_l.powerCP * climb_l.numberCP))
     energy.append((climb_l.powerHLP * climb_l.numberHLP +
                    climb_l.powerCP * climb_l.numberCP) * climb_t.duration)
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * climb_t.duration
-    print("####Climb####")
     print("Altitude: ", climb_t.altitude, "Velocity: ", climb_t.velocity)
     print("HLP eff: ", climb_l.efficiencyHLP, "CP eff: ", climb_l.efficiencyCP)
+    print("HLP thrust: ", climb_l.thrustHLP, "CP thrust: ", climb_l.thrustCP)
 
     #CRUISE
-    cruise_t = ThrustCalculator(MTOW - massHydrogen, 69.4, 1500, 400000.0/69.4)
+    cruise_t = ThrustCalculator(MTOW - massHydrogen, 69.4, 69.4, 69.4, 1500, 400000.0/69.4)
     cruise_l = aero.Propellers(cruise_t.thrust, cruise_t.velocity,
                               cruise_t.rho, cruise_t.aero_vals.cl_cr, 0)
+    temp = cruise_t
+    temp.thrust = 0.0
+    while (abs(cruise_t.thrust - temp.thrust) > 0.005):
+        temp = cruise_t
+        cruise_t = ThrustCalculator(MTOW - massHydrogen, 69.4, cruise_l.v_wakeCP, cruise_l.v_wakeHLP, 1500.0, 400000.0/69.4)
+        cruise_l = aero.Propellers(cruise_t.thrust, cruise_t.velocity,
+                                  cruise_t.rho, cruise_t.aero_vals.cl_cr, 0)
+    print("#########################")
+    print("Cruise:")
+    print("Weight: ", (MTOW - massHydrogen)*9.80665)
+    print("Lift: ", cruise_l.lift_powered)
+
     power.append((cruise_l.powerHLP * cruise_l.numberHLP +
                    cruise_l.powerCP * cruise_l.numberCP))
     energy.append((cruise_l.powerHLP * cruise_l.numberHLP +
                    cruise_l.powerCP * cruise_l.numberCP) * cruise_t.duration)
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * cruise_t.duration
-    print("####Cruise####")
     print("Altitude: ", cruise_t.altitude, "Velocity: ", cruise_t.velocity)
     print("HLP eff: ", cruise_l.efficiencyHLP, "CP eff: ", cruise_l.efficiencyCP)
+    print("HLP thrust: ", cruise_l.thrustHLP, "CP thrust: ", cruise_l.thrustCP)
 
     #RESERVE
-    reserve_t = ThrustCalculator(MTOW - massHydrogen, 69.0, 1500.0, 45*60)
+    reserve_t = ThrustCalculator(MTOW - massHydrogen, 69.4, 69.4, 69.4, 1500.0, 45.0*60.0)
     reserve_l = aero.Propellers(reserve_t.thrust, reserve_t.velocity,
                                reserve_t.rho, reserve_t.aero_vals.cl_cr, 0)
+    temp = reserve_t
+    temp.thrust = 0.0
+    while (abs(reserve_t.thrust - temp.thrust) > 0.005):
+        temp = reserve_t
+        reserve_t = ThrustCalculator(MTOW - massHydrogen, 69.4, reserve_l.v_wakeCP, reserve_l.v_wakeHLP, 1500.0, 45.0*60.0)
+        reserve_l = aero.Propellers(reserve_t.thrust, reserve_t.velocity,
+                                  reserve_t.rho, reserve_t.aero_vals.cl_cr, 0)
+    print("#########################")
+    print("Reserve:")
+    print("Weight: ", (MTOW - massHydrogen)*9.80665)
+    print("Lift: ", reserve_l.lift_powered)
     power.append((reserve_l.powerHLP * reserve_l.numberHLP +
                    reserve_l.powerCP * reserve_l.numberCP))
     energy.append((reserve_l.powerHLP * reserve_l.numberHLP +
                    reserve_l.powerCP * reserve_l.numberCP) * reserve_t.duration)
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * reserve_t.duration
-    print("####Reserve####")
     print("Altitude: ", reserve_t.altitude, "Velocity: ", reserve_t.velocity)
     print("HLP eff: ", reserve_l.efficiencyHLP, "CP eff: ", reserve_l.efficiencyCP)
+    print("HLP thrust: ", reserve_l.thrustHLP, "CP thrust: ", reserve_l.thrustCP)
 
     #DESCENT
-    landStart_t = ThrustCalculator(MTOW - massHydrogen, 31.0, 1500.0, 600)
+    landStart_t = ThrustCalculator(MTOW - massHydrogen, 31.0, 31.0, 31.0, 1500.0, 600)
     landStart_l = aero.Propellers(landStart_t.thrust, landStart_t.velocity,
-                               landStart_t.rho, landStart_t.aero_vals.cl_takeoff, 1)
+                               landStart_t.rho, landStart_t.aero_vals.cl_descent, 0)
+    temp = landStart_t
+    temp.thrust = 0.0
+    while (abs(landStart_t.thrust - temp.thrust) > 0.005):
+        temp = landStart_t
+        landStart_t = ThrustCalculator(MTOW - massHydrogen, 31.0, landStart_l.v_wakeCP, landStart_l.v_wakeHLP, 1500.0, 600.0)
+        landStart_l = aero.Propellers(landStart_t.thrust, landStart_t.velocity,
+                                  landStart_t.rho, landStart_t.aero_vals.cl_descent, 0)
+    print("#########################")
+    print("Descent:")
+    print("Weight: ", (MTOW - massHydrogen)*9.80665)
+    print("Lift: ", landStart_l.lift_powered)
     power.append((landStart_l.powerHLP * landStart_l.numberHLP +
                    landStart_l.powerCP * landStart_l.numberCP))
     energy.append((landStart_l.powerHLP * landStart_l.numberHLP +
                    landStart_l.powerCP * landStart_l.numberCP) * landStart_t.duration)
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * landStart_t.duration
-    print("####Descent####")
     print("Altitude: ", landStart_t.altitude, "Velocity: ", landStart_t.velocity)
     print("HLP eff: ", landStart_l.efficiencyHLP, "CP eff: ", landStart_l.efficiencyCP)
+    print("HLP thrust: ", landStart_l.thrustHLP, "CP thrust: ", landStart_l.thrustCP)
 
     #LANDING
-    landing_t = ThrustCalculator(MTOW - massHydrogen, 39.0, 750.0, 1928.0/(31.0*math.sin(math.atan(1.0/3.0))))
+    landing_t = ThrustCalculator(MTOW - massHydrogen, 39.0, 39.0, 39.0, 750.0, (MTOW - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
     landing_l = aero.Propellers(landing_t.thrust, landing_t.velocity,
                                   landing_t.rho, landing_t.aero_vals.cl_takeoff, 1)
+    temp = landing_t
+    temp.thrust = 0.0
+    while (abs(landing_t.thrust - temp.thrust) > 0.005):
+        temp = landing_t
+        landing_t = ThrustCalculator(MTOW - massHydrogen, 39.0, landing_l.v_wakeCP, landing_l.v_wakeHLP, 750.0, (MTWO - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
+        landing_l = aero.Propellers(landing_t.thrust, landing_t.velocity,
+                                  landing_t.rho, landing_t.aero_vals.cl_takeoff, 1)
+    print("#########################")
+    print("Landing:")
+    print("Weight: ", (MTOW - massHydrogen)*9.80665)
+    print("Lift: ", landing_l.lift_powered)
     power.append((landing_l.powerHLP * landing_l.numberHLP +
                    landing_l.powerCP * landing_l.numberCP))
     energy.append((landing_l.powerHLP * landing_l.numberHLP +
                    landing_l.powerCP * landing_l.numberCP) * landing_t.duration)
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * landing_t.duration
-    print("####Landing####")
     print("Altitude: ", landing_t.altitude, "Velocity: ", landing_t.velocity)
     print("HLP eff: ", landing_l.efficiencyHLP, "CP eff: ", landing_l.efficiencyCP)
-    print("Thrust when landing:")
-    print(landing_l.thrustCP)
-    print(landing_l.thrustHLP)
+    print("HLP thrust: ", landing_l.thrustHLP, "CP thrust: ", landing_l.thrustCP)
 
     #DRIVE 2
-    drive2_t = ThrustCalculator(MTOW - massHydrogen, 29.0, 0.0, 50000.0 / 29.0, 0, 0, 1)
+    drive2_t = ThrustCalculator(MTOW - massHydrogen, 29.0, 29.0, 29.0, 0.0, 50000.0 / 29.0, 0, 0, 1)
     power.append(enginePower(drive2_t.thrust, drive2_t.velocity))
     energy.append(power[-1] * drive2_t.duration)
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * drive2_t.duration
 
+    print("######################")
     print("Hydrogen mass: ", massHydrogen)
     print("Hydrogen volume: ", massHydrogen/66.5)
 
@@ -279,6 +351,7 @@ def fuelCalc():
     }
     maxPowerPhase = switch[index_max]
 
+    print("#######################")
     print("Power per phase: ")
     for i in range(8):
         print(power[i])
