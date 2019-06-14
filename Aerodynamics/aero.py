@@ -95,31 +95,34 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
     # Total zero drag coefficient
     #Cdo = Cdof2 + Cdof1 + Cdof3 + Cdof4
 
-    cdw_cr = 0.022  # (at cl=0.7) CRUISE
+    cdw_cr = 0.025  # (at cl=0.7) CRUISE
     cdh_cr = 0.011  # (at cl=0.12) CRUISE
     cdv_cr = 0.013  # (at cl=0) CRUISE
     cdfus_cr = 0.19 #
     cdnac_cr=0.2  #
+    cdflap_cr= 0
 
-    cdw_to = 0.090  # (at cl=1.5) TO
+
+    cdw_to = 0.095  # (at cl=1.4) TO
     cdh_to = 0.045  # (at cl=0.12) TO
     cdv_to = 0.013  # (at cl=0) TO
     cdfus_to = 0.3   #
     cdnac_to= 0.2  #
+    cdflap_to= .3*0.0144*0.36*(20-10)
 
     cdw_dr = 0  # (at cl=1.5) TO
     cdh_dr = 0  # (at cl=0.12) TO
     cdv_dr = 0.013  # (at cl=0) TO
-    cdfus_dr = 0.19  #
+    cdfus_dr = 0.25  #
     cdnac_dr = 0  #
-
+    cdflap_dr=0   #
 
     cdw0=0.008  #
     cdh0=0.008  #
     cdv0=0.013  #
     cdfus0=0.19  #
     cdnac0= 0.2
-
+    cdflap0=.3*0.0144*0.36*(60-10)
 
 
     if number==2:
@@ -128,6 +131,7 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
         cdv=cdv_to
         cdfus=cdfus_to
         cdnac=cdnac_to
+        cdflap=cdflap_to
 
     elif number==1:
         cdw=cdw_cr
@@ -135,6 +139,7 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
         cdv=cdv_cr
         cdfus=cdfus_cr
         cdnac=cdnac_cr
+        cdflap=cdflap_cr
 
     elif number==0:
         cdw = cdw_dr
@@ -142,6 +147,8 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
         cdv = cdv_dr
         cdfus = cdfus_dr
         cdnac = cdnac_dr
+        cdflap=cdflap_dr
+
     else:
         print("First input should be number: 0= driving, 1=cruise, 2=take-off")
 
@@ -155,8 +162,10 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
     dvtail = cdv * 0.5 * rho * v_inf ** 2 * emp_vals().S_v
     dfus= cdfus * 0.5 * rho * v_inf ** 2 * area_fus
     dnac= cdnac * 0.5 * rho * v_inf ** 2 * (math.pi * (d_nac/2) ** 2)
+    dflap= cdflap*0.5* rho * (1.1*3.2) * wing_vals().S*.313 + (v_wakeCP) ** 2 * wing_vals().S*0.173+ (v_wakeHLP) ** 2 * wing_vals().S*0.524)
 
-    d=dwing+dfus+dhtail+dvtail+dnac
+
+    d=dwing+dfus+dhtail+dvtail+dnac+dflap
     return d, cd0
 
 def propEfficiency(BHP, V, rho, Dp, Nv):
