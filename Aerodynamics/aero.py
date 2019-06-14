@@ -162,7 +162,7 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
     dvtail = cdv * 0.5 * rho * v_inf ** 2 * emp_vals().S_v
     dfus= cdfus * 0.5 * rho * v_inf ** 2 * area_fus
     dnac= cdnac * 0.5 * rho * v_inf ** 2 * (math.pi * (d_nac/2) ** 2)
-    dflap= cdflap*0.5* rho * (1.1*3.2) * wing_vals().S*.313 + (v_wakeCP) ** 2 * wing_vals().S*0.173+ (v_wakeHLP) ** 2 * wing_vals().S*0.524)
+    dflap= cdflap*0.5* rho * ((v_inf) ** 2 * wing_vals().S*0.3636*.313 + (v_wakeCP) ** 2 * wing_vals().S*0.3636*0.173+ (v_wakeHLP) ** 2 * wing_vals().S*0.3636*0.524)
 
 
     d=dwing+dfus+dhtail+dvtail+dnac+dflap

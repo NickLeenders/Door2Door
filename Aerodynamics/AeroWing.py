@@ -26,7 +26,7 @@ twist=0 #deg/m
 
 clextra=0.9
 CLextra=0.9*clextra*0.36*math.cos(0.0306154311)
-cl_max=1.4 +CLextra  
+cl_max=1.4 +CLextra
 
 
 ######
