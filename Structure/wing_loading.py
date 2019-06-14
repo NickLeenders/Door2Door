@@ -32,7 +32,9 @@ def wing_load(static= False,show=True,grph=False):
         T_cp = 0
         T_hlp = 0
         
-    
+    #Z-upwards defined
+    #X-forward defined
+    #y-doesn't matter
     R_z = -(W_hlp *4 + W_cp + W_w*b/2 - L * b/2)
     R_x = -(T_hlp *4 + T_cp - D * b/2)
     R_y = 0.0
@@ -122,7 +124,8 @@ def wing_load(static= False,show=True,grph=False):
              plt.xlabel('y [m]')
              plt.ylabel('Internal Shear [N]')
              plt.plot(ys,shr_x)
-        return data , grph
+             plt.show()
+        return data , grph, R_x, M_z
     
     
 def wing_deflec(data,grph,E,I_xx,I_zz):
@@ -182,14 +185,14 @@ def wing_deflec(data,grph,E,I_xx,I_zz):
     return v_z , v_x    
 
 a = wing_load(grph=True)
-b = wing_deflec(a[0],a[1],69.9e9,1e-6,1e-5)
+b = wing_deflec(a[0],a[1],71.7e9,1e-6,4.03e-5)
 
 def inert_req(E,max_def,tol):
     a = wing_load()
     rnge = [0.0,1.0]
     err=99999
     while abs(err)>tol:
-        mid = (rnge[0] + rnge[1] )/2
+        mid = (rnge[0] + rnge[1] ) / 2
         defl = wing_deflec(a[0],a[1],E,6.5e-6,mid)
         err=defl[0]-max_def
         if err<0:
@@ -198,9 +201,13 @@ def inert_req(E,max_def,tol):
             rnge[0] = mid
     return mid
 
-moi = inert_req(87.11e9,0.04,1e-9)
-        
-        
+moi = inert_req(71.7e9,0.04,1e-9)
+
 #FINAL VALUE
 b = wing_deflec(a[0],a[1],228e9,2.184e-4,6.739e-6)
+
+print moi   
+print a[2]  
+print a[3]
+
 
