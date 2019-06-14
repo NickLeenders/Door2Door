@@ -60,4 +60,3 @@ class w_components:
         self.w_battery = 75  # TODO not done yet
         self.w_tank = 45.39  # Done
         self.w_cargo = 40
-        self.w_motor = 50  # ground motor
