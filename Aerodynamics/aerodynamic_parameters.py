@@ -35,7 +35,7 @@ class aero_vals():
 
 
         #self.rho= findrho(altitude)
-        self.vinfcr = 260/3.6 # m/s
+        self.vinfcr = 250/3.6 # m/s
         self.vinf_takeoff = 30.8  # m/s
         self.vinf_land= 39 #m/s
         self.vstall = self.vinf_takeoff/1.2 # m/s
@@ -82,6 +82,7 @@ class emp_vals():
         self.trh = 0.15 #Maximum Thickness of horizontal tail
         self.tch=0.10 # Thickness chord ratio horizontal tail
         self.num_htail = 1 #Number of horizontal tails
+        self.elevator_max_defl = -25 * pi /180 #maximum elevator deflection
         
         self.S_v = 1.29 #Vertial tail surface area
         self.b_v = 1.3534 #Span of vertical tail surface

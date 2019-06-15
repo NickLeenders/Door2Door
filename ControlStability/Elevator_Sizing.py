@@ -5,21 +5,23 @@ import matplotlib.pyplot as plt
 import sys
 sys.path.insert(0, '../Airframe/')
 sys.path.insert(0, '../Aerodynamics/')
-from aerodynamic_parameters import aero_vals, wing_vals
+sys.path.insert(0, '../PowerElectrical/')
+from aerodynamic_parameters import aero_vals, wing_vals, emp_vals
+from masses_cg_positions import x_positions, z_positions
+from OEW_CG import function_XCG, function_ZCG
+from aero import Propellers
+from power import ThrustCalculator
 
 
 #Parameters Required For Calculation
 
-defl_max = -25
 
 g = 9.80665
-Iyy = 1825
+Iyy = 9800
 theta_dot_dot = 12/57.3
 mu = 0.04
-T = 3927.303
 
 m = 1930
-Sh = 9.5288*0.24
 
 dCLflap = 0.5
 CL0 = 0.24
@@ -31,16 +33,23 @@ ih = -1
 nh = 0.96
 be_bh = 1.0
 
-xmg = 5.0
-xcg = 2.5544
-xach = 4.73
-xacwf = 2.511
-zd = 1.037
-zmg = 0.15
-zt = 1.7
-zcg = 1.037
-h = 1.7
-h0 = 1.037
+
+Cruise_t = ThrustCalculator(1930, 34.1, 36.10, 58.27,  0.0, 1.0, 0, 1.1, 1)
+Cruise_l = Propellers(Cruise_t.thrust, Cruise_t.velocity,
+                                Cruise_t.rho, Cruise_t.aero_vals.cl_cr, 0)#update weight value
+T = Cruise_l.thrustCP + Cruise_l.thrustHLP
+
+xmg = x_positions().x_wheel_bk
+xcg = function_XCG()
+xach = x_positions().x_tail - (0.7456*aero_vals().x_ac)
+xacwf = aero_vals().mac_position+(wing_vals().MAC*aero_vals().x_ac)
+zd = function_ZCG()
+zmg = z_positions().z_drivetrain
+zt = z_positions().z_propeller
+zcg = function_ZCG()
+h = zt
+h0 = zcg
+
 
 def elevator_sizing():
     # Calculation
@@ -51,7 +60,6 @@ def elevator_sizing():
     CDto = CD0to + k*CLto**2
 
     Dto = 0.5*aero_vals().rho0*aero_vals().vstall**2*wing_vals().S*CDto
-    #Lto = 0.5*aero_vals().rho0*aero_vals().vstall**2*wing_vals().S*CLto
     Lto = 1.1*m*g
 
     Macwf = 0.5*aero_vals().rho0*aero_vals().vstall**2*aero_vals().cm_ac*wing_vals().S*wing_vals().MAC
@@ -67,48 +75,55 @@ def elevator_sizing():
     Mlwf = Lto*(xmg-xacwf)
     Ma = m*a*(zcg-zmg)
 
-    print (Mw)
-    print (Md)
-    print (Mt)
-    print(Mlwf)
-    print (Ma)
+    # print ('Mw', Mw)
+    # print('Md', Md)
+    # print('Mt', Mt)
+    # print('Mlwf', Mlwf)
+    # print('Ma', Ma)
 
     Lh = (Mlwf + Macwf + Ma + Mw + Md + Mt - Iyy*theta_dot_dot)/(xach-xmg)
-    print (Iyy*theta_dot_dot)
-    print (Lh)
-    CLh = (2*Lh)/(aero_vals().rho0*aero_vals().vstall**2*Sh)
+
+    # print ('Lh', Lh)
+
+    CLh = (2*Lh)/(aero_vals().rho0*aero_vals().vstall**2*emp_vals().S_h)
     e0 = (2*CLto/(pi*wing_vals().A))*57.3
     deda = (2*aero_vals().cl_alpha_a_minus_h/(pi*wing_vals().A))
     e = (e0/57.3 + deda*aw/57.3) * 57.3
 
+    # print ('CLh', CLh)
+    # print ('e0', e0)
+    # print ('deda', deda)
+    # print ('e', e)
 
 
     ah = aw + ih - e
-    te = (ah/57.3+(aero_vals().cl_h/aero_vals().cl_alpha_h))/(defl_max/57.3)
+    te = (ah/57.3+(aero_vals().cl_h/aero_vals().cl_alpha_h))/(emp_vals().elevator_max_defl)
     ce_ch = (te*sqrt(0.7)/(0.8))**2
-    # print(ah)
-    # print (te)
-    # print (ce_ch)
 
-    Vh = (aero_vals().l_h*Sh)/(wing_vals().S*wing_vals().MAC)
+    # print ('ah', ah)
+    # print ('te', te)
+    # print ('ce/ch', ce_ch)
+
+
+    Vh = (aero_vals().l_h*emp_vals().S_h)/(wing_vals().S*wing_vals().MAC)
     Cmde = -aero_vals().cl_alpha_h*nh*Vh*be_bh*te
-    CLde = aero_vals().cl_alpha_h*nh*(Sh/wing_vals().S)*be_bh*te
+    CLde = aero_vals().cl_alpha_h*nh*(emp_vals().S_h/wing_vals().S)*be_bh*te
     CLhde = aero_vals().cl_alpha_h*te
 
-    print (Cmde)
-    print (CLde)
-    print (CLhde)
+    # print ('Vh', Vh)
+    # print ('Cmde', Cmde)
+    # print ('CLde', CLde)
+    # print ('CLhde', CLhde)
 
-
-
-    Cma = aero_vals().cl_alpha_a_minus_h*((xcg-xacwf)/wing_vals().MAC) - (aero_vals().cl_alpha_h*nh*(Sh/wing_vals().S)*(aero_vals().l_h/wing_vals().MAC)*(1-deda))
+    Cma = aero_vals().cl_alpha_a_minus_h*((xcg-xacwf)/wing_vals().MAC) - (aero_vals().cl_alpha_h*nh*(emp_vals().S_h/wing_vals().S)*(aero_vals().l_h/wing_vals().MAC)*(1-deda))
     q = 0.5*aero_vals().rho0*aero_vals().vinfcr**2
     CL1 = (2*m*g)/(aero_vals().rho0*aero_vals().vinfcr**2*wing_vals().S)
-    print (Cma)
-    # print (q)
-    # print (CL1)
+
+    # print ('Cma', Cma)
+    # print ('q', q)
+    # print ('CL1', CL1)
+
     de = (-((((-T*(zt-zcg)/(q*wing_vals().S*wing_vals().MAC)) + Cm0)*aero_vals().cl_alpha_a_minus_h + (CL1-CL0)*Cma)/(aero_vals().cl_alpha_a_minus_h*Cmde - Cma*CLde)))*57.3
-    # print (de)
 
     Vc_list = np.arange(1,187,1)
     q_list_sea = []
@@ -123,7 +138,6 @@ def elevator_sizing():
         q_list_cruise.append(0.5*aero_vals().rho_cr*Vc_list[i]**2)
         CL1_list_cruise.append((2*m*g)/(aero_vals().rho_cr*Vc_list[i]**2*wing_vals().S))
 
-    Vc_list_knot1 = np.array(Vc_list)/0.5144
     de_list_sea = []
     de_list_cruise = []
 
@@ -141,11 +155,9 @@ def elevator_sizing():
     plt.xlabel('Speed (m/s)')
     plt.ylabel(r'$\delta_E (deg)$')
     plt.xlim(0,70)
-    plt.ylim(-40, 3)
+    plt.ylim(-30, 3)
     plt.gca().invert_yaxis()
     plt.grid()
     plt.gca().legend(('Sea level', 'Cruise altitude'), loc=2)
     plt.title("Variation of elevator deflection with respect to aircraft speed")
     plt.show()
-
-print (elevator_sizing())
