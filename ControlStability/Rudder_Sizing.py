@@ -43,13 +43,14 @@ def rudder_sizing():
     C_R = C_R_C_v*emp_vals().c_v #[m], rudder chord
     A_R = C_R*b_R #[m^2], rudder area
 
-    # print ('NA',N_A)
-    # print ('Cndr',C_n_dr)
-    # print ('cr/cv',C_R_C_v)
-    # print ('tau_r',tau_R)
-    # print ("The chord of the rudder is: ", C_R, "[m]")
-    # print ("The span of the rudder is: ", b_R, "[m]")
-    # print ("The area of the rudder is: ", A_R, "[m^2]")
+    print ('NA',N_A)
+    print ('Cndr',C_n_dr)
+    print ('cr/cv',C_R_C_v)
+    print ('tau_r',tau_R)
+    print ("The chord of the rudder is: ", C_R, "[m]")
+    print ("The span of the rudder is: ", b_R, "[m]")
+    print ("The area of the rudder is: ", A_R, "[m^2]")
 
     return C_R, b_R, A_R
 
+print (rudder_sizing())

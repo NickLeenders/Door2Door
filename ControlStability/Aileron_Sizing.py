@@ -22,10 +22,12 @@ def aileron_sizing():
 
     t = aero_vals().roll_rate/P
 
-    # print ('Cr:',Cr)
-    # print ('clda:',clda)
-    # print ('clp:', clp)
-    # print ('P:',P)
-    # print ('t:', t)
+    print ('Cr:',Cr)
+    print ('clda:',clda)
+    print ('clp:', clp)
+    print ('P:',P)
+    print ('t:', t)
 
     return clda, clp, P, t
+
+print (aileron_sizing())

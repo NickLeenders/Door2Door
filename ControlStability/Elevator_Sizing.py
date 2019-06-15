@@ -17,7 +17,7 @@ from power import ThrustCalculator
 
 
 g = 9.80665
-Iyy = 9800
+Iyy = 13600
 theta_dot_dot = 12/57.3
 mu = 0.04
 
@@ -50,6 +50,14 @@ zcg = function_ZCG()
 h = zt
 h0 = zcg
 
+print ('xmg', xmg)
+print ('xcg', xcg)
+print ('xach', xach)
+print ('xacwf', xacwf)
+print ('zd', zd)
+print ('zmg', zmg)
+print ('zt', zt)
+print ('zcg', zcg)
 
 def elevator_sizing():
     # Calculation
@@ -75,34 +83,36 @@ def elevator_sizing():
     Mlwf = Lto*(xmg-xacwf)
     Ma = m*a*(zcg-zmg)
 
-    # print ('Mw', Mw)
-    # print('Md', Md)
-    # print('Mt', Mt)
-    # print('Mlwf', Mlwf)
-    # print('Ma', Ma)
+    print ('Mw', Mw)
+    print ('macw', Macwf)
+    print('Md', Md)
+    print('Mt', Mt)
+    print('Mlwf', Mlwf)
+    print('Ma', Ma)
 
     Lh = (Mlwf + Macwf + Ma + Mw + Md + Mt - Iyy*theta_dot_dot)/(xach-xmg)
 
-    # print ('Lh', Lh)
+    print ('Lh', Lh)
+    print ('IyyThetadotdot', Iyy*theta_dot_dot)
 
     CLh = (2*Lh)/(aero_vals().rho0*aero_vals().vstall**2*emp_vals().S_h)
     e0 = (2*CLto/(pi*wing_vals().A))*57.3
     deda = (2*aero_vals().cl_alpha_a_minus_h/(pi*wing_vals().A))
     e = (e0/57.3 + deda*aw/57.3) * 57.3
 
-    # print ('CLh', CLh)
-    # print ('e0', e0)
-    # print ('deda', deda)
-    # print ('e', e)
+    print ('CLh', CLh)
+    print ('e0', e0)
+    print ('deda', deda)
+    print ('e', e)
 
 
     ah = aw + ih - e
     te = (ah/57.3+(aero_vals().cl_h/aero_vals().cl_alpha_h))/(emp_vals().elevator_max_defl)
     ce_ch = (te*sqrt(0.7)/(0.8))**2
 
-    # print ('ah', ah)
-    # print ('te', te)
-    # print ('ce/ch', ce_ch)
+    print ('ah', ah)
+    print ('te', te)
+    print ('ce/ch', ce_ch)
 
 
     Vh = (aero_vals().l_h*emp_vals().S_h)/(wing_vals().S*wing_vals().MAC)
@@ -110,18 +120,18 @@ def elevator_sizing():
     CLde = aero_vals().cl_alpha_h*nh*(emp_vals().S_h/wing_vals().S)*be_bh*te
     CLhde = aero_vals().cl_alpha_h*te
 
-    # print ('Vh', Vh)
-    # print ('Cmde', Cmde)
-    # print ('CLde', CLde)
-    # print ('CLhde', CLhde)
+    print ('Vh', Vh)
+    print ('Cmde', Cmde)
+    print ('CLde', CLde)
+    print ('CLhde', CLhde)
 
     Cma = aero_vals().cl_alpha_a_minus_h*((xcg-xacwf)/wing_vals().MAC) - (aero_vals().cl_alpha_h*nh*(emp_vals().S_h/wing_vals().S)*(aero_vals().l_h/wing_vals().MAC)*(1-deda))
     q = 0.5*aero_vals().rho0*aero_vals().vinfcr**2
     CL1 = (2*m*g)/(aero_vals().rho0*aero_vals().vinfcr**2*wing_vals().S)
 
-    # print ('Cma', Cma)
-    # print ('q', q)
-    # print ('CL1', CL1)
+    print ('Cma', Cma)
+    print ('q', q)
+    print ('CL1', CL1)
 
     de = (-((((-T*(zt-zcg)/(q*wing_vals().S*wing_vals().MAC)) + Cm0)*aero_vals().cl_alpha_a_minus_h + (CL1-CL0)*Cma)/(aero_vals().cl_alpha_a_minus_h*Cmde - Cma*CLde)))*57.3
 
@@ -152,12 +162,13 @@ def elevator_sizing():
 
     plt.plot(Vc_list, de_list_sea)
     plt.plot(Vc_list, de_list_cruise)
-    plt.xlabel('Speed (m/s)')
+    plt.xlabel('Velocity (m/s)')
     plt.ylabel(r'$\delta_E (deg)$')
     plt.xlim(0,70)
-    plt.ylim(-30, 3)
+    plt.ylim(-25, 3)
     plt.gca().invert_yaxis()
     plt.grid()
     plt.gca().legend(('Sea level', 'Cruise altitude'), loc=2)
-    plt.title("Variation of elevator deflection with respect to aircraft speed")
+    plt.title("Variation of elevator deflection with respect to aircraft velocity")
     plt.show()
+
