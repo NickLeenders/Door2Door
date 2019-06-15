@@ -14,7 +14,7 @@ class aero_vals():
         self.cl_a_minus_h = 1.5  # TODO cl from aircraft less horizontal tail
         self.cl_alpha_a_minus_h = 6.3 # TODO lift rate coefficient of aircraft less tail
         self.cm_ac = -0.08# TODO moment coefficient around aerodynamic center
-        self.cd0 =0.04794141815595157 # TODO drag coefficient at zero lift
+        self.cd0 = 0.04794141815595157 # TODO drag coefficient at zero lift
         self.l_h = 2.4 # TODO distance wing ac to horizontal tail ac
         self.x_ac = 0.25 # TODO x distance of the ac
         self.mac_position = 2.227 # TODO Longitudinal position of the MAC
@@ -35,7 +35,7 @@ class aero_vals():
 
 
         #self.rho= findrho(altitude)
-        self.vinfcr = 250/3.6 # m/s
+        self.vinfcr = 260/3.6 # m/s
         self.vinf_takeoff = 30.8  # m/s
         self.vinf_land= 39 #m/s
         self.vstall = self.vinf_takeoff/1.2 # m/s
@@ -43,7 +43,7 @@ class aero_vals():
         self.cl_takeoff=1.7            # so that the aero_vals object will have the correct Cl for the airspeed
         self.cl_climb=1.2
         self.cl_descent = 0.5
-        self.roll_rate = 60*pi/180 # TODO Roll Rate Class I
+        self.roll_rate = 60*pi/180 # Roll Rate Class I
 
         self.frontal_area = 2.4*1.7
 

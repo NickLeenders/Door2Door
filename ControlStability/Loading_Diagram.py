@@ -1,12 +1,15 @@
 from math import *
-from OEW_CG import *
 import matplotlib.pyplot as plt
 import numpy as np
-
 import sys
+
 sys.path.insert(0, '../Airframe/')
 sys.path.insert(0, '../Aerodynamics/')
+sys.path.insert(0, '../Structure/')
+
+from mass_calculation import MTOW, wing_weight, emp_weight
 from masses_cg_positions import x_positions, z_positions, w_components
+from OEW_CG import function_OEW_CG, function_total_EOW_mass, function_XCG, function_ZCG
 from aerodynamic_parameters import aero_vals, wing_vals
 
 
@@ -16,8 +19,8 @@ def loading_diagram():
     cargo_cg = [function_OEW_CG()]
     cargo_mass = [function_total_EOW_mass()]
 
-    cargo_cg.append((cargo_cg[0]*cargo_mass[0] + x_positions().x_cargo*w_components(wing_weight(1634), emp_weight(1634)).w_cargo)/(cargo_mass[0] + w_components(wing_weight(1634), emp_weight(1634)).w_cargo))
-    cargo_mass.append(cargo_mass[0] + w_components(wing_weight(1634), emp_weight(1634)).w_cargo)
+    cargo_cg.append((cargo_cg[0]*cargo_mass[0] + x_positions().x_cargo*w_components(wing_weight(MTOW), emp_weight(MTOW)).w_cargo)/(cargo_mass[0] + w_components(wing_weight(MTOW), emp_weight(MTOW)).w_cargo))
+    cargo_mass.append(cargo_mass[0] + w_components(wing_weight(MTOW), emp_weight(MTOW)).w_cargo)
 
     " *** Payload *** "
 
@@ -54,8 +57,8 @@ def loading_diagram():
     fuel_cg = [payload_cg_fb[-1]]
     fuel_mass = [payload_mass_fb[-1]]
 
-    fuel_cg.append((fuel_cg[0]*fuel_mass[0] + x_positions().x_fuel*w_components(wing_weight(1634), emp_weight(1634)).w_fuel)/(fuel_mass[0] + w_components(wing_weight(1634), emp_weight(1634)).w_fuel))
-    fuel_mass.append(fuel_mass[0] + w_components(wing_weight(1634), emp_weight(1634)).w_fuel)
+    fuel_cg.append((fuel_cg[0]*fuel_mass[0] + x_positions().x_fuel*w_components(wing_weight(MTOW), emp_weight(MTOW)).w_fuel)/(fuel_mass[0] + w_components(wing_weight(MTOW), emp_weight(MTOW)).w_fuel))
+    fuel_mass.append(fuel_mass[0] + w_components(wing_weight(MTOW), emp_weight(MTOW)).w_fuel)
 
     margin_min = min(cargo_cg + payload_cg_fb + fuel_cg)
     margin_max = max(cargo_cg + payload_cg_bf + fuel_cg)
@@ -83,6 +86,4 @@ def loading_diagram():
     # plt.gca().legend(('Cargo','Passenger (F-B)','Passenger (B-F)', "Fuel", '2% Safety Margin'), loc=2)
     # plt.show()
 
-    return margin_min_mac, margin_max_mac, margin_min_mac*1.08+2.241, margin_max_mac*1.08+2.241
-
-print (loading_diagram())
+    return margin_min_mac, margin_max_mac, margin_min_mac*wing_vals().MAC + aero_vals().mac_position, margin_max_mac*wing_vals().MAC + aero_vals().mac_position

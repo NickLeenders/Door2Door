@@ -3,20 +3,20 @@ sys.path.insert(0, '../Airframe/')
 sys.path.insert(0, '../Structure/')
 
 from masses_cg_positions import x_positions, z_positions, w_components
-from mass_calculation import wing_weight, emp_weight
+from mass_calculation import wing_weight, emp_weight, MTOW
 
-#TODO Fix 1634 by actual MTOW iteration
-w_tail = w_components(wing_weight(1634), emp_weight(1634)).w_tail
-w_structure = w_components(wing_weight(1634), emp_weight(1634)).w_structure
-w_propeller = w_components(wing_weight(1634), emp_weight(1634)).w_propeller
-w_wing = w_components(wing_weight(1634), emp_weight(1634)).w_wing
-w_drivetrain = w_components(wing_weight(1634), emp_weight(1634)).w_drivetrain
-w_fuel = w_components(wing_weight(1634), emp_weight(1634)).w_fuel
-w_cell = w_components(wing_weight(1634), emp_weight(1634)).w_cell
-w_payload = w_components(wing_weight(1634), emp_weight(1634)).w_payload
-w_battery = w_components(wing_weight(1634), emp_weight(1634)).w_battery
-w_tank = w_components(wing_weight(1634), emp_weight(1634)).w_tank
-w_cargo = w_components(wing_weight(1634), emp_weight(1634)).w_cargo
+#TODO Fix MTOW by actual MTOW iteration
+w_tail = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_tail
+w_structure = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_structure
+w_propeller = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_propeller
+w_wing = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_wing
+w_drivetrain = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_drivetrain
+w_fuel = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_fuel
+w_cell = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_cell
+w_payload = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_payload
+w_battery = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_battery
+w_tank = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_tank
+w_cargo = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_cargo
 
 z_tail = z_positions().z_tail
 z_structure = z_positions().z_structure
@@ -71,7 +71,3 @@ def function_ZCG():
                    w_tail + w_structure \
                    + w_propeller + w_wing + w_drivetrain + w_fuel + w_cell + w_payload + w_battery + w_tank + w_cargo)
     return (X_CG)
-
-print (function_XCG())
-print (function_ZCG())
-print (function_OEW_CG())
