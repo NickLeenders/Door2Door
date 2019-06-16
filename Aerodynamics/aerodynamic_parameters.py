@@ -36,10 +36,13 @@ class aero_vals():
 
         #self.rho= findrho(altitude)
         self.vinfcr = 250/3.6 # m/s
-        self.vinf_takeoff = 39  # m/s
+        self.vinf_takeoff = 30.8  # m/s
+        self.vinf_land= 39 #m/s
         self.vstall = self.vinf_takeoff/1.2 # m/s
-        self.cl_cr=0.657 #TODO this should be initialised with a function,
-        self.cl_takeoff=1.5            # so that the aero_vals object will have the correct Cl for the airspeed
+        self.cl_cr=0.75 #TODO this should be initialised with a function,
+        self.cl_takeoff=1.7            # so that the aero_vals object will have the correct Cl for the airspeed
+        self.cl_climb=1.2
+        self.cl_descent = 0.5
         self.roll_rate = 60*pi/180 # TODO Roll Rate Class I
 
         self.frontal_area = 2.4*1.7
