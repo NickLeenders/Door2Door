@@ -33,9 +33,9 @@ def power(wind_speed):
     power = []
     rho = 1.225
     area = (1.524/2)**2 * math.pi
-    eff = 0.05 #Theoretical limit is 59.6% average wind turbine is 35-45%
+    eff = 0.1 #Theoretical limit is 59.6% average wind turbine is 35-45%
     for i in wind_speed:
-        power_speed = rho * area * i**3 * eff
+        power_speed = 0.5 * rho * area * i**3 * eff
         power.append(power_speed)
     return power
 print(power(wind()))

@@ -25,14 +25,14 @@
   *** MASS SUMMARY BY ELEMENT TYPE ***
 
   TYPE      MASS
-     1   115.312    
+     1   56.9446    
  AN AVERAGE OF THE X-, Y-, AND Z-DIRECTION MASS TERMS ARE USED
 
-  Local memory allocated for solver              =    453.134 MB
-  Local memory required for in-core solution     =    436.606 MB
-  Local memory required for out-of-core solution =    252.968 MB
+  Local memory allocated for solver              =    438.213 MB
+  Local memory required for in-core solution     =    422.421 MB
+  Local memory required for out-of-core solution =    252.895 MB
 
- *** NOTE ***                            CP =      10.156   TIME= 19:51:12
+ *** NOTE ***                            CP =       9.125   TIME= 13:15:57
  The Distributed Sparse Matrix Solver is currently running in the        
  in-core memory mode.  This memory mode uses the most amount of memory   
  in order to avoid using the hard drive as much as possible, which most  
@@ -43,66 +43,70 @@
    *** ELEMENT RESULT CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1     57918  SOLID187      4.516   0.000078
+        1     57918  SOLID187      4.375   0.000076
         2       948  SURF154       0.016   0.000016
-        3       983  SURF154       0.047   0.000048
-        4       224  SURF154       0.031   0.000140
-        5       228  SURF154       0.000   0.000000
-        6       734  SURF154       0.016   0.000021
-        7       614  SURF154       0.031   0.000051
-        8       644  SURF154       0.016   0.000024
-        9       356  SURF154       0.000   0.000000
-       10       686  SURF154       0.000   0.000000
-       11       596  SURF154       0.031   0.000052
-       12       590  SURF154       0.047   0.000079
-       13       639  SURF154       0.047   0.000073
-       14       819  SURF154       0.000   0.000000
-       15       797  SURF154       0.047   0.000059
-       16       770  SURF154       0.062   0.000081
-       17       848  SURF154       0.094   0.000111
-       18       815  SURF154       0.031   0.000038
-       19       747  SURF154       0.016   0.000021
-       20       766  SURF154       0.000   0.000000
-       21       790  SURF154       0.078   0.000099
+        3       983  SURF154       0.031   0.000032
+        4       224  SURF154       0.016   0.000070
+        5       228  SURF154       0.031   0.000137
+        6       734  SURF154       0.031   0.000043
+        7       609  SURF154       0.031   0.000051
+        8       560  SURF154       0.000   0.000000
+        9       614  SURF154       0.047   0.000076
+       10       644  SURF154       0.031   0.000049
+       11       356  SURF154       0.016   0.000044
+       12       686  SURF154       0.031   0.000046
+       13       596  SURF154       0.031   0.000052
+       14       590  SURF154       0.031   0.000053
+       15       639  SURF154       0.016   0.000024
+       16       819  SURF154       0.047   0.000057
+       17       797  SURF154       0.031   0.000039
+       18       770  SURF154       0.031   0.000041
+       19       848  SURF154       0.031   0.000037
+       20       815  SURF154       0.031   0.000038
+       21       747  SURF154       0.047   0.000063
+       22       766  SURF154       0.031   0.000041
+       23       790  SURF154       0.016   0.000020
 
    *** NODAL LOAD CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1     57918  SOLID187      0.234   0.000004
-        2       948  SURF154       0.000   0.000000
+        1     57918  SOLID187      0.094   0.000002
+        2       948  SURF154       0.016   0.000016
         3       983  SURF154       0.000   0.000000
         4       224  SURF154       0.000   0.000000
         5       228  SURF154       0.000   0.000000
         6       734  SURF154       0.000   0.000000
-        7       614  SURF154       0.000   0.000000
-        8       644  SURF154       0.000   0.000000
-        9       356  SURF154       0.000   0.000000
-       10       686  SURF154       0.000   0.000000
-       11       596  SURF154       0.000   0.000000
-       12       590  SURF154       0.000   0.000000
-       13       639  SURF154       0.016   0.000024
-       14       819  SURF154       0.000   0.000000
-       15       797  SURF154       0.000   0.000000
-       16       770  SURF154       0.000   0.000000
-       17       848  SURF154       0.000   0.000000
-       18       815  SURF154       0.000   0.000000
-       19       747  SURF154       0.000   0.000000
-       20       766  SURF154       0.000   0.000000
-       21       790  SURF154       0.000   0.000000
+        7       609  SURF154       0.000   0.000000
+        8       560  SURF154       0.000   0.000000
+        9       614  SURF154       0.016   0.000025
+       10       644  SURF154       0.000   0.000000
+       11       356  SURF154       0.000   0.000000
+       12       686  SURF154       0.000   0.000000
+       13       596  SURF154       0.000   0.000000
+       14       590  SURF154       0.016   0.000026
+       15       639  SURF154       0.000   0.000000
+       16       819  SURF154       0.000   0.000000
+       17       797  SURF154       0.000   0.000000
+       18       770  SURF154       0.000   0.000000
+       19       848  SURF154       0.000   0.000000
+       20       815  SURF154       0.000   0.000000
+       21       747  SURF154       0.000   0.000000
+       22       766  SURF154       0.000   0.000000
+       23       790  SURF154       0.000   0.000000
  *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
  *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
 
 
  *** ANSYS BINARY FILE STATISTICS
   BUFFER SIZE USED= 16384
-      100.812 MB WRITTEN ON ELEMENT SAVED DATA FILE: file1.esav
-       81.250 MB WRITTEN ON ASSEMBLED MATRIX FILE: file1.full
-       22.188 MB WRITTEN ON RESULTS FILE: file1.rst
+      101.812 MB WRITTEN ON ELEMENT SAVED DATA FILE: file1.esav
+       81.812 MB WRITTEN ON ASSEMBLED MATRIX FILE: file1.full
+       22.688 MB WRITTEN ON RESULTS FILE: file1.rst
 
  FINISH SOLUTION PROCESSING
 
 
- ***** ROUTINE COMPLETED *****  CP =        18.438
+ ***** ROUTINE COMPLETED *****  CP =        21.016
 
 
 
@@ -122,11 +126,11 @@
  |---------------------------------------------------------------------------|
  |                                                                           |
  | Database Requested(-db)     1 MB    Scratch Memory Requested      1024 MB |
- | Maximum Database Used       1 MB    Maximum Scratch Memory Used    513 MB |
+ | Maximum Database Used       1 MB    Maximum Scratch Memory Used    500 MB |
  |                                                                           |
  |---------------------------------------------------------------------------|
  |                                                                           |
- |        CP Time      (sec) =         18.469       Time  =  19:51:31        |
- |        Elapsed Time (sec) =         44.000       Date  =  06/13/2019      |
+ |        CP Time      (sec) =         21.047       Time  =  13:16:19        |
+ |        Elapsed Time (sec) =         36.000       Date  =  06/16/2019      |
  |                                                                           |
  *---------------------------------------------------------------------------*

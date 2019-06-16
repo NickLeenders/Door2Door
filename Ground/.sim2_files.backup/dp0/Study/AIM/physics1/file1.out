@@ -1,0 +1,132 @@
+
+ PRINTOUT RESUMED BY /GOP
+
+ *****  ANSYS SOLUTION ROUTINE  *****
+
+ PRINTOUT RESUMED BY /GOP
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL       NONE               
+      NSOL        ALL               
+      RSOL        ALL               
+      STRS        ALL               
+
+
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1   115.312    
+ AN AVERAGE OF THE X-, Y-, AND Z-DIRECTION MASS TERMS ARE USED
+
+  Local memory allocated for solver              =    453.134 MB
+  Local memory required for in-core solution     =    436.606 MB
+  Local memory required for out-of-core solution =    252.968 MB
+
+ *** NOTE ***                            CP =      10.156   TIME= 19:51:12
+ The Distributed Sparse Matrix Solver is currently running in the        
+ in-core memory mode.  This memory mode uses the most amount of memory   
+ in order to avoid using the hard drive as much as possible, which most  
+ often results in the fastest solution time.  This mode is recommended   
+ if enough physical memory is present to accommodate all of the solver   
+ data.                                                                   
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1     57918  SOLID187      4.516   0.000078
+        2       948  SURF154       0.016   0.000016
+        3       983  SURF154       0.047   0.000048
+        4       224  SURF154       0.031   0.000140
+        5       228  SURF154       0.000   0.000000
+        6       734  SURF154       0.016   0.000021
+        7       614  SURF154       0.031   0.000051
+        8       644  SURF154       0.016   0.000024
+        9       356  SURF154       0.000   0.000000
+       10       686  SURF154       0.000   0.000000
+       11       596  SURF154       0.031   0.000052
+       12       590  SURF154       0.047   0.000079
+       13       639  SURF154       0.047   0.000073
+       14       819  SURF154       0.000   0.000000
+       15       797  SURF154       0.047   0.000059
+       16       770  SURF154       0.062   0.000081
+       17       848  SURF154       0.094   0.000111
+       18       815  SURF154       0.031   0.000038
+       19       747  SURF154       0.016   0.000021
+       20       766  SURF154       0.000   0.000000
+       21       790  SURF154       0.078   0.000099
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1     57918  SOLID187      0.234   0.000004
+        2       948  SURF154       0.000   0.000000
+        3       983  SURF154       0.000   0.000000
+        4       224  SURF154       0.000   0.000000
+        5       228  SURF154       0.000   0.000000
+        6       734  SURF154       0.000   0.000000
+        7       614  SURF154       0.000   0.000000
+        8       644  SURF154       0.000   0.000000
+        9       356  SURF154       0.000   0.000000
+       10       686  SURF154       0.000   0.000000
+       11       596  SURF154       0.000   0.000000
+       12       590  SURF154       0.000   0.000000
+       13       639  SURF154       0.016   0.000024
+       14       819  SURF154       0.000   0.000000
+       15       797  SURF154       0.000   0.000000
+       16       770  SURF154       0.000   0.000000
+       17       848  SURF154       0.000   0.000000
+       18       815  SURF154       0.000   0.000000
+       19       747  SURF154       0.000   0.000000
+       20       766  SURF154       0.000   0.000000
+       21       790  SURF154       0.000   0.000000
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** ANSYS BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+      100.812 MB WRITTEN ON ELEMENT SAVED DATA FILE: file1.esav
+       81.250 MB WRITTEN ON ASSEMBLED MATRIX FILE: file1.full
+       22.188 MB WRITTEN ON RESULTS FILE: file1.rst
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  CP =        18.438
+
+
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          0
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
+
+ *---------------------------------------------------------------------------*
+ |                                                                           |
+ |                       DISTRIBUTED ANSYS RUN COMPLETED                     |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Ansys Release 19.1          Build 19.1         UP20180418     WINDOWS x64 |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Database Requested(-db)     1 MB    Scratch Memory Requested      1024 MB |
+ | Maximum Database Used       1 MB    Maximum Scratch Memory Used    513 MB |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ |        CP Time      (sec) =         18.469       Time  =  19:51:31        |
+ |        Elapsed Time (sec) =         44.000       Date  =  06/13/2019      |
+ |                                                                           |
+ *---------------------------------------------------------------------------*
