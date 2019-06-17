@@ -40,7 +40,7 @@ class z_positions:
         self.z_drivetrain = 0.15
         self.z_fuel = 0.5
         self.z_cell = 0.5
-        self.z_payload = 0.7
+        self.z_passenger = 0.7
         self.z_battery = 0.35
         self.z_tank = 0.7
         self.z_cargo = 0.5
