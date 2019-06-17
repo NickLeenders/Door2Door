@@ -25,14 +25,14 @@ def wing_load(static= False,show=True,grph=False):
         cruiseL = aero.Propellers(cruiseT.thrust, cruiseT.velocity,
                                   cruise.rho, cruiseT.aero_vals.cl_cr, 0)
 
-    L =(MTOW * 9.81*3.5)/(wing_vals().b - 2.4)
+    L =(3.5*MTOW * 9.81)/(wing_vals().b - 2.4)
     W_w = (Wing_w*9.81)/(wing_vals().b - 2.4)
     T_cp = cruiseL.thrustCP / cruiseL.numberCP
     T_hlp = cruiseL.thrustHLP / cruiseL.numberHLP
     W_hlp = 52 *9.81 #LINK THESE LATER
     W_cp = 74 *9.81  #LINK THESE LATER
     c = 1.2 #link this
-    D = drag(1, cruiseT.velocity, cruiseL.v_wakeCP, cruiseT.v_wakeHLP, cruiseT.rho)[0]
+    D = drag(1, cruiseT.velocity, cruiseL.v_wakeCP, cruiseT.v_wakeHLP, cruiseT.rho)[0]/(wing_vals().b - 2.4)
     b = wing_vals().b - 2.4
     y = [0.3,0.9,1.5,2.1,3.2]
     if static:
@@ -113,31 +113,35 @@ def wing_load(static= False,show=True,grph=False):
         
         data =[ys,shr_z, shr_x , mom_x , mom_z]
         if grph:
-             plt.subplot(321)
+             plt.subplot(221)
              plt.title('Moment Diagram (x axis)')
              plt.xlabel('y [m]')
              plt.ylabel('Internal Moment [Nm]')
              plt.plot(ys,mom_x)
-             plt.subplot(322)
+             plt.subplot(222)
              plt.title('Moment Diagram (z axis)')
              plt.xlabel('y [m]')
              plt.ylabel('Internal Moment [Nm]')
              plt.plot(ys,mom_z)
-             plt.subplot(325)
+             plt.subplot(223)
              plt.title('Shear Diagram (y-z plane)')
              plt.xlabel('y [m]')
              plt.ylabel('Internal Shear [N]')
              plt.plot(ys,shr_z)
-             plt.subplot(326)
+             plt.subplot(224)
              plt.title('Shear Diagram (x-y plane)')
              plt.xlabel('y [m]')
              plt.ylabel('Internal Shear [N]')
              plt.plot(ys,shr_x)
              plt.show()
-        return data , grph, R_x, M_z
+        return data , grph, R_z, R_x, M_z
     
     
 def wing_deflec(data,grph,E,I_xx,I_zz):
+    if grph:
+        grph=False
+    else:
+        grph=True
     int_z_1=[]
     int_x_1=[]
     for i in range(len(data[3])-1):
@@ -181,13 +185,13 @@ def wing_deflec(data,grph,E,I_xx,I_zz):
     #plt.subplot(428)
     #plt.plot(data[0],int_x_2)
     if grph:
-        plt.subplot(425)
+        plt.subplot(221)
         plt.plot(data[0],int_z_1)
-        plt.subplot(426)
+        plt.subplot(222)
         plt.plot(data[0],int_x_1)
-        plt.subplot(427)
+        plt.subplot(223)
         plt.plot(data[0],int_z_2)
-        plt.subplot(428)
+        plt.subplot(224)
         plt.plot(data[0],int_x_2)
     v_z = max(int_z_2)
     v_x = max(int_x_2)
@@ -213,10 +217,9 @@ def inert_req(E,max_def,tol):
 moi = inert_req(71.7e9,0.04,1e-9)
 
 #FINAL VALUE
-b = wing_deflec(a[0],a[1],228e9,2.184e-4,6.739e-6)
+#b = wing_deflec(a[0],a[1],228e9,2.184e-4,6.739e-6)
 
-print moi   
-print a[2]  
-print a[3]
+##print a[2]  
+#print a[3]
 
 
