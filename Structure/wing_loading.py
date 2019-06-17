@@ -134,14 +134,10 @@ def wing_load(static= False,show=True,grph=False):
              plt.ylabel('Internal Shear [N]')
              plt.plot(ys,shr_x)
              plt.show()
-        return data , grph, R_z, R_x, M_z
+        return data , grph, R_z, M_x
     
     
 def wing_deflec(data,grph,E,I_xx,I_zz):
-    if grph:
-        grph=False
-    else:
-        grph=True
     int_z_1=[]
     int_x_1=[]
     for i in range(len(data[3])-1):
@@ -198,7 +194,7 @@ def wing_deflec(data,grph,E,I_xx,I_zz):
     return v_z , v_x    
 
 a = wing_load(grph=True)
-b = wing_deflec(a[0],a[1],71.7e9,1e-6,4.03e-5)
+b = wing_deflec(a[0],False,71.7e9,1e-6,4.03e-5)
 
 def inert_req(E,max_def,tol):
     a = wing_load()
