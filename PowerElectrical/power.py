@@ -134,7 +134,7 @@ def fuelCalc():
     takeOff_power = []
     takeOff_energy = []
 
-    for t in np.arange(5*dt, 39.0/acc, dt):
+    for t in np.arange(5*dt, 35.0/acc, dt):
         takeOff_t = ThrustCalculator(MTOW - massHydrogen, acc*t, acc*t, acc*t, 0.0, dt, 0, acc, 1)
         takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
                                     takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff, 1)
@@ -161,7 +161,9 @@ def fuelCalc():
     print("Altitude: ", takeOff_t.altitude, "Velocity: ", takeOff_t.velocity)
     print("HLP eff: ", takeOff_l.efficiencyHLP, "CP eff: ", takeOff_l.efficiencyCP)
     print("HLP thrust: ", takeOff_l.thrustHLP, "CP thrust: ", takeOff_l.thrustCP)
-    print("wake CP: ", takeOff_l.v_wakeCP, "wake HLP: ", takeOff_l.v_wakeHLP)
+
+    print("Wake velocity CP: ", takeOff_l.v_wakeCP, " Wake velocity HLP: ", takeOff_l.v_wakeHLP)
+
     #CLIMB
     climb_t = ThrustCalculator(MTOW - massHydrogen, 45.0, 45.0, 45.0, 750.0, 1500.0/7.44, 7.44)
     climb_l = aero.Propellers(climb_t.thrust, climb_t.velocity,
@@ -256,14 +258,14 @@ def fuelCalc():
     print("HLP thrust: ", landStart_l.thrustHLP, "CP thrust: ", landStart_l.thrustCP)
 
     #LANDING
-    landing_t = ThrustCalculator(MTOW - massHydrogen, 39.0, 39.0, 39.0, 750.0, (MTOW - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
+    landing_t = ThrustCalculator(MTOW - massHydrogen, 35.0, 35.0, 35.0, 750.0, (MTOW - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
     landing_l = aero.Propellers(landing_t.thrust, landing_t.velocity,
                                   landing_t.rho, landing_t.aero_vals.cl_takeoff, 1)
     temp = landing_t
     temp.thrust = 0.0
     while (abs(landing_t.thrust - temp.thrust) > 0.005):
         temp = landing_t
-        landing_t = ThrustCalculator(MTOW - massHydrogen, 39.0, landing_l.v_wakeCP, landing_l.v_wakeHLP, 750.0, (MTWO - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
+        landing_t = ThrustCalculator(MTOW - massHydrogen, 35.0, landing_l.v_wakeCP, landing_l.v_wakeHLP, 750.0, (MTWO - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
         landing_l = aero.Propellers(landing_t.thrust, landing_t.velocity,
                                   landing_t.rho, landing_t.aero_vals.cl_takeoff, 1)
     print("#########################")
