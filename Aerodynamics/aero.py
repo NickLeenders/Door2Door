@@ -25,23 +25,26 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
     cfe=0.0045
 
 
-    taperh=1.0
+    taperh=0.64
     tcth=0.12
     tcrh=0.12
-    Sexph=3.84
+    Sexph=emp_vals().S_h
 
-    taperv=1.0
-    tctv = 0.12
-    tcrv = 0.12
-    Sexpv = 1.2*1.5
+    taperv=0.9
+    tctv = 0.3
+    tcrv = 0.3
+    Sexpv = emp_vals().S_v
 
-    #Swetf=math.pi*df*lf*((0.5+0.135*ln/lf)**(2/3))*(1.015+0.3/(lambdaf**1.5))
-    #Swetv = 2 * Sexpv * (1 + 0.25 * tcrv * (1 + taperv * tctv / tcrv) / (1 + taperv))
-    #Sweth = 2 * Sexph * (1 + 0.25 * tcrh * (1 + taperh * tcth / tcrh) / (1 + taperh))
+    tcrw=0.1
 
-    #CD0=cfe*(Sweth+Swetv+Swetf)/(S)
-    #cd=CD0+cdw
-    #d = cd * S * 0.5 * 1.09 * 69.4** 2
+
+    Swetf=math.pi*df*lf*((0.5+0.135*ln/lf)**(2/3))*(1.015+0.3/(lambdaf**1.5))
+    Swetv = 2 * Sexpv * (1 + 0.25 * tcrv * (1 + taperv * tctv / tcrv) / (1 + taperv))
+    Sweth = 2 * Sexph * (1 + 0.25 * tcrh * (1 + taperh * tcth / tcrh) / (1 + taperh))
+    Swetw = 2 * S * (1 + 0.25 * tcrw * (1 + taper) / (1 + taper))
+
+
+    CD0=cfe*(Sweth+Swetv+Swetf+Swetw)/(S)
 
 #Part 2 Drag estimatio
 
@@ -55,8 +58,9 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
     xi= 0.5
     FF1=(1.0+(0.6/xi)*(wing_vals().tc)+100.0*(wing_vals().tc)**4.)*(1.34*aero_vals().Mach**0.18*(math.cos(1/180*math.pi))**0.28)
     Q1=1.0
-    Swet1 = 2 * wing_vals().S * (1 + 0.25 * wing_vals().tc * (1 + wing_vals().taper_ratio * wing_vals().tip_chord / wing_vals().root_chord) / (1 + wing_vals().taper_ratio))
+    Swet1 = 2 * wing_vals().S * (1 + 0.25 * wing_vals().tc * (1 + wing_vals().taper_ratio) / (1 + wing_vals().taper_ratio))
     Cdof1=Cf_c1*FF1*Q1*Swet1/wing_vals().S
+
 
     # Zero Fuselage Drag Coefficient
     Re2 = aero_vals().vinfcr * 5.5 * aero_vals().rho_cr / aero_vals().mu
@@ -67,6 +71,8 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
     Q2 = 1.0
     Swet2 = math.pi * df * lf * ((0.5 + 0.135 * ln / lf) ** (2 / 3)) * (1.015 + 0.3 / (lambdaf ** 1.5))
     Cdof2 = Cf_c2 * FF2 * Q2 * Swet2 / wing_vals().S
+
+    print(Cdof2*wing_vals().S)
 
     # Zero Empanage Drag horizontal tail Coefficient
     Re3 = aero_vals().vinfcr * emp_vals().c_h * aero_vals().rho_cr / aero_vals().mu

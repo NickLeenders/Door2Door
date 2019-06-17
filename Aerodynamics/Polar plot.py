@@ -2,7 +2,7 @@ import math
 import numpy
 import matplotlib.pyplot as plt
 
-cd0=0.055
+cd0=0.055133
 k=0.040858857
 
 
