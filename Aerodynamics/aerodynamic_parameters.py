@@ -14,10 +14,10 @@ class aero_vals():
         self.cl_a_minus_h = 1.5  # TODO cl from aircraft less horizontal tail
         self.cl_alpha_a_minus_h = 6.3 # TODO lift rate coefficient of aircraft less tail
         self.cm_ac = -0.08# TODO moment coefficient around aerodynamic center
-        self.cd0 =0.04794141815595157 # TODO drag coefficient at zero lift
+        self.cd0 = 0.04794141815595157 # TODO drag coefficient at zero lift
         self.l_h = 2.4 # TODO distance wing ac to horizontal tail ac
         self.x_ac = 0.25 # TODO x distance of the ac
-        self.mac_position = 2.241 # TODO Longitudinal position of the MAC
+        self.mac_position = 2.227 # TODO Longitudinal position of the MAC
         self.downwash_factor = 0.395 # TODO (de/da) d_epsilon over d_alpha
         self.n_ult = 4.5 # TODO Ultimate load factor
         self.h= 1219.2 # altitude in meters
@@ -43,7 +43,7 @@ class aero_vals():
         self.cl_takeoff=1.7            # so that the aero_vals object will have the correct Cl for the airspeed
         self.cl_climb=1.2
         self.cl_descent = 0.5
-        self.roll_rate = 60*pi/180 # TODO Roll Rate Class I
+        self.roll_rate = 60*pi/180 # Roll Rate Class I
 
         self.frontal_area = 2.4*1.7
 
@@ -82,10 +82,11 @@ class emp_vals():
         self.trh = 0.15 #Maximum Thickness of horizontal tail
         self.tch=0.10 # Thickness chord ratio horizontal tail
         self.num_htail = 1 #Number of horizontal tails
+        self.elevator_max_defl = -25 * pi /180 #maximum elevator deflection
         
         self.S_v = 1.29 #Vertial tail surface area
-        self.b_v = 1.2999 #Span of vertical tail surface
-        self.c_v = 0.9946 #Chord of vertical tail surface Cr+Ct/2
+        self.b_v = 1.3534 #Span of vertical tail surface
+        self.c_v = 0.95315 #Chord of vertical tail surface Cr+Ct/2
         self.A_v = (self.b_v)**2/self.S_v #Vertical tail aspect ratio
         self.tcv= 0.10 # Thickness chord ratio vertical tail
         self.trv = 0.16 #Max thickness of vertical tail
