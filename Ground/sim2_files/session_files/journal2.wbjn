@@ -49,3 +49,35 @@ with Transaction():
     singleValueResult1.EvaluateFullRange = False
 singleValueResult1.Function = "Mass"
 singleValueResult1.Evaluate()
+geometryModelingComponent1 = system1.GetComponent(Name="Geometry Modeling")
+modeling1 = geometryModelingComponent1.GetTaskObject()
+Modeling.ReloadDocument(ModelingAnchor=modeling1)
+with Transaction():
+    geometryModelingComponent1.Update(AllDependencies=True)
+    physicsDefinitionComponent1.Refresh()
+    meshModelingComponent1 = system1.GetComponent(Name="Mesh Modeling")
+    meshModelingComponent1.Refresh()
+    solvePhysicsComponent1.Refresh()
+    resultsEvaluationComponent1.Refresh()
+Modeling.ReloadDocument(ModelingAnchor=modeling1)
+with Transaction():
+    geometryModelingComponent1.Update(AllDependencies=True)
+    physicsDefinitionComponent1.Refresh()
+    meshModelingComponent1.Refresh()
+    solvePhysicsComponent1.Refresh()
+    resultsEvaluationComponent1.Refresh()
+modeling1.ChooseGeometryImport(FilePath=r"C:\Users\Phoenix\Documents\UNI\DSE\Door2Door\Ground\trusssketch4.CATPart")
+with Transaction():
+    geometryModelingComponent1.Update(AllDependencies=True)
+    physicsDefinitionComponent1.Refresh()
+    meshModelingComponent1.Refresh()
+    solvePhysicsComponent1.Refresh()
+    resultsEvaluationComponent1.Refresh()
+force2 = study1.GetForce(Name="Force 1")
+force2.Location = []
+force2.Location = ["FACE183", "FACE170", "FACE148", "FACE157", "FACE169"]
+force1.Location = ["FACE179", "FACE177", "FACE161", "FACE124", "FACE120", "FACE118", "FACE116", "FACE9", "FACE48", "FACE70", "FACE62", "FACE1", "FACE5", "FACE3"]
+force1.Location = []
+force1.Location = "[]"
+force1.Location = ["FACE179", "FACE177", "FACE161", "FACE116", "FACE124", "FACE120", "FACE118"]
+Save(Overwrite=True)

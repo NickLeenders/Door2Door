@@ -1,0 +1,136 @@
+
+ PRINTOUT RESUMED BY /GOP
+
+ *****  ANSYS SOLUTION ROUTINE  *****
+
+ PRINTOUT RESUMED BY /GOP
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL       NONE               
+      NSOL        ALL               
+      RSOL        ALL               
+      STRS        ALL               
+
+
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1   56.9446    
+ AN AVERAGE OF THE X-, Y-, AND Z-DIRECTION MASS TERMS ARE USED
+
+  Local memory allocated for solver              =    438.213 MB
+  Local memory required for in-core solution     =    422.421 MB
+  Local memory required for out-of-core solution =    252.895 MB
+
+ *** NOTE ***                            CP =       9.125   TIME= 13:15:57
+ The Distributed Sparse Matrix Solver is currently running in the        
+ in-core memory mode.  This memory mode uses the most amount of memory   
+ in order to avoid using the hard drive as much as possible, which most  
+ often results in the fastest solution time.  This mode is recommended   
+ if enough physical memory is present to accommodate all of the solver   
+ data.                                                                   
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1     57918  SOLID187      4.375   0.000076
+        2       948  SURF154       0.016   0.000016
+        3       983  SURF154       0.031   0.000032
+        4       224  SURF154       0.016   0.000070
+        5       228  SURF154       0.031   0.000137
+        6       734  SURF154       0.031   0.000043
+        7       609  SURF154       0.031   0.000051
+        8       560  SURF154       0.000   0.000000
+        9       614  SURF154       0.047   0.000076
+       10       644  SURF154       0.031   0.000049
+       11       356  SURF154       0.016   0.000044
+       12       686  SURF154       0.031   0.000046
+       13       596  SURF154       0.031   0.000052
+       14       590  SURF154       0.031   0.000053
+       15       639  SURF154       0.016   0.000024
+       16       819  SURF154       0.047   0.000057
+       17       797  SURF154       0.031   0.000039
+       18       770  SURF154       0.031   0.000041
+       19       848  SURF154       0.031   0.000037
+       20       815  SURF154       0.031   0.000038
+       21       747  SURF154       0.047   0.000063
+       22       766  SURF154       0.031   0.000041
+       23       790  SURF154       0.016   0.000020
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1     57918  SOLID187      0.094   0.000002
+        2       948  SURF154       0.016   0.000016
+        3       983  SURF154       0.000   0.000000
+        4       224  SURF154       0.000   0.000000
+        5       228  SURF154       0.000   0.000000
+        6       734  SURF154       0.000   0.000000
+        7       609  SURF154       0.000   0.000000
+        8       560  SURF154       0.000   0.000000
+        9       614  SURF154       0.016   0.000025
+       10       644  SURF154       0.000   0.000000
+       11       356  SURF154       0.000   0.000000
+       12       686  SURF154       0.000   0.000000
+       13       596  SURF154       0.000   0.000000
+       14       590  SURF154       0.016   0.000026
+       15       639  SURF154       0.000   0.000000
+       16       819  SURF154       0.000   0.000000
+       17       797  SURF154       0.000   0.000000
+       18       770  SURF154       0.000   0.000000
+       19       848  SURF154       0.000   0.000000
+       20       815  SURF154       0.000   0.000000
+       21       747  SURF154       0.000   0.000000
+       22       766  SURF154       0.000   0.000000
+       23       790  SURF154       0.000   0.000000
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** ANSYS BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+      101.812 MB WRITTEN ON ELEMENT SAVED DATA FILE: file1.esav
+       81.812 MB WRITTEN ON ASSEMBLED MATRIX FILE: file1.full
+       22.688 MB WRITTEN ON RESULTS FILE: file1.rst
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  CP =        21.016
+
+
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          0
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
+
+ *---------------------------------------------------------------------------*
+ |                                                                           |
+ |                       DISTRIBUTED ANSYS RUN COMPLETED                     |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Ansys Release 19.1          Build 19.1         UP20180418     WINDOWS x64 |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Database Requested(-db)     1 MB    Scratch Memory Requested      1024 MB |
+ | Maximum Database Used       1 MB    Maximum Scratch Memory Used    500 MB |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ |        CP Time      (sec) =         21.047       Time  =  13:16:19        |
+ |        Elapsed Time (sec) =         36.000       Date  =  06/16/2019      |
+ |                                                                           |
+ *---------------------------------------------------------------------------*
