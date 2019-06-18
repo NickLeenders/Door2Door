@@ -83,7 +83,7 @@ def mass_iteration(initial_MTOW):
         
         MTOW.append(total_mass(W_components).MTOW)
         i = i + 1
-    return MTOW[-1], Wing_weight
+    return (MTOW[-1], Wing_weight, Emp_weight)
 
 if __name__ == "__main__":
     MTOW = [5, 1630]
