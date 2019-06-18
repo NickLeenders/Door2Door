@@ -1,0 +1,25 @@
+# encoding: utf-8
+# Release 19.1
+SetScriptVersion(Version="19.1.103")
+system1 = GetSystem(Name="Study")
+study1 = system1.GetContainer(ComponentName="Study")
+physicsDefinitionComponent1 = system1.GetComponent(Name="Physics Definition")
+physicsDefinition1 = physicsDefinitionComponent1.GetTaskObject()
+materialAssignment1 = study1.CreateEntity(
+    Type="MaterialAssignment",
+    Association=physicsDefinition1)
+with Transaction():
+    material1 = study1.CreateEntity(
+        Type="Material",
+        Association=physicsDefinition1)
+    material1.DisplayText = "rafdas"
+    materialAssignment1.Material = material1
+material1.CreateContent(
+    Model="Density",
+    State="Solid")
+material1.CreateContent(
+    Model="Elasticity",
+    Behavior="Isotropic",
+    State="Solid")
+Study.Delete(Items=[material1])
+Study.Delete(Items=[materialAssignment1])
