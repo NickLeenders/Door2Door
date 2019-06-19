@@ -13,17 +13,26 @@ import matplotlib.pyplot as plt
 #DEFINE PARAMETERS
 def wing_load(static= False,show=True,grph=False):
     MTOW, Wing_w = mass_iteration(1630)
-    cruiseT = power.ThrustCalculator(MTOW,aero_vals().vinfcr,1500 , 400000/aero_vals().vinfcr)
+    print MTOW
+    cruiseT = power.ThrustCalculator(MTOW, 69.4, 69.4, 69.4, 1500, 400000.0/69.4)
     cruiseL = Propellers(cruiseT.thrust, cruiseT.velocity,
                               cruiseT.rho, cruiseT.aero_vals.cl_cr, 0)
-    L =(MTOW * 9.81*3.5)/(wing_vals().b - 2.4)
+    temp = cruiseT
+    temp.thrust = 0.0
+    while (abs(cruiseT.thrust - temp.thrust) > 0.005):
+        temp = cruiseT
+        cruiseT = ThrustCalculator(MTOW - massHydrogen, 69.4, cruiseL.v_wakeCP, cruiseL.v_wakeHLP, 1500.0, 400000.0/69.4)
+        cruiseL = aero.Propellers(cruiseT.thrust, cruiseT.velocity,
+                                  cruise.rho, cruiseT.aero_vals.cl_cr, 0)
+
+    L =(3.5*MTOW * 9.81)/(wing_vals().b - 2.4)
     W_w = (Wing_w*9.81)/(wing_vals().b - 2.4)
-    T_cp = cruiseL.thrustCP / cruiseL.numberCP
-    T_hlp = cruiseL.thrustHLP / cruiseL.numberHLP
-    W_hlp = 52 *9.81 #LINK THESE LATER
-    W_cp = 74 *9.81  #LINK THESE LATER
+    T_cp = 0 #cruiseL.thrustCP / cruiseL.numberCP
+    T_hlp = 0 #cruiseL.thrustHLP / cruiseL.numberHLP
+    W_hlp = 32 *9.81 #LINK THESE LATER
+    W_cp = 67 *9.81  #LINK THESE LATER
     c = 1.2 #link this
-    D = ((drag(aero_vals().cd0,cruiseT.aero_vals.cl_cr,wing_vals().b,wing_vals().MAC,cruiseT.wing_vals.e,cruiseT.velocity,cruiseT.rho))/2)/(wing_vals().b/2)
+    D = drag(1, cruiseT.velocity, cruiseL.v_wakeCP, cruiseT.v_wakeHLP, cruiseT.rho)[0]/(wing_vals().b - 2.4)
     b = wing_vals().b - 2.4
     y = [0.3,0.9,1.5,2.1,3.2]
     if static:
@@ -78,6 +87,8 @@ def wing_load(static= False,show=True,grph=False):
             else:
                 mom = M_z - T_hlp*max(0,ys[i]-y[0]) - T_hlp*max(0,ys[i]-y[1]) - T_hlp*max(0,ys[i]-y[2])-T_hlp*max(0,ys[i]-y[3]) - R_x * ys[i] + D/2 * ys[i]**2
                 mom_z.append(mom)
+
+        print mom_x[1600]
         #plt.subplot(422)
         #plt.title('Moment Diagram (x-y plane)')
         #plt.xlabel('y [m]')
@@ -104,28 +115,28 @@ def wing_load(static= False,show=True,grph=False):
         
         data =[ys,shr_z, shr_x , mom_x , mom_z]
         if grph:
-             plt.subplot(421)
-             plt.title('Moment Diagram (y-z plane)')
+             plt.subplot(221)
+             plt.title('Moment Diagram (x axis)')
              plt.xlabel('y [m]')
              plt.ylabel('Internal Moment [Nm]')
              plt.plot(ys,mom_x)
-             plt.subplot(422)
-             plt.title('Moment Diagram (x-y plane)')
+             plt.subplot(222)
+             plt.title('Moment Diagram (z axis)')
              plt.xlabel('y [m]')
              plt.ylabel('Internal Moment [Nm]')
              plt.plot(ys,mom_z)
-             plt.subplot(423)
+             plt.subplot(223)
              plt.title('Shear Diagram (y-z plane)')
              plt.xlabel('y [m]')
              plt.ylabel('Internal Shear [N]')
              plt.plot(ys,shr_z)
-             plt.subplot(424)
+             plt.subplot(224)
              plt.title('Shear Diagram (x-y plane)')
              plt.xlabel('y [m]')
              plt.ylabel('Internal Shear [N]')
              plt.plot(ys,shr_x)
              plt.show()
-        return data , grph, R_x, M_z
+        return data , grph, R_z, M_x
     
     
 def wing_deflec(data,grph,E,I_xx,I_zz):
@@ -172,21 +183,23 @@ def wing_deflec(data,grph,E,I_xx,I_zz):
     #plt.subplot(428)
     #plt.plot(data[0],int_x_2)
     if grph:
-        plt.subplot(425)
+        plt.subplot(221)
         plt.plot(data[0],int_z_1)
-        plt.subplot(426)
+        plt.subplot(222)
         plt.plot(data[0],int_x_1)
-        plt.subplot(427)
+        plt.subplot(223)
         plt.plot(data[0],int_z_2)
-        plt.subplot(428)
+        plt.subplot(224)
         plt.plot(data[0],int_x_2)
     v_z = max(int_z_2)
     v_x = max(int_x_2)
+    plt.show()
     return v_z , v_x    
 
 a = wing_load(grph=True)
-b = wing_deflec(a[0],a[1],71.7e9,1e-6,4.03e-5)
+b = wing_deflec(a[0],False,122.65e9,3.76e-4,9.064e-5)
 
+#Includes safetyfactor of 2.5
 def inert_req(E,max_def,tol):
     a = wing_load()
     rnge = [0.0,1.0]
@@ -199,15 +212,16 @@ def inert_req(E,max_def,tol):
             rnge[1] = mid
         elif err>0:
             rnge[0] = mid
-    return mid
+    return mid * 2.5
 
-moi = inert_req(71.7e9,0.04,1e-9)
+moi = inert_req(122.65e9,0.04,1e-9)
 
 #FINAL VALUE
-b = wing_deflec(a[0],a[1],228e9,2.184e-4,6.739e-6)
+#b = wing_deflec(a[0],a[1],228e9,2.184e-4,6.739e-6)
 
 print(moi)   
 print(a[2])  
 print(a[3])
+
 
 
