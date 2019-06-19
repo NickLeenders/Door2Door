@@ -6,11 +6,12 @@ sys.path.insert(0, '../Structure/')
 from masses_cg_positions import x_positions, z_positions, w_components
 from mass_calculation import wing_weight, emp_weight, MTOW, mass_iteration
 
+
 # TODO Fix MTOW by actual MTOW iteration
 w_tail = mass_iteration(MTOW)[2]
 w_structure = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_structure
 w_propeller = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_propeller
-w_wing = mass_iteration(MTOW)[1]
+w_wing = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_wing
 w_drivetrain = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_drivetrain
 w_fuel = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_fuel
 w_cell = w_components(wing_weight(MTOW), emp_weight(MTOW)).w_cell
@@ -54,6 +55,8 @@ def function_OEW_CG():
 
 def function_total_EOW_mass():
     mass_OEW_CG = (w_tail + w_structure + w_propeller + w_wing + w_drivetrain + w_cell + w_battery + w_tank)
+    print (w_wing)
+    print (w_tail)
     return mass_OEW_CG
 
 
@@ -63,7 +66,7 @@ def function_XCG():
                    + x_fuel * w_fuel + x_cell * w_cell + x_passenger[0] * w_passenger + 3 * x_passenger[
                        1] * w_passenger + x_battery * w_battery + x_tank * w_tank + x_cargo * w_cargo) / (
                    w_tail + w_structure \
-                   + w_propeller + w_wing + w_drivetrain + w_fuel + w_cell + w_passenger + w_battery + w_tank + w_cargo)
+                   + w_propeller + w_wing + w_drivetrain + w_fuel + w_cell + w_passenger*4 + w_battery + w_tank + w_cargo)
     return X_CG
 
 
@@ -72,5 +75,5 @@ def function_ZCG():
                    z_tail * w_tail + z_structure * w_structure + z_propeller * w_propeller + z_wing * w_wing + z_drivetrain * w_drivetrain \
                    + z_fuel * w_fuel + z_cell * w_cell + z_passenger * w_passenger + 3 * z_passenger * w_passenger + z_battery * w_battery + z_tank * w_tank + z_cargo * w_cargo) / (
                    w_tail + w_structure \
-                   + w_propeller + w_wing + w_drivetrain + w_fuel + w_cell + w_passenger + w_battery + w_tank + w_cargo)
+                   + w_propeller + w_wing + w_drivetrain + w_fuel + w_cell + w_passenger*4 + w_battery + w_tank + w_cargo)
     return (X_CG)

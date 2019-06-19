@@ -17,7 +17,7 @@ from power import ThrustCalculator
 
 
 g = 9.80665
-Iyy = 13600
+Iyy = 12000
 theta_dot_dot = 12/57.3
 mu = 0.04
 
@@ -169,6 +169,7 @@ def elevator_sizing():
     plt.gca().invert_yaxis()
     plt.grid()
     plt.gca().legend(('Sea level', 'Cruise altitude'), loc=2)
-    plt.title("Variation of elevator deflection with respect to aircraft velocity")
+    #plt.title("Variation of elevator deflection with respect to aircraft velocity")
     plt.show()
 
+print (elevator_sizing())
