@@ -92,7 +92,3 @@ force1.Location = ["FACE33", "FACE67", "FACE42"]
 force1.Vector.DefineBy = "Components"
 force1.Vector.VectorByComponents.Component3 = "-15200 [N]"
 Save(Overwrite=True)
-physicsDefinition1.PhysicsFidelity = "1"
-physicsDefinition1.PhysicsFidelity = "2"
-physicsDefinition1.PhysicsFidelity = "1"
-physicsDefinition1.PhysicsFidelity = "0"
