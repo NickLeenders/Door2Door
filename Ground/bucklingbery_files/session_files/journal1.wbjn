@@ -1,0 +1,56 @@
+# encoding: utf-8
+# Release 19.1
+SetScriptVersion(Version="19.1.103")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = GetSystem(Name="Study")
+system2 = template1.CreateSystem(
+    Position="Right",
+    RelativeTo=system1)
+template2 = GetTemplate(
+    TemplateName="Linear Buckling",
+    Solver="ANSYS")
+engineeringDataComponent1 = system2.GetComponent(Name="Engineering Data")
+geometryComponent1 = system2.GetComponent(Name="Geometry")
+modelComponent1 = system2.GetComponent(Name="Model")
+system3 = template2.CreateSystem(
+    ComponentsToShare=[engineeringDataComponent1, geometryComponent1, modelComponent1],
+    Position="Right",
+    RelativeTo=system2)
+favorites1 = EngData.LoadFavoriteItems()
+library1 = EngData.OpenLibrary(
+    Name="General Materials",
+    Source="General_Materials.xml")
+library2 = EngData.OpenLibrary(
+    Name="Granta Design Sample Materials",
+    Source="Granta_Design_Typical_Materials.xml")
+library3 = EngData.OpenLibrary(
+    Name="Geomechanical Materials",
+    Source="GeoMechanical_Materials.xml")
+library4 = EngData.OpenLibrary(
+    Name="General Non-linear Materials",
+    Source="General Materials Non-linear.xml")
+library5 = EngData.OpenLibrary(
+    Name="Explicit Materials",
+    Source="Explicit_Materials.xml")
+engineeringData1 = system2.GetContainer(ComponentName="Engineering Data")
+matl1 = engineeringData1.ImportMaterial(
+    Name="BERYLLIUM",
+    Source="Explicit_Materials.xml")
+material1 = engineeringData1.GetMaterial(Name="Structural Steel")
+material1.Delete()
+EngData.EnableFilter(Enable=False)
+geometry1 = system2.GetContainer(ComponentName="Geometry")
+geometry1.Edit(IsSpaceClaimGeometry=True)
+geometry1.Edit(IsSpaceClaimGeometry=True)
+geometry1.Edit(IsSpaceClaimGeometry=True)
+geometry1.Exit()
+solutionComponent1 = system2.GetComponent(Name="Solution")
+setupComponent1 = system3.GetComponent(Name="Setup")
+solutionComponent1.TransferData(TargetComponent=setupComponent1)
+with Transaction():
+    modelComponent1.Refresh()
+    model1 = system2.GetContainer(ComponentName="Model")
+    model1.Edit()
+Save(Overwrite=True)
