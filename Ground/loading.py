@@ -45,15 +45,17 @@ mass = mass_iteration(1600)
 #x= force on front wheel
 
 def wheel_loading(a,b,c,mass,acc,decc):
-    w = 3*mass[-1] * g
+    w = 3*mass[0] * g
+    print(w)
     #moments = weight * c + y * b - x * a
-    x_load_decc = ((c*decc*mass[-1])+w*b)/(a+b)
+    x_load_decc = ((c*decc*mass[0])+w*b)/(a+b)
     y_load_decc = w - x_load_decc
-    x_load_acc = ((-c*acc*mass[-1])+w*b)/(a+b)
+    x_load_acc = ((-c*acc*mass[0])+w*b)/(a+b)
     y_load_acc = w - x_load_acc
     loads_front = [x_load_acc, x_load_decc]
     loads_back = [y_load_acc, y_load_decc]
     #acceleration g
+    print(loads_front, loads_back)
     return(loads_front, loads_back)
    
 
@@ -61,13 +63,13 @@ frontloads = wheel_loading(a,b,c,mass,acc,decc)[0]
 
 backloads =  wheel_loading(a,b,c,mass,acc,decc)[1]
 
-allowable_displacement = 0.075    
+allowable_displacement = 0.05    
 
 def spring_constant(frontloads,backloads,displacement):
     maxfront = max(frontloads)
     maxback = max(backloads)
     
-    return(((maxfront/2)/displacement), (maxback/displacement))
+    return(maxfront, maxback)
 
-print(spring_constant(mass,frontloads,backloads,allowable_displacement))
+print(spring_constant(frontloads,backloads,allowable_displacement))
    
