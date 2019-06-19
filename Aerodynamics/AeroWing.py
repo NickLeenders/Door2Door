@@ -7,6 +7,7 @@ sys.path.insert(0, '../PowerElectrical/')
 from power import ThrustCalculator
 from aero import Propellers, drag
 import mass_calculation
+import math
 
 Masstotal= 1.1*mass_calculation.mass_iteration(1630.0)[0]  #w_components().MTOW
 Ws_cr=Masstotal*9.80665 #N
@@ -47,18 +48,27 @@ vcruise=69.4 #
 vstall=vtakeoff/1.2
 
 #TO
-takeOff_t = ThrustCalculator(1928.0, vstall, 0.0, 0.5, 0, 1.1, 1)
-takeOff_l = Propellers(takeOff_t.thrust, takeOff_t.velocity,
-                                takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff, 1)
+#takeOff_t = ThrustCalculator(1928.0, vstall, 0.0, 0.5, 0, 1.1, 1)
+#takeOff_l = Propellers(takeOff_t.thrust, takeOff_t.velocity,
+                                #takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff, 1)
 
 #CRUISE
-Cruise_t = ThrustCalculator(1928.0, vcruise, h, 400000.0/69.4)
-Cruise_l = Propellers(Cruise_t.thrust, Cruise_t.velocity,
-                                Cruise_t.rho, Cruise_t.aero_vals.cl_cr, 0)
+#Cruise_t = ThrustCalculator(1928.0, vcruise, h, 400000.0/69.4)
+#Cruise_l = Propellers(Cruise_t.thrust, Cruise_t.velocity,
+                                #Cruise_t.rho, Cruise_t.aero_vals.cl_cr, 0)
 
 
-v_takeoff= 0.173*takeOff_l.v_wakeCP+0.524*takeOff_l.v_wakeHLP+0.313*vtakeoff
-v_cr= 0.173*Cruise_l.v_wakeCP+0.524*Cruise_l.v_wakeHLP+0.313*vcruise
+toHLP=55.5
+toCP=39
+
+
+
+
+crHLP=74.739257
+crCP=75.5659
+
+v_takeoff= 0.173*toCP+0.524*toHLP+0.313*vtakeoff
+v_cr= 0.173*crCP+0.524*crHLP+0.313*vcruise
 
 #print(takeOff_l.v_wakeHLP)
 #print(takeOff_l.v_wakeCP)
@@ -74,11 +84,11 @@ v_cr= 0.173*Cruise_l.v_wakeCP+0.524*Cruise_l.v_wakeHLP+0.313*vcruise
 
 
 #Mach and Reynolds
-Mach_takeoff=v_takeoff/((aero_vals().gamma*aero_vals().R*aero_vals().T0)**0.5)
-Re_takeoff=aero_vals().rho0*v_takeoff*c/aero_vals().mu
+#Mach_takeoff=v_takeoff/((aero_vals().gamma*aero_vals().R*aero_vals().T0)**0.5)
+#Re_takeoff=aero_vals().rho0*v_takeoff*c/aero_vals().mu
 
-Mach_cr=v_cr/((aero_vals().gamma*aero_vals().R*T_cr)**0.5)
-Re_cr=rho_cr*v_cr*c/aero_vals().mu
+#Mach_cr=v_cr/((aero_vals().gamma*aero_vals().R*T_cr)**0.5)
+#Re_cr=rho_cr*v_cr*c/aero_vals().mu
 #####
 
 
@@ -90,7 +100,7 @@ q_cr=0.5*rho_cr*v_cr**2
 
 # Sreq and design cl
 Sreq=Ws_cr/(q0*cl_max)
-cl_des=0.5*(Ws_cr+We_cr)/(q_cr*Sreq)
+cl_des=0.5*(Ws_cr+We_cr)/(q_cr*9.52)
 #####
 
 #print(v_takeoff)
@@ -112,4 +122,7 @@ print(cl_des)
 
 #drag=0.5*1.09*v_cr**2*Sreq*cd
 print(wing_vals().taper_ratio, wing_vals().MAC)
-print(vtakeoff)
+print(v_takeoff/vtakeoff)
+print(v_cr/vcruise)
+a,b=drag(1, 39, 39, 39, 1.225)
+print(b)

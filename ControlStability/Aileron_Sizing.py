@@ -1,10 +1,11 @@
 from math import *
 import numpy as np
-#Program for determinig the aileron size
+
+
 import sys
 sys.path.insert(0, '../Aerodynamics/')
 from aerodynamic_parameters import aero_vals, wing_vals
-#Program for determining the aileron size
+
 def aileron_sizing():
     Cr = (3*wing_vals().MAC*(1+wing_vals().taper_ratio))/(2*(1 + wing_vals().taper_ratio + wing_vals().taper_ratio**2))
 
@@ -20,7 +21,13 @@ def aileron_sizing():
     P = -clda/clp*wing_vals().aileron_max_defl*(2*aero_vals().vinfcr/wing_vals().b)
 
     t = aero_vals().roll_rate/P
-    print (Cr)
+
+    print ('Cr:',Cr)
+    print ('clda:',clda)
+    print ('clp:', clp)
+    print ('P:',P)
+    print ('t:', t)
+
     return clda, clp, P, t
 
 print (aileron_sizing())

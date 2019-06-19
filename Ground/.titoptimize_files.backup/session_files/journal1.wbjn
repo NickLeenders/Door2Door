@@ -1,0 +1,104 @@
+# encoding: utf-8
+# Release 19.1
+SetScriptVersion(Version="19.1.103")
+with Transaction():
+    system1 = GetSystem(Name="Study")
+    geometryModelingComponent1 = Study.CreateTask(
+        Type="Geometry Modeling",
+        System=system1)
+    modeling1 = geometryModelingComponent1.GetTaskObject()
+    modeling1.SetImportPath(FilePath=GetAbsoluteUserPathName("UNI/DSE/Door2Door/Ground/trusssketch5.CATPart"))
+    geometryModelingComponent1.Update(AllDependencies=True)
+with Transaction():
+    physicsDefinitionComponent1 = Study.CreateTask(
+        Type="Physics Definition",
+        System=system1,
+        Input=geometryModelingComponent1)
+    physicsDefinitionComponent1.Refresh()
+    physicsDefinition1 = physicsDefinitionComponent1.GetTaskObject()
+    physicsDefinition1.CalculationType = "Static"
+    study1 = system1.GetContainer(ComponentName="Study")
+    solverSettings1 = study1.CreateEntity(
+        Type="SolverSettings",
+        Association=physicsDefinition1)
+    meshModelingComponent1 = Study.CreateTask(
+        Type="Mesh Modeling",
+        System=system1,
+        Input=physicsDefinitionComponent1)
+    meshModelingComponent1.Refresh()
+    solvePhysicsComponent1 = Study.CreateTask(
+        Type="Solve Physics",
+        System=system1,
+        Input=meshModelingComponent1)
+    solvePhysicsComponent1.Refresh()
+    physicsSolutionGroup1 = Study.CreateGroup(Name="Physics Solution")
+    physicsSolutionGroup1.Add(Component=physicsDefinitionComponent1)
+    physicsSolutionGroup1.Add(Component=meshModelingComponent1)
+    AddSourceToComponentInSystem(
+        SourceComponent=physicsDefinitionComponent1,
+        TargetComponent=solvePhysicsComponent1)
+    physicsSolutionGroup1.Add(Component=solvePhysicsComponent1)
+    physicsSolutionGroup1.DisplayText = "Optimize"
+    physicsRegion1 = study1.CreateEntity(
+        Type="PhysicsRegion",
+        Association=physicsDefinition1)
+    physicsRegion1.PhysicsType = "Structural"
+    physicsRegion1.Location = "AllBodies()"
+    physicsDefinition1.CalculationType = "Optimization"
+    optimizationOptions1 = study1.GetOptimizationOptions(Name="OptimizationOptions 1")
+    optimizationOptions1.DesignTypes = "Strength"
+    materialAssignment1 = study1.CreateEntity(
+        Type="MaterialAssignment",
+        Association=physicsDefinition1)
+    material1 = study1.CreateEntity(
+        Type="Material",
+        Association=physicsDefinition1)
+    material1.ImportEngineeringData(Name="Structural Steel")
+    materialAssignment1.Material = material1
+    materialAssignment1.Location = [physicsRegion1]
+    interfaceGenerator1 = study1.CreateEntity(
+        Type="InterfaceGenerator",
+        Association=physicsDefinition1)
+    transcript1 = study1.CreateEntity(
+        Type="Transcript",
+        Association=physicsDefinition1)
+    transcript1.DisplayText = "Optimization Output 1"
+    shapeComponent1 = Study.CreateTask(
+        Type="Shape",
+        System=system1,
+        Input=solvePhysicsComponent1)
+    AddSourceToComponentInSystem(
+        SourceComponent=physicsDefinitionComponent1,
+        TargetComponent=shapeComponent1)
+    shape1 = shapeComponent1.GetTaskObject()
+    shape1.SmoothShape = False
+    shapeComponent1.Refresh()
+    interfaceGenerator1.GenerateInteractions()
+materialAssignment2 = study1.CreateEntity(
+    Type="MaterialAssignment",
+    Association=physicsDefinition1)
+with Transaction():
+    material2 = study1.CreateEntity(
+        Type="Material",
+        Association=physicsDefinition1)
+    material2.DisplayText = "tit"
+    materialAssignment2.Material = material2
+material2.Description = "tit"
+material2.DefaultStateOfMatter = "Solid"
+material2.CreateContent(
+    Model="Density",
+    State="Solid")
+material2.Solid.Density.Magnitude = "4505 [kg m^-3]"
+material2.CreateContent(
+    Model="Elasticity",
+    Behavior="Isotropic",
+    State="Solid")
+material2.Solid.IsotropicElasticity.Magnitude.YoungsModulus = "117E9 [Pa]"
+material2.Solid.IsotropicElasticity.Magnitude.PoissonsRatio = "0.33"
+Study.Delete(Items=[materialAssignment1])
+materialAssignment2.Location = [physicsRegion1]
+support1 = study1.CreateEntity(
+    Type="Support",
+    Association=physicsDefinition1)
+support1.Location = ["FACE1", "FACE5", "FACE3", "FACE4", "FACE76", "FACE61", "FACE2", "FACE62", "FACE48", "FACE8", "FACE85"]
+Save(Overwrite=True)

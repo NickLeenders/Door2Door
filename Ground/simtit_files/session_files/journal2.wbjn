@@ -1,0 +1,90 @@
+# encoding: utf-8
+# Release 19.1
+SetScriptVersion(Version="19.1.103")
+with Transaction():
+    system1 = GetSystem(Name="Study")
+    study1 = system1.GetContainer(ComponentName="Study")
+    physicsDefinitionComponent1 = system1.GetComponent(Name="Physics Definition")
+    physicsDefinition1 = physicsDefinitionComponent1.GetTaskObject()
+    material1 = study1.CreateEntity(
+        Type="Material",
+        Association=physicsDefinition1)
+    material1.ImportEngineeringData(Name="Titanium Alloy")
+    materialAssignment1 = study1.GetMaterialAssignment(Name="MaterialAssignment 1")
+    materialAssignment1.Material = material1
+with Transaction():
+    solvePhysicsComponent1 = system1.GetComponent(Name="Solve Physics")
+    solvePhysicsComponent1.Update(AllDependencies=True)
+    resultsEvaluationComponent1 = system1.GetComponent(Name="Results Evaluation")
+    resultsEvaluationComponent1.Refresh()
+with Transaction():
+    material2 = study1.CreateEntity(
+        Type="Material",
+        Association=physicsDefinition1)
+    material2.DisplayText = "tit"
+    materialAssignment1.Material = material2
+with Transaction():
+    material3 = study1.CreateEntity(
+        Type="Material",
+        Association=physicsDefinition1)
+    material3.DisplayText = "tit"
+    materialAssignment1.Material = material3
+with Transaction():
+    material4 = study1.CreateEntity(
+        Type="Material",
+        Association=physicsDefinition1)
+    materialAssignment1.Material = material4
+material4.DisplayText = "tit"
+material4.Description = "tit"
+material4.DefaultStateOfMatter = "Solid"
+material4.CreateContent(
+    Model="Density",
+    State="Solid")
+material4.Solid.Density.Magnitude = "4505 [kg m^-3]"
+material4.CreateContent(
+    Model="Elasticity",
+    Behavior="Isotropic",
+    State="Solid")
+material4.Solid.IsotropicElasticity.Magnitude.YoungsModulus = "117 [Pa]"
+material4.Solid.IsotropicElasticity.Magnitude.YoungsModulus = "117E9 [Pa]"
+material4.Solid.IsotropicElasticity.Magnitude.PoissonsRatio = "0.33"
+with Transaction():
+    solvePhysicsComponent1.Update(AllDependencies=True)
+    resultsEvaluationComponent1.Refresh()
+with Transaction():
+    results1 = resultsEvaluationComponent1.GetTaskObject()
+    contourResult1 = study1.CreateEntity(
+        Type="ContourResult",
+        Association=results1)
+    contourResult1.EvaluateFullRange = False
+    contourResult1.Variable = "Displacement.mag"
+contourResult1.Evaluate()
+with Transaction():
+    singleValueResult1 = study1.CreateEntity(
+        Type="SingleValueResult",
+        Association=results1)
+    singleValueResult1.EvaluateFullRange = False
+singleValueResult1.Function = "Mass"
+singleValueResult1.Evaluate()
+Save(Overwrite=True)
+with Transaction():
+    singleValueResult2 = study1.CreateEntity(
+        Type="SingleValueResult",
+        Association=results1)
+    singleValueResult2.EvaluateFullRange = False
+singleValueResult2.Function = "Maximum"
+Study.Delete(Items=[singleValueResult2])
+with Transaction():
+    contourResult2 = study1.CreateEntity(
+        Type="ContourResult",
+        Association=results1)
+    contourResult2.EvaluateFullRange = False
+    contourResult2.Variable = "Stress.eqv"
+resultsEvaluationComponent1.Update(AllDependencies=True)
+Save(Overwrite=True)
+with Transaction():
+    Reset()
+    Extensions.UnloadExtension(
+        Id="7abf9806-7798-47db-996f-77a14bea7e52",
+        Version="1.0",
+        Format="Binary")

@@ -1,0 +1,83 @@
+# encoding: utf-8
+# Release 19.1
+SetScriptVersion(Version="19.1.103")
+with Transaction():
+    system1 = GetSystem(Name="Study")
+    study1 = system1.GetContainer(ComponentName="Study")
+    resultsEvaluationComponent1 = system1.GetComponent(Name="Results Evaluation")
+    results1 = resultsEvaluationComponent1.GetTaskObject()
+    contourResult1 = study1.CreateEntity(
+        Type="ContourResult",
+        Association=results1)
+    contourResult1.EvaluateFullRange = False
+    contourResult1.Variable = "Displacement.mag"
+contourResult1.Evaluate()
+with Transaction():
+    physicsDefinitionComponent1 = system1.GetComponent(Name="Physics Definition")
+    physicsDefinition1 = physicsDefinitionComponent1.GetTaskObject()
+    material1 = study1.CreateEntity(
+        Type="Material",
+        Association=physicsDefinition1)
+    materialAssignment1 = study1.GetMaterialAssignment(Name="MaterialAssignment 1")
+    materialAssignment1.Material = material1
+material1.DisplayText = "Aluminium 7075"
+material1.Description = "Aluminium 7075"
+material1.DefaultStateOfMatter = "Solid"
+material1.CreateContent(
+    Model="Density",
+    State="Solid")
+material1.Solid.Density.Magnitude = "2081 [kg m^-3]"
+material1.CreateContent(
+    Model="Elasticity",
+    Behavior="Isotropic",
+    State="Solid")
+material1.Solid.IsotropicElasticity.Magnitude.YoungsModulus = "7.71E10 [Pa]"
+material1.Solid.IsotropicElasticity.Magnitude.PoissonsRatio = "0.33"
+force1 = study1.GetForce(Name="Force 2")
+force1.Location = ["FACE48", "FACE70", "FACE62", "FACE1", "FACE5", "FACE3"]
+force1.Location = ["FACE9", "FACE48", "FACE70", "FACE62", "FACE1", "FACE5", "FACE3"]
+solvePhysicsComponent1 = system1.GetComponent(Name="Solve Physics")
+solvePhysicsComponent1.Update(AllDependencies=True)
+with Transaction():
+    solvePhysicsComponent1.Update(AllDependencies=True)
+    resultsEvaluationComponent1.Refresh()
+resultsEvaluationComponent1.Update(AllDependencies=True)
+with Transaction():
+    singleValueResult1 = study1.CreateEntity(
+        Type="SingleValueResult",
+        Association=results1)
+    singleValueResult1.EvaluateFullRange = False
+singleValueResult1.Function = "Mass"
+singleValueResult1.Evaluate()
+geometryModelingComponent1 = system1.GetComponent(Name="Geometry Modeling")
+modeling1 = geometryModelingComponent1.GetTaskObject()
+Modeling.ReloadDocument(ModelingAnchor=modeling1)
+with Transaction():
+    geometryModelingComponent1.Update(AllDependencies=True)
+    physicsDefinitionComponent1.Refresh()
+    meshModelingComponent1 = system1.GetComponent(Name="Mesh Modeling")
+    meshModelingComponent1.Refresh()
+    solvePhysicsComponent1.Refresh()
+    resultsEvaluationComponent1.Refresh()
+Modeling.ReloadDocument(ModelingAnchor=modeling1)
+with Transaction():
+    geometryModelingComponent1.Update(AllDependencies=True)
+    physicsDefinitionComponent1.Refresh()
+    meshModelingComponent1.Refresh()
+    solvePhysicsComponent1.Refresh()
+    resultsEvaluationComponent1.Refresh()
+modeling1.ChooseGeometryImport(FilePath=r"C:\Users\Phoenix\Documents\UNI\DSE\Door2Door\Ground\trusssketch4.CATPart")
+with Transaction():
+    geometryModelingComponent1.Update(AllDependencies=True)
+    physicsDefinitionComponent1.Refresh()
+    meshModelingComponent1.Refresh()
+    solvePhysicsComponent1.Refresh()
+    resultsEvaluationComponent1.Refresh()
+force2 = study1.GetForce(Name="Force 1")
+force2.Location = []
+force2.Location = ["FACE183", "FACE170", "FACE148", "FACE157", "FACE169"]
+force1.Location = ["FACE179", "FACE177", "FACE161", "FACE124", "FACE120", "FACE118", "FACE116", "FACE9", "FACE48", "FACE70", "FACE62", "FACE1", "FACE5", "FACE3"]
+force1.Location = []
+force1.Location = "[]"
+force1.Location = ["FACE179", "FACE177", "FACE161", "FACE116", "FACE124", "FACE120", "FACE118"]
+Save(Overwrite=True)

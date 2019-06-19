@@ -219,8 +219,9 @@ moi = inert_req(122.65e9,0.04,1e-9)
 #FINAL VALUE
 #b = wing_deflec(a[0],a[1],228e9,2.184e-4,6.739e-6)
 
-print a[2]  
-print a[3]
-print moi 
+print(moi)   
+print(a[2])  
+print(a[3])
+
 
 

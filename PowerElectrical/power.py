@@ -134,7 +134,7 @@ def fuelCalc():
     takeOff_power = []
     takeOff_energy = []
 
-    for t in np.arange(5*dt, 39.0/acc, dt):
+    for t in np.arange(5*dt, 35.0/acc, dt):
         takeOff_t = ThrustCalculator(MTOW - massHydrogen, acc*t, acc*t, acc*t, 0.0, dt, 0, acc, 1)
         takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
                                     takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff, 1)
@@ -161,6 +161,8 @@ def fuelCalc():
     print("Altitude: ", takeOff_t.altitude, "Velocity: ", takeOff_t.velocity)
     print("HLP eff: ", takeOff_l.efficiencyHLP, "CP eff: ", takeOff_l.efficiencyCP)
     print("HLP thrust: ", takeOff_l.thrustHLP, "CP thrust: ", takeOff_l.thrustCP)
+
+    print("Wake velocity CP: ", takeOff_l.v_wakeCP, " Wake velocity HLP: ", takeOff_l.v_wakeHLP)
 
     #CLIMB
     climb_t = ThrustCalculator(MTOW - massHydrogen, 45.0, 45.0, 45.0, 750.0, 1500.0/7.44, 7.44)
@@ -191,13 +193,7 @@ def fuelCalc():
     cruise_t = ThrustCalculator(MTOW - massHydrogen, 69.4, 69.4, 69.4, 1500, 400000.0/69.4)
     cruise_l = aero.Propellers(cruise_t.thrust, cruise_t.velocity,
                               cruise_t.rho, cruise_t.aero_vals.cl_cr, 0)
-    temp = cruise_t
-    temp.thrust = 0.0
-    while (abs(cruise_t.thrust - temp.thrust) > 0.005):
-        temp = cruise_t
-        cruise_t = ThrustCalculator(MTOW - massHydrogen, 69.4, cruise_l.v_wakeCP, cruise_l.v_wakeHLP, 1500.0, 400000.0/69.4)
-        cruise_l = aero.Propellers(cruise_t.thrust, cruise_t.velocity,
-                                  cruise_t.rho, cruise_t.aero_vals.cl_cr, 0)
+
     print("#########################")
     print("Cruise:")
     print("Weight: ", (MTOW - massHydrogen)*9.80665)
@@ -211,6 +207,7 @@ def fuelCalc():
     print("Altitude: ", cruise_t.altitude, "Velocity: ", cruise_t.velocity)
     print("HLP eff: ", cruise_l.efficiencyHLP, "CP eff: ", cruise_l.efficiencyCP)
     print("HLP thrust: ", cruise_l.thrustHLP, "CP thrust: ", cruise_l.thrustCP)
+    print("wake CP: ", cruise_l.v_wakeCP, "wake HLP: ", cruise_l.v_wakeHLP)
 
     #RESERVE
     reserve_t = ThrustCalculator(MTOW - massHydrogen, 69.4, 69.4, 69.4, 1500.0, 45.0*60.0)
@@ -261,14 +258,14 @@ def fuelCalc():
     print("HLP thrust: ", landStart_l.thrustHLP, "CP thrust: ", landStart_l.thrustCP)
 
     #LANDING
-    landing_t = ThrustCalculator(MTOW - massHydrogen, 39.0, 39.0, 39.0, 750.0, (MTOW - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
+    landing_t = ThrustCalculator(MTOW - massHydrogen, 35.0, 35.0, 35.0, 750.0, (MTOW - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
     landing_l = aero.Propellers(landing_t.thrust, landing_t.velocity,
                                   landing_t.rho, landing_t.aero_vals.cl_takeoff, 1)
     temp = landing_t
     temp.thrust = 0.0
     while (abs(landing_t.thrust - temp.thrust) > 0.005):
         temp = landing_t
-        landing_t = ThrustCalculator(MTOW - massHydrogen, 39.0, landing_l.v_wakeCP, landing_l.v_wakeHLP, 750.0, (MTWO - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
+        landing_t = ThrustCalculator(MTOW - massHydrogen, 35.0, landing_l.v_wakeCP, landing_l.v_wakeHLP, 750.0, (MTWO - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
         landing_l = aero.Propellers(landing_t.thrust, landing_t.velocity,
                                   landing_t.rho, landing_t.aero_vals.cl_takeoff, 1)
     print("#########################")
