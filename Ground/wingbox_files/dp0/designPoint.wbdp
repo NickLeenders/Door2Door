@@ -1,0 +1,787 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Storage>
+  <Project Version="9.0" />
+  <Addins>
+    <addin-list valType="String">[Ansys.ParameterManager.ParameterManagerAddin, Ansys.Study.Addin.Addin, Ansys.Modeling.Core.Addin]</addin-list>
+    <Addin Name="Ansys.ParameterManager.ParameterManagerAddin" Version="7.3" />
+    <Addin Name="Ansys.Study.Addin.Addin" Version="19.1.0.2018041820" />
+    <Addin Name="Ansys.Modeling.Core.Addin" Version="1.0" />
+  </Addins>
+  <Containers>
+    <container-map valType="String">{"Scopes": Ansys.ParameterManager.ParameterManagerAddin:scopes, "Study": Ansys.Study.Addin.Addin:Study, "Modeling": Ansys.Modeling.Core.Addin:Static, "Geometry Modeling": "Ansys.Study.Addin.Addin:Task.Geometry Modeling", "Physics Definition": "Ansys.Study.Addin.Addin:Task.Physics Definition", "Mesh Modeling": "Ansys.Study.Addin.Addin:Task.Mesh Modeling", "Solve Physics": "Ansys.Study.Addin.Addin:Task.Solve Physics", "Results Evaluation": "Ansys.Study.Addin.Addin:Task.Results Evaluation"}</container-map>
+    <static-container-ids valType="String">{"Scopes": Scopes, "Modeling": ModelingStaticContainer}</static-container-ids>
+    <Container Name="Scopes" Version="1.0">
+      <container-type valType="String">Ansys.ParameterManager.ParameterManagerAddin:scopes</container-type>
+      <static-id valType="String">Scopes</static-id>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">0</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 2951, "Input": 3221, "Output": 2951}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <contains-significant-data valType="Boolean">false</contains-significant-data>
+      <Object Name="/Scopes/GlobalScope:GlobalScope" Version="1.0">
+        <class-type valType="String">GlobalScope</class-type>
+        <object-name valType="String">GlobalScope</object-name>
+        <member-data valType="String">{"DisplayText": "GlobalScope", "_fieldExpressionValidationContext": None, "functionProviders": [], "Parent": None}</member-data>
+      </Object>
+      <Object Name="/Scopes/Scope:Scope" Version="1.0">
+        <class-type valType="String">Scope</class-type>
+        <object-name valType="String">Scope</object-name>
+        <member-data valType="String">{"DisplayText": "Scope", "_fieldExpressionValidationContext": $$873468d1-4afb-4dd8-8901-82ea60202e4b, "functionProviders": [$$f8465f55-faf9-46b9-bcf3-93e5aee6dd9f, $$dec053e0-8bc5-42a1-b15a-f3074f47b640, $$9d2121ed-675c-42ce-8d36-4e5b40098f6e, $$5f5b2feb-c7c1-4b80-b12e-b6db7aaa3c78, $$195d0263-96f2-46e2-b620-84ba722d5d4e], "Parent": $$8bb1c1e8-ce8e-49be-8d1b-3c2b9234a0b0, "entities": [$$1559bbca-f938-4b19-98fd-883d424e0d66, $$79e89119-b03c-4ef0-ba99-58e412ac6607, $$264bcef3-c021-4876-9ba7-f45f60b02f06, $$fbc9d32e-1a0b-4e3f-983f-036d841fb6cf, $$bcccd71f-c807-4e6f-9dce-be35294198b1, $$bd35d8b2-7844-4fc1-bf43-58ef15e389a4, $$0f80b914-3312-4cc4-90fb-80681a23aeeb, $$f6a90a32-d460-4bb3-8a79-475266e71bc6, $$c276a855-aadf-46d5-adda-c54a3ace1a2c, $$48f7f0bf-02d7-4786-b10c-149cba4dfec4, $$79e0e64a-5f03-4be5-b2d8-ba1b8d7eff3c, $$4db37a93-2f7b-4eee-a6b5-660787ef1d83, $$d12f561e-2255-4c61-850f-f3374f16d0b1, $$e063a4f2-f7ee-4d16-b427-803989e9b13a, $$f0f660eb-f6b5-436a-bed1-33de97947861, $$fde608e5-71e4-47a8-bca5-c184a37a761f, $$9fae9902-5b37-4f90-8a73-99c5ce4d634e, $$5929cd1e-ac12-4449-9d08-13505ab7d88c, $$40d974bf-0261-43ca-930d-8987aa5d0983, $$4f75648b-3474-4101-affe-3dd239425ef9, $$202e8cfd-a913-424e-8812-26a81860f7b8, $$fc337404-9ac5-4036-bb3f-c1958bc43e9a, $$c5747e9c-f038-49e7-a9a4-2cfa7f699b14, $$ae2b8933-c7fe-4244-9b27-df1b71bcb53f, $$86f0bb2b-bd15-4fd1-8f36-9a0b3d5eaac8, $$30b5e48d-6487-4f7a-bccf-251f75c401c1, $$337e0e25-45b7-49f1-8fe6-1fca4efe7f87, $$a791a3b0-23ea-48f9-8112-8d2e406371d7, $$6b54c85f-20d7-4a0f-af19-4005f41caafd, $$5c1a22e9-917f-48b1-b61f-f7bf5dd833de, $$bca5746f-dd2d-4e3b-94ec-be942e839483, $$ff6bf96b-5326-4790-b089-7800ba9b0811, $$4b1d801e-fb64-4c9f-afe2-ae61b8a01bd4, $$9d0658b5-d4c4-4973-b9bc-0ef0fd530ae2, $$1434bb50-b9be-43bf-a821-96f2cd212361], "containersDict": {"Study": 35}}</member-data>
+      </Object>
+    </Container>
+    <Container Name="Study" Version="1.0">
+      <container-type valType="String">Ansys.Study.Addin.Addin:Study</container-type>
+      <StudySessionId valType="String">3a2d4dfe-6462-47a6-a10d-4dedea5c476a</StudySessionId>
+      <StudyBufferSize valType="Int32">2697</StudyBufferSize>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">3355</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 4018, "Input": 4019, "Output": 3213}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "MaterialDataContainer": 0, "FileTypesContainer": 0, "CustomTemplateContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "Study": 0}</last-update-regen-times>
+      <unique-system-dir valType="String">Study</unique-system-dir>
+      <contains-significant-data valType="Boolean">true</contains-significant-data>
+      <Object Name="/Study/Simulation:Simulation 1" Version="1.0">
+        <class-type valType="String">Simulation</class-type>
+        <object-name valType="String">Simulation 1</object-name>
+        <member-data valType="String">{"DisplayText": "Study", "DatabaseId": 1, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": None, "NamingMethod": "Automatic", "SystemTags": None, "EngTopoRelMgr": {"DisplayText": "EngineeringTopologyRelMgr", "_registeredModelIdList": [], "_parentChildRelMap": {}, "_engTopoRefMap": {}, "_engTopoFileMgr": {}, "_engRefToModelMapCache": {"_refToModelMapCache": {}}}, "NavigationManager": {"DisplayText": "UserObjectNavigationManager", "_userObjectsNotNavigable": [$$bd5b8636-7800-499e-bbe1-0d5c8c2a11b7, $$1559bbca-f938-4b19-98fd-883d424e0d66, $$79e89119-b03c-4ef0-ba99-58e412ac6607, $$0f80b914-3312-4cc4-90fb-80681a23aeeb, $$c276a855-aadf-46d5-adda-c54a3ace1a2c, $$48f7f0bf-02d7-4786-b10c-149cba4dfec4, $$fde608e5-71e4-47a8-bca5-c184a37a761f, $$9fae9902-5b37-4f90-8a73-99c5ce4d634e, $$5929cd1e-ac12-4449-9d08-13505ab7d88c, $$40d974bf-0261-43ca-930d-8987aa5d0983, $$4f75648b-3474-4101-affe-3dd239425ef9, $$a791a3b0-23ea-48f9-8112-8d2e406371d7, $$bca5746f-dd2d-4e3b-94ec-be942e839483]}}</member-data>
+        <custom-data>
+          <SimulationVersionPersistenceKey valType="String">19.1.0.2018041820</SimulationVersionPersistenceKey>
+          <TagManagerTagsPersistenceKey valType="String">[]</TagManagerTagsPersistenceKey>
+          <TagManagerTagUsagePersistenceKey valType="String">{}</TagManagerTagUsagePersistenceKey>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">["$$feb851eb-6cda-40af-acfd-72ff16696a97", "$$1559bbca-f938-4b19-98fd-883d424e0d66", "$$0f80b914-3312-4cc4-90fb-80681a23aeeb", "$$c276a855-aadf-46d5-adda-c54a3ace1a2c", "$$48f7f0bf-02d7-4786-b10c-149cba4dfec4", "$$bca5746f-dd2d-4e3b-94ec-be942e839483"]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"SimulationVersionPersistenceKey": System.String, "TagManagerTagsPersistenceKey": System.String, "TagManagerTagUsagePersistenceKey": System.String, "UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/ExpressionValidationContext:ExpressionValidationContext 1" Version="1.0">
+        <class-type valType="String">ExpressionValidationContext</class-type>
+        <object-name valType="String">ExpressionValidationContext 1</object-name>
+        <member-data valType="String">{"DisplayText": "ExpressionValidationContext 1", "DatabaseId": 2, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Invalid"}, "_isSuppressed": False, "OwnerProxy": None, "NamingMethod": "Automatic", "SystemTags": None}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/ExpressionScopeMap:ExpressionScopeMap 1" Version="1.0">
+        <class-type valType="String">ExpressionScopeMap</class-type>
+        <object-name valType="String">ExpressionScopeMap 1</object-name>
+        <member-data valType="String">{"DisplayText": "ExpressionScopeMap", "_scopeReferences": {"$$873468d1-4afb-4dd8-8901-82ea60202e4b": $$c0a945bb-e35b-4889-a208-b9fb588cd459}}</member-data>
+      </Object>
+      <Object Name="/Study/ImportedObjectRelationTable:ImportedObjectRelationTable 1" Version="1.0">
+        <class-type valType="String">ImportedObjectRelationTable</class-type>
+        <object-name valType="String">ImportedObjectRelationTable 1</object-name>
+        <member-data valType="String">{"DisplayText": "ImportedObjectRelationTable"}</member-data>
+        <custom-data>
+          <ImportedObjectRelationTableVersionPersistenceKey valType="String">19.1.0.2018041820</ImportedObjectRelationTableVersionPersistenceKey>
+          <PersistedImportedObjectTable valType="String">{}</PersistedImportedObjectTable>
+          <value-keys valType="String">{"ImportedObjectRelationTableVersionPersistenceKey": System.String, "PersistedImportedObjectTable": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/GlobalObjects:GlobalObjects 1" Version="1.0">
+        <class-type valType="String">GlobalObjects</class-type>
+        <object-name valType="String">GlobalObjects 1</object-name>
+        <member-data valType="String">{"DisplayText": "GlobalObjects 1", "DatabaseId": 3, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": None, "NamingMethod": "Automatic", "SystemTags": None}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">["$$bd5b8636-7800-499e-bbe1-0d5c8c2a11b7"]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/GlobalReferenceFrame:GlobalReferenceFrame 1" Version="1.0">
+        <class-type valType="String">GlobalReferenceFrame</class-type>
+        <object-name valType="String">GlobalReferenceFrame 1</object-name>
+        <member-data valType="String">{"DisplayText": "Global Reference Frame", "DatabaseId": 4, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"StackedTransformManager": "StackedTransformManager"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": None, "NamingMethod": "ManualEdit", "SystemTags": None, "ParentFrame": None, "PreferredCoordinateType": "Cartesian", "DefinitionType": "OriginAndOrientation", "MotionType": "Stationary", "EnablePivot": False, "ConfigurationTransform": ((1.0, 0.0, 0.0, 0.0), (0.0, 1.0, 0.0, 0.0), (0.0, 0.0, 1.0, 0.0), (0.0, 0.0, 0.0, 1.0)), "RelativeConfigurationTransform": ((1.0, 0.0, 0.0, 0.0), (0.0, 1.0, 0.0, 0.0), (0.0, 0.0, 1.0, 0.0), (0.0, 0.0, 0.0, 1.0)), "AccumulatedMotionTransform": ((1.0, 0.0, 0.0, 0.0), (0.0, 1.0, 0.0, 0.0), (0.0, 0.0, 1.0, 0.0), (0.0, 0.0, 0.0, 1.0)), "StackedTransformManager": {"ExtensionObjectTypeStrings": {}, "Label": None, "_transformList": [], "_transformTypeNameToCount": {"TranslationTransform": 1, "RotationTransform": 1, "CoincideTransform": 1, "ReverseAboutXTransform": 1, "ReverseAboutYTransform": 1, "ReverseAboutZTransform": 1}, "Client": $$bd5b8636-7800-499e-bbe1-0d5c8c2a11b7, "RelativeTo": $$bd5b8636-7800-499e-bbe1-0d5c8c2a11b7, "StackedTransformCount": 0}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/ASimFunctionProvider:ASimFunctionProvider 1" Version="1.0">
+        <class-type valType="String">ASimFunctionProvider</class-type>
+        <object-name valType="String">ASimFunctionProvider 1</object-name>
+        <member-data valType="String">{"DisplayText": "ASimFunctionProvider"}</member-data>
+      </Object>
+      <Object Name="/Study/FunctionProvider:AfdFunctionProvider 1" Version="1.0">
+        <class-type valType="String">FunctionProvider</class-type>
+        <object-name valType="String">AfdFunctionProvider 1</object-name>
+        <member-data valType="String">{"DisplayText": "AfdFunctionProvider"}</member-data>
+      </Object>
+      <Object Name="/Study/AemFunctionProvider:AemFunctionProvider 1" Version="1.0">
+        <class-type valType="String">AemFunctionProvider</class-type>
+        <object-name valType="String">AemFunctionProvider 1</object-name>
+        <member-data valType="String">{"DisplayText": "AemFunctionProvider"}</member-data>
+      </Object>
+      <Object Name="/Study/MAPDLFunctionProvider:MAPDLFunctionProvider 1" Version="1.0">
+        <class-type valType="String">MAPDLFunctionProvider</class-type>
+        <object-name valType="String">MAPDLFunctionProvider 1</object-name>
+        <member-data valType="String">{"DisplayText": "MAPDLFunctionProvider"}</member-data>
+      </Object>
+      <Object Name="/Study/PolyflowFunctionProvider:PolyflowFunctionProvider 1" Version="1.0">
+        <class-type valType="String">PolyflowFunctionProvider</class-type>
+        <object-name valType="String">PolyflowFunctionProvider 1</object-name>
+        <member-data valType="String">{"DisplayText": "PolyflowFunctionProvider"}</member-data>
+      </Object>
+      <Object Name="/Study/Modeling:Modeling 1" Version="1.0">
+        <class-type valType="String">Modeling</class-type>
+        <object-name valType="String">Modeling 1</object-name>
+        <member-data valType="String">{"DisplayText": "Modeling Task 1", "DatabaseId": 7, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": None, "NamingMethod": "Automatic", "SystemTags": None, "_generatedDataInfo": {"GeneratedDataState": "UpToDate"}, "_cachedHasValidModelData": True, "_cachedDesignIsWithinAnsysStudentLimits": True, "_referenceIdMap": {}, "IsUpToDate": True, "IsInitialized": True, "UniqueAssemblyId": "12e54948-8ef2-4ae7-90b5-38b1f59710ad"}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">["$$79e89119-b03c-4ef0-ba99-58e412ac6607", "$$264bcef3-c021-4876-9ba7-f45f60b02f06"]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/ModelingImportSource:ModelingImportSource 1" Version="1.0">
+        <class-type valType="String">ModelingImportSource</class-type>
+        <object-name valType="String">ModelingImportSource 1</object-name>
+        <member-data valType="String">{"DisplayText": "Modeling Import Source 1", "DatabaseId": 8, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"GeometryPreferences": "GeometryPreferences"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": None, "NamingMethod": "Automatic", "SystemTags": None, "_models": [$$264bcef3-c021-4876-9ba7-f45f60b02f06], "_sourceType": "Modeling", "_generatedDataInfo": {"GeneratedDataState": "UpToDate"}, "_modelOp": "Modeling", "_upstreamOutputObject": None, "_hasPendingFilePathChange": False, "FilePath": r"C:\Users\Phoenix\Documents\UNI\DSE\Door2Door\Ground\wingbox_files\dp0\Modeling\AIM\Modeling_12e54948-8ef2-4ae7-90b5-38b1f59710ad.scdoc", "FileReference": $$39a23941-0a0a-4370-afe0-ac644ddfe8d1, "SourceId": 1, "IsGenerated": True, "ActiveCADAttachSource": "No Active CAD Document", "PlugInName": "", "ActiveCADManager": {}, "FileType": "Unknown", "MaterialAssignments": [], "_hasPendingUserFilePathChange": False, "ImportedFileReference": None, "ImportedFilePath": "", "GeometryPreferences": {"ExtensionObjectTypeStrings": {}, "Label": "Geometry Preferences", "CADLicensing": "Release", "ImportSolids": True, "ImportSheets": True, "ImportWires": False, "MixedResolution": "None", "ModelDimension": "ThreeDimensional", "ImportDimensions": "Independent", "DimensionKey": "ANS;DS", "ImportAttributes": False, "AttributeKey": "SDFEA;DDM", "ImportNamedSelections": False, "NamedSelectionKey": "NS", "ImportMaterials": False, "ImportCoordinateSystems": False, "CoordinateSystemKey": "", "ImportWorkPoints": False, "ProcessAssociativity": True, "DoSmartUpdate": True, "ComparePartsOnUpdate": "No", "UseInstances": True, "ReaderSaveUpdate": False, "ProcessEnclosures": True, "DecomposeDisjointFaces": True}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/Model:Model 1" Version="1.0">
+        <class-type valType="String">Model</class-type>
+        <object-name valType="String">Model 1</object-name>
+        <member-data valType="String">{"DisplayText": "Model 1", "DatabaseId": 9, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Invalid"}, "_isSuppressed": False, "OwnerProxy": None, "NamingMethod": "Automatic", "SystemTags": None, "_importSources": [$$79e89119-b03c-4ef0-ba99-58e412ac6607], "InstanceTable": {}, "ModelID": 1, "UnitSystem": "DS_SOLV_MKS", "ComponentMap": {"1": $$fbc9d32e-1a0b-4e3f-983f-036d841fb6cf, "3": $$bcccd71f-c807-4e6f-9dce-be35294198b1, "4": $$bd35d8b2-7844-4fc1-bf43-58ef15e389a4}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">["$$fbc9d32e-1a0b-4e3f-983f-036d841fb6cf"]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/ModelComponent:ModelComponent 1" Version="1.0">
+        <class-type valType="String">ModelComponent</class-type>
+        <object-name valType="String">ModelComponent 1</object-name>
+        <member-data valType="String">{"DisplayText": "12e54948-8ef2-4ae7-90b5-38b1f59710ad", "DatabaseId": 10, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Invalid"}, "_isSuppressed": False, "OwnerProxy": None, "NamingMethod": "ManualEdit", "SystemTags": None, "Transparency": 1, "TransferId": "a6ac4da6-9111-4fb3-99ad-3afd05046aee", "GeometryNodes": [], "GeometryType": "Solid"}</member-data>
+        <custom-data>
+          <ModelComponentVersionPersistenceKey valType="String">19.1.0.2018041820</ModelComponentVersionPersistenceKey>
+          <ReferenceId valType="String">1</ReferenceId>
+          <ComponentId valType="String">2</ComponentId>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">["$$bcccd71f-c807-4e6f-9dce-be35294198b1"]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"ModelComponentVersionPersistenceKey": System.String, "ReferenceId": System.UInt64, "ComponentId": System.UInt32, "UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/ModelComponent:ModelComponent 2" Version="1.0">
+        <class-type valType="String">ModelComponent</class-type>
+        <object-name valType="String">ModelComponent 2</object-name>
+        <member-data valType="String">{"DisplayText": "PartBody/Multi-sections Solid.3", "DatabaseId": 11, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Invalid"}, "_isSuppressed": False, "OwnerProxy": None, "NamingMethod": "ManualEdit", "SystemTags": None, "Transparency": 1, "TransferId": "f10bd122-8d14-4be9-a5ab-6eed83188029", "GeometryNodes": [], "GeometryType": "Solid"}</member-data>
+        <custom-data>
+          <ModelComponentVersionPersistenceKey valType="String">19.1.0.2018041820</ModelComponentVersionPersistenceKey>
+          <ReferenceId valType="String">3</ReferenceId>
+          <ComponentId valType="String">3</ComponentId>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">["$$bd35d8b2-7844-4fc1-bf43-58ef15e389a4"]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"ModelComponentVersionPersistenceKey": System.String, "ReferenceId": System.UInt64, "ComponentId": System.UInt32, "UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/ModelComponent:ModelComponent 3" Version="1.0">
+        <class-type valType="String">ModelComponent</class-type>
+        <object-name valType="String">ModelComponent 3</object-name>
+        <member-data valType="String">{"DisplayText": "PartBody/Multi-sections Solid.3", "DatabaseId": 12, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Invalid"}, "_isSuppressed": False, "OwnerProxy": None, "NamingMethod": "ManualEdit", "SystemTags": None, "Transparency": 1, "TransferId": "7d1b143a-cf4d-4867-a22e-52a804ec589a", "GeometryNodes": [65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], "GeometryType": "Solid"}</member-data>
+        <custom-data>
+          <ModelComponentVersionPersistenceKey valType="String">19.1.0.2018041820</ModelComponentVersionPersistenceKey>
+          <ReferenceId valType="String">4</ReferenceId>
+          <ComponentId valType="String">3</ComponentId>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"ModelComponentVersionPersistenceKey": System.String, "ReferenceId": System.UInt64, "ComponentId": System.UInt32, "UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/PhysicsDefinition:PhysicsDefinition 1" Version="1.0">
+        <class-type valType="String">PhysicsDefinition</class-type>
+        <object-name valType="String">PhysicsDefinition 1</object-name>
+        <member-data valType="String">{"DisplayText": "Physics 1", "DatabaseId": 13, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"StepControlExtension": "StepControlExtension"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None, "_generatedDataInfo": {"GeneratedDataState": "NeedsGenerated"}, "CalculationType": "Static", "PreStressedModal": False, "PhysicsFidelity": 3, "StepControlExtension": {"ExtensionObjectTypeStrings": {}, "Label": "Multi-Step Simulation Settings", "IsSimulationStepAdvancedMode": False}}</member-data>
+        <properties-setByUserFlag-data valType="String">["CalculationType"]</properties-setByUserFlag-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">["$$f6a90a32-d460-4bb3-8a79-475266e71bc6", "$$79e0e64a-5f03-4be5-b2d8-ba1b8d7eff3c", "$$4db37a93-2f7b-4eee-a6b5-660787ef1d83", "$$e063a4f2-f7ee-4d16-b427-803989e9b13a", "$$f0f660eb-f6b5-436a-bed1-33de97947861", "$$4f75648b-3474-4101-affe-3dd239425ef9", "$$fc337404-9ac5-4036-bb3f-c1958bc43e9a", "$$c5747e9c-f038-49e7-a9a4-2cfa7f699b14", "$$ae2b8933-c7fe-4244-9b27-df1b71bcb53f", "$$6b54c85f-20d7-4a0f-af19-4005f41caafd", "$$5c1a22e9-917f-48b1-b61f-f7bf5dd833de", "$$9d0658b5-d4c4-4973-b9bc-0ef0fd530ae2", "$$1434bb50-b9be-43bf-a821-96f2cd212361"]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/SolverSettings:SolverSettings 1" Version="1.0">
+        <class-type valType="String">SolverSettings</class-type>
+        <object-name valType="String">SolverSettings 1</object-name>
+        <member-data valType="String">{"DisplayText": "Solver Settings 1", "DatabaseId": 14, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"GeneralSolutionControls": "GeneralSolutionControls", "GeneralNonLinearControls": "GeneralNonLinearControls"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None, "_generatedDataInfo": {"GeneratedDataState": "NeedsGenerated"}, "CalculationType": "Static", "SolverName": "MAPDL", "License": None, "JobDispatcher": None, "Queue": None, "LicenseServer": None, "CapabilityId": None, "GeneralSolutionControls": {"ExtensionObjectTypeStrings": {}, "Label": "General Solution Controls", "SolverUnitSystem": "ACTIVE", "MatrixSolver": "ProgramControlled", "InertiaRelief": False, "MaxModesToFind": 6, "LimitSearchToRange": "No", "RangeMinimum": "0 [Hz]", "RangeMaximum": "100000000 [Hz]", "FutureAnalysis": "No", "IsDamped": "No", "SolverDamping": "ProgramControlled", "StoreComplexSolution": "No", "StiffnessCoefficient": 0, "MassCoefficient": 0}, "GeneralNonLinearControls": {"ExtensionObjectTypeStrings": {}, "Label": "General Nonlinear Controls", "NRSetting": "Auto", "LargeDeflection": "ProgramControlled"}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">["$$d12f561e-2255-4c61-850f-f3374f16d0b1", "$$fde608e5-71e4-47a8-bca5-c184a37a761f", "$$202e8cfd-a913-424e-8812-26a81860f7b8"]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/MeshModeling:MeshModeling 1" Version="1.0">
+        <class-type valType="String">MeshModeling</class-type>
+        <object-name valType="String">MeshModeling 1</object-name>
+        <member-data valType="String">{"DisplayText": "Mesh Modeling Task 1", "DatabaseId": 15, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None, "_generatedDataInfo": {"GeneratedDataState": "Obsolete"}, "_cachedHasValidAnalysisMeshData": False, "_cachedMeshPhysicsType": None, "_facesWithBoundaryLayerControls": {}, "_facesWithSizeControls": {}, "_bodiesWithShapeControls": {}, "_cachedBodyMeshState": {}, "DeriveZoneTypeFromName": True, "ACMOMeshId": 0, "WasGeneratedUsingBatchMesher": False, "FullMesh": False, "UpstreamModelChanged": False, "ConfigIdMeshContext": 0, "MeshIdMeshContext": 0, "MeshResolution": 3}</member-data>
+        <custom-data>
+          <MeshModelingVersionPersistenceKey valType="String">19.1.0.2018041820</MeshModelingVersionPersistenceKey>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"MeshModelingVersionPersistenceKey": System.String, "UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/SolvePhysics:SolvePhysics 1" Version="1.0">
+        <class-type valType="String">SolvePhysics</class-type>
+        <object-name valType="String">SolvePhysics 1</object-name>
+        <member-data valType="String">{"DisplayText": "SolvePhysics 1", "DatabaseId": 16, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None, "_generatedDataInfo": {"GeneratedDataState": "NeedsGenerated"}, "_upstreamPhysicsDefinition": $$0f80b914-3312-4cc4-90fb-80681a23aeeb, "VoxelDataFileName": None, "ProxyVolumeData": None}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/TaskGroup:TaskGroup 1" Version="1.0">
+        <class-type valType="String">TaskGroup</class-type>
+        <object-name valType="String">TaskGroup 1</object-name>
+        <member-data valType="String">{"DisplayText": "Physics", "_taskReferences": [$$b17f6e0c-f572-4995-b16a-0ca20ab557cc, $$e7f0b23e-78c6-4871-bbaa-293f270554a5, $$b8328b5d-f9cc-413b-ad69-c741fe41a3ce], "_taskGroupType": "Physics Solution"}</member-data>
+      </Object>
+      <Object Name="/Study/PhysicsRegion:PhysicsRegion 1" Version="1.0">
+        <class-type valType="String">PhysicsRegion</class-type>
+        <object-name valType="String">PhysicsRegion 1</object-name>
+        <member-data valType="String">{"DisplayText": "Structural Physics Region 1", "DatabaseId": 17, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None, "PhysicsType": "Structural", "Location": ["BODY1"]}</member-data>
+        <expression-data valType="String">{"Location": {"expressionOrAssignment": "AllBodies()", "expression": "AllBodies()", "result": ["BODY1"], "state": expressionSetAndEvaluated, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}</expression-data>
+        <properties-setByUserFlag-data valType="String">["PhysicsType", "Location"]</properties-setByUserFlag-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/MechanicalPhysicsOptions:MechanicalPhysicsOptions 1" Version="1.0">
+        <class-type valType="String">MechanicalPhysicsOptions</class-type>
+        <object-name valType="String">MechanicalPhysicsOptions 1</object-name>
+        <member-data valType="String">{"DisplayText": "Physics Options 1", "DatabaseId": 18, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"SolidModelingOptions": "SolidModelingOptions"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None, "IdealizationType": "ProgramControlled", "ModeledAs": "ProgramControlled", "Stiffness": "Flexible", "UseInertialReferenceFrame": True, "RelativeTo": $$bd5b8636-7800-499e-bbe1-0d5c8c2a11b7, "AllIdealizationTypes": "Unknown", "AllModeledAs": "Unknown", "Location": [$$79e0e64a-5f03-4be5-b2d8-ba1b8d7eff3c], "SolidModelingOptions": {"ExtensionObjectTypeStrings": {}, "Label": "Solid Modeling Options", "BrickIntegrationType": "ProgramControlled"}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/SolutionStep:SolutionStep 1" Version="1.0">
+        <class-type valType="String">SolutionStep</class-type>
+        <object-name valType="String">SolutionStep 1</object-name>
+        <member-data valType="String">{"DisplayText": "Simulation Step 1", "DatabaseId": 19, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"Start": "StepBoundary", "End": "StepBoundary"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None, "StepName": "SolutionStep 1", "SolutionProgression": $$202e8cfd-a913-424e-8812-26a81860f7b8, "Start": {"ExtensionObjectTypeStrings": {}, "Label": None, "Measure": "Time", "SolutionOperator": "EqualTo", "Threshold": {"result": "0 [s]", "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}, "End": {"ExtensionObjectTypeStrings": {}, "Label": None, "Measure": "Time", "SolutionOperator": "EqualTo", "Threshold": {"result": "1 [s]", "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/OutputControls:OutputControls 1" Version="1.0">
+        <class-type valType="String">OutputControls</class-type>
+        <object-name valType="String">OutputControls 1</object-name>
+        <member-data valType="String">{"DisplayText": "Output Controls 1", "DatabaseId": 20, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"OutputSpecifications": "OutputSpecifications"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None, "OutputSpecifications": {"ExtensionObjectTypeStrings": {"OutputSpecification1": "OutputSpecification", "OutputSpecification2": "OutputSpecification", "OutputSpecification3": "OutputSpecification"}, "Label": "Output Specifications", "OutputSpecification1": {"ExtensionObjectTypeStrings": {}, "Label": "Output Specification 1", "Location": ["BODY1"], "OutputType": "NodalDofSolution", "Frequency": "AllTimePoints", "EquallySpacedTimePoints": 0, "RecurrenceRate": 0}, "OutputSpecification2": {"ExtensionObjectTypeStrings": {}, "Label": "Output Specification 2", "Location": ["BODY1"], "OutputType": "NodalReactionLoads", "Frequency": "AllTimePoints", "EquallySpacedTimePoints": 0, "RecurrenceRate": 0}, "OutputSpecification3": {"ExtensionObjectTypeStrings": {}, "Label": "Output Specification 3", "Location": ["BODY1"], "OutputType": "ElementNodalStresses", "Frequency": "AllTimePoints", "EquallySpacedTimePoints": 0, "RecurrenceRate": 0}}}</member-data>
+        <expression-data valType="String">{"OutputSpecifications.OutputSpecification3.Location": {"expressionOrAssignment": "Everywhere()", "expression": "Everywhere()", "result": ["BODY1"], "state": expressionSetAndEvaluated, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "OutputSpecifications.OutputSpecification2.Location": {"expressionOrAssignment": "Everywhere()", "expression": "Everywhere()", "result": ["BODY1"], "state": expressionSetAndEvaluated, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "OutputSpecifications.OutputSpecification1.Location": {"expressionOrAssignment": "Everywhere()", "expression": "Everywhere()", "result": ["BODY1"], "state": expressionSetAndEvaluated, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}</expression-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/LaunchSettings:LaunchSettings 1" Version="1.0">
+        <class-type valType="String">LaunchSettings</class-type>
+        <object-name valType="String">LaunchSettings 1</object-name>
+        <member-data valType="String">{"DisplayText": "Launch Controls 1", "DatabaseId": 21, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None, "NumberOfProcessors": 2, "DistributedSolve": True, "SolverMode": "Live", "DeleteWorkFiles": True, "ScratchSolverFilesDirectory": r"C:\Users\Phoenix\AppData\Local\Temp", "InputDataFileName": "input.dat", "MeshDataFileName": "mesh.dat", "ComponentDataFileName": "component.dat", "ConnectionElementsDataFileName": "connection.dat", "LoadElementsDataFileName": "load.dat", "OutputListFileName": "output.lis", "JobName": "file", "ContactPairOutput": "No"}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/ConditionGroup:ConditionGroup 1" Version="1.0">
+        <class-type valType="String">ConditionGroup</class-type>
+        <object-name valType="String">ConditionGroup 1</object-name>
+        <member-data valType="String">{"DisplayText": "All Conditions", "DatabaseId": 22, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "ManualEdit", "SystemTags": None, "IsDefaultGroup": True, "SimulationStepStatusGroup": {"$$d12f561e-2255-4c61-850f-f3374f16d0b1": $$40d974bf-0261-43ca-930d-8987aa5d0983}, "ConditionDataReferences": [$$9d0658b5-d4c4-4973-b9bc-0ef0fd530ae2]}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">["$$9fae9902-5b37-4f90-8a73-99c5ce4d634e", "$$5929cd1e-ac12-4449-9d08-13505ab7d88c", "$$40d974bf-0261-43ca-930d-8987aa5d0983"]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/StatusGroup:StatusGroup 1" Version="1.0">
+        <class-type valType="String">StatusGroup</class-type>
+        <object-name valType="String">StatusGroup 1</object-name>
+        <member-data valType="String">{"DisplayText": "Off", "DatabaseId": 23, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"StatusGroupBehaviorManager": "StatusGroupBehaviorManager"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "ManualEdit", "SystemTags": None, "StatusGroupType": "DefaultSuppressed", "StatusGroupBehaviorManager": {"ExtensionObjectTypeStrings": {}, "Label": None, "_operatingPointBehaviorDictionary": {}, "Client": $$9fae9902-5b37-4f90-8a73-99c5ce4d634e}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/StatusGroup:StatusGroup 2" Version="1.0">
+        <class-type valType="String">StatusGroup</class-type>
+        <object-name valType="String">StatusGroup 2</object-name>
+        <member-data valType="String">{"DisplayText": "On", "DatabaseId": 24, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"StatusGroupBehaviorManager": "StatusGroupBehaviorManager"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "ManualEdit", "SystemTags": None, "StatusGroupType": "DefaultActive", "StatusGroupBehaviorManager": {"ExtensionObjectTypeStrings": {}, "Label": None, "_operatingPointBehaviorDictionary": {}, "Client": $$5929cd1e-ac12-4449-9d08-13505ab7d88c}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/StatusGroup:StatusGroup 3" Version="1.0">
+        <class-type valType="String">StatusGroup</class-type>
+        <object-name valType="String">StatusGroup 3</object-name>
+        <member-data valType="String">{"DisplayText": "Custom", "DatabaseId": 25, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"StatusGroupBehaviorManager": "StatusGroupBehaviorManager"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "ManualEdit", "SystemTags": None, "StatusGroupType": "UserDefined", "StatusGroupBehaviorManager": {"ExtensionObjectTypeStrings": {}, "Label": None, "_operatingPointBehaviorDictionary": {}, "Client": $$40d974bf-0261-43ca-930d-8987aa5d0983}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/SolutionReferenceFrame:SolutionReferenceFrame 1" Version="1.0">
+        <class-type valType="String">SolutionReferenceFrame</class-type>
+        <object-name valType="String">SolutionReferenceFrame 1</object-name>
+        <member-data valType="String">{"DisplayText": "Solution Reference Frame", "DatabaseId": 26, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"StackedTransformManager": "StackedTransformManager"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "ManualEdit", "SystemTags": None, "ParentFrame": None, "PreferredCoordinateType": "Cartesian", "DefinitionType": "OriginAndOrientation", "MotionType": "Stationary", "EnablePivot": False, "ConfigurationTransform": ((1.0, 0.0, 0.0, 0.0), (0.0, 1.0, 0.0, 0.0), (0.0, 0.0, 1.0, 0.0), (0.0, 0.0, 0.0, 1.0)), "RelativeConfigurationTransform": ((1.0, 0.0, 0.0, 0.0), (0.0, 1.0, 0.0, 0.0), (0.0, 0.0, 1.0, 0.0), (0.0, 0.0, 0.0, 1.0)), "AccumulatedMotionTransform": ((1.0, 0.0, 0.0, 0.0), (0.0, 1.0, 0.0, 0.0), (0.0, 0.0, 1.0, 0.0), (0.0, 0.0, 0.0, 1.0)), "StackedTransformManager": {"ExtensionObjectTypeStrings": {}, "Label": None, "_transformList": [], "_transformTypeNameToCount": {"TranslationTransform": 1, "RotationTransform": 1, "CoincideTransform": 1, "ReverseAboutXTransform": 1, "ReverseAboutYTransform": 1, "ReverseAboutZTransform": 1}, "Client": $$4f75648b-3474-4101-affe-3dd239425ef9, "RelativeTo": $$4f75648b-3474-4101-affe-3dd239425ef9, "StackedTransformCount": 0}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/SolutionProgression:SolutionProgression 1" Version="1.0">
+        <class-type valType="String">SolutionProgression</class-type>
+        <object-name valType="String">SolutionProgression 1</object-name>
+        <member-data valType="String">{"DisplayText": "Solution Progression 1", "DatabaseId": 27, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"ConvergenceControls": "ConvergenceControls", "AdditionalConvergenceControls": "AdditionalConvergenceControls", "TimeStepOptions": "TimeStepOptions"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None, "MaxNumberDesignIterations": 200, "ConvergenceControls": {"ExtensionObjectTypeStrings": {"Force": "ConvergenceControl", "Displacement": "ConvergenceControl", "Moment": "ConvergenceControl", "Rotation": "ConvergenceControl"}, "Label": "Convergence Controls", "Force": {"ExtensionObjectTypeStrings": {}, "Label": None, "ConvergenceType": "Force", "Convergence": "ProgramControlled", "Tolerance": 0.5, "ReferenceValueSpecification": "ProgramControlled", "ReferenceValue": None, "MinimumReferenceValue": "0.01 [N]"}, "Displacement": {"ExtensionObjectTypeStrings": {}, "Label": None, "ConvergenceType": "Displacement", "Convergence": "ProgramControlled", "Tolerance": 0.5, "ReferenceValueSpecification": "ProgramControlled", "ReferenceValue": None, "MinimumReferenceValue": "0 [m]"}, "Moment": {"ExtensionObjectTypeStrings": {}, "Label": None, "ConvergenceType": "Moment", "Convergence": "ProgramControlled", "Tolerance": 0.5, "ReferenceValueSpecification": "ProgramControlled", "ReferenceValue": None, "MinimumReferenceValue": "0.01 [N m]"}, "Rotation": {"ExtensionObjectTypeStrings": {}, "Label": None, "ConvergenceType": "Rotation", "Convergence": "ProgramControlled", "Tolerance": 0.5, "ReferenceValueSpecification": "ProgramControlled", "ReferenceValue": None, "MinimumReferenceValue": "0 [radian]"}}, "AdditionalConvergenceControls": {"ExtensionObjectTypeStrings": {"Stabilization": "Stabilization", "ArcLength": "Arclength"}, "Label": "Additional Convergence Controls", "PredictorCorrector": "ProgramControlled", "EquilibriumIterationsKey": "ProgramControlled", "LineSearch": "ProgramControlled", "EquilibriumIterations": 0, "Stabilization": {"ExtensionObjectTypeStrings": {}, "Label": None, "StabilizationKey": "Off", "EnergyDissipationRatio": 0.0001, "DampingFactor": 0, "SubStepOption": "No", "ForceLimit": 0.2}, "ArcLength": {"ExtensionObjectTypeStrings": {}, "Label": None, "Key": "Off", "DefinedBy": "Substeps", "InitialSubsteps": 0, "InitialTimeStep": "0 [s]", "MaximumMultiplier": 25, "MinimumMultiplier": 0.001, "TerminateBasis": "Off"}}, "TimeStepOptions": {"ExtensionObjectTypeStrings": {}, "Label": "Timestep Options", "Substepping": "ProgramControlled", "DefinedBy": "Substeps", "CarryOverTimeStep": "Off", "InitialNumberOfSubsteps": 1, "MinimumNumberOfSubsteps": 1, "MaximumNumberOfSubsteps": 10, "InitialTimeStep": "1 [s]", "MinimumTimeStep": "0.1 [s]", "MaximumTimeStep": "1 [s]", "NumberOfSubsteps": 1, "TimeStep": "0.25 [s]", "TimeIntegration": "Off"}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/MonitorChart:MonitorChart 1" Version="1.0">
+        <class-type valType="String">MonitorChart</class-type>
+        <object-name valType="String">MonitorChart 1</object-name>
+        <member-data valType="String">{"DisplayText": "Chart 1", "DatabaseId": 28, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"ChartManager": "ChartManager", "SolutionQualityMonitor1": "SolutionQualityMonitor", "SolutionQualityMonitor2": "SolutionQualityMonitor", "SolutionQualityMonitor3": "SolutionQualityMonitor", "SolutionQualityMonitor4": "SolutionQualityMonitor"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "AutomaticBasedOnData", "SystemTags": None, "AutoGenerated": True, "YAxisScale": "Logarithmic", "XAxisRange": "Recent", "PrimaryVariable": "Iteration", "ChartDataFilePath": None, "Primary": "Iteration", "ChartManager": {"ExtensionObjectTypeStrings": {}, "Label": None, "_monitorList": ["SolutionQualityMonitor1", "SolutionQualityMonitor2", "SolutionQualityMonitor3", "SolutionQualityMonitor4"], "_monitorTypeNameToCount": {"SolutionQualityMonitor": 5, "SolutionVariableMonitor": 1, "CalculatedValueMonitor": 1}, "MonitorCount": 4, "Client": $$fc337404-9ac5-4036-bb3f-c1958bc43e9a}, "SolutionQualityMonitor1": {"ExtensionObjectTypeStrings": {}, "Label": "Force convergence", "MonitorSolverType": 100, "SubCategory": "", "MonitorTypeName": "Force convergence", "Component": None, "Location": []}, "SolutionQualityMonitor2": {"ExtensionObjectTypeStrings": {}, "Label": "Displacement convergence", "MonitorSolverType": 101, "SubCategory": "", "MonitorTypeName": "Displacement convergence", "Component": None, "Location": []}, "SolutionQualityMonitor3": {"ExtensionObjectTypeStrings": {}, "Label": "Solution progression", "MonitorSolverType": 102, "SubCategory": "", "MonitorTypeName": "Solution progression", "Component": None, "Location": []}, "SolutionQualityMonitor4": {"ExtensionObjectTypeStrings": {}, "Label": "Target", "MonitorSolverType": 103, "SubCategory": "", "MonitorTypeName": "Target", "Component": None, "Location": []}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/MaterialAssignment:MaterialAssignment 1" Version="1.0">
+        <class-type valType="String">MaterialAssignment</class-type>
+        <object-name valType="String">MaterialAssignment 1</object-name>
+        <member-data valType="String">{"DisplayText": "carbon fibre Assignment 1", "DatabaseId": 29, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"ZeroThermalStrainTemperature": "ZeroThermalStrainTemperature", "ModelsPlasticity": "ModelsPlasticity"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "AutomaticBasedOnData", "SystemTags": None, "Location": [$$79e0e64a-5f03-4be5-b2d8-ba1b8d7eff3c], "Material": $$1434bb50-b9be-43bf-a821-96f2cd212361, "ReferenceFrame": $$bd5b8636-7800-499e-bbe1-0d5c8c2a11b7, "StateOfMatter": "Solid", "MaterialAtState": $$a791a3b0-23ea-48f9-8112-8d2e406371d7, "StateOptions": ["Solid"], "ZeroThermalStrainTemperature": {"ExtensionObjectTypeStrings": {}, "Label": "Zero Thermal Strain Temperature", "Magnitude": "22 [C]"}, "ModelsPlasticity": {"ExtensionObjectTypeStrings": {}, "Label": "Plasticity model", "As": "None"}}</member-data>
+        <properties-setByUserFlag-data valType="String">["Material", "Location"]</properties-setByUserFlag-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">["$$a791a3b0-23ea-48f9-8112-8d2e406371d7"]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/Material:Material 1" Version="1.0">
+        <class-type valType="String">Material</class-type>
+        <object-name valType="String">Material 1</object-name>
+        <member-data valType="String">{"DisplayText": "Structural Steel", "DatabaseId": 30, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"Solid": "Solid", "Liquid": "Liquid", "Gas": "Gas"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "ManualEdit", "SystemTags": None, "PersistedSourceInformation": {"Location": r"D:\ANSYS Inc\v191\Addins\EngineeringData\Samples\Material_Samples.h5", "Provider": "ANSYS", "Identification": "Structural Steel", "Accessed": 06/19/2019 21:34:37}, "ValidateWithSourceData": True, "Description": """General material data for a structural steel.
+          The fatigue data at zero mean stress comes from 1998 ASME BPV Code, Section 8, Div 2, Table 5-110.1""", "DefaultStateOfMatter": "Solid", "Solid": {"ExtensionObjectTypeStrings": {"AlternatingStress": "AlternatingStress", "StrainLifeParameters": "StrainLifeParameters", "Density": "Density", "TensileYieldStrength": "TensileYieldStrength", "TensileUltimateStrength": "TensileUltimateStrength", "IsotropicSecantCoefficientofThermalExpansion": "IsotropicSecantCoefficientofThermalExpansion", "SpecificHeatConstantPressure": "SpecificHeatConstantPressure", "IsotropicThermalConductivity": "IsotropicThermalConductivity", "IsotropicResistivity": "IsotropicResistivity", "IsotropicElasticity": "IsotropicElasticity", "IsotropicElectricalConductivity": "IsotropicElectricalConductivity", "IsotropicRelativePermeability": "IsotropicRelativePermeability", "Appearance": "Appearance", "BilinearIsotropicHardening": "BilinearIsotropicHardening"}, "Label": "Solid Properties", "AlternatingStress": {"ExtensionObjectTypeStrings": {}, "Label": "Alternating Stress", "StateOfMatter": "Solid", "Magnitude": {"expressionOrAssignment": "table(Cycles)", "expression": "table(Cycles)", "result": None, "state": fieldExpressionSet, "resultUnit": Pa, "tableBindings": [{"tableAppendix": "1", "tableRef": 86f0bb2b-bd15-4fd1-8f36-9a0b3d5eaac8, "independents": ["Cycles"], "dependents": ["Alternating Stress"], "interpolation": "Linear", "bounds": "Constant"}], "isLiteral": False, "fieldVariables": [Cycles], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": True}, "Interpolation": "LogLog"}, "StrainLifeParameters": {"ExtensionObjectTypeStrings": {}, "Label": "Strain-Life Parameters", "StateOfMatter": "Solid", "StrainLifeCurve": {"expressionOrAssignment": "TotalStrainLife", "expression": "TotalStrainLife", "result": None, "state": fieldExpressionSet, "resultUnit": , "tableBindings": [{"tableAppendix": "1", "tableRef": 30b5e48d-6487-4f7a-bccf-251f75c401c1, "independents": ["Reversals to Failure"], "dependents": ["Strain Amplitude"], "interpolation": "None", "bounds": "Constant"}], "isLiteral": False, "fieldVariables": [TotalStrainLife], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "StrengthCoefficient": {"expressionOrAssignment": "920000000 [Pa]", "expression": "920000000 [Pa]", "result": "920000000 [Pa]", "state": expressionSetAndEvaluated, "resultUnit": Pa, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}, "StrengthExponent": {"expressionOrAssignment": "-0.106", "expression": "-0.106", "result": "-0.106", "state": expressionSetAndEvaluated, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}, "DuctilityCoefficient": {"expressionOrAssignment": "0.213", "expression": "0.213", "result": "0.213", "state": expressionSetAndEvaluated, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}, "DuctilityExponent": {"expressionOrAssignment": "-0.47", "expression": "-0.47", "result": "-0.47", "state": expressionSetAndEvaluated, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}, "StressStrainCurve": {"expressionOrAssignment": "CyclicStressStrain", "expression": "CyclicStressStrain", "result": None, "state": fieldExpressionSet, "resultUnit": Pa, "tableBindings": [{"tableAppendix": "1", "tableRef": 337e0e25-45b7-49f1-8fe6-1fca4efe7f87, "independents": ["Strain"], "dependents": ["Stress"], "interpolation": "None", "bounds": "Constant"}], "isLiteral": False, "fieldVariables": [CyclicStressStrain], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "CyclicStrengthCoefficient": {"expressionOrAssignment": "1000000000 [Pa]", "expression": "1000000000 [Pa]", "result": "1000000000 [Pa]", "state": expressionSetAndEvaluated, "resultUnit": Pa, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}, "CyclicStrainHardeningExponent": {"expressionOrAssignment": "0.2", "expression": "0.2", "result": "0.2", "state": expressionSetAndEvaluated, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}}, "Density": {"ExtensionObjectTypeStrings": {}, "Label": "Density", "StateOfMatter": "Solid", "Magnitude": {"expressionOrAssignment": "7850 [kg m^-3]", "expression": "7850 [kg m^-3]", "result": "7850 [kg m^-3]", "state": expressionSetAndEvaluated, "resultUnit": kg m^-3, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}}, "TensileYieldStrength": {"ExtensionObjectTypeStrings": {}, "Label": "Tensile Yield Strength", "StateOfMatter": "Solid", "Magnitude": {"expressionOrAssignment": "250000000 [Pa]", "expression": "250000000 [Pa]", "result": "250000000 [Pa]", "state": expressionSetAndEvaluated, "resultUnit": Pa, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}}, "TensileUltimateStrength": {"ExtensionObjectTypeStrings": {}, "Label": "Tensile Ultimate Strength", "StateOfMatter": "Solid", "Magnitude": {"expressionOrAssignment": "460000000 [Pa]", "expression": "460000000 [Pa]", "result": "460000000 [Pa]", "state": expressionSetAndEvaluated, "resultUnit": Pa, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}}, "IsotropicSecantCoefficientofThermalExpansion": {"ExtensionObjectTypeStrings": {}, "Label": "Isotropic Secant Coefficient of Thermal Expansion", "StateOfMatter": "Solid", "Magnitude": {"expressionOrAssignment": "1.2E-05 [C^-1]", "expression": "1.2E-05 [C^-1]", "result": "1.2E-05 [C^-1]", "state": expressionSetAndEvaluated, "resultUnit": C^-1, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}, "ZeroStrainTemperature": "22 [C]"}, "SpecificHeatConstantPressure": {"ExtensionObjectTypeStrings": {}, "Label": "Specific Heat", "StateOfMatter": "Solid", "Magnitude": {"expressionOrAssignment": "434 [J kg^-1 C^-1]", "expression": "434 [J kg^-1 C^-1]", "result": "434 [J kg^-1 C^-1]", "state": expressionSetAndEvaluated, "resultUnit": J kg^-1 C^-1, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}}, "IsotropicThermalConductivity": {"ExtensionObjectTypeStrings": {}, "Label": "Isotropic Thermal Conductivity", "StateOfMatter": "Solid", "Magnitude": {"expressionOrAssignment": "60.5 [W m^-1 C^-1]", "expression": "60.5 [W m^-1 C^-1]", "result": "60.5 [W m^-1 C^-1]", "state": expressionSetAndEvaluated, "resultUnit": W m^-1 C^-1, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}}, "IsotropicResistivity": {"ExtensionObjectTypeStrings": {}, "Label": "Isotropic Resistivity", "StateOfMatter": "Solid", "Magnitude": {"expressionOrAssignment": "1.7E-07 [ohm m]", "expression": "1.7E-07 [ohm m]", "result": "1.7E-07 [ohm m]", "state": expressionSetAndEvaluated, "resultUnit": ohm m, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}}, "IsotropicElasticity": {"ExtensionObjectTypeStrings": {}, "Label": "Isotropic Elasticity", "StateOfMatter": "Solid", "Derivation": "YoungsModulusPoissonsRatio", "Magnitude": {"result": {"DisplayText": "Isotropic Elasticity", "YoungsModulus": {"expressionOrAssignment": "200000000000 [Pa]", "expression": "200000000000 [Pa]", "result": "200000000000 [Pa]", "state": expressionSetAndEvaluated, "resultUnit": Pa, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}, "PoissonsRatio": {"expressionOrAssignment": "0.3", "expression": "0.3", "result": "0.3", "state": expressionSetAndEvaluated, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}, "BulkModulus": {"result": "166666666666.66666 [Pa]", "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "ShearModulus": {"result": "76923076923.07692 [Pa]", "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}, "IsotropicElectricalConductivity": {"ExtensionObjectTypeStrings": {}, "Label": "Isotropic Electrical Conductivity", "StateOfMatter": "Solid", "Value": {"expressionOrAssignment": "5.88E+6 [Ohm^-1 m^-1]", "expression": "5.88E+6 [Ohm^-1 m^-1]", "result": "5880000 [Ohm^-1 m^-1]", "state": expressionSetAndEvaluated, "resultUnit": Ohm^-1 m^-1, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}}, "IsotropicRelativePermeability": {"ExtensionObjectTypeStrings": {}, "Label": "Isotropic Relative Permeability", "StateOfMatter": "Solid", "Magnitude": {"expressionOrAssignment": "10000", "expression": "10000", "result": "10000", "state": expressionSetAndEvaluated, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}}, "Appearance": {"ExtensionObjectTypeStrings": {}, "Label": "Appearance Properties", "StateOfMatter": "Solid", "ColorSpace": "Linear", "ColorComponentRed": 0.63, "ColorComponentGreen": 0.63, "ColorComponentBlue": 0.63, "MaterialOpacity": 1, "MaterialMetallic": 1, "MaterialRoughness": 0.35, "MaterialTransmittance": 0}, "BilinearIsotropicHardening": {"ExtensionObjectTypeStrings": {}, "Label": "Bilinear Isotropic Hardening", "StateOfMatter": "Solid", "Value": {"result": {"DisplayText": "BilinearIsotropicHardeningDependents", "YieldStrength": {"expressionOrAssignment": "250000000 [Pa]", "expression": "250000000 [Pa]", "result": "250000000 [Pa]", "state": expressionSetAndEvaluated, "resultUnit": Pa, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}, "TangentModulus": {"expressionOrAssignment": "1450000000 [Pa]", "expression": "1450000000 [Pa]", "result": "1450000000 [Pa]", "state": expressionSetAndEvaluated, "resultUnit": Pa, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}}, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}}, "Liquid": {"ExtensionObjectTypeStrings": {}, "Label": "Liquid Properties"}, "Gas": {"ExtensionObjectTypeStrings": {}, "Label": "Gas Properties"}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">["$$86f0bb2b-bd15-4fd1-8f36-9a0b3d5eaac8", "$$30b5e48d-6487-4f7a-bccf-251f75c401c1", "$$337e0e25-45b7-49f1-8fe6-1fca4efe7f87"]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/Material:Material 2" Version="1.0">
+        <class-type valType="String">Material</class-type>
+        <object-name valType="String">Material 2</object-name>
+        <member-data valType="String">{"DisplayText": "carbon fibre", "DatabaseId": 41, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"Solid": "Solid", "Liquid": "Liquid", "Gas": "Gas"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "ManualEdit", "SystemTags": None, "PersistedSourceInformation": {"Location": "", "Provider": None, "Identification": "", "Accessed": 06/19/2019 21:35:34}, "ValidateWithSourceData": False, "Description": "", "DefaultStateOfMatter": "Solid", "Solid": {"ExtensionObjectTypeStrings": {"Density": "Density", "IsotropicElasticity": "IsotropicElasticity"}, "Label": "Solid Properties", "Density": {"ExtensionObjectTypeStrings": {}, "Label": "Density", "StateOfMatter": "Solid", "Magnitude": {"expressionOrAssignment": "2670 [kg m^-3]", "expression": "2670 [kg m^-3]", "result": "2670 [kg m^-3]", "state": expressionSetAndEvaluated, "resultUnit": kg m^-3, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}}, "IsotropicElasticity": {"ExtensionObjectTypeStrings": {}, "Label": "Isotropic Elasticity", "StateOfMatter": "Solid", "Derivation": "YoungsModulusPoissonsRatio", "Magnitude": {"result": {"DisplayText": "Isotropic Elasticity", "YoungsModulus": {"expressionOrAssignment": "105E9 [Pa]", "expression": "105E9 [Pa]", "result": "105000000000 [Pa]", "state": expressionSetAndEvaluated, "resultUnit": Pa, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}, "PoissonsRatio": {"expressionOrAssignment": "0.33", "expression": "0.33", "result": "0.33", "state": expressionSetAndEvaluated, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}, "BulkModulus": {"result": "102941176470.58823 [Pa]", "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "ShearModulus": {"result": "39473684210.526314 [Pa]", "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}}, "Liquid": {"ExtensionObjectTypeStrings": {}, "Label": "Liquid Properties"}, "Gas": {"ExtensionObjectTypeStrings": {}, "Label": "Gas Properties"}}</member-data>
+        <properties-setByUserFlag-data valType="String">["DisplayText", "DefaultStateOfMatter", "Solid.Density.Magnitude", "Solid.IsotropicElasticity.Magnitude.YoungsModulus", "Solid.IsotropicElasticity.Magnitude.PoissonsRatio"]</properties-setByUserFlag-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <SharedItemsPersistentKey valType="String">["$$a791a3b0-23ea-48f9-8112-8d2e406371d7::Description::Description", "$$a791a3b0-23ea-48f9-8112-8d2e406371d7::Density.Magnitude::Solid.Density.Magnitude", "$$a791a3b0-23ea-48f9-8112-8d2e406371d7::IsotropicElasticity.Derivation::Solid.IsotropicElasticity.Derivation", "$$a791a3b0-23ea-48f9-8112-8d2e406371d7::IsotropicElasticity.Magnitude.DisplayText::Solid.IsotropicElasticity.Magnitude.DisplayText", "$$a791a3b0-23ea-48f9-8112-8d2e406371d7::IsotropicElasticity.Magnitude.YoungsModulus::Solid.IsotropicElasticity.Magnitude.YoungsModulus", "$$a791a3b0-23ea-48f9-8112-8d2e406371d7::IsotropicElasticity.Magnitude.PoissonsRatio::Solid.IsotropicElasticity.Magnitude.PoissonsRatio"]</SharedItemsPersistentKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String, "SharedItemsPersistentKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/Table:Table 1" Version="1.0">
+        <class-type valType="String">Table</class-type>
+        <object-name valType="String">Table 1</object-name>
+        <member-data valType="String">{"DisplayText": "Table", "DatabaseId": 31, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None}</member-data>
+        <custom-data>
+          <TableVersionPersistenceKey valType="String">19.1.0.2018041820</TableVersionPersistenceKey>
+          <Table valType="String">{"rowCount": "11", "columns": {"Cycles": [Dimensionless, Cycles, Ansys.Study.Core], "Alternating Stress": [Stress, Alternating Stress, Ansys.Study.Core]}, "columnData": {"0": ["10", "20", "50", "100", "200", "2000", "10000", "20000", "100000", "200000", "1000000"], "1": ["3999000000 [Pa]", "2827000000 [Pa]", "1896000000 [Pa]", "1413000000 [Pa]", "1069000000 [Pa]", "441000000 [Pa]", "262000000 [Pa]", "214000000 [Pa]", "138000000 [Pa]", "114000000 [Pa]", "86200000 [Pa]"]}}</Table>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"TableVersionPersistenceKey": System.String, "Table": System.String, "UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/Table:StrainLifeCurve 1" Version="1.0">
+        <class-type valType="String">Table</class-type>
+        <object-name valType="String">StrainLifeCurve 1</object-name>
+        <member-data valType="String">{"DisplayText": "Table", "DatabaseId": 32, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None}</member-data>
+        <custom-data>
+          <TableVersionPersistenceKey valType="String">19.1.0.2018041820</TableVersionPersistenceKey>
+          <Table valType="String">{"rowCount": "10", "columns": {"Reversals to Failure": [Dimensionless, Reversals to Failure, Ansys.Study.Core], "Strain Amplitude": [Dimensionless, Strain Amplitude, Ansys.Study.Core]}, "columnData": {"0": ["10", "100", "1000", "10000", "100000", "1000000", "10000000", "100000000", "1000000000", "10000000000"], "1": ["0.075777581614374714", "0.027278977361641657", "0.01049852259124693", "0.0045407243284511286", "0.0023089922955480892", "0.0013859383493976859", "0.000942455917395178", "0.000689781617629344", "0.00052393896440860609", "0.00040489316011068082"]}}</Table>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"TableVersionPersistenceKey": System.String, "Table": System.String, "UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/Table:StressStrainCurve 1" Version="1.0">
+        <class-type valType="String">Table</class-type>
+        <object-name valType="String">StressStrainCurve 1</object-name>
+        <member-data valType="String">{"DisplayText": "Table", "DatabaseId": 33, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None}</member-data>
+        <custom-data>
+          <TableVersionPersistenceKey valType="String">19.1.0.2018041820</TableVersionPersistenceKey>
+          <Table valType="String">{"rowCount": "10", "columns": {"Strain": [Strain, Strain, Ansys.Study.Core], "Stress": [Stress, Stress, Ansys.Study.Core]}, "columnData": {"0": ["0.000500625", "0.00102", "0.001651875", "0.00264", "0.0044531250000000005", "0.0078599999999999989", "0.014004374999999996", "0.024480000000000005", "0.041405625", "0.0675"], "1": ["100000000 [Pa]", "200000000 [Pa]", "300000000 [Pa]", "400000000 [Pa]", "500000000 [Pa]", "600000000 [Pa]", "700000000 [Pa]", "800000000 [Pa]", "900000000 [Pa]", "1000000000 [Pa]"]}}</Table>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"TableVersionPersistenceKey": System.String, "Table": System.String, "UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/MaterialAtState:MaterialAtState 1" Version="1.0">
+        <class-type valType="String">MaterialAtState</class-type>
+        <object-name valType="String">MaterialAtState 1</object-name>
+        <member-data valType="String">{"DisplayText": "carbon fibre referenced by carbon fibre Assignment 1", "DatabaseId": 34, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"Density": "Density", "IsotropicElasticity": "IsotropicElasticity"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "ManualEdit", "SystemTags": None, "PersistedSourceInformation": {"Location": "", "Provider": None, "Identification": "", "Accessed": 06/19/2019 21:34:37}, "ValidateWithSourceData": False, "Description": "", "Density": {"ExtensionObjectTypeStrings": {}, "Label": "Density", "StateOfMatter": "Solid", "Magnitude": {"expressionOrAssignment": "2670 [kg m^-3]", "expression": "2670 [kg m^-3]", "result": "2670 [kg m^-3]", "state": expressionSetAndEvaluated, "resultUnit": kg m^-3, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}}, "IsotropicElasticity": {"ExtensionObjectTypeStrings": {}, "Label": "Isotropic Elasticity", "StateOfMatter": "Solid", "Derivation": "YoungsModulusPoissonsRatio", "Magnitude": {"result": {"DisplayText": "Isotropic Elasticity", "YoungsModulus": {"expressionOrAssignment": "105E9 [Pa]", "expression": "105E9 [Pa]", "result": "105000000000 [Pa]", "state": expressionSetAndEvaluated, "resultUnit": Pa, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}, "PoissonsRatio": {"expressionOrAssignment": "0.33", "expression": "0.33", "result": "0.33", "state": expressionSetAndEvaluated, "isLiteral": True, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": True, "expressionContainsTableFunctionCall": False}, "BulkModulus": {"result": "102941176470.58823 [Pa]", "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "ShearModulus": {"result": "39473684210.526314 [Pa]", "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <SharedItemsPersistentKey valType="String">["$$1434bb50-b9be-43bf-a821-96f2cd212361::Description::Description", "$$1434bb50-b9be-43bf-a821-96f2cd212361::Solid.Density.Magnitude::Density.Magnitude", "$$1434bb50-b9be-43bf-a821-96f2cd212361::Solid.IsotropicElasticity.Derivation::IsotropicElasticity.Derivation", "$$1434bb50-b9be-43bf-a821-96f2cd212361::Solid.IsotropicElasticity.Magnitude.DisplayText::IsotropicElasticity.Magnitude.DisplayText", "$$1434bb50-b9be-43bf-a821-96f2cd212361::Solid.IsotropicElasticity.Magnitude.YoungsModulus::IsotropicElasticity.Magnitude.YoungsModulus", "$$1434bb50-b9be-43bf-a821-96f2cd212361::Solid.IsotropicElasticity.Magnitude.PoissonsRatio::IsotropicElasticity.Magnitude.PoissonsRatio"]</SharedItemsPersistentKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String, "SharedItemsPersistentKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/InterfaceGenerator:InterfaceGenerator 1" Version="1.0">
+        <class-type valType="String">InterfaceGenerator</class-type>
+        <object-name valType="String">InterfaceGenerator 1</object-name>
+        <member-data valType="String">{"DisplayText": "Interface Generator 1", "DatabaseId": 35, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None, "_generatedDataInfo": {"GeneratedDataState": "UpToDate"}, "InterfaceType": "Contact", "Location": ["BODY1"], "GenerateFixedJoints": False, "GenerateHingeJoints": False, "GenerateConfidenceLevel": "Off", "TotalNoConfidenceRuns": 100, "InterfaceToleranceSpecification": "Automatic", "Tolerance": "0.0080667253674923545 [m]", "UsedAutoDetectTolerance": "0 [m]", "BehaviorCreation": "Shared", "UsedAutoDetectConnectionBehaviorCreation": "Shared", "DetectionTypes": "FaceToFace"}</member-data>
+        <expression-data valType="String">{"Location": {"expressionOrAssignment": "AllBodies()", "expression": "AllBodies()", "result": ["BODY1"], "state": expressionSetAndEvaluated, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}</expression-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/Transcript:Transcript 1" Version="1.0">
+        <class-type valType="String">Transcript</class-type>
+        <object-name valType="String">Transcript 1</object-name>
+        <member-data valType="String">{"DisplayText": "Structural Output 1", "DatabaseId": 36, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "ManualEdit", "SystemTags": None, "SourceType": "SolverOutput", "Filename": ""}</member-data>
+        <properties-setByUserFlag-data valType="String">["DisplayText"]</properties-setByUserFlag-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/Results:Results 1" Version="1.0">
+        <class-type valType="String">Results</class-type>
+        <object-name valType="String">Results 1</object-name>
+        <member-data valType="String">{"DisplayText": "Results 1", "DatabaseId": 37, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"ModelExteriorDisplay": "ModelExteriorDisplay"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None, "_generatedDataInfo": {"GeneratedDataState": "NeedsGenerated"}, "SolveScope": None, "ShowSurfaceMesh": False, "Scaling": "OneHundredPercent", "CustomScaling": 0, "AnimationDuration": "4 [s]", "ModelExteriorDisplay": {"ExtensionObjectTypeStrings": {}, "Label": "Model exterior display", "EdgeDisplay": "ShowAllBody", "Style": "WireFrame"}}</member-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">["$$ff6bf96b-5326-4790-b089-7800ba9b0811", "$$4b1d801e-fb64-4c9f-afe2-ae61b8a01bd4"]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/ContourResult:ContourResult 1" Version="1.0">
+        <class-type valType="String">ContourResult</class-type>
+        <object-name valType="String">ContourResult 1</object-name>
+        <member-data valType="String">{"DisplayText": "Equivalent Stress 1", "DatabaseId": 38, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"ResultSet": "ResultSetParametersExtension", "TimeDependent": "TimeDependentParametersExtension", "Legend": "Legend", "Summary": "SummaryParametersExtension", "ChartAndTableExtensions": "ChartAndTableExtensions"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "AutomaticBasedOnData", "SystemTags": None, "_generatedDataInfo": {"GeneratedDataState": "NeedsGenerated"}, "Variable": {"expressionOrAssignment": "Stress.eqv", "expression": "Stress.eqv", "result": None, "state": fieldExpressionSet, "resultUnit": Pa, "isLiteral": False, "fieldVariables": [Stress.eqv], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "SimulationStep": None, "RelativeTo": $$bd5b8636-7800-499e-bbe1-0d5c8c2a11b7, "CalculateAverage": True, "EvaluateFullRange": False, "ResultName": "38", "QuantityName": "Stress", "FieldVariable": "SEQV", "VariableHasError": False, "ResultType": "ElemNodal", "Location": ["BODY1"], "LastAutomaticDisplayText": "Equivalent Stress 1", "Settings": None, "ResultSet": {"ExtensionObjectTypeStrings": {}, "Label": "", "_maxSetNumber": 1, "Substep": 1, "Mode": 1, "PhaseAngle": 0, "SetNumber": 1}, "TimeDependent": {"ExtensionObjectTypeStrings": {}, "Label": "Time-dependent", "Time": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}, "Legend": {"ExtensionObjectTypeStrings": {}, "Label": None, "VariableRange": "Local", "RangeMinimum": None, "RangeMaximum": None, "ClipToRange": True, "Coloring": "Smooth", "NumberOfColors": 9, "LegendProperties": "All", "ColorDistribution": "Linear"}, "Summary": {"ExtensionObjectTypeStrings": {"Global": "GlobalParametersExtension"}, "Label": "Summary", "Min": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "DisplayMin": True, "Max": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "DisplayMax": True, "Average": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "SumX": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "SumY": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "SumZ": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "Sum": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "Global": {"ExtensionObjectTypeStrings": {}, "Label": "Global"}}, "ChartAndTableExtensions": {"ExtensionObjectTypeStrings": {}, "Label": "Chart Settings", "ShowTable": False, "ShowChart": False, "ShowFrequency": True}}</member-data>
+        <expression-data valType="String">{"Location": {"expressionOrAssignment": "AllBodies()", "expression": "AllBodies()", "result": ["BODY1"], "state": expressionSetAndEvaluated, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}</expression-data>
+        <properties-setByUserFlag-data valType="String">["Variable", "EvaluateFullRange"]</properties-setByUserFlag-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/ContourResult:ContourResult 2" Version="1.0">
+        <class-type valType="String">ContourResult</class-type>
+        <object-name valType="String">ContourResult 2</object-name>
+        <member-data valType="String">{"DisplayText": "Displacement Magnitude 1", "DatabaseId": 39, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"ResultSet": "ResultSetParametersExtension", "TimeDependent": "TimeDependentParametersExtension", "Legend": "Legend", "Summary": "SummaryParametersExtension", "ChartAndTableExtensions": "ChartAndTableExtensions"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "AutomaticBasedOnData", "SystemTags": None, "_generatedDataInfo": {"GeneratedDataState": "NeedsGenerated"}, "Variable": {"expressionOrAssignment": "Displacement.mag", "expression": "Displacement.mag", "result": None, "state": fieldExpressionSet, "resultUnit": m, "isLiteral": False, "fieldVariables": [Displacement.mag], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "SimulationStep": None, "RelativeTo": $$bd5b8636-7800-499e-bbe1-0d5c8c2a11b7, "CalculateAverage": True, "EvaluateFullRange": False, "ResultName": "39", "QuantityName": "Length", "FieldVariable": "USUM", "VariableHasError": False, "ResultType": "Nodal", "Location": ["BODY1"], "LastAutomaticDisplayText": "Displacement Magnitude 1", "Settings": None, "ResultSet": {"ExtensionObjectTypeStrings": {}, "Label": "", "_maxSetNumber": 1, "Substep": 1, "Mode": 1, "PhaseAngle": 0, "SetNumber": 1}, "TimeDependent": {"ExtensionObjectTypeStrings": {}, "Label": "Time-dependent", "Time": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}, "Legend": {"ExtensionObjectTypeStrings": {}, "Label": None, "VariableRange": "Local", "RangeMinimum": None, "RangeMaximum": None, "ClipToRange": True, "Coloring": "Smooth", "NumberOfColors": 9, "LegendProperties": "All", "ColorDistribution": "Linear"}, "Summary": {"ExtensionObjectTypeStrings": {"Global": "GlobalParametersExtension"}, "Label": "Summary", "Min": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "DisplayMin": True, "Max": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "DisplayMax": True, "Average": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "SumX": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "SumY": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "SumZ": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "Sum": {"result": None, "state": resultSetDirectly, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}, "Global": {"ExtensionObjectTypeStrings": {}, "Label": "Global"}}, "ChartAndTableExtensions": {"ExtensionObjectTypeStrings": {}, "Label": "Chart Settings", "ShowTable": False, "ShowChart": False, "ShowFrequency": True}}</member-data>
+        <expression-data valType="String">{"Location": {"expressionOrAssignment": "AllBodies()", "expression": "AllBodies()", "result": ["BODY1"], "state": expressionSetAndEvaluated, "isLiteral": False, "fieldVariables": [], "hasErrorDueToMissingDataModelContext": False, "dependencies": [], "warnings": [], "isLiteralDirectlyOrByReference": False, "expressionContainsTableFunctionCall": False}}</expression-data>
+        <properties-setByUserFlag-data valType="String">["Variable", "EvaluateFullRange"]</properties-setByUserFlag-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Study/Support:Support 1" Version="1.0">
+        <class-type valType="String">Support</class-type>
+        <object-name valType="String">Support 1</object-name>
+        <member-data valType="String">{"DisplayText": "Support 1", "DatabaseId": 40, "SuppressedProperties": [], "ExtensionObjectTypeStrings": {"SimulationStepExtension": "SimulationStepExtension", "SharedSolverRepWrapper": "SharedSolverRepWrapper"}, "_state": {"ValidationState": "Valid"}, "_isSuppressed": False, "OwnerProxy": "MAPDL", "NamingMethod": "Automatic", "SystemTags": None, "Location": ["FACE3"], "_activeDofsNames": ["TranslationX", "TranslationY", "TranslationZ"], "SupportType": "Fixed", "RelativeTo": $$bd5b8636-7800-499e-bbe1-0d5c8c2a11b7, "FixedDOFs": "TranslationX, TranslationY, TranslationZ", "SimulationStepExtension": {"ExtensionObjectTypeStrings": {}, "Label": None, "IsLocked": False, "IsFactored": False, "IsSuppressed": False, "IsNegative": False}, "SharedSolverRepWrapper": {"ExtensionObjectTypeStrings": {}, "Label": None, "_sharedSolverRepIds": []}}</member-data>
+        <properties-setByUserFlag-data valType="String">["Location"]</properties-setByUserFlag-data>
+        <custom-data>
+          <UserObjectVersionPersistenceKey valType="String">19.1.0.2018041820</UserObjectVersionPersistenceKey>
+          <ChildrenTypeStringMapPersistenceKey valType="String">[]</ChildrenTypeStringMapPersistenceKey>
+          <SharedBehaviorPersistenceKey valType="String">19.1.0.2018041820</SharedBehaviorPersistenceKey>
+          <value-keys valType="String">{"UserObjectVersionPersistenceKey": System.String, "ChildrenTypeStringMapPersistenceKey": System.String, "SharedBehaviorPersistenceKey": System.String}</value-keys>
+        </custom-data>
+      </Object>
+    </Container>
+    <Container Name="Modeling" Version="1.0">
+      <container-type valType="String">Ansys.Modeling.Core.Addin:Static</container-type>
+      <static-id valType="String">ModelingStaticContainer</static-id>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">0</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 4033, "Input": 4031, "Output": 3236}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <unique-system-dir valType="String">Modeling</unique-system-dir>
+      <contains-significant-data valType="Boolean">false</contains-significant-data>
+      <Object Name="/Modeling/DocumentObject:Document 1" Version="1.0">
+        <class-type valType="String">DocumentObject</class-type>
+        <object-name valType="String">Document 1</object-name>
+        <member-data valType="String">{"DisplayText": "Document", "DocumentId": None, "SaveFilePath": ""}</member-data>
+      </Object>
+      <Object Name="/Modeling/DocumentObject:Document 2" Version="1.0">
+        <class-type valType="String">DocumentObject</class-type>
+        <object-name valType="String">Document 2</object-name>
+        <member-data valType="String">{"DisplayText": "Document", "DocumentId": "62290d48-fd08-4518-a237-461bc9df57e8:Modeling_12e54948-8ef2-4ae7-90b5-38b1f59710ad", "SaveFilePath": r"C:\Users\Phoenix\Documents\UNI\DSE\Door2Door\Ground\wingbox_files\dp0\Modeling\AIM\Modeling_12e54948-8ef2-4ae7-90b5-38b1f59710ad.scdoc"}</member-data>
+      </Object>
+    </Container>
+    <Container Name="Geometry Modeling" Version="1.0">
+      <container-type valType="String">Ansys.Study.Addin.Addin:Task.Geometry Modeling</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">3353</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 3390, "Input": 3318, "Output": 3305}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "MaterialDataContainer": 0, "FileTypesContainer": 0, "CustomTemplateContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "Study": 0, "Modeling": 0, "Geometry Modeling": 0}</last-update-regen-times>
+      <unique-system-dir valType="String">Study</unique-system-dir>
+      <contains-significant-data valType="Boolean">false</contains-significant-data>
+      <Object Name="/Geometry Modeling/TaskContainerConnections:TaskContainerConnections" Version="1.0">
+        <class-type valType="String">TaskContainerConnections</class-type>
+        <object-name valType="String">TaskContainerConnections</object-name>
+        <member-data valType="String">{"DisplayText": "TaskContainerConnections", "_inputConnectionsReference": None}</member-data>
+      </Object>
+      <Object Name="/Geometry Modeling/ModelingTaskOutput:TaskDataTransferProvider" Version="1.0">
+        <class-type valType="String">Ansys.Study.Tasks.ProjectSchematicIntegration.DataTransfer.Output.TaskDataTransferProvider, Ansys.Study.Tasks</class-type>
+        <type-spec valType="String">{"SpecType": "Ansys.Core.DataModel.DataEntitySpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "JournalVariableName": "modelingTaskOutput", "Methods": {"AcquireDataConnection": "Study.AcquireDataConnection", "RetrieveData": "Study.RetrieveData", "ReleaseDataConnection": "Study.ReleaseDataConnection"}, "Version": 1, "Members": {"DisplayText": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Label": "Display Text", "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": True}, "TransferDataObject": {"SpecType": "Ansys.Core.DataModel.DataReferenceSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "DataConnections": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.Guid, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.GuidSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": "00000000-0000-0000-0000-000000000000", "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}, "AllowOnlyOneConsumer": {"SpecType": "Ansys.Core.DataSpecs.BooleanSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": False, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "AllowOnlyOneConsumerOfTypes": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.String, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}, "ConsumerTypeForEachConnection": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.String, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}}, "DataTypeHierarchy": "ModelingTaskOutput,DataEntity"}</type-spec>
+        <object-name valType="String">TaskDataTransferProvider</object-name>
+        <member-data valType="String">{"DisplayText": "TaskDataTransferProvider", "TransferDataObject": $$46af8f40-f6e5-43f0-bdd5-cc0ef3c0b75f, "DataConnections": ["404356d5-e0b0-4cc8-bfe5-a0065b29bc5b"], "AllowOnlyOneConsumer": False, "AllowOnlyOneConsumerOfTypes": [], "ConsumerTypeForEachConnection": ["Physics Definition"]}</member-data>
+      </Object>
+      <Object Name="/Geometry Modeling/Task:Task" Version="1.0">
+        <class-type valType="String">Task</class-type>
+        <object-name valType="String">Task</object-name>
+        <member-data valType="String">{"DisplayText": "Geometry", "_anchor": $$1559bbca-f938-4b19-98fd-883d424e0d66, "_propertyTypes": ["Modeling", "ModelingImportSource"], "_taskType": "Geometry Modeling", "Predecessors": []}</member-data>
+      </Object>
+      <Object Name="/Geometry Modeling/TaskOutput:TaskOutput" Version="1.0">
+        <class-type valType="String">TaskOutput</class-type>
+        <object-name valType="String">TaskOutput</object-name>
+        <member-data valType="String">{"DisplayText": "TaskOutput", "OutputObjects": [{"OutputObjectReference": $$264bcef3-c021-4876-9ba7-f45f60b02f06, "DisplayInGui": True}]}</member-data>
+      </Object>
+    </Container>
+    <Container Name="Physics Definition" Version="1.0">
+      <container-type valType="String">Ansys.Study.Addin.Addin:Task.Physics Definition</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">0</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 3819, "Input": 3388, "Output": 3366}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "MaterialDataContainer": 0, "FileTypesContainer": 0, "CustomTemplateContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "Study": 3355, "Modeling": 0, "Geometry Modeling": 3353, "Physics Definition": 0}</last-update-regen-times>
+      <unique-system-dir valType="String">Study</unique-system-dir>
+      <contains-significant-data valType="Boolean">false</contains-significant-data>
+      <Object Name="/Physics Definition/TaskContainerConnections:TaskContainerConnections" Version="1.0">
+        <class-type valType="String">TaskContainerConnections</class-type>
+        <object-name valType="String">TaskContainerConnections</object-name>
+        <member-data valType="String">{"DisplayText": "TaskContainerConnections", "_inputConnectionsReference": $$30845134-61ec-47bd-aeda-0a74c13b4819}</member-data>
+      </Object>
+      <Object Name="/Physics Definition/PhysicsDefinitionTaskOutput:TaskDataTransferProvider" Version="1.0">
+        <class-type valType="String">Ansys.Study.Tasks.ProjectSchematicIntegration.DataTransfer.Output.TaskDataTransferProvider, Ansys.Study.Tasks</class-type>
+        <type-spec valType="String">{"SpecType": "Ansys.Core.DataModel.DataEntitySpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "JournalVariableName": "physicsDefinitionTaskOutput", "Methods": {"AcquireDataConnection": "Study.AcquireDataConnection", "RetrieveData": "Study.RetrieveData", "ReleaseDataConnection": "Study.ReleaseDataConnection"}, "Version": 1, "Members": {"DisplayText": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Label": "Display Text", "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": True}, "TransferDataObject": {"SpecType": "Ansys.Core.DataModel.DataReferenceSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "DataConnections": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.Guid, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.GuidSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": "00000000-0000-0000-0000-000000000000", "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}, "AllowOnlyOneConsumer": {"SpecType": "Ansys.Core.DataSpecs.BooleanSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": False, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "AllowOnlyOneConsumerOfTypes": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.String, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}, "ConsumerTypeForEachConnection": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.String, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}}, "DataTypeHierarchy": "PhysicsDefinitionTaskOutput,DataEntity"}</type-spec>
+        <object-name valType="String">TaskDataTransferProvider</object-name>
+        <member-data valType="String">{"DisplayText": "TaskDataTransferProvider", "TransferDataObject": None, "DataConnections": ["f300afcf-da96-4a06-bdd6-4c2b40efe9f3", "80b83c32-9bcb-46d5-9d3b-1257828fee32", "387cc363-b33d-4a3d-8ce7-433d6332be60"], "AllowOnlyOneConsumer": False, "AllowOnlyOneConsumerOfTypes": ["Solve Physics", "Mesh Modeling"], "ConsumerTypeForEachConnection": ["Mesh Modeling", "Solve Physics", "Results Evaluation"]}</member-data>
+      </Object>
+      <Object Name="/Physics Definition/AIMMechanicalPhysicsDefinitionOutput:AIMMechanicalPhysicsDefinitionOutput" Version="1.0">
+        <class-type valType="String">AIMMechanicalPhysicsDefinitionOutput</class-type>
+        <object-name valType="String">AIMMechanicalPhysicsDefinitionOutput</object-name>
+        <member-data valType="String">{"DisplayText": "AIMMechanicalPhysicsDefinitionOutput", "CurrentVersion": 1, "GeometryHash": "e491d6c1-8684-4a5c-b8c7-45eb27637c45", "TransferFile": None}</member-data>
+      </Object>
+      <Object Name="/Physics Definition/AIMMechanicalPhysicsDefinitionOutputProvider:AIMMechanicalPhysicsDefinitionOutputProvider" Version="1.0">
+        <class-type valType="String">AIMMechanicalPhysicsDefinitionOutputProvider</class-type>
+        <object-name valType="String">AIMMechanicalPhysicsDefinitionOutputProvider</object-name>
+        <member-data valType="String">{"DisplayText": "AIMMechanicalPhysicsDefinitionOutputProvider", "DataConnections": [], "TransferDataObject": $$573fa364-266f-4079-8fc2-e8856d566724}</member-data>
+      </Object>
+      <Object Name="/Physics Definition/AIMFluentPhysicsDefinitionOutput:AIMFluentPhysicsDefinitionOutput" Version="1.0">
+        <class-type valType="String">AIMFluentPhysicsDefinitionOutput</class-type>
+        <object-name valType="String">AIMFluentPhysicsDefinitionOutput</object-name>
+        <member-data valType="String">{"DisplayText": "AIMFluentPhysicsDefinitionOutput", "CurrentVersion": 3, "CalculationType": None, "FluentNames": None, "FluidConditionsDictionary": None, "FluidConditionsPersisted": None, "AdditionalDataObjectProperties": None, "MeshTransferFile": None}</member-data>
+      </Object>
+      <Object Name="/Physics Definition/AIMFluentPhysicsDefinitionOutputProvider:AIMFluentPhysicsDefinitionOutputProvider" Version="1.0">
+        <class-type valType="String">AIMFluentPhysicsDefinitionOutputProvider</class-type>
+        <object-name valType="String">AIMFluentPhysicsDefinitionOutputProvider</object-name>
+        <member-data valType="String">{"DisplayText": "AIMFluentPhysicsDefinitionOutputProvider", "DataConnections": [], "TransferDataObject": $$2b69af78-a1bf-4bb4-b318-35152c965fd7}</member-data>
+      </Object>
+      <Object Name="/Physics Definition/AIMEngineeringDataMaterialOutput:AIMEngineeringDataMaterialOutput" Version="1.0">
+        <class-type valType="String">AIMEngineeringDataMaterialOutput</class-type>
+        <object-name valType="String">AIMEngineeringDataMaterialOutput</object-name>
+        <member-data valType="String">{"DisplayText": "AIMEngineeringDataMaterialOutput", "CurrentVersion": 1, "TransferFile": None}</member-data>
+      </Object>
+      <Object Name="/Physics Definition/AIMEngineeringDataMaterialOutputProvider:AIMEngineeringDataMaterialOutputProvider" Version="1.0">
+        <class-type valType="String">AIMEngineeringDataMaterialOutputProvider</class-type>
+        <object-name valType="String">AIMEngineeringDataMaterialOutputProvider</object-name>
+        <member-data valType="String">{"DisplayText": "AIMEngineeringDataMaterialOutputProvider", "DataConnections": [], "TransferDataObject": $$7cb78d41-a854-4d31-a0cd-f37fd25af306}</member-data>
+      </Object>
+      <Object Name="/Physics Definition/Task:Task" Version="1.0">
+        <class-type valType="String">Task</class-type>
+        <object-name valType="String">Task</object-name>
+        <member-data valType="String">{"DisplayText": "Definition", "_anchor": $$0f80b914-3312-4cc4-90fb-80681a23aeeb, "_propertyTypes": ["PhysicsDefinition"], "_taskType": "Physics Definition", "Predecessors": [$$91c2eb4b-74b8-433c-97de-2ef24e4cc89a]}</member-data>
+      </Object>
+      <Object Name="/Physics Definition/ContainerInputConnections:TaskContainerInputConnections" Version="1.0">
+        <class-type valType="String">ContainerInputConnections</class-type>
+        <object-name valType="String">TaskContainerInputConnections</object-name>
+        <member-data valType="String">{"DisplayText": "TaskContainerInputConnections", "Connections": {"Geometry Modeling": {"$$dbae13d3-6aef-449b-a898-6ac668077b3d": {"ModelingTaskOutput": ["404356d5-e0b0-4cc8-bfe5-a0065b29bc5b"]}}}}</member-data>
+      </Object>
+    </Container>
+    <Container Name="Mesh Modeling" Version="1.0">
+      <container-type valType="String">Ansys.Study.Addin.Addin:Task.Mesh Modeling</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">0</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 3445, "Input": 3422, "Output": 3403}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "MaterialDataContainer": 0, "FileTypesContainer": 0, "CustomTemplateContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "Study": 3355, "Modeling": 0, "Geometry Modeling": 3353, "Physics Definition": 0, "Mesh Modeling": 0}</last-update-regen-times>
+      <unique-system-dir valType="String">Study</unique-system-dir>
+      <contains-significant-data valType="Boolean">false</contains-significant-data>
+      <Object Name="/Mesh Modeling/TaskContainerConnections:TaskContainerConnections" Version="1.0">
+        <class-type valType="String">TaskContainerConnections</class-type>
+        <object-name valType="String">TaskContainerConnections</object-name>
+        <member-data valType="String">{"DisplayText": "TaskContainerConnections", "_inputConnectionsReference": $$6a12f74f-4e42-4019-8980-355ea5ff97fb}</member-data>
+      </Object>
+      <Object Name="/Mesh Modeling/MeshModelingTaskOutput:TaskDataTransferProvider" Version="1.0">
+        <class-type valType="String">Ansys.Study.Tasks.ProjectSchematicIntegration.DataTransfer.Output.TaskDataTransferProvider, Ansys.Study.Tasks</class-type>
+        <type-spec valType="String">{"SpecType": "Ansys.Core.DataModel.DataEntitySpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "JournalVariableName": "meshModelingTaskOutput", "Methods": {"AcquireDataConnection": "Study.AcquireDataConnection", "RetrieveData": "Study.RetrieveData", "ReleaseDataConnection": "Study.ReleaseDataConnection"}, "Version": 1, "Members": {"DisplayText": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Label": "Display Text", "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": True}, "TransferDataObject": {"SpecType": "Ansys.Core.DataModel.DataReferenceSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "DataConnections": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.Guid, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.GuidSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": "00000000-0000-0000-0000-000000000000", "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}, "AllowOnlyOneConsumer": {"SpecType": "Ansys.Core.DataSpecs.BooleanSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": False, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "AllowOnlyOneConsumerOfTypes": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.String, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}, "ConsumerTypeForEachConnection": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.String, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}}, "DataTypeHierarchy": "MeshModelingTaskOutput,DataEntity"}</type-spec>
+        <object-name valType="String">TaskDataTransferProvider</object-name>
+        <member-data valType="String">{"DisplayText": "TaskDataTransferProvider", "TransferDataObject": None, "DataConnections": ["d9032bfa-7847-438a-b4b8-40096808c379"], "AllowOnlyOneConsumer": False, "AllowOnlyOneConsumerOfTypes": [], "ConsumerTypeForEachConnection": ["Solve Physics"]}</member-data>
+      </Object>
+      <Object Name="/Mesh Modeling/AIMGeometryMeshOutput:AIMGeometryMeshOutput" Version="1.0">
+        <class-type valType="String">AIMGeometryMeshOutput</class-type>
+        <object-name valType="String">AIMGeometryMeshOutput</object-name>
+        <member-data valType="String">{"DisplayText": "AIMGeometryMeshOutput", "CurrentVersion": 2, "GeometryHash": "aeec293e-8433-490c-96eb-c229bb2dc32d", "AttachType": 0, "TransferFilePmdb": None, "TransferFileNamedSelection": None, "TransferFileAcmo": None}</member-data>
+      </Object>
+      <Object Name="/Mesh Modeling/AIMGeometryMeshOutputProvider:AIMGeometryMeshOutputProvider" Version="1.0">
+        <class-type valType="String">AIMGeometryMeshOutputProvider</class-type>
+        <object-name valType="String">AIMGeometryMeshOutputProvider</object-name>
+        <member-data valType="String">{"DisplayText": "AIMGeometryMeshOutputProvider", "DataConnections": [], "TransferDataObject": $$99b93b8c-9375-4258-9132-7036cd03f594}</member-data>
+      </Object>
+      <Object Name="/Mesh Modeling/AIMFluentPartMeshFileOutput:AIMFluentPartMeshFileOutput" Version="1.0">
+        <class-type valType="String">AIMFluentPartMeshFileOutput</class-type>
+        <object-name valType="String">AIMFluentPartMeshFileOutput</object-name>
+        <member-data valType="String">{"DisplayText": "AIMFluentPartMeshFileOutput", "CurrentVersion": 1, "MeshType": "facebased", "TransferFile": None}</member-data>
+      </Object>
+      <Object Name="/Mesh Modeling/AIMFluentPartMeshFileOutputProvider:AIMFluentPartMeshFileOutputProvider" Version="1.0">
+        <class-type valType="String">AIMFluentPartMeshFileOutputProvider</class-type>
+        <object-name valType="String">AIMFluentPartMeshFileOutputProvider</object-name>
+        <member-data valType="String">{"DisplayText": "AIMFluentPartMeshFileOutputProvider", "DataConnections": [], "TransferDataObject": $$8f759aa0-0fbd-4b5d-aa64-6f8e4913e49a}</member-data>
+      </Object>
+      <Object Name="/Mesh Modeling/Task:Task" Version="1.0">
+        <class-type valType="String">Task</class-type>
+        <object-name valType="String">Task</object-name>
+        <member-data valType="String">{"DisplayText": "Mesh", "_anchor": $$c276a855-aadf-46d5-adda-c54a3ace1a2c, "_propertyTypes": ["MeshModeling"], "_taskType": "Mesh Modeling", "Predecessors": [$$b17f6e0c-f572-4995-b16a-0ca20ab557cc]}</member-data>
+      </Object>
+      <Object Name="/Mesh Modeling/ContainerInputConnections:TaskContainerInputConnections" Version="1.0">
+        <class-type valType="String">ContainerInputConnections</class-type>
+        <object-name valType="String">TaskContainerInputConnections</object-name>
+        <member-data valType="String">{"DisplayText": "TaskContainerInputConnections", "Connections": {"Physics Definition": {"$$94807ded-3af0-4435-b399-abe221356246": {"PhysicsDefinitionTaskOutput": ["f300afcf-da96-4a06-bdd6-4c2b40efe9f3"]}}}}</member-data>
+      </Object>
+    </Container>
+    <Container Name="Solve Physics" Version="1.0">
+      <container-type valType="String">Ansys.Study.Addin.Addin:Task.Solve Physics</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">3434</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 3811, "Input": 3443, "Output": 3431}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "MaterialDataContainer": 0, "FileTypesContainer": 0, "CustomTemplateContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "Study": 3355, "Modeling": 0, "Geometry Modeling": 3353, "Mesh Modeling": 0, "Solve Physics": 3434}</last-update-regen-times>
+      <unique-system-dir valType="String">Study</unique-system-dir>
+      <contains-significant-data valType="Boolean">false</contains-significant-data>
+      <Object Name="/Solve Physics/TaskContainerConnections:TaskContainerConnections" Version="1.0">
+        <class-type valType="String">TaskContainerConnections</class-type>
+        <object-name valType="String">TaskContainerConnections</object-name>
+        <member-data valType="String">{"DisplayText": "TaskContainerConnections", "_inputConnectionsReference": $$d4b9e183-0617-481e-8fbc-9e98f100ad42}</member-data>
+      </Object>
+      <Object Name="/Solve Physics/SolvePhysicsTaskOutput:TaskDataTransferProvider" Version="1.0">
+        <class-type valType="String">Ansys.Study.Tasks.ProjectSchematicIntegration.DataTransfer.Output.TaskDataTransferProvider, Ansys.Study.Tasks</class-type>
+        <type-spec valType="String">{"SpecType": "Ansys.Core.DataModel.DataEntitySpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "JournalVariableName": "solvePhysicsTaskOutput", "Methods": {"AcquireDataConnection": "Study.AcquireDataConnection", "RetrieveData": "Study.RetrieveData", "ReleaseDataConnection": "Study.ReleaseDataConnection"}, "Version": 1, "Members": {"DisplayText": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Label": "Display Text", "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": True}, "TransferDataObject": {"SpecType": "Ansys.Core.DataModel.DataReferenceSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "DataConnections": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.Guid, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.GuidSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": "00000000-0000-0000-0000-000000000000", "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}, "AllowOnlyOneConsumer": {"SpecType": "Ansys.Core.DataSpecs.BooleanSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": False, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "AllowOnlyOneConsumerOfTypes": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.String, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}, "ConsumerTypeForEachConnection": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.String, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}}, "DataTypeHierarchy": "SolvePhysicsTaskOutput,DataEntity"}</type-spec>
+        <object-name valType="String">TaskDataTransferProvider</object-name>
+        <member-data valType="String">{"DisplayText": "TaskDataTransferProvider", "TransferDataObject": None, "DataConnections": ["aae24a72-580e-4d47-ad86-471f12877e88"], "AllowOnlyOneConsumer": False, "AllowOnlyOneConsumerOfTypes": [], "ConsumerTypeForEachConnection": ["Results Evaluation"]}</member-data>
+      </Object>
+      <Object Name="/Solve Physics/Task:Task" Version="1.0">
+        <class-type valType="String">Task</class-type>
+        <object-name valType="String">Task</object-name>
+        <member-data valType="String">{"DisplayText": "Solve", "_anchor": $$48f7f0bf-02d7-4786-b10c-149cba4dfec4, "_propertyTypes": ["SolvePhysics"], "_taskType": "Solve Physics", "Predecessors": [$$e7f0b23e-78c6-4871-bbaa-293f270554a5, $$b17f6e0c-f572-4995-b16a-0ca20ab557cc]}</member-data>
+      </Object>
+      <Object Name="/Solve Physics/ContainerInputConnections:TaskContainerInputConnections" Version="1.0">
+        <class-type valType="String">ContainerInputConnections</class-type>
+        <object-name valType="String">TaskContainerInputConnections</object-name>
+        <member-data valType="String">{"DisplayText": "TaskContainerInputConnections", "Connections": {"Mesh Modeling": {"$$3652a339-8ab0-468a-bf79-b7c6c50e3fd9": {"MeshModelingTaskOutput": ["d9032bfa-7847-438a-b4b8-40096808c379"]}}, "Physics Definition": {"$$94807ded-3af0-4435-b399-abe221356246": {"PhysicsDefinitionTaskOutput": ["80b83c32-9bcb-46d5-9d3b-1257828fee32"]}}}}</member-data>
+      </Object>
+    </Container>
+    <Container Name="Results Evaluation" Version="1.0">
+      <container-type valType="String">Ansys.Study.Addin.Addin:Task.Results Evaluation</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">0</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 3796, "Input": 3809, "Output": 3794}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "MaterialDataContainer": 0, "FileTypesContainer": 0, "CustomTemplateContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "Study": 3355, "Modeling": 0, "Geometry Modeling": 3353, "Physics Definition": 0, "Mesh Modeling": 0, "Solve Physics": 3434, "Results Evaluation": 0}</last-update-regen-times>
+      <unique-system-dir valType="String">Study</unique-system-dir>
+      <contains-significant-data valType="Boolean">false</contains-significant-data>
+      <Object Name="/Results Evaluation/TaskContainerConnections:TaskContainerConnections" Version="1.0">
+        <class-type valType="String">TaskContainerConnections</class-type>
+        <object-name valType="String">TaskContainerConnections</object-name>
+        <member-data valType="String">{"DisplayText": "TaskContainerConnections", "_inputConnectionsReference": $$ec3cfa92-4da5-43b4-b28b-974fffab5901}</member-data>
+      </Object>
+      <Object Name="/Results Evaluation/ResultEvaluationTaskOutput:TaskDataTransferProvider" Version="1.0">
+        <class-type valType="String">Ansys.Study.Tasks.ProjectSchematicIntegration.DataTransfer.Output.TaskDataTransferProvider, Ansys.Study.Tasks</class-type>
+        <type-spec valType="String">{"SpecType": "Ansys.Core.DataModel.DataEntitySpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "JournalVariableName": "resultEvaluationTaskOutput", "Methods": {"AcquireDataConnection": "Study.AcquireDataConnection", "RetrieveData": "Study.RetrieveData", "ReleaseDataConnection": "Study.ReleaseDataConnection"}, "Version": 1, "Members": {"DisplayText": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Label": "Display Text", "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": True}, "TransferDataObject": {"SpecType": "Ansys.Core.DataModel.DataReferenceSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "DataConnections": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.Guid, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.GuidSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": "00000000-0000-0000-0000-000000000000", "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}, "AllowOnlyOneConsumer": {"SpecType": "Ansys.Core.DataSpecs.BooleanSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": False, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "AllowOnlyOneConsumerOfTypes": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.String, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}, "ConsumerTypeForEachConnection": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.String, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}}, "DataTypeHierarchy": "ResultEvaluationTaskOutput,DataEntity"}</type-spec>
+        <object-name valType="String">TaskDataTransferProvider</object-name>
+        <member-data valType="String">{"DisplayText": "TaskDataTransferProvider", "TransferDataObject": None, "DataConnections": [], "AllowOnlyOneConsumer": False, "AllowOnlyOneConsumerOfTypes": [], "ConsumerTypeForEachConnection": []}</member-data>
+      </Object>
+      <Object Name="/Results Evaluation/Task:Task" Version="1.0">
+        <class-type valType="String">Task</class-type>
+        <object-name valType="String">Task</object-name>
+        <member-data valType="String">{"DisplayText": "Results", "_anchor": $$bca5746f-dd2d-4e3b-94ec-be942e839483, "_propertyTypes": ["Results"], "_taskType": "Results Evaluation", "Predecessors": [$$b8328b5d-f9cc-413b-ad69-c741fe41a3ce, $$b17f6e0c-f572-4995-b16a-0ca20ab557cc]}</member-data>
+      </Object>
+      <Object Name="/Results Evaluation/ContainerInputConnections:TaskContainerInputConnections" Version="1.0">
+        <class-type valType="String">ContainerInputConnections</class-type>
+        <object-name valType="String">TaskContainerInputConnections</object-name>
+        <member-data valType="String">{"DisplayText": "TaskContainerInputConnections", "Connections": {"Solve Physics": {"$$bb607427-6426-4b61-a0ed-766b3b2bdc44": {"SolvePhysicsTaskOutput": ["aae24a72-580e-4d47-ad86-471f12877e88"]}}, "Physics Definition": {"$$94807ded-3af0-4435-b399-abe221356246": {"PhysicsDefinitionTaskOutput": ["387cc363-b33d-4a3d-8ce7-433d6332be60"]}}}}</member-data>
+      </Object>
+    </Container>
+  </Containers>
+</Storage>
