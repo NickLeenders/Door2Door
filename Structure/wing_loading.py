@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 #DEFINE PARAMETERS
 def wing_load(static= False,show=True,grph=False):
     MTOW, Wing_w = mass_iteration(1630)
-
+    print MTOW
     cruiseT = power.ThrustCalculator(MTOW, 69.4, 69.4, 69.4, 1500, 400000.0/69.4)
     cruiseL = Propellers(cruiseT.thrust, cruiseT.velocity,
                               cruiseT.rho, cruiseT.aero_vals.cl_cr, 0)
@@ -27,10 +27,10 @@ def wing_load(static= False,show=True,grph=False):
 
     L =(3.5*MTOW * 9.81)/(wing_vals().b - 2.4)
     W_w = (Wing_w*9.81)/(wing_vals().b - 2.4)
-    T_cp = cruiseL.thrustCP / cruiseL.numberCP
-    T_hlp = cruiseL.thrustHLP / cruiseL.numberHLP
-    W_hlp = 52 *9.81 #LINK THESE LATER
-    W_cp = 74 *9.81  #LINK THESE LATER
+    T_cp = 0 #cruiseL.thrustCP / cruiseL.numberCP
+    T_hlp = 0 #cruiseL.thrustHLP / cruiseL.numberHLP
+    W_hlp = 32 *9.81 #LINK THESE LATER
+    W_cp = 67 *9.81  #LINK THESE LATER
     c = 1.2 #link this
     D = drag(1, cruiseT.velocity, cruiseL.v_wakeCP, cruiseT.v_wakeHLP, cruiseT.rho)[0]/(wing_vals().b - 2.4)
     b = wing_vals().b - 2.4
@@ -87,6 +87,8 @@ def wing_load(static= False,show=True,grph=False):
             else:
                 mom = M_z - T_hlp*max(0,ys[i]-y[0]) - T_hlp*max(0,ys[i]-y[1]) - T_hlp*max(0,ys[i]-y[2])-T_hlp*max(0,ys[i]-y[3]) - R_x * ys[i] + D/2 * ys[i]**2
                 mom_z.append(mom)
+
+        print mom_x[1600]
         #plt.subplot(422)
         #plt.title('Moment Diagram (x-y plane)')
         #plt.xlabel('y [m]')
@@ -191,11 +193,13 @@ def wing_deflec(data,grph,E,I_xx,I_zz):
         plt.plot(data[0],int_x_2)
     v_z = max(int_z_2)
     v_x = max(int_x_2)
+    plt.show()
     return v_z , v_x    
 
 a = wing_load(grph=True)
-b = wing_deflec(a[0],False,71.7e9,1e-6,4.03e-5)
+b = wing_deflec(a[0],False,122.65e9,3.76e-4,9.064e-5)
 
+#Includes safetyfactor of 2.5
 def inert_req(E,max_def,tol):
     a = wing_load()
     rnge = [0.0,1.0]
@@ -208,14 +212,15 @@ def inert_req(E,max_def,tol):
             rnge[1] = mid
         elif err>0:
             rnge[0] = mid
-    return mid
+    return mid * 2.5
 
-moi = inert_req(71.7e9,0.04,1e-9)
+moi = inert_req(122.65e9,0.04,1e-9)
 
 #FINAL VALUE
 #b = wing_deflec(a[0],a[1],228e9,2.184e-4,6.739e-6)
 
-##print a[2]  
-#print a[3]
+print a[2]  
+print a[3]
+print moi 
 
 
