@@ -1,0 +1,134 @@
+
+ PRINTOUT RESUMED BY /GOP
+
+ *****  ANSYS SOLUTION ROUTINE  *****
+
+ PRINTOUT RESUMED BY /GOP
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL       NONE               
+      NSOL        ALL               
+      RSOL        ALL               
+      STRS        ALL               
+
+
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1   106.012    
+ AN AVERAGE OF THE X-, Y-, AND Z-DIRECTION MASS TERMS ARE USED
+
+  Local memory allocated for solver              =    354.655 MB
+  Local memory required for in-core solution     =    341.974 MB
+  Local memory required for out-of-core solution =    208.996 MB
+
+ *** NOTE ***                            CP =       8.047   TIME= 21:46:18
+ The Distributed Sparse Matrix Solver is currently running in the        
+ in-core memory mode.  This memory mode uses the most amount of memory   
+ in order to avoid using the hard drive as much as possible, which most  
+ often results in the fastest solution time.  This mode is recommended   
+ if enough physical memory is present to accommodate all of the solver   
+ data.                                                                   
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1     47801  SOLID187      3.828   0.000080
+        2       238  SURF154       0.000   0.000000
+        3       698  SURF154       0.031   0.000045
+        4       253  SURF154       0.016   0.000062
+        5       973  SURF154       0.016   0.000016
+        6      1016  SURF154       0.078   0.000077
+        7       316  SURF154       0.000   0.000000
+        8       178  SURF154       0.000   0.000000
+        9       321  SURF154       0.016   0.000049
+       10       288  SURF154       0.031   0.000109
+       11       266  SURF154       0.016   0.000059
+       12       296  SURF154       0.000   0.000000
+       13       308  SURF154       0.047   0.000152
+       14       303  SURF154       0.062   0.000206
+       15       382  SURF154       0.031   0.000082
+       16       202  SURF154       0.016   0.000077
+       17       400  SURF154       0.000   0.000000
+       18       304  SURF154       0.000   0.000000
+       19       776  SURF154       0.078   0.000101
+       20       882  SURF154       0.031   0.000035
+       21       844  SURF154       0.031   0.000037
+       22       783  SURF154       0.031   0.000040
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1     47801  SOLID187      0.234   0.000005
+        2       238  SURF154       0.000   0.000000
+        3       698  SURF154       0.000   0.000000
+        4       253  SURF154       0.000   0.000000
+        5       973  SURF154       0.000   0.000000
+        6      1016  SURF154       0.000   0.000000
+        7       316  SURF154       0.000   0.000000
+        8       178  SURF154       0.000   0.000000
+        9       321  SURF154       0.000   0.000000
+       10       288  SURF154       0.000   0.000000
+       11       266  SURF154       0.000   0.000000
+       12       296  SURF154       0.016   0.000053
+       13       308  SURF154       0.000   0.000000
+       14       303  SURF154       0.000   0.000000
+       15       382  SURF154       0.000   0.000000
+       16       202  SURF154       0.016   0.000077
+       17       400  SURF154       0.000   0.000000
+       18       304  SURF154       0.000   0.000000
+       19       776  SURF154       0.000   0.000000
+       20       882  SURF154       0.000   0.000000
+       21       844  SURF154       0.031   0.000037
+       22       783  SURF154       0.000   0.000000
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** ANSYS BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+       81.188 MB WRITTEN ON ELEMENT SAVED DATA FILE: file1.esav
+       67.875 MB WRITTEN ON ASSEMBLED MATRIX FILE: file1.full
+       17.625 MB WRITTEN ON RESULTS FILE: file1.rst
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  CP =        16.219
+
+
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          0
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
+
+ *---------------------------------------------------------------------------*
+ |                                                                           |
+ |                       DISTRIBUTED ANSYS RUN COMPLETED                     |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Ansys Release 19.1          Build 19.1         UP20180418     WINDOWS x64 |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Database Requested(-db)     1 MB    Scratch Memory Requested      1024 MB |
+ | Maximum Database Used       1 MB    Maximum Scratch Memory Used    405 MB |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ |        CP Time      (sec) =         16.219       Time  =  21:46:36        |
+ |        Elapsed Time (sec) =         54.000       Date  =  06/18/2019      |
+ |                                                                           |
+ *---------------------------------------------------------------------------*
