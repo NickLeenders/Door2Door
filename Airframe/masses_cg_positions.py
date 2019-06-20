@@ -57,6 +57,6 @@ class w_components:
         self.w_cell = 63.29
         self.w_payload = 360
         self.w_passenger = 80.0
-        self.w_battery = 75
+        self.w_battery = 83
         self.w_tank = 45.39
         self.w_cargo = 40
