@@ -1,0 +1,196 @@
+
+ PRINTOUT RESUMED BY /GOP
+
+ *****  ANSYS SOLUTION ROUTINE  *****
+
+ PRINTOUT RESUMED BY /GOP
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL       NONE               
+      NSOL        ALL               
+      RSOL        ALL               
+      STRS        ALL               
+
+ *WARNING*: Some MPC/Lagrange based elements (e.g.860) in real constant  
+ set 2 overlap with other MPC/Lagrange based elements (e.g.966) in real  
+ constant set 3 which can cause overconstraint.                          
+
+ *** NOTE ***                            CP =       0.672   TIME= 21:01:29
+ Force-distributed-surface identified by real constant set 2 and         
+ contact element type 3 has been set up.  The pilot node 4839 is used    
+ to apply the force.  Internal MPC will be built.                        
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ *WARNING*: Certain contact elements (for example 963&1493) overlap each 
+ other.                                                                  
+ Please verify constraints (including rotational degrees of freedom)
+  on the pilot node by yourself.
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       0.672   TIME= 21:01:29
+ Force-distributed-surface identified by real constant set 3 and         
+ contact element type 5 has been set up.  The pilot node 4840 is used    
+ to apply the force.  Internal MPC will be built.                        
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ *WARNING*: Most likely no MPC equations will be built due to            
+ overlapping with other pairs (i.e.  Real constant set 2).               
+ Please verify constraints (including rotational degrees of freedom)
+  on the pilot node by yourself.
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       0.672   TIME= 21:01:29
+ Force-distributed-surface identified by real constant set 4 and         
+ contact element type 7 has been set up.  The pilot node 4841 is used    
+ to apply the force.  Internal MPC will be built.                        
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ *WARNING*: Most likely no MPC equations will be built due to            
+ overlapping with other pairs (i.e.  Real constant set 2).               
+ Please verify constraints (including rotational degrees of freedom)
+  on the pilot node by yourself.
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       0.672   TIME= 21:01:29
+ Force-distributed-surface identified by real constant set 5 and         
+ contact element type 9 has been set up.  The pilot node 4842 is used    
+ to apply the force.  Internal MPC will be built.                        
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ *WARNING*: Most likely no MPC equations will be built due to            
+ overlapping with other pairs (i.e.  Real constant set 2).               
+ Please verify constraints (including rotational degrees of freedom)
+  on the pilot node by yourself.
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       0.672   TIME= 21:01:29
+ Force-distributed-surface identified by real constant set 6 and         
+ contact element type 11 has been set up.  The pilot node 4843 is used   
+ to apply the force.  Internal MPC will be built.                        
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ *WARNING*: Most likely no MPC equations will be built due to            
+ overlapping with other pairs (i.e.  Real constant set 2).               
+ Please verify constraints (including rotational degrees of freedom)
+  on the pilot node by yourself.
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       0.672   TIME= 21:01:29
+ Force-distributed-surface identified by real constant set 7 and         
+ contact element type 13 has been set up.  The pilot node 4844 is used   
+ to apply the force.  Internal MPC will be built.                        
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ *WARNING*: Most likely no MPC equations will be built due to            
+ overlapping with other pairs (i.e.  Real constant set 2).               
+ Please verify constraints (including rotational degrees of freedom)
+  on the pilot node by yourself.
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       0.672   TIME= 21:01:29
+ Force-distributed-surface identified by real constant set 8 and         
+ contact element type 15 has been set up.  The pilot node 4845 is used   
+ to apply the force.  Internal MPC will be built.                        
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ *WARNING*: Certain contact elements (for example 1651&938) overlap each 
+ other.                                                                  
+ Please verify constraints (including rotational degrees of freedom)
+  on the pilot node by yourself.
+ ****************************************
+  
+
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1   15.9770    
+     2  0.817650    
+ AN AVERAGE OF THE X-, Y-, AND Z-DIRECTION MASS TERMS ARE USED
+
+  Local memory allocated for solver              =     36.071 MB
+  Local memory required for in-core solution     =     34.546 MB
+  Local memory required for out-of-core solution =     15.275 MB
+
+ *** NOTE ***                            CP =       1.469   TIME= 21:01:30
+ The Distributed Sparse Matrix Solver is currently running in the        
+ in-core memory mode.  This memory mode uses the most amount of memory   
+ in order to avoid using the hard drive as much as possible, which most  
+ often results in the fastest solution time.  This mode is recommended   
+ if enough physical memory is present to accommodate all of the solver   
+ data.                                                                   
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1       598  SOLID186      0.078   0.000131
+        2       260  SOLID186      0.062   0.000240
+        3       104  CONTA174      0.000   0.000000
+        5       104  CONTA174      0.000   0.000000
+        7       104  CONTA174      0.000   0.000000
+        9       104  CONTA174      0.000   0.000000
+       11       104  CONTA174      0.000   0.000000
+       13       104  CONTA174      0.000   0.000000
+       15       156  CONTA174      0.000   0.000000
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1       598  SOLID186      0.000   0.000000
+        2       260  SOLID186      0.000   0.000000
+        3       104  CONTA174      0.000   0.000000
+        5       104  CONTA174      0.000   0.000000
+        7       104  CONTA174      0.000   0.000000
+        9       104  CONTA174      0.000   0.000000
+       11       104  CONTA174      0.000   0.000000
+       13       104  CONTA174      0.000   0.000000
+       15       156  CONTA174      0.000   0.000000
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** ANSYS BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+        2.125 MB WRITTEN ON ELEMENT SAVED DATA FILE: file1.esav
+        5.188 MB WRITTEN ON ASSEMBLED MATRIX FILE: file1.full
+        0.875 MB WRITTEN ON RESULTS FILE: file1.rst
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  CP =         1.984
+
+
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          0
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
+
+ *---------------------------------------------------------------------------*
+ |                                                                           |
+ |                       DISTRIBUTED ANSYS RUN COMPLETED                     |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Ansys Release 19.1          Build 19.1         UP20180418     WINDOWS x64 |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Database Requested(-db)     1 MB    Scratch Memory Requested      1024 MB |
+ | Maximum Database Used       1 MB    Maximum Scratch Memory Used    134 MB |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ |        CP Time      (sec) =          1.984       Time  =  21:01:38        |
+ |        Elapsed Time (sec) =         33.000       Date  =  06/20/2019      |
+ |                                                                           |
+ *---------------------------------------------------------------------------*

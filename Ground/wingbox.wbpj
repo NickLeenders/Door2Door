@@ -2,13 +2,14 @@
 <Storage>
   <Project Version="9.0">
     <base-designpoint-name valType="String">0</base-designpoint-name>
-    <timestamp-max valType="Int64">4033</timestamp-max>
+    <timestamp-max valType="Int64">5415</timestamp-max>
     <framework-build-version valType="String">19.1.103.0</framework-build-version>
     <external-version-string valType="String">Release 19.1</external-version-string>
-    <last-saved-utc valType="String">06/19/2019 20:21:51</last-saved-utc>
+    <last-saved-utc valType="String">06/20/2019 19:06:57</last-saved-utc>
     <managed-categories valType="String">[report, progress]</managed-categories>
     <logHistory valType="StringArray">
       <ArrayEntry Index="0">Phoenix@DESKTOP-KO485NP:C:\Users\Phoenix\AppData\Local\Temp\WorkbenchLogs\CoreEvents13540.log</ArrayEntry>
+      <ArrayEntry Index="1">Phoenix@DESKTOP-KO485NP:C:\Users\Phoenix\AppData\Local\Temp\WorkbenchLogs\CoreEvents12720.log</ArrayEntry>
     </logHistory>
     <expression-scope-container valType="String">Parameters</expression-scope-container>
     <project-type valType="String">AIM</project-type>
@@ -38,7 +39,9 @@
 "2773b203-5c54-4d5c-b1a9-04ff247bfb64": "/Schematic/ComponentTemplate:Physics Definition",
 "6e393f63-de2f-4f6b-b18b-26a8e77401ed": "/Schematic/ComponentTemplate:Mesh Modeling",
 "ebe2473b-cff5-4f48-9bfa-022e86dd0e2c": "/Schematic/ComponentTemplate:Solve Physics",
-"ac51cbaa-dcc6-4d92-ba83-c55511411062": "/Schematic/ComponentTemplate:Results Evaluation"
+"ac51cbaa-dcc6-4d92-ba83-c55511411062": "/Schematic/ComponentTemplate:Results Evaluation",
+"3fdc092a-3bcd-4f23-bcbc-cdb67cdf56f1": "/FileTypesContainer/FileType:LogFileType",
+"b40f21d5-3112-4ecc-b37f-1d03cc071a1d": "/FileTypesContainer/FileType:SolutionControllerDatabaseFileType"
 }</ReferenceList>
       </ProjectReferenceList>
       <DesignPointReferenceListCollection>
@@ -84,7 +87,6 @@
 "bca5746f-dd2d-4e3b-94ec-be942e839483": "/Study/Results:Results 1",
 "ff6bf96b-5326-4790-b089-7800ba9b0811": "/Study/ContourResult:ContourResult 1",
 "4b1d801e-fb64-4c9f-afe2-ae61b8a01bd4": "/Study/ContourResult:ContourResult 2",
-"9d0658b5-d4c4-4973-b9bc-0ef0fd530ae2": "/Study/Support:Support 1",
 "1434bb50-b9be-43bf-a821-96f2cd212361": "/Study/Material:Material 2",
 "feb851eb-6cda-40af-acfd-72ff16696a97": "/Study/GlobalObjects:GlobalObjects 1",
 "bd5b8636-7800-499e-bbe1-0d5c8c2a11b7": "/Study/GlobalReferenceFrame:GlobalReferenceFrame 1",
@@ -106,7 +108,26 @@
 "d4b9e183-0617-481e-8fbc-9e98f100ad42": "/Solve Physics/ContainerInputConnections:TaskContainerInputConnections",
 "3652a339-8ab0-468a-bf79-b7c6c50e3fd9": "/Mesh Modeling/MeshModelingTaskOutput:TaskDataTransferProvider",
 "ec3cfa92-4da5-43b4-b28b-974fffab5901": "/Results Evaluation/ContainerInputConnections:TaskContainerInputConnections",
-"bb607427-6426-4b61-a0ed-766b3b2bdc44": "/Solve Physics/SolvePhysicsTaskOutput:TaskDataTransferProvider"
+"bb607427-6426-4b61-a0ed-766b3b2bdc44": "/Solve Physics/SolvePhysicsTaskOutput:TaskDataTransferProvider",
+"fe18870c-aae5-46f3-9c58-44ebc1f69d2b": "/Study/Support:Support 1",
+"2bd5812a-af27-43b1-9f20-95d8b27721a1": "/Study/Force:Force 1",
+"593ab135-27c1-4312-940c-9e74ae3d3263": "/Study/Point:Point 1",
+"d688beec-4ceb-46bb-b2bd-966d0c27d6ac": "/Study/Force:Force 2",
+"e5a27cd8-3e64-49fd-80d2-94d75618a90e": "/Study/Point:Point 2",
+"a0b01375-a0b1-48da-b63d-7dad4ce0b092": "/Study/Force:Force 3",
+"6be0394a-a087-4962-adba-76c830a30153": "/Study/Point:Point 3",
+"8d028417-ba14-4ee9-a53d-942ce82d7074": "/Study/Force:Force 4",
+"2bac315e-161e-405f-96e0-acd012e5c39d": "/Study/Point:Point 4",
+"8558a626-67de-434e-bd5e-26b71f975291": "/Study/Force:Force 5",
+"e202f007-0798-494e-a158-d4507b142dad": "/Study/Point:Point 5",
+"e0479c60-8549-487a-9c25-cfa57623284a": "/Study/Moment:Moment 1",
+"1dd54880-5bff-417b-9497-719dc2f3ecac": "/Study/Moment:Moment 2",
+"cd832623-c5ff-4808-b6e6-eea4aba1b4ba": "/Study/Mesh:Mesh 1",
+"a6a88a53-9300-4ef9-998d-951864345168": "/Study/SingleValueResult:SingleValueResult 1",
+"0ed229ec-e460-422a-a1b4-0a293189a1e8": "/Physics Definition/TaskOutput:TaskOutput",
+"c05daf85-6284-4f06-801b-08169290585e": "/Mesh Modeling/TaskOutput:TaskOutput",
+"fd6952ab-becd-4365-902e-1b7e74ed50e3": "/Solve Physics/TaskOutput:TaskOutput",
+"7c3deee8-3794-437a-a56e-3122627dbde6": "/Results Evaluation/TaskOutput:TaskOutput"
 }</ReferenceList>
         </DesignPointReferenceList>
       </DesignPointReferenceListCollection>
@@ -134,7 +155,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 4029, "Input": 2949, "Output": 2949}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 5313, "Input": 2949, "Output": 2949}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
       <Object Name="/FileContainer/FileReference:F3" Version="1.0">
@@ -150,7 +171,17 @@
       <Object Name="/FileContainer/FileReference:F5" Version="1.0">
         <class-type valType="String">FileReference</class-type>
         <object-name valType="String">F5</object-name>
-        <member-data valType="String">{"DisplayText": "act.dat", "FileType": $$5df20f2b-5958-4e93-8ca4-9012c0cd67b8, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\act.dat", "ReferenceCount": 2}</member-data>
+        <member-data valType="String">{"DisplayText": "act.dat", "FileType": $$5df20f2b-5958-4e93-8ca4-9012c0cd67b8, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\act.dat", "ReferenceCount": 3}</member-data>
+      </Object>
+      <Object Name="/FileContainer/FileReference:F6" Version="1.0">
+        <class-type valType="String">FileReference</class-type>
+        <object-name valType="String">F6</object-name>
+        <member-data valType="String">{"DisplayText": "SolutionController.log", "FileType": $$3fdc092a-3bcd-4f23-bcbc-cdb67cdf56f1, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\Study\AIM\physics1\SolutionController.log", "ReferenceCount": 1}</member-data>
+      </Object>
+      <Object Name="/FileContainer/FileReference:F7" Version="1.0">
+        <class-type valType="String">FileReference</class-type>
+        <object-name valType="String">F7</object-name>
+        <member-data valType="String">{"DisplayText": "Controller.scdb", "FileType": $$b40f21d5-3112-4ecc-b37f-1d03cc071a1d, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\Study\AIM\physics1\Controller.scdb", "ReferenceCount": 1}</member-data>
       </Object>
     </Container>
     <Container Name="Messages" Version="1.0">
@@ -158,32 +189,163 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 4027, "Input": 2950, "Output": 2950}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 5353, "Input": 2950, "Output": 2950}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
       <Object Name="/Messages/StoredMessage:Message 4" Version="1.0">
         <class-type valType="String">StoredMessage</class-type>
         <object-name valType="String">Message 4</object-name>
-        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Error", "MessageCategory": "None", "Summary": """Update failed for the Geometry Modeling component in Study.  The Geometry Modeling task is not up to date, errors may have occurred. See the messages for more details.
-The following object caused the problem:
-Modeling Task 1 is invalid""", "Details": """   at Microsoft.Scripting.Runtime.BinderOps.InvokeMethod(MethodBase mb, Object obj, Object[] args)
-   at Microsoft.Scripting.Interpreter.FuncCallInstruction`4.Run(InterpretedFrame frame)
-   at Microsoft.Scripting.Interpreter.Interpreter.Run(InterpretedFrame frame)
-   at Microsoft.Scripting.Interpreter.LightLambda.Run4[T0,T1,T2,T3,TRet](T0 arg0, T1 arg1, T2 arg2, T3 arg3)
-   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
-   at Microsoft.Scripting.Interpreter.DynamicInstruction`4.Run(InterpretedFrame frame)
-   at Microsoft.Scripting.Interpreter.Interpreter.Run(InterpretedFrame frame)
-   at Microsoft.Scripting.Interpreter.LightLambda.Run2[T0,T1,TRet](T0 arg0, T1 arg1)
-   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
-   at Microsoft.Scripting.Interpreter.DynamicInstruction`4.Run(InterpretedFrame frame)
-   at Microsoft.Scripting.Interpreter.Interpreter.Run(InterpretedFrame frame)
-   at Microsoft.Scripting.Interpreter.LightLambda.Run2[T0,T1,TRet](T0 arg0, T1 arg1)
-   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)""", "Association": "", "DateTimeStamp": 06/19/2019 21:33:35, "Visibility": "Error", "MessageSourceContainer": None, "MessageSourceEntity": None, "AdditionalMessageData": None, "DesignPoint": None}</member-data>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Warning", "MessageCategory": "None", "Summary": "Physics 1: The solution is complete, but there are solver warnings. Review the warning messages in the Transcript view, and refer to the Troubleshooting Structural, Thermal, and Electric Conduction Simulations section of the documentation for advice.", "Details": "", "Association": "", "DateTimeStamp": 06/20/2019 21:01:39, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$48f7f0bf-02d7-4786-b10c-149cba4dfec4, "AdditionalMessageData": None, "DesignPoint": "0"}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 15" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 15</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 4 and Moment 1 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$8d028417-ba14-4ee9-a53d-942ce82d7074, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 14" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 14</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 4 and Force 5 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$8d028417-ba14-4ee9-a53d-942ce82d7074, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 10" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 10</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 5 and Moment 1 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$8558a626-67de-434e-bd5e-26b71f975291, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 9" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 9</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 5 and Force 4 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$8558a626-67de-434e-bd5e-26b71f975291, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 8" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 8</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 5 and Force 3 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$8558a626-67de-434e-bd5e-26b71f975291, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 5" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 5</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Moment 1 and Force 5 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$e0479c60-8549-487a-9c25-cfa57623284a, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 20" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 20</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 3 and Moment 1 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$a0b01375-a0b1-48da-b63d-7dad4ce0b092, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 19" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 19</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 3 and Force 5 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$a0b01375-a0b1-48da-b63d-7dad4ce0b092, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 13" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 13</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 4 and Force 3 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$8d028417-ba14-4ee9-a53d-942ce82d7074, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 3" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 3</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Moment 1 and Force 4 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$e0479c60-8549-487a-9c25-cfa57623284a, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
       </Object>
       <Object Name="/Messages/StoredMessage:Message 2" Version="1.0">
         <class-type valType="String">StoredMessage</class-type>
         <object-name valType="String">Message 2</object-name>
-        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Generating interfaces did not produce any contact pairs. If you expected contacts to be generated, please check that you are using a valid geometry, and try modifying the tolerance or detection settings.", "Details": None, "Association": "", "DateTimeStamp": 06/19/2019 21:34:39, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$6b54c85f-20d7-4a0f-af19-4005f41caafd, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Moment 1 and Force 3 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$e0479c60-8549-487a-9c25-cfa57623284a, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 1" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 1</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Moment 1 and Force 2 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$e0479c60-8549-487a-9c25-cfa57623284a, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 25" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 25</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 2 and Moment 1 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$d688beec-4ceb-46bb-b2bd-966d0c27d6ac, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 24" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 24</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 2 and Force 5 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$d688beec-4ceb-46bb-b2bd-966d0c27d6ac, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 18" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 18</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 3 and Force 4 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$a0b01375-a0b1-48da-b63d-7dad4ce0b092, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 7" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 7</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 5 and Force 2 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$8558a626-67de-434e-bd5e-26b71f975291, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 23" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 23</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 2 and Force 4 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$d688beec-4ceb-46bb-b2bd-966d0c27d6ac, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 6" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 6</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 5 and Force 1 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$8558a626-67de-434e-bd5e-26b71f975291, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Moment 1 and Force 1 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$e0479c60-8549-487a-9c25-cfa57623284a, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 30" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 30</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 1 and Moment 1 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$2bd5812a-af27-43b1-9f20-95d8b27721a1, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 29" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 29</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 1 and Force 5 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$2bd5812a-af27-43b1-9f20-95d8b27721a1, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 12" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 12</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 4 and Force 2 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$8d028417-ba14-4ee9-a53d-942ce82d7074, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 11" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 11</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 4 and Force 1 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$8d028417-ba14-4ee9-a53d-942ce82d7074, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 28" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 28</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 1 and Force 4 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$2bd5812a-af27-43b1-9f20-95d8b27721a1, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 17" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 17</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 3 and Force 2 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$a0b01375-a0b1-48da-b63d-7dad4ce0b092, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 16" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 16</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 3 and Force 1 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$a0b01375-a0b1-48da-b63d-7dad4ce0b092, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 27" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 27</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 1 and Force 3 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$2bd5812a-af27-43b1-9f20-95d8b27721a1, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 26" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 26</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 1 and Force 2 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$2bd5812a-af27-43b1-9f20-95d8b27721a1, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 22" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 22</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 2 and Force 3 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$d688beec-4ceb-46bb-b2bd-966d0c27d6ac, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 21" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 21</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Force 2 and Force 1 are sharing a common face, edge, or vertex. This behavior can cause solver overconstraint and is not recommended, please check results carefully. Avoid sharing locations among objects with MPC based connections.", "Details": None, "Association": "", "DateTimeStamp": 06/20/2019 20:59:43, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": $$d688beec-4ceb-46bb-b2bd-966d0c27d6ac, "AdditionalMessageData": {"AIMStateMessage": "WasAIMStateMessage"}, "DesignPoint": None}</member-data>
       </Object>
     </Container>
     <Container Name="Parameters" Version="1.0">
@@ -193,13 +355,13 @@ Modeling Task 1 is invalid""", "Details": """   at Microsoft.Scripting.Runtime.B
       <maxUpdateOrder valType="Double">1</maxUpdateOrder>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 3362, "Input": 3371, "Output": 2953}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 5410, "Input": 5406, "Output": 2953}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
-      <contains-significant-data valType="Boolean">false</contains-significant-data>
+      <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Parameters/DesignPoint:0" Version="1.0">
         <class-type valType="String">DesignPoint</class-type>
         <object-name valType="String">0</object-name>
-        <member-data valType="String">{"DisplayText": "DP 0", "JustDuplicated": False, "PartiallyRetainedData": [], "ValidRetainedData": [], "ErrorsOnLastUpdate": {}, "LastUpdateInformation": {"DidUpdate": "True", "DidPreRsmUpdate": "False", "UpdatedComponents": "Geometry Modeling in Study"}, "Parameters": {}, "ParameterErrors": {}, "CurrentValues": {}, "ParameterStatus": {}, "Note": None, "IsUpToDate": False, "Exported": True, "Retained": True, "CurrentStateExported": False, "IsDataModelValid": True, "HasRetainedData": True, "HasBeenSolved": True, "UpdateOrder": 1}</member-data>
+        <member-data valType="String">{"DisplayText": "DP 0", "JustDuplicated": False, "PartiallyRetainedData": [], "ValidRetainedData": [], "ErrorsOnLastUpdate": {}, "LastUpdateInformation": {"DidUpdate": "True", "DidPreRsmUpdate": "False", "UpdatedComponents": "Results Evaluation in Study"}, "Parameters": {}, "ParameterErrors": {}, "CurrentValues": {}, "ParameterStatus": {}, "Note": None, "IsUpToDate": True, "Exported": True, "Retained": True, "CurrentStateExported": False, "IsDataModelValid": True, "HasRetainedData": True, "HasBeenSolved": True, "UpdateOrder": 1}</member-data>
         <properties-setByUserFlag-data valType="String">["IsDataModelValid"]</properties-setByUserFlag-data>
       </Object>
       <Object Name="/Parameters/DesignPointReportSetting:Design Points Report Setting" Version="1.0">
@@ -215,7 +377,7 @@ Modeling Task 1 is invalid""", "Details": """   at Microsoft.Scripting.Runtime.B
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 3820, "Input": 3817, "Output": 2956}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 5360, "Input": 3817, "Output": 2956}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
       <Object Name="/Schematic/System:Study" Version="1.0">
@@ -336,7 +498,7 @@ Modeling Task 1 is invalid""", "Details": """   at Microsoft.Scripting.Runtime.B
       <Object Name="/Units/UnitSystem:UnitSys" Version="1.0">
         <class-type valType="String">UnitSystem</class-type>
         <object-name valType="String">UnitSys</object-name>
-        <member-data valType="String">{"DisplayText": "Metric (kg,m,s,°C,A,N,V)", "ChangedQuantityUnits": {"Density Derivative wrt Temperature": "kg m^-3 C^-1", "Energy Source Coefficient": "W m^-3 C^-1", "Heat Transfer Coefficient": "W m^-2 C^-1", "Molar Entropy": "J mol^-1 C^-1", "Pressure Derivative wrt Temperature": "Pa C^-1", "Seebeck Coefficient": "V C^-1", "Specific Entropy": "J kg^-1 C^-1", "Specific Heat Capacity": "J kg^-1 C^-1", "Stress Per Temperature": "Pa C^-1", "Temperature": "C", "Temperature Difference": "C", "Temperature Gradient": "C m^-1", "InvTemp1": "C^-1", "InvTemp2": "C^-2", "InvTemp3": "C^-3", "InvTemp4": "C^-4", "Thermal Capacitance": "J C^-1", "Thermal Conductance": "W C^-1", "Thermal Conductivity": "W m^-1 C^-1", "Thermal Contact Resistance": "W^-1 m^2 C", "Thermal Expansivity": "C^-1"}, "UnitSystemName": "MKS_STANDARD", "BaseUnitSystemName": "SI", "IsProjectUnitSystem": True, "IsDefault": False}</member-data>
+        <member-data valType="String">{"DisplayText": "Metric (kg,m,s,°C,A,N,V)", "ChangedQuantityUnits": {}, "UnitSystemName": "MKS_STANDARD", "BaseUnitSystemName": "SI", "IsProjectUnitSystem": True, "IsDefault": False}</member-data>
       </Object>
     </Container>
   </Containers>

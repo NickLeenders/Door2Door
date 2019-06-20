@@ -1,0 +1,155 @@
+# encoding: utf-8
+# Release 19.1
+SetScriptVersion(Version="19.1.103")
+system1 = GetSystem(Name="Study")
+study1 = system1.GetContainer(ComponentName="Study")
+material1 = study1.GetMaterial(Name="Material 2")
+material1.Solid.Density.Magnitude = "395 [kg m^-3]"
+material1.Solid.IsotropicElasticity.Magnitude.YoungsModulus = "122.65E9 [Pa]"
+support1 = study1.GetSupport(Name="Support 1")
+Study.Delete(Items=[support1])
+physicsDefinitionComponent1 = system1.GetComponent(Name="Physics Definition")
+physicsDefinition1 = physicsDefinitionComponent1.GetTaskObject()
+support2 = study1.CreateEntity(
+    Type="Support",
+    Association=physicsDefinition1)
+support2.Location = ["FACE5"]
+force1 = study1.CreateEntity(
+    Type="Force",
+    Association=physicsDefinition1)
+force1.Location = ["FACE2"]
+force1.AppliedRemotely = "True"
+point1 = study1.CreateEntity(
+    Type="Point",
+    Association=physicsDefinition1)
+force1.RemoteLocation.OriginatingPoint = [point1]
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="0 [m]", Y="0.51620584962457627 [m]", Z="0 [m]"))))
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-0.54741480162310829 [m]", Y="0.51620584962457627 [m]", Z="0 [m]"))))
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-0.54741480162310829 [m]", Y="0.45291264907516832 [m]", Z="0 [m]"))))
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-0.54741480162310829 [m]", Y="0.45291264907516832 [m]", Z="0.2253638833119242 [m]"))))
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-0.54741480162310829 [m]", Y="0.45291264907516832 [m]", Z="0.02418735597478875 [m]"))))
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-0.54741480162310829 [m]", Y="0.19502709474334484 [m]", Z="0.02418735597478875 [m]"))))
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-0.54741480162310829 [m]", Y="0.20245234904499237 [m]", Z="0.02418735597478875 [m]"))))
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-0.54741480162310829 [m]", Y="0.19208718686771581 [m]", Z="0.02418735597478875 [m]"))))
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-0.54741480162310829 [m]", Y="0.18299095246237351 [m]", Z="0.02418735597478875 [m]"))))
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-0.54741480162310829 [m]", Y="0.18402746868010117 [m]", Z="0.02418735597478875 [m]"))))
+point1.LocalCoordinates.Cartesian.Y = "0.183 [m]"
+force1.Vector.VectorByMagnitudeAndDirection.Magnitude = "313.9 [N]"
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-0.529834175667202 [m]", Y="0.183 [m]", Z="0.02418735597478875 [m]"))))
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-0.011691108456327285 [m]", Y="0.183 [m]", Z="0.02418735597478875 [m]"))))
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-0.011691108456327285 [m]", Y="0.18190071300561975 [m]", Z="0.02418735597478875 [m]"))))
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-0.010673517355151733 [m]", Y="0.18190071300561975 [m]", Z="0.02418735597478875 [m]"))))
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="0.00747026307259765 [m]", Y="0.18190071300561975 [m]", Z="0.02418735597478875 [m]"))))
+point1.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-0.0012336202086500978 [m]", Y="0.18190071300561975 [m]", Z="0.02418735597478875 [m]"))))
+point1.LocalCoordinates.Cartesian.X = "-0.3 [m]"
+point1.LocalCoordinates.Cartesian.Y = "0.18 [m]"
+force2 = study1.CreateEntity(
+    Type="Force",
+    Association=physicsDefinition1)
+force2.AppliedRemotely = "True"
+point2 = study1.CreateEntity(
+    Type="Point",
+    Association=physicsDefinition1,
+    LocationWithHitPoints=[("FACE2", ("-0.32910477504542185 [m]", "0.18649999797344211 [m]", "-0.0026605306781007712 [m]"))])
+force2.RemoteLocation.OriginatingPoint = [point2]
+point2.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="-1.2384419018818558 [m]", Y="0.18649999797344208 [m]", Z="-1.5713074444371207E-18 [m]"))))
+point2.LocalCoordinates.Cartesian.X = "0.9 [m]"
+point2.LocalCoordinates.Cartesian.X = "-0.9 [m]"
+point2.LocalCoordinates.Cartesian.Y = "0.18 [m]"
+force2.Location = ["FACE2"]
+force2.RemoteLocation.OriginatingPoint = [point2]
+force2.Vector.VectorByMagnitudeAndDirection.Magnitude = "313.9 [N]"
+force2.Vector.VectorByMagnitudeAndDirection.Direction = ["0", "-1"]
+force2.Vector.VectorByMagnitudeAndDirection.Direction = []
+force2.Vector.VectorByMagnitudeAndDirection.Direction = ["FACE2"]
+force2.Vector.VectorByMagnitudeAndDirection.Direction = ["FACE6"]
+force2.Vector.VectorByMagnitudeAndDirection.ReverseDirection = "True"
+force1.Vector.VectorByMagnitudeAndDirection.Direction = ["FACE6"]
+force1.Vector.VectorByMagnitudeAndDirection.ReverseDirection = "True"
+force3 = study1.CreateEntity(
+    Type="Force",
+    Association=physicsDefinition1)
+force3.Location = ["FACE2"]
+force3.AppliedRemotely = "True"
+point3 = study1.CreateEntity(
+    Type="Point",
+    Association=physicsDefinition1)
+force3.RemoteLocation.OriginatingPoint = [point3]
+point3.LocalCoordinates.Cartesian.Y = "0.18 [m]"
+point3.LocalCoordinates.Cartesian.X = "-1.5 [m]"
+force3.Vector.VectorByMagnitudeAndDirection.Direction = ["FACE6"]
+force3.Vector.VectorByMagnitudeAndDirection.Magnitude = "313.9 [N]"
+force3.Vector.VectorByMagnitudeAndDirection.ReverseDirection = "True"
+force1.RemoteLocation.OriginatingPoint = [point1]
+force1.RemoteLocation.OriginatingPoint = [point1]
+point4 = study1.CreateEntity(
+    Type="Point",
+    Association=physicsDefinition1)
+force1.RemoteLocation.OriginatingPoint = [point4]
+point4.LocalCoordinates.Cartesian.Y = "-0.18 [m]"
+Study.Delete(Items=[point4])
+force1.RemoteLocation.OriginatingPoint = [point1]
+force4 = study1.CreateEntity(
+    Type="Force",
+    Association=physicsDefinition1)
+force4.Location = ["FACE2"]
+force4.AppliedRemotely = "True"
+point5 = study1.CreateEntity(
+    Type="Point",
+    Association=physicsDefinition1)
+force4.RemoteLocation.OriginatingPoint = [point5]
+solutionReferenceFrame1 = study1.GetSolutionReferenceFrame(Name="SolutionReferenceFrame 1")
+point5.RelativeTo = solutionReferenceFrame1
+globalReferenceFrame1 = study1.GetGlobalReferenceFrame(Name="GlobalReferenceFrame 1")
+point5.RelativeTo = globalReferenceFrame1
+point5.SetEntityProperties(Properties=Set(DefineBy="Entry", LocalCoordinates=Set(Cartesian=Set(X="0 [m]", Y="0.16810606878136053 [m]", Z="0 [m]"))))
+point5.LocalCoordinates.Cartesian.Y = "0.18 [m]"
+point5.LocalCoordinates.Cartesian.X = "-2.1 [m]"
+force4.Vector.VectorByMagnitudeAndDirection.Direction = ["FACE6"]
+force4.Vector.VectorByMagnitudeAndDirection.ReverseDirection = "True"
+force4.Vector.VectorByMagnitudeAndDirection.Magnitude = "313.9 [N]"
+force5 = study1.CreateEntity(
+    Type="Force",
+    Association=physicsDefinition1)
+force5.Location = ["FACE2"]
+force5.AppliedRemotely = "True"
+point6 = study1.CreateEntity(
+    Type="Point",
+    Association=physicsDefinition1)
+force5.RemoteLocation.OriginatingPoint = [point6]
+point6.LocalCoordinates.Cartesian.Y = "0.18 [m]"
+point6.LocalCoordinates.Cartesian.X = "-3.1 [m]"
+force5.Vector.VectorByMagnitudeAndDirection.Magnitude = "657.3 [N]"
+force5.Vector.VectorByMagnitudeAndDirection.Direction = ["FACE6"]
+force5.Vector.VectorByMagnitudeAndDirection.ReverseDirection = "True"
+moment1 = study1.CreateEntity(
+    Type="Moment",
+    Association=physicsDefinition1)
+moment1.Location = ["FACE2"]
+moment1.Vector.DefineBy = "Components"
+moment1.Vector.VectorByComponents.Component2 = "-705.56 [N m]"
+moment1.Vector.VectorByComponents.Component3 = "-705.56 [N m]-705.56 [N m]"
+moment1.Vector.VectorByComponents.Component2 = "0 [N m]"
+moment1.Vector.VectorByComponents.Component3 = "-127 [N m]"
+moment2 = study1.CreateEntity(
+    Type="Moment",
+    Association=physicsDefinition1)
+moment2.Location = ["FACE1"]
+moment2.Vector.VectorByMagnitudeAndDirection.Magnitude = "2437 [N m]"
+moment2.Vector.DefineBy = "Components"
+moment2.Vector.VectorByComponents.Component2 = "2437 [N m]"
+with Transaction():
+    solvePhysicsComponent1 = system1.GetComponent(Name="Solve Physics")
+    solvePhysicsComponent1.Update(AllDependencies=True)
+    resultsEvaluationComponent1 = system1.GetComponent(Name="Results Evaluation")
+    resultsEvaluationComponent1.Refresh()
+with Transaction():
+    results1 = resultsEvaluationComponent1.GetTaskObject()
+    singleValueResult1 = study1.CreateEntity(
+        Type="SingleValueResult",
+        Association=results1)
+    singleValueResult1.EvaluateFullRange = False
+singleValueResult1.Function = "Mass"
+singleValueResult1.Evaluate()
+resultsEvaluationComponent1.Update(AllDependencies=True)
+Save(Overwrite=True)

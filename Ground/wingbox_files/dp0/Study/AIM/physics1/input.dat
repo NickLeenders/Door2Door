@@ -1,0 +1,210 @@
+! MAPDL input file written by Workbench Study version 19.1
+! Writing time: 06/20/2019 21:00:59
+/com,--- Data in consistent MKS units.
+/units,MKS
+/nopr
+/config,noeldb,1 	! Write element results into the results file instead of the default which is both results file AND database.
+/wb,file,start,study 	! Signify a Workbench Study input file
+fini
+/prep7
+toffst,273.15 		! Temperature offset from absolute zero
+tref,22 		! This is internally used to set tunif command
+shpp,off,,nowarn 	! Turn off shape checking because checks are already performed inside WB mesher
+/nolist
+etcon,set 		! Allow MAPDL to choose best keyopts for 180x elements
+local,12,0,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000,0.000000000000000E+000
+
+csys,0 			! Setting current coordinate system to global
+/com,*********** Write element types ***********
+et,1,186 		! Element type for Physics Options 1
+et,2,186 		! Element type for Physics Options 1
+
+et,3,174 		! Element type for Force 1
+keyo,3,12,5 		! Bonded contact
+keyo,3,4,1 		! Deformable RBE3 style contact
+keyo,3,2,2 		! MPC style contact
+et,4,170 		! Element type for Force 1
+keyo,4,2,1 		! Don't fix the target node(s)
+keyo,4,4,0 		! Activate all DOFs
+
+et,5,174 		! Element type for Force 2
+keyo,5,12,5 		! Bonded contact
+keyo,5,4,1 		! Deformable RBE3 style contact
+keyo,5,2,2 		! MPC style contact
+et,6,170 		! Element type for Force 2
+keyo,6,2,1 		! Don't fix the target node(s)
+keyo,6,4,0 		! Activate all DOFs
+
+et,7,174 		! Element type for Force 3
+keyo,7,12,5 		! Bonded contact
+keyo,7,4,1 		! Deformable RBE3 style contact
+keyo,7,2,2 		! MPC style contact
+et,8,170 		! Element type for Force 3
+keyo,8,2,1 		! Don't fix the target node(s)
+keyo,8,4,0 		! Activate all DOFs
+
+et,9,174 		! Element type for Force 4
+keyo,9,12,5 		! Bonded contact
+keyo,9,4,1 		! Deformable RBE3 style contact
+keyo,9,2,2 		! MPC style contact
+et,10,170 		! Element type for Force 4
+keyo,10,2,1 		! Don't fix the target node(s)
+keyo,10,4,0 		! Activate all DOFs
+
+et,11,174 		! Element type for Force 5
+keyo,11,12,5 		! Bonded contact
+keyo,11,4,1 		! Deformable RBE3 style contact
+keyo,11,2,2 		! MPC style contact
+et,12,170 		! Element type for Force 5
+keyo,12,2,1 		! Don't fix the target node(s)
+keyo,12,4,0 		! Activate all DOFs
+
+et,13,174 		! Element type for Moment 1
+keyo,13,12,5 		! Bonded contact
+keyo,13,4,1 		! Deformable RBE3 style contact
+keyo,13,2,2 		! MPC style contact
+et,14,170 		! Element type for Moment 1
+keyo,14,2,1 		! Don't fix the target node(s)
+keyo,14,4,0 		! Activate all DOFs
+
+et,15,174 		! Element type for Moment 2
+keyo,15,12,5 		! Bonded contact
+keyo,15,4,1 		! Deformable RBE3 style contact
+keyo,15,2,2 		! MPC style contact
+et,16,170 		! Element type for Moment 2
+keyo,16,2,1 		! Don't fix the target node(s)
+keyo,16,4,0 		! Activate all DOFs
+/com,*********** Done writing element types ***********
+/com,*********** Write materials ***********
+/wb,mat,start 		! Starting to write materials
+mp,reft,2,22 		! C
+mp,dens,2,395 		! kg m^-3
+mp,ex,2,122650000000 		! Pa
+mp,prxy,2,0.33 		! 
+/wb,mat,end 		! Done writing materials
+r,2 			! Real constant set for Force 1
+r,3 			! Real constant set for Force 2
+r,4 			! Real constant set for Force 3
+r,5 			! Real constant set for Force 4
+r,6 			! Real constant set for Force 5
+r,7 			! Real constant set for Moment 1
+r,8 			! Real constant set for Moment 2
+/com,*********** Read mesh ***********
+/input,'mesh','dat'
+
+/com,*********** Read connection elements ***********
+/input,'connection','dat'
+
+/com,*********** Read components ***********
+/input,'component','dat'
+
+alls
+cm,_AllNodes,node
+cm,_AllElems,elem
+fini
+*get,_numnode,node,0,count
+*get,_numelem,elem,0,count
+/gopr
+/com,--- Number of total nodes = %_numnode%
+/com,--- Number of total elements = %_numelem%
+/gst,on,on
+/com,****************************************************************************
+/com,*************************    SOLUTION       ********************************
+/com,****************************************************************************
+/solu
+antype,static
+/com,****************************************************
+/com,*********** Solve for Load Step 1 ***********
+/com, Start writing variable values
+*set,_val1,-1.42209426182081
+*set,_val2,-5.88978675138559
+*set,_val3,-313.841517425489
+*set,_val4,-1.42209426182081
+*set,_val5,-5.88978675138559
+*set,_val6,-313.841517425489
+*set,_val7,-1.42209426182081
+*set,_val8,-5.88978675138559
+*set,_val9,-313.841517425489
+*set,_val10,-1.42209426182081
+*set,_val11,-5.88978675138559
+*set,_val12,-313.841517425489
+*set,_val13,-2.977835483577
+*set,_val14,-12.3330896198973
+*set,_val15,-657.177538718618
+*set,_val16,0
+*set,_val17,0
+*set,_val18,-127
+*set,_val19,0
+*set,_val20,2437
+*set,_val21,0
+*set,_val22,0
+*set,_val23,0
+*set,_val24,0
+/com, Done writing variable values
+d,C8,ux,%_val22% 		! Contributions from Support 1
+d,C8,uy,%_val23% 		! Contributions from Support 1
+d,C8,uz,%_val24% 		! Contributions from Support 1
+/nopr
+cmsel,s,C1
+f,all,fx,%_val1% 		! Applying Force 1 x
+f,all,fy,%_val2% 		! Applying Force 1 y
+f,all,fz,%_val3% 		! Applying Force 1 z
+alls
+cmsel,s,C2
+f,all,fx,%_val4% 		! Applying Force 2 x
+f,all,fy,%_val5% 		! Applying Force 2 y
+f,all,fz,%_val6% 		! Applying Force 2 z
+alls
+cmsel,s,C3
+f,all,fx,%_val7% 		! Applying Force 3 x
+f,all,fy,%_val8% 		! Applying Force 3 y
+f,all,fz,%_val9% 		! Applying Force 3 z
+alls
+cmsel,s,C4
+f,all,fx,%_val10% 		! Applying Force 4 x
+f,all,fy,%_val11% 		! Applying Force 4 y
+f,all,fz,%_val12% 		! Applying Force 4 z
+alls
+cmsel,s,C5
+f,all,fx,%_val13% 		! Applying Force 5 x
+f,all,fy,%_val14% 		! Applying Force 5 y
+f,all,fz,%_val15% 		! Applying Force 5 z
+alls
+cmsel,s,C6
+f,all,mz,%_val18% 		! Applying Moment 1 z
+alls
+cmsel,s,C7
+f,all,my,%_val20% 		! Applying Moment 2 y
+alls
+/gopr
+rescontrol,linear
+outres,erase
+outres,all,none 		! Don't write any results to the result file
+time,1 				! Step end time
+stabilize,off 			! Deactivate stabilization
+neqit,0 			! Program controlled number of equilibrium iterations
+outres,nsol,all 		! Writing nodal DOF solution at every substep
+outres,rsol,all 		! Writing nodal reaction loads at every substep
+outres,strs,all 		! Writing element nodal stresses at every substep
+alls
+! check interactive state
+*get,ANSINTER_,active,,int
+*if,ANSINTER_,ne,0,then
+/eof
+*endif
+! *********** SOLVE COMMAND ***********
+solve
+/com,****************************************************
+/com,*********** Finished Solve for Load Step 1 ***********
+/com,
+fini
+/post1
+fini
+*get,ANSINTER_,active,,int
+*if,ANSINTER_,eq,0,then
+! Write file.success to verify the run made it this far
+/output,'file',success
+/com, Update of solution is successful...
+/output,'output','lis',,Append
+*endif
+/wb,file,end 			! Done with Workbench Study generated input
