@@ -62,6 +62,8 @@ def heatCapacityH2(T):
 
 def tankSizing(pressure, massHydrogen, volumeHydrogen, yieldStrength, density, safetyFactor, missionDuration, thermalConductivity, densityFoam):
     radiusHydrogen = (volumeHydrogen*3.0/(4.0*math.pi))**(1.0/3.0)
+    massLiner = 1030.0*(4.0/3.0)*math.pi*((radiusHydrogen + 0.0065)**3 - (radiusHydrogen)**3)
+    radiusHydrogen = radiusHydrogen + 0.0065
     #structural tank:
     thickness = pressure*radiusHydrogen*safetyFactor/(2.0*yieldStrength)
     mass = density*(4.0/3.0)*math.pi*((radiusHydrogen + thickness)**3 - (radiusHydrogen)**3)
@@ -73,9 +75,9 @@ def tankSizing(pressure, massHydrogen, volumeHydrogen, yieldStrength, density, s
     thicknessI = thermalConductivity*SA*(Thot - Tcold)/Q_max
     massI = densityFoam * (4.0 / 3.0) * math.pi * ((radiusHydrogen + thickness + thicknessI) ** 3 - (radiusHydrogen + thickness) ** 3)
     #total (w/o liner for now):
-    massTotal = mass + massI
-    thicknessTotal = thickness + thicknessI
-    return massTotal, thicknessTotal, mass, thickness, massI, thicknessI, radiusHydrogen
+    massTotal = mass + massI + massLiner
+    thicknessTotal = thickness + thicknessI + 0.0065
+    return massTotal, thicknessTotal, mass, thickness, massI, thicknessI, radiusHydrogen, massLiner
 
 def cellPotential(i, p_atm):
     ###Constants
@@ -88,23 +90,30 @@ def cellPotential(i, p_atm):
 
     ###Cell specs
     #Operational temperature
-    T = 333.15 #K
+    T = 273.15 + 75.0
     #Partial pressures
-    P_a = 1.51 #atm
-    P_c = p_atm #atm
-    X_h2 = 1.0
+    P_a = 1.184 #atm
+    #P_c = p_atm #atm
+    P_c = 0.9869
+    X_h2 = 0.7
     X_o2 = 0.21
 
     ###Model F's fitting parameters
     b = 0.06642 #V/decade
+    b = 0.02
     i_loss = 0.001225 #A cm^2
+    i_loss = 0.0006
     i_0 = 3.7980 #A cm^2
+    #i_0 = 2.0
     resistance = 0.1083 #ohm cm^2
+    resistance = 0.02
     m = 0.005248 #V
+    m = 0.001
     n = 2.2421 #cm^2 / A
+    n = 0.5
 
     V_rev = 1.229 - ds/(2.0*F)*(T - 298.15) - (R*T/(2.0*F))*math.log(1.0/((P_a*X_h2)*(P_c*X_o2)**0.5))
-
+    V_rev = 0.96
     V = V_rev - b*math.log((i + i_loss)/i_0) - resistance*i - m*math.exp(n*i)
 
     return V
@@ -134,17 +143,17 @@ def fuelCalc():
     takeOff_power = []
     takeOff_energy = []
 
-    for t in np.arange(5*dt, 35.0/acc, dt):
+    for t in np.arange(5*dt, 31.0/acc, dt):
         takeOff_t = ThrustCalculator(MTOW - massHydrogen, acc*t, acc*t, acc*t, 0.0, dt, 0, acc, 1)
         takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
-                                    takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff, 1)
+                                    takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff + 0.2, 1)
         temp = takeOff_t
         temp.thrust = 0.0
         while (abs(takeOff_t.thrust - temp.thrust) > 0.005):
             temp = takeOff_t
             takeOff_t = ThrustCalculator(MTOW - massHydrogen, acc * t, takeOff_l.v_wakeCP, takeOff_l.v_wakeHLP, 0.0, dt, 0, acc, 1)
             takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
-                                        takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff, 1)
+                                        takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff + 0.2, 1)
         print("#########################")
         print("Take-off:")
         print("Weight: ", (MTOW - massHydrogen)*9.80665)
@@ -190,10 +199,23 @@ def fuelCalc():
     print("HLP thrust: ", climb_l.thrustHLP, "CP thrust: ", climb_l.thrustCP)
 
     #CRUISE
-    cruise_t = ThrustCalculator(MTOW - massHydrogen, 69.4, 69.4, 69.4, 1500, 400000.0/69.4)
+
+    cruiseSpeed = 69.4
+
+    cruise_t = ThrustCalculator(MTOW - massHydrogen, cruiseSpeed, cruiseSpeed, cruiseSpeed, 1500, 400000.0/cruiseSpeed)
     cruise_l = aero.Propellers(cruise_t.thrust, cruise_t.velocity,
                               cruise_t.rho, cruise_t.aero_vals.cl_cr, 0)
+<<<<<<< HEAD
+    temp = cruise_t
+    temp.thrust = 0.0
+    while (abs(cruise_t.thrust - temp.thrust) > 0.005):
+        temp = cruise_t
+        cruise_t = ThrustCalculator(MTOW - massHydrogen, cruiseSpeed, cruise_l.v_wakeCP, cruise_l.v_wakeHLP, 1500.0, 400000.0/cruiseSpeed)
+        cruise_l = aero.Propellers(cruise_t.thrust, cruise_t.velocity,
+                                  cruise_t.rho, cruise_t.aero_vals.cl_cr, 0)
+=======
 
+>>>>>>> fa33e49b91fcc8a382d7976068a6101645197e4c
     print("#########################")
     print("Cruise:")
     print("Weight: ", (MTOW - massHydrogen)*9.80665)
@@ -210,14 +232,14 @@ def fuelCalc():
     print("wake CP: ", cruise_l.v_wakeCP, "wake HLP: ", cruise_l.v_wakeHLP)
 
     #RESERVE
-    reserve_t = ThrustCalculator(MTOW - massHydrogen, 69.4, 69.4, 69.4, 1500.0, 45.0*60.0)
+    reserve_t = ThrustCalculator(MTOW - massHydrogen, cruiseSpeed, cruiseSpeed, cruiseSpeed, 1500.0, 45.0*60.0)
     reserve_l = aero.Propellers(reserve_t.thrust, reserve_t.velocity,
                                reserve_t.rho, reserve_t.aero_vals.cl_cr, 0)
     temp = reserve_t
     temp.thrust = 0.0
     while (abs(reserve_t.thrust - temp.thrust) > 0.005):
         temp = reserve_t
-        reserve_t = ThrustCalculator(MTOW - massHydrogen, 69.4, reserve_l.v_wakeCP, reserve_l.v_wakeHLP, 1500.0, 45.0*60.0)
+        reserve_t = ThrustCalculator(MTOW - massHydrogen, cruiseSpeed, reserve_l.v_wakeCP, reserve_l.v_wakeHLP, 1500.0, 45.0*60.0)
         reserve_l = aero.Propellers(reserve_t.thrust, reserve_t.velocity,
                                   reserve_t.rho, reserve_t.aero_vals.cl_cr, 0)
     print("#########################")
@@ -258,16 +280,16 @@ def fuelCalc():
     print("HLP thrust: ", landStart_l.thrustHLP, "CP thrust: ", landStart_l.thrustCP)
 
     #LANDING
-    landing_t = ThrustCalculator(MTOW - massHydrogen, 35.0, 35.0, 35.0, 750.0, (MTOW - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
+    landing_t = ThrustCalculator(MTOW - massHydrogen, 39.0, 39.0, 39.0, 750.0, (MTOW - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
     landing_l = aero.Propellers(landing_t.thrust, landing_t.velocity,
-                                  landing_t.rho, landing_t.aero_vals.cl_takeoff, 1)
+                                  landing_t.rho, landing_t.aero_vals.cl_takeoff + 0.2, 1)
     temp = landing_t
     temp.thrust = 0.0
     while (abs(landing_t.thrust - temp.thrust) > 0.005):
         temp = landing_t
-        landing_t = ThrustCalculator(MTOW - massHydrogen, 35.0, landing_l.v_wakeCP, landing_l.v_wakeHLP, 750.0, (MTWO - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
+        landing_t = ThrustCalculator(MTOW - massHydrogen, 39.0, landing_l.v_wakeCP, landing_l.v_wakeHLP, 750.0, (MTWO - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
         landing_l = aero.Propellers(landing_t.thrust, landing_t.velocity,
-                                  landing_t.rho, landing_t.aero_vals.cl_takeoff, 1)
+                                  landing_t.rho, landing_t.aero_vals.cl_takeoff + 0.2, 1)
     print("#########################")
     print("Landing:")
     print("Weight: ", (MTOW - massHydrogen)*9.80665)
@@ -280,6 +302,7 @@ def fuelCalc():
     print("Altitude: ", landing_t.altitude, "Velocity: ", landing_t.velocity)
     print("HLP eff: ", landing_l.efficiencyHLP, "CP eff: ", landing_l.efficiencyCP)
     print("HLP thrust: ", landing_l.thrustHLP, "CP thrust: ", landing_l.thrustCP)
+    print("Wake velocity CP: ", landing_l.v_wakeCP, " Wake velocity HLP: ", landing_l.v_wakeHLP)
 
     #DRIVE 2
     drive2_t = ThrustCalculator(MTOW - massHydrogen, 29.0, 29.0, 29.0, 0.0, 50000.0 / 29.0, 0, 0, 1)
@@ -353,6 +376,12 @@ def fuelCalc():
     for i in range(8):
         print(power[i])
 
+    print("#######################")
+    totalDur = 0.0
+    for i in range(8):
+        totalDur += switch[i].duration
+    print("Total Mission Duriation: ", totalDur)
+
     #Size fuel cell for several possible current densities i [A / cm^2]
     V = []
     A = []
@@ -374,6 +403,30 @@ def fuelCalc():
 
     plt.xlabel('Current Density [A/cm^2]')
     plt.title("H2 Fuel Cell Sizing at Max Power Condition")
+
+    #Polarisation curve for unit cell
+    V = []
+    P = []
+    A = 55.0 #cm^2
+    I = np.linspace(1.0, 450.0, 50) #Amperes
+    for i in I:
+        V.append(cellPotential(i/A, maxPowerPhase.p))
+        P.append(cellPotential(i/A, maxPowerPhase.p)*i)
+
+    plt.figure(6)
+    fig, ax1 = plt.subplots()
+    ax1.plot(I, V, 'bo', label='Voltage [V]')
+    ax1.set_ylabel('Voltage [V]', color='b')
+    ax1.tick_params('y', colors='b')
+    ax1.set_ylim(ymin=0)
+
+    ax2 = ax1.twinx()
+    ax2.plot(I, P, 'r+', label='Power [W]')
+    ax2.set_ylabel('Power [W]', color='r')
+    ax2.tick_params('y', colors='r')
+
+    plt.xlabel('Current [A]')
+    plt.title("Unit Cell Polarisation Curve")
 
     missionDuration = 0.0
     for i in range(8):
@@ -424,6 +477,8 @@ def fuelCalc():
 
     print("Internal Radius of tank (hydrogen):")
     print(tankSize[6] * 1000.0, " mm")
+    print("Mass of Liner:")
+    print(tankSize[7])
 
     colors3D = ['gold', 'lightcoral', 'lightskyblue', 'gold', 'lightcoral', 'lightskyblue', 'gold', 'lightcoral', 'lightskyblue']
 

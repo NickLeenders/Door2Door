@@ -49,14 +49,14 @@ class z_positions:
 class w_components:
     def __init__(self, wing_weight, emp_weight):
         self.w_tail = emp_weight
-        self.w_structure = 385.5112  # TODO not done yet
-        self.w_propeller = 316.48  # 16.36kg (8x), 30kg (2x) and including motor that are 8.2kg (8x), 30kg (2x)
+        self.w_structure = 393  
+        self.w_propeller = 353.88  # 16.36kg (8x), 30kg (2x) and including motor that are 8.2kg (8x), 30kg (2x) + 7.4kg shafts + 30kg cables
         self.w_wing = 120
         self.w_drivetrain = 158.75  # Includes ground motor and converter
         self.w_fuel = 16.66
         self.w_cell = 63.29
         self.w_payload = 360
-        self.w_passenger = 80.0  # TODO add seat weight to this
-        self.w_battery = 75  # TODO not done yet
-        self.w_tank = 45.39  # Done
+        self.w_passenger = 80.0
+        self.w_battery = 75
+        self.w_tank = 45.39
         self.w_cargo = 40
