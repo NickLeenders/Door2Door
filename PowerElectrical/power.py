@@ -170,6 +170,7 @@ def fuelCalc():
     print("Altitude: ", takeOff_t.altitude, "Velocity: ", takeOff_t.velocity)
     print("HLP eff: ", takeOff_l.efficiencyHLP, "CP eff: ", takeOff_l.efficiencyCP)
     print("HLP thrust: ", takeOff_l.thrustHLP, "CP thrust: ", takeOff_l.thrustCP)
+
     print("Wake velocity CP: ", takeOff_l.v_wakeCP, " Wake velocity HLP: ", takeOff_l.v_wakeHLP)
 
     #CLIMB
@@ -204,6 +205,7 @@ def fuelCalc():
     cruise_t = ThrustCalculator(MTOW - massHydrogen, cruiseSpeed, cruiseSpeed, cruiseSpeed, 1500, 400000.0/cruiseSpeed)
     cruise_l = aero.Propellers(cruise_t.thrust, cruise_t.velocity,
                               cruise_t.rho, cruise_t.aero_vals.cl_cr, 0)
+<<<<<<< HEAD
     temp = cruise_t
     temp.thrust = 0.0
     while (abs(cruise_t.thrust - temp.thrust) > 0.005):
@@ -211,6 +213,9 @@ def fuelCalc():
         cruise_t = ThrustCalculator(MTOW - massHydrogen, cruiseSpeed, cruise_l.v_wakeCP, cruise_l.v_wakeHLP, 1500.0, 400000.0/cruiseSpeed)
         cruise_l = aero.Propellers(cruise_t.thrust, cruise_t.velocity,
                                   cruise_t.rho, cruise_t.aero_vals.cl_cr, 0)
+=======
+
+>>>>>>> fa33e49b91fcc8a382d7976068a6101645197e4c
     print("#########################")
     print("Cruise:")
     print("Weight: ", (MTOW - massHydrogen)*9.80665)
@@ -224,6 +229,7 @@ def fuelCalc():
     print("Altitude: ", cruise_t.altitude, "Velocity: ", cruise_t.velocity)
     print("HLP eff: ", cruise_l.efficiencyHLP, "CP eff: ", cruise_l.efficiencyCP)
     print("HLP thrust: ", cruise_l.thrustHLP, "CP thrust: ", cruise_l.thrustCP)
+    print("wake CP: ", cruise_l.v_wakeCP, "wake HLP: ", cruise_l.v_wakeHLP)
 
     #RESERVE
     reserve_t = ThrustCalculator(MTOW - massHydrogen, cruiseSpeed, cruiseSpeed, cruiseSpeed, 1500.0, 45.0*60.0)

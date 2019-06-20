@@ -16,7 +16,7 @@ def moi_calc(n_stiff,h,w,t,A_st):
     A_stiff = A_st
     t_skin = t
     y_dst = h/2
-    moi_z = (A_stiff * h/2 * h/2 * n_stiff) + (h/2 * h/2 * t_skin * w) + (1/12 * t_skin * h*h*h * 3)
+    moi_z = (((t_skin ** 3) * w * (1/12)) + (h/2 * h/2 * t_skin * w)) * 2 + ((1/12) * t_skin * h*h*h * 3) #+ (A_stiff * h/2 * h/2 * n_stiff)
     spacing = w / (top_stiff-1)
     x_dist = []
     i=0
@@ -36,7 +36,7 @@ def moi_calc(n_stiff,h,w,t,A_st):
             xdst = (i+1) * spacing
             x_dist.append(xdst)
             i = i+1
-    moi_x = (w/2 * w/2 * t_skin * h*2) + (2/12 * t_skin * w * w * w)
+    moi_x = (w/2 * w/2 * t_skin * h * 2) + (1/12 * t_skin * w * w * w * 2) 
     for k in range(len(x_dist)):
         moi_add = x_dist[k] * x_dist[k] * A_stiff * 4
         moi_x  = moi_x + moi_add
@@ -44,14 +44,18 @@ def moi_calc(n_stiff,h,w,t,A_st):
     
 def gen_wingbox(moi_req,h,w,t,A_st,show=True):
     check = 0
-    n_stiff = 4
+
+    # change n_stiff if stiffners need to be included
+    n_stiff = 0
     A_st = A_st
     while check==0:
         moi_z , moi_x = moi_calc(n_stiff,h,w,t,A_st)
-        if moi_z > moi_req * 1.5:
+        if moi_z > moi_req:
             check = 1
         else:
-            n_stiff = n_stiff + 2
+            print 'not working'
+            break
+            #n_stiff = n_stiff + 2
     if show:
         n_top = n_stiff / 2
     
@@ -83,19 +87,23 @@ def gen_wingbox(moi_req,h,w,t,A_st,show=True):
         plt.axis('equal')
         space = w / (n_top - 1)
         x_stiff = -w/2
-        while x_stiff <= w/2:
-            plt.plot(x_stiff,h/2,'ro')
-            plt.plot(x_stiff,-h/2,'ro')
-            x_stiff = x_stiff + space
+
+        #Add stiffners until interia moment will hold moment force
+        #while x_stiff <= w/2:
+        #    plt.plot(x_stiff,h/2,'ro')
+        #    plt.plot(x_stiff,-h/2,'ro')
+        #    x_stiff = x_stiff + space
         plt.show()
 
     return n_stiff,moi_z,moi_x
 
-moi_req = 4.03e-5
+#including a safety factor here already, the code does not include it anymore (safety factor of 2.5 for composite)
+moi_req = 6.48e-5
+print moi_req
 h = 0.180
 w = 0.373
-t = 0.004
-A_st = 0.0020
+t = 0.030
+A_st = 0.0000
 a = gen_wingbox(moi_req, h, w, t, A_st, show=True)
 
 print 'nr of stiff', a[0]

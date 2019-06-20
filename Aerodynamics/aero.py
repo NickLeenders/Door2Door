@@ -13,27 +13,27 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
 
     #cdw = 0.018 #cd0 + (cl**2)/(math.pi*(b/c)*e)
 
-    #lf=5.5 #length fuselage
-    #df=(2.4+1.5)*(2.0/math.pi) #'diameter fuselage'
-    #lambdaf=lf/df #ratio
-    #ln=2.3 #nose to circular distance
-    #taper=wing_vals().taper_ratio
-    #tct=0.18
-    #tcr=0.18
-    #Sexpw=S-1.2*2.4
-    #cfe=0.0045
-    #S = wing_vals().S
+    lf=5.5 #length fuselage
+    df=(2.4+1.5)*(2.0/math.pi) #'diameter fuselage'
+    lambdaf=lf/df #ratio
+    ln=2.3 #nose to circular distance
+    taper=wing_vals().taper_ratio
+    tct=0.18
+    tcr=0.18
+    S = wing_vals().S
+    Sexpw=S-1.2*2.4
+    cfe=0.0045
 
 
-    #taperh=1.0
-    #tcth=0.12
-    #tcrh=0.12
-    #Sexph=3.84
+    taperh=1.0
+    tcth=0.12
+    tcrh=0.12
+    Sexph=3.84
 
-    #taperv=1.0
-    #tctv = 0.12
-    #tcrv = 0.12
-    #Sexpv = 1.2*1.5
+    taperv=1.0
+    tctv = 0.12
+    tcrv = 0.12
+    Sexpv = 1.2*1.5
 
     #Swetf=math.pi*df*lf*((0.5+0.135*ln/lf)**(2/3))*(1.015+0.3/(lambdaf**1.5))
     #Swetv = 2 * Sexpv * (1 + 0.25 * tcrv * (1 + taperv * tctv / tcrv) / (1 + taperv))
@@ -45,57 +45,59 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
 
 #Part 2 Drag estimatio
 
+
     # Zero Wing Drag Coefficient
-    #Re1=(aero_vals().vinfcr)*(wing_vals().MAC)*(aero_vals().rho_cr)/(aero_vals().mu)
-    #Cflaminar1 = 1.328/math.sqrt(Re1)
-    #Cfturbulent1= 0.455/((math.log(Re1)**2.58 * (1+0.144*aero_vals().Mach**2)**0.65))
-    #klaminar = 0.00635
-    #Cf_c1 = klaminar * Cflaminar1 + (1 - klaminar) * Cfturbulent1
-    #xi= 0.5
-    #FF1=(1.0+(0.6/xi)*(wing_vals().tc)+100.0*(wing_vals().tc)**4.)*(1.34*aero_vals().Mach**0.18*(math.cos(1/180*math.pi))**0.28)
-    #Q1=1.0
-    #Swet1 = 2 * wing_vals().S * (1 + 0.25 * wing_vals().tc * (1 + wing_vals().taper_ratio * wing_vals().tip_chord / wing_vals().root_chord) / (1 + wing_vals().taper_ratio))
-    #Cdof1=Cf_c1*FF1*Q1*Swet1/wing_vals().S
+    Re1=(aero_vals().vinfcr)*(wing_vals().MAC)*(aero_vals().rho_cr)/(aero_vals().mu)
+    Cflaminar1 = 1.328/math.sqrt(Re1)
+    Cfturbulent1= 0.455/((math.log(Re1)**2.58 * (1+0.144*aero_vals().Mach**2)**0.65))
+    klaminar = 0.00635
+    Cf_c1 = klaminar * Cflaminar1 + (1 - klaminar) * Cfturbulent1
+    xi= 0.5
+    FF1=(1.0+(0.6/xi)*(wing_vals().tc)+100.0*(wing_vals().tc)**4.)*(1.34*aero_vals().Mach**0.18*(math.cos(1/180*math.pi))**0.28)
+    Q1=1.0
+    Swet1 = 2 * wing_vals().S * (1 + 0.25 * wing_vals().tc * (1 + wing_vals().taper_ratio * wing_vals().tip_chord / wing_vals().root_chord) / (1 + wing_vals().taper_ratio))
+    Cdof1=Cf_c1*FF1*Q1*Swet1/wing_vals().S
 
     # Zero Fuselage Drag Coefficient
-    #Re2 = aero_vals().vinfcr * 5.5 * aero_vals().rho_cr / aero_vals().mu
-    #Cflaminar2 = 1.328 / math.sqrt(Re2)
-    #Cfturbulent2 = 0.455 / ((math.log(Re2) ** 2.58 * (1 + 0.144 * aero_vals().Mach ** 2) ** 0.65))
-    #Cf_c2 = klaminar * Cflaminar2 + (1 - klaminar) * Cfturbulent2
-    #FF2 = 1+(60/(lf/df)**3)+((lf/df)/400)
-    #Q2 = 1.0
-    #Swet2 = math.pi * df * lf * ((0.5 + 0.135 * ln / lf) ** (2 / 3)) * (1.015 + 0.3 / (lambdaf ** 1.5))
-    #Cdof2 = Cf_c2 * FF2 * Q2 * Swet2 / wing_vals().S
+    Re2 = aero_vals().vinfcr * 5.5 * aero_vals().rho_cr / aero_vals().mu
+    Cflaminar2 = 1.328 / math.sqrt(Re2)
+    Cfturbulent2 = 0.455 / ((math.log(Re2) ** 2.58 * (1 + 0.144 * aero_vals().Mach ** 2) ** 0.65))
+    Cf_c2 = klaminar * Cflaminar2 + (1 - klaminar) * Cfturbulent2
+    FF2 = 1+(60/(lf/df)**3)+((lf/df)/400)
+    Q2 = 1.0
+    Swet2 = math.pi * df * lf * ((0.5 + 0.135 * ln / lf) ** (2 / 3)) * (1.015 + 0.3 / (lambdaf ** 1.5))
+    Cdof2 = Cf_c2 * FF2 * Q2 * Swet2 / wing_vals().S
 
     # Zero Empanage Drag horizontal tail Coefficient
-    #Re3 = aero_vals().vinfcr * emp_vals().c_h * aero_vals().rho_cr / aero_vals().mu
-    #Cflaminar3 = 1.328 / math.sqrt(Re3)
-    #Cfturbulent3 = 0.455 / ((math.log(Re3) ** 2.58 * (1 + 0.144 * aero_vals().Mach ** 2) ** 0.65))
-    #klaminar = 0.00635
-    #Cf_c3 = klaminar * Cflaminar3 + (1 - klaminar) * Cfturbulent3
-    #xi = 0.347
-    #FF3 = (1.0 + (0.6 / xi)*(emp_vals().tch) + 100.0*(emp_vals().tch) ** 4.)*(1.34 * aero_vals().Mach ** 0.18 * (math.cos(1 / 180 * math.pi)) ** 0.28)
-    #Q3 = 1.04
-    #Swet3 = 2 * Sexph * (1 + 0.25 * tcrh * (1 + taperh * tcth / tcrh) / (1 + taperh))
-    #Cdof3 = Cf_c3 * FF3 * Q3 * Swet3 / wing_vals().S
+    Re3 = aero_vals().vinfcr * emp_vals().c_h * aero_vals().rho_cr / aero_vals().mu
+    Cflaminar3 = 1.328 / math.sqrt(Re3)
+    Cfturbulent3 = 0.455 / ((math.log(Re3) ** 2.58 * (1 + 0.144 * aero_vals().Mach ** 2) ** 0.65))
+    klaminar = 0.00635
+    Cf_c3 = klaminar * Cflaminar3 + (1 - klaminar) * Cfturbulent3
+    xi = 0.347
+    FF3 = (1.0 + (0.6 / xi)*(emp_vals().tch) + 100.0*(emp_vals().tch) ** 4.)*(1.34 * aero_vals().Mach ** 0.18 * (math.cos(1 / 180 * math.pi)) ** 0.28)
+    Q3 = 1.04
+    Swet3 = 2 * Sexph * (1 + 0.25 * tcrh * (1 + taperh * tcth / tcrh) / (1 + taperh))
+    Cdof3 = Cf_c3 * FF3 * Q3 * Swet3 / wing_vals().S
 
     # Zero Empanage Drag vertical tail Coefficient
-    #Re4 = aero_vals().vinfcr * emp_vals().c_v * aero_vals().rho_cr / aero_vals().mu
-    #Cflaminar4 = 1.328 / math.sqrt(Re4)
-    #Cfturbulent4 = 0.455 / ((math.log(Re4) ** 2.58 * (1 + 0.144 * aero_vals().Mach ** 2) ** 0.65))
-    #klaminar = 0.00635
-    #Cf_c4 = klaminar * Cflaminar4 + (1 - klaminar) * Cfturbulent4
-    #xi = 0.347
-    #FF4 = (1.0 + (0.6 / xi) * (emp_vals().tcv) + 100.0 * (emp_vals().tcv) ** 4.)*(
-    #    1.34 * aero_vals().Mach ** 0.18 * (math.cos(1 / 180 * math.pi)) ** 0.28)
-    #Q4 = 1.04
-    #Swet4 = 2 * Sexpv * (1 + 0.25 * tcrv * (1 + taperv * tctv / tcrv) / (1 + taperv))
-    #Cdof4 = Cf_c4 * FF4 * Q4 * Swet4 / wing_vals().S
+    Re4 = aero_vals().vinfcr * emp_vals().c_v * aero_vals().rho_cr / aero_vals().mu
+    Cflaminar4 = 1.328 / math.sqrt(Re4)
+    Cfturbulent4 = 0.455 / ((math.log(Re4) ** 2.58 * (1 + 0.144 * aero_vals().Mach ** 2) ** 0.65))
+    klaminar = 0.00635
+    Cf_c4 = klaminar * Cflaminar4 + (1 - klaminar) * Cfturbulent4
+    xi = 0.347
+    FF4 = (1.0 + (0.6 / xi) * (emp_vals().tcv) + 100.0 * (emp_vals().tcv) ** 4.)*(1.34 * aero_vals().Mach ** 0.18 * (math.cos(1 / 180 * math.pi)) ** 0.28)
+    Q4 = 1.04
+    Swet4 = 2 * Sexpv * (1 + 0.25 * tcrv * (1 + taperv * tctv / tcrv) / (1 + taperv))
+    Cdof4 = Cf_c4 * FF4 * Q4 * Swet4 / wing_vals().S
 
     # Total zero drag coefficient
-    #Cdo = Cdof2 + Cdof1 + Cdof3 + Cdof4
+    Cd0 = Cdof2 + Cdof1 + Cdof3 + Cdof4
 
-    cdw_cr = 0.025  # (at cl=0.7) CRUISE
+
+
+    cdw_cr = 0.029  # (at cl=0.7) CRUISE
     cdh_cr = 0.011  # (at cl=0.12) CRUISE
     cdv_cr = 0.013  # (at cl=0) CRUISE
     cdfus_cr = 0.19 #
@@ -103,7 +105,7 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
     cdflap_cr= 0
 
 
-    cdw_to = 0.095  # (at cl=1.4) TO
+    cdw_to = 0.103  # (at cl=1.4) TO
     cdh_to = 0.045  # (at cl=0.12) TO
     cdv_to = 0.013  # (at cl=0) TO
     cdfus_to = 0.3   #
@@ -154,8 +156,9 @@ def drag(number, v_inf, v_wakeCP, v_wakeHLP, rho): #number: 0=driving, 1= cruise
 
     area_fus=1.5*2.4
     d_nac=0.28
+    S_flap=3.456
 
-    cd0 = (cdw0 * wing_vals().S + cdh0 * emp_vals().S_h + cdv0 * emp_vals().S_v + cdfus0*area_fus + cdnac0*math.pi*(d_nac/2)**2)/(wing_vals().S+emp_vals().S_h+emp_vals().S_v+area_fus+math.pi*(d_nac/2)**2)
+    cd0 = (cdw0 * wing_vals().S + cdh0 * emp_vals().S_h + cdv0 * emp_vals().S_v + cdfus0*area_fus + cdnac0*math.pi*(d_nac/2)**2+cdflap0*S_flap)/(S_flap+wing_vals().S+emp_vals().S_h+emp_vals().S_v+area_fus+math.pi*(d_nac/2)**2)
 
     dwing= cdw * 0.5 * rho*((v_inf) ** 2 * wing_vals().S*.313 + (v_wakeCP) ** 2 * wing_vals().S*0.173+ (v_wakeHLP) ** 2 * wing_vals().S*0.524)
     dhtail = cdh * 0.5 * rho * v_inf ** 2 * emp_vals().S_h

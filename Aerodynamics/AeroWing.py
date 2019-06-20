@@ -58,11 +58,14 @@ vstall=vtakeoff/1.2
                                 #Cruise_t.rho, Cruise_t.aero_vals.cl_cr, 0)
 
 
-toHLP=58.3
-toCP=35.1
+toHLP=55.5
+toCP=39
 
-crHLP=75.5659339972566
-crCP=74.73925709204083
+
+
+
+crHLP=74.739257
+crCP=75.5659
 
 v_takeoff= 0.173*toCP+0.524*toHLP+0.313*vtakeoff
 v_cr= 0.173*crCP+0.524*crHLP+0.313*vcruise
@@ -97,7 +100,7 @@ q_cr=0.5*rho_cr*v_cr**2
 
 # Sreq and design cl
 Sreq=Ws_cr/(q0*cl_max)
-cl_des=0.5*(Ws_cr+We_cr)/(q_cr*Sreq)
+cl_des=0.5*(Ws_cr+We_cr)/(q_cr*9.52)
 #####
 
 #print(v_takeoff)
@@ -121,3 +124,5 @@ print(cl_des)
 print(wing_vals().taper_ratio, wing_vals().MAC)
 print(v_takeoff/vtakeoff)
 print(v_cr/vcruise)
+a,b=drag(1, 39, 39, 39, 1.225)
+print(b)

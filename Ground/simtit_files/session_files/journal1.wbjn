@@ -1,0 +1,160 @@
+# encoding: utf-8
+# Release 19.1
+SetScriptVersion(Version="19.1.103")
+with Transaction():
+    system1 = GetSystem(Name="Study")
+    geometryModelingComponent1 = Study.CreateTask(
+        Type="Geometry Modeling",
+        System=system1)
+    modeling1 = geometryModelingComponent1.GetTaskObject()
+    modeling1.SetImportPath(FilePath=GetAbsoluteUserPathName("UNI/DSE/Door2Door/Ground/trusssketch5.CATPart"))
+    geometryModelingComponent1.Update(AllDependencies=True)
+with Transaction():
+    physicsDefinitionComponent1 = Study.CreateTask(
+        Type="Physics Definition",
+        System=system1,
+        Input=geometryModelingComponent1)
+    physicsDefinitionComponent1.Refresh()
+    physicsDefinition1 = physicsDefinitionComponent1.GetTaskObject()
+    physicsDefinition1.CalculationType = "Static"
+    study1 = system1.GetContainer(ComponentName="Study")
+    solverSettings1 = study1.CreateEntity(
+        Type="SolverSettings",
+        Association=physicsDefinition1)
+    meshModelingComponent1 = Study.CreateTask(
+        Type="Mesh Modeling",
+        System=system1,
+        Input=physicsDefinitionComponent1)
+    meshModelingComponent1.Refresh()
+    solvePhysicsComponent1 = Study.CreateTask(
+        Type="Solve Physics",
+        System=system1,
+        Input=meshModelingComponent1)
+    solvePhysicsComponent1.Refresh()
+    physicsSolutionGroup1 = Study.CreateGroup(Name="Physics Solution")
+    physicsSolutionGroup1.Add(Component=physicsDefinitionComponent1)
+    physicsSolutionGroup1.Add(Component=meshModelingComponent1)
+    AddSourceToComponentInSystem(
+        SourceComponent=physicsDefinitionComponent1,
+        TargetComponent=solvePhysicsComponent1)
+    physicsSolutionGroup1.Add(Component=solvePhysicsComponent1)
+    physicsRegion1 = study1.CreateEntity(
+        Type="PhysicsRegion",
+        Association=physicsDefinition1)
+    physicsRegion1.PhysicsType = "Structural"
+    physicsRegion1.Location = "AllBodies()"
+    materialAssignment1 = study1.CreateEntity(
+        Type="MaterialAssignment",
+        Association=physicsDefinition1)
+    material1 = study1.CreateEntity(
+        Type="Material",
+        Association=physicsDefinition1)
+    material1.ImportEngineeringData(Name="Structural Steel")
+    materialAssignment1.Material = material1
+    materialAssignment1.Location = [physicsRegion1]
+    interfaceGenerator1 = study1.CreateEntity(
+        Type="InterfaceGenerator",
+        Association=physicsDefinition1)
+    transcript1 = study1.CreateEntity(
+        Type="Transcript",
+        Association=physicsDefinition1)
+    transcript1.DisplayText = "Structural Output 1"
+    resultsEvaluationComponent1 = Study.CreateTask(
+        Type="Results Evaluation",
+        System=system1,
+        Input=solvePhysicsComponent1)
+    AddSourceToComponentInSystem(
+        SourceComponent=physicsDefinitionComponent1,
+        TargetComponent=resultsEvaluationComponent1)
+    resultsEvaluationComponent1.Refresh()
+    results1 = resultsEvaluationComponent1.GetTaskObject()
+    contourResult1 = study1.CreateEntity(
+        Type="ContourResult",
+        Association=results1)
+    contourResult1.Variable = "Stress.eqv"
+    contourResult1.EvaluateFullRange = False
+    contourResult2 = study1.CreateEntity(
+        Type="ContourResult",
+        Association=results1)
+    contourResult2.Variable = "Displacement.mag"
+    contourResult2.EvaluateFullRange = False
+    interfaceGenerator1.GenerateInteractions()
+with Transaction():
+    material2 = study1.CreateEntity(
+        Type="Material",
+        Association=physicsDefinition1)
+    material2.ImportEngineeringData(Name="Beryllium")
+    materialAssignment1.Material = material2
+support1 = study1.CreateEntity(
+    Type="Support",
+    Association=physicsDefinition1)
+support1.Location = ["FACE13"]
+support1.Location = ["FACE75", "FACE13"]
+support1.Location = ["FACE85", "FACE75", "FACE13"]
+force1 = study1.CreateEntity(
+    Type="Force",
+    Association=physicsDefinition1)
+force1.Vector.DefineBy = "Components"
+force1.Location = ["FACE58", "FACE47", "FACE24", "FACE37", "FACE46"]
+force1.Vector.VectorByComponents.Component3 = "6068 [N]"
+force2 = study1.CreateEntity(
+    Type="Force",
+    Association=physicsDefinition1)
+force2.Location = ["FACE4", "FACE2", "FACE61"]
+force2.Vector.DefineBy = "Components"
+force2.Vector.VectorByComponents.Component3 = "-3531.6[N]"
+force3 = study1.CreateEntity(
+    Type="Force",
+    Association=physicsDefinition1)
+force3.Location = ["FACE21", "FACE93"]
+force3.Vector.DefineBy = "Components"
+force3.Vector.VectorByComponents.Component3 = "-1854.1 [N]"
+force4 = study1.CreateEntity(
+    Type="Force",
+    Association=physicsDefinition1)
+force5 = study1.CreateEntity(
+    Type="Force",
+    Association=physicsDefinition1,
+    Location=["FACE76", "FACE62", "FACE1", "FACE5", "FACE3"])
+Study.Delete(Items=[force4])
+force5.Vector.DefineBy = "Components"
+force5.Vector.VectorByComponents.Component3 = "-3531.6 [N]"
+force6 = study1.CreateEntity(
+    Type="Force",
+    Association=physicsDefinition1)
+force6.Location = ["FACE48", "FACE8"]
+force6.Vector.DefineBy = "Components"
+force6.Vector.VectorByComponents.Component3 = "-4708.8 [N]"
+force7 = study1.CreateEntity(
+    Type="Force",
+    Association=physicsDefinition1,
+    Location=["FACE50", "FACE41"])
+force7.Location = ["FACE27", "FACE18", "FACE50", "FACE41"]
+force7.Vector.DefineBy = "Components"
+force7.Vector.VectorByComponents.Component3 = "-1826.1 [N]"
+force1.Vector.VectorByComponents.Component3 = "-15400 [N]"
+with Transaction():
+    solvePhysicsComponent1.Update(AllDependencies=True)
+    resultsEvaluationComponent1.Refresh()
+resultsEvaluationComponent1.Update(AllDependencies=True)
+with Transaction():
+    contourResult3 = study1.CreateEntity(
+        Type="ContourResult",
+        Association=results1)
+    contourResult3.EvaluateFullRange = False
+    contourResult3.Variable = "Displacement.mag"
+contourResult3.Evaluate()
+with Transaction():
+    contourResult4 = study1.CreateEntity(
+        Type="ContourResult",
+        Association=results1)
+    contourResult4.EvaluateFullRange = False
+    contourResult4.Variable = "Stress.eqv"
+contourResult4.Evaluate()
+Save(Overwrite=True)
+with Transaction():
+    Reset()
+    Extensions.UnloadExtension(
+        Id="7abf9806-7798-47db-996f-77a14bea7e52",
+        Version="1.0",
+        Format="Binary")

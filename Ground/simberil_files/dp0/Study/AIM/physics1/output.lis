@@ -1,0 +1,645 @@
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *            ANSYS Release 19.1     LEGAL NOTICES             *
+ ***************************************************************
+ *                                                             *
+ * Copyright 1971-2018 ANSYS, Inc.  All rights reserved.       *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of ANSYS, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the ANSYS, Inc. online documentation or the ANSYS, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * ANSYS, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * ANSYS, Inc. is a UL registered                              *
+ * ISO 9001:2008 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the ANSYS, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the ANSYS, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+
+
+          *****  ANSYS COMMAND LINE ARGUMENTS  *****
+  BATCH MODE REQUESTED (-b)    = NOLIST
+  INPUT FILE COPY MODE (-c)    = NOCOPY
+  DISTRIBUTED MEMORY PARALLEL REQUESTED
+       2 PARALLEL PROCESSES REQUESTED WITH SINGLE THREAD PER PROCESS
+    TOTAL OF     2 CORES REQUESTED
+  MPI OPTION                   = INTELMPI
+  INPUT FILE NAME              = C:\Users\Phoenix\AppData\Local\Temp\636963998435997919\live.dat
+  OUTPUT FILE NAME             = C:\Users\Phoenix\AppData\Local\Temp\WB_DESKTOP-KO485NP_Phoenix_6008_2\unsaved_project_files\dp0\Study\AIM\physics1\output.lis
+    SERVER PORT REQUESTED      = 64562       
+
+ Release 19.1
+     
+ Point Releases and Patches installed:   
+     
+ ANSYS, Inc. Products Release 19.1   
+ SpaceClaim Release 19.1 
+ AIM Release 19.1
+ Autodyn Release 19.1
+ LS-DYNA Release 19.1
+ CFD-Post only Release 19.1  
+ CFX (includes CFD-Post) Release 19.1
+ Chemkin Release 19.1
+ FENSAP-ICE Release 19.1 
+ Fluent (includes CFD-Post) Release 19.1 
+ Forte Release 19.1  
+ Polyflow (includes CFD-Post) Release 19.1   
+ TurboGrid Release 19.1  
+ ICEM CFD Release 19.1   
+ Aqwa Release 19.1   
+ Customization Files for User Programmable Features Release 19.1 
+ Mechanical Products Release 19.1
+ Icepak (includes CFD-Post) Release 19.1 
+ Viewer Release 19.1 
+ ACIS Geometry Interface Release 19.1
+ AutoCAD Geometry Interface Release 19.1 
+ Catia, Version 5 Geometry Interface Release 19.1
+ Catia, Version 6 Geometry Interface Release 19.1
+ Creo Elements/Direct Modeling Geometry Interface Release 19.1   
+ Creo Parametric Geometry Interface Release 19.1 
+ Inventor Geometry Interface Release 19.1
+ JTOpen Geometry Interface Release 19.1  
+ NX Geometry Interface Release 19.1  
+ Parasolid Geometry Interface  Release 19.1  
+ Solid Edge Geometry Interface Release 19.1  
+ SOLIDWORKS Geometry Interface Release 19.1  
+ ANSYS, Inc. License Manager Release 19.1
+
+ PARAMETER _DS_PROGRESS =     999.0000000    
+
+ /INPUT FILE= input.dat  LINE=       0
+ --- Data in consistent MKS units.
+
+ MKS UNITS SPECIFIED FOR INTERNAL    
+  LENGTH        (l)  = METER (M)
+  MASS          (M)  = KILOGRAM (KG)
+  TIME          (t)  = SECOND (SEC)
+  TEMPERATURE   (T)  = CELSIUS (C)
+  TOFFSET            = 273.0
+  CHARGE        (Q)  = COULOMB
+  FORCE         (f)  = NEWTON (N) (KG-M/SEC2)
+  HEAT               = JOULE (N-M)
+
+  PRESSURE           = PASCAL (NEWTON/M**2)
+  ENERGY        (W)  = JOULE (N-M)
+  POWER         (P)  = WATT (N-M/SEC)
+  CURRENT       (i)  = AMPERE (COULOMBS/SEC)
+  CAPACITANCE   (C)  = FARAD
+  INDUCTANCE    (L)  = HENRY
+  MAGNETIC FLUX      = WEBER
+  RESISTANCE    (R)  = OHM
+  ELECTRIC POTENTIAL = VOLT
+
+ INPUT  UNITS ARE ALSO SET TO MKS 
+
+
+
+ *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE Release 19.1     19.1     ***
+ DISTRIBUTED ANSYS AIM Pro                                     
+
+ 00429955  VERSION=WINDOWS x64   20:24:16  JUN 17, 2019 CP=      0.797
+
+                                                                               
+
+
+
+          ***** ANSYS ANALYSIS DEFINITION (PREP7) *****
+ *********** Write element types ***********
+ *********** Done writing element types ***********
+ *********** Write materials ***********
+ *********** Read mesh ***********
+ *********** Write nodes ***********
+ *********** Element Group 1 ***********
+ *********** Read load elements ***********
+ *********** Element Group 2 ***********
+ *********** Element Group 3 ***********
+ *********** Element Group 4 ***********
+ *********** Element Group 5 ***********
+ *********** Element Group 6 ***********
+ *********** Element Group 7 ***********
+ *********** Element Group 8 ***********
+ *********** Element Group 9 ***********
+ *********** Element Group 10 ***********
+ *********** Element Group 11 ***********
+ *********** Element Group 12 ***********
+ *********** Element Group 13 ***********
+ *********** Element Group 14 ***********
+ *********** Element Group 15 ***********
+ *********** Element Group 16 ***********
+ *********** Element Group 17 ***********
+ *********** Element Group 18 ***********
+ *********** Element Group 19 ***********
+ *********** Element Group 20 ***********
+ *********** Element Group 21 ***********
+ *********** Element Group 22 ***********
+ *********** Read components ***********
+
+
+ ***** ROUTINE COMPLETED *****  CP =         2.219
+
+
+
+ PRINTOUT RESUMED BY /GOP
+ --- Number of total nodes = 94251
+ --- Number of total elements = 57828
+
+ Graphical-Solution-Tracking set to ON
+ For /MENU,ON or /MENU,GRPH operations, GST ToFile option is ON  
+ ****************************************************************************
+ *************************    SOLUTION       ********************************
+ ****************************************************************************
+
+ *****  ANSYS SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+ ****************************************************
+ *********** Solve for Load Step 1 ***********
+  Start writing variable values
+
+ PARAMETER _VAL1 =     0.000000000    
+
+ PARAMETER _VAL2 =     0.000000000    
+
+ PARAMETER _VAL3 =    -26546.57310    
+
+ PARAMETER _VAL4 =     0.000000000    
+
+ PARAMETER _VAL5 =     0.000000000    
+
+ PARAMETER _VAL6 =    -5824.696162    
+
+ PARAMETER _VAL7 =     0.000000000    
+
+ PARAMETER _VAL8 =     0.000000000    
+
+ PARAMETER _VAL9 =    -17404.71668    
+
+ PARAMETER _VAL10 =     0.000000000    
+
+ PARAMETER _VAL11 =     0.000000000    
+
+ PARAMETER _VAL12 =    -11031.52492    
+
+ PARAMETER _VAL13 =     0.000000000    
+
+ PARAMETER _VAL14 =     0.000000000    
+
+ PARAMETER _VAL15 =    -3446.954976    
+
+ PARAMETER _VAL16 =     0.000000000    
+
+ PARAMETER _VAL17 =     0.000000000    
+
+ PARAMETER _VAL18 =    -2993.053574    
+
+ PARAMETER _VAL19 =     0.000000000    
+
+ PARAMETER _VAL20 =     0.000000000    
+
+ PARAMETER _VAL21 =     0.000000000    
+  Done writing variable values
+
+ SPECIFIED CONSTRAINT UX   FOR PICKED NODES 
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR PICKED NODES 
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UZ   FOR PICKED NODES 
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ PRINTOUT RESUMED BY /GOP
+
+ DEFINE RESTART CONTROL FOR LOADSTEP LAST
+ AT FREQUENCY OF LAST AND NUMBER FOR OVERWRITE IS    0
+
+ WRITE MULTIFRAME RESTART FILES EVEN
+ WHEN IT IS A LINEAR STATIC ANALYSIS
+
+ ERASE THE CURRENT DATABASE OUTPUT CONTROL TABLE.
+
+
+ WRITE ALL  ITEMS TO THE DATABASE WITH A FREQUENCY OF NONE
+   FOR ALL APPLICABLE ENTITIES
+
+ TIME=  1.0000    
+
+ NONLINEAR STABILIZATION CONTROL:
+ KEY=OFF 
+
+
+ USE THE DEFAULT NUMBER EQUILIBRIUM ITERATIONS EACH SUBSTEP.
+
+ WRITE NSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE RSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE STRS ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ *GET  ANSINTER_  FROM  ACTI  ITEM=INT        VALUE=  0.00000000    
+
+ *IF  ANSINTER_                         ( =   0.00000     )  NE  
+      0                                 ( =   0.00000     )  THEN    
+
+ *ENDIF
+
+ *** NOTE ***                            CP =       2.891   TIME= 20:24:19
+ The automatic domain decomposition logic has selected the MESH domain   
+ decomposition method with 2 processes per solution.                     
+
+ *****  ANSYS SOLVE    COMMAND  *****
+
+ *** NOTE ***                            CP =       3.109   TIME= 20:24:19
+ There is no title defined for this analysis.                            
+
+ *** WARNING ***                         CP =       3.109   TIME= 20:24:19
+ Element shape checking is currently inactive.  Issue SHPP,ON or         
+ SHPP,WARN to reactivate, if desired.                                    
+
+ *** NOTE ***                            CP =       3.234   TIME= 20:24:19
+ The model data was checked and warning messages were found.             
+  Please review output or errors file (                                  
+ C:\Users\Phoenix\AppData\Local\Temp\WB_DESKTOP-KO485NP_Phoenix_6008_2\u 
+ nsaved_project_files\dp0\Study\AIM\physics1\file0.err ) for these       
+ warning messages.                                                       
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+      --- GIVE SUGGESTIONS AND RESET THE KEY OPTIONS ---
+
+ ELEMENT TYPE    1 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+
+
+ *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE Release 19.1     19.1     ***
+ DISTRIBUTED ANSYS AIM Pro                                     
+
+ 00429955  VERSION=WINDOWS x64   20:24:19  JUN 17, 2019 CP=      3.266
+
+                                                                               
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   OFFSET TEMPERATURE FROM ABSOLUTE ZERO . . . . .  273.15    
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** NOTE ***                            CP =       3.344   TIME= 20:24:20
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+  
+  
+     D I S T R I B U T E D   D O M A I N   D E C O M P O S E R
+  
+  ...Number of elements: 57828
+  ...Number of nodes:    94251
+  ...Decompose to 2 CPU domains
+  ...Element load balance ratio =     1.063
+
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL       NONE               
+      NSOL        ALL               
+      RSOL        ALL               
+      STRS        ALL               
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= file.mntr                                                                                                                                                                                                                                                           
+
+   - MAPDL RPC client requesting to continue with MAPDL processing...
+
+
+
+
+                         ***********  PRECISE MASS SUMMARY  ***********
+
+   TOTAL RIGID BODY MASS MATRIX ABOUT ORIGIN
+               Translational mass               |   Coupled translational/rotational mass
+         151.41        0.0000        0.0000     |     0.0000        32.130      -0.44768E-03
+         0.0000        151.41        0.0000     |    -32.130        0.0000       -241.55    
+         0.0000        0.0000        151.41     |    0.44768E-03    241.55        0.0000    
+     ------------------------------------------ | ------------------------------------------
+                                                |         Rotational mass (inertia)
+                                                |     107.79       0.79370E-03    65.909    
+                                                |    0.79370E-03    679.14       0.39780E-02
+                                                |     65.909       0.39780E-02    725.82    
+
+   TOTAL MASS =  151.41    
+     The mass principal axes coincide with the global Cartesian axes
+
+   CENTER OF MASS (X,Y,Z)=   -1.5954       0.29568E-05   0.21221    
+
+   TOTAL INERTIA ABOUT CENTER OF MASS
+         100.97       0.79474E-04    14.649    
+        0.79474E-04    286.94       0.40730E-02
+         14.649       0.40730E-02    340.44    
+
+   PRINCIPAL INERTIAS =    100.08        286.94        341.33    
+   ORIENTATION VECTORS OF THE INERTIA PRINCIPAL AXES IN GLOBAL CARTESIAN
+     ( 0.998, 0.000,-0.061) (-0.000, 1.000,-0.000) ( 0.061, 0.000, 0.998) 
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1   151.406    
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 7.802017222E+10 at element 41698.                             
+ Minimum = 729308836 at element 15046.                                   
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1     47801  SOLID187      6.328   0.000132
+        2       238  SURF154       0.016   0.000066
+        3       698  SURF154       0.047   0.000067
+        4       253  SURF154       0.016   0.000062
+        5       973  SURF154       0.094   0.000096
+        6      1016  SURF154       0.094   0.000092
+        7       316  SURF154       0.016   0.000049
+        8       178  SURF154       0.047   0.000263
+        9       321  SURF154       0.031   0.000097
+       10       288  SURF154       0.031   0.000109
+       11       266  SURF154       0.000   0.000000
+       12       296  SURF154       0.000   0.000000
+       13       308  SURF154       0.031   0.000101
+       14       303  SURF154       0.062   0.000206
+       15       382  SURF154       0.031   0.000082
+       16       202  SURF154       0.000   0.000000
+       17       400  SURF154       0.047   0.000117
+       18       304  SURF154       0.016   0.000051
+       19       776  SURF154       0.062   0.000081
+       20       882  SURF154       0.062   0.000071
+       21       844  SURF154       0.031   0.000037
+       22       783  SURF154       0.047   0.000060
+ Time at end of element matrix formulation CP = 9.25.                    
+
+ ALL CURRENT ANSYS DATA WRITTEN TO FILE NAME= file.rdb
+  FOR POSSIBLE RESUME FROM THIS POINT
+
+ DISTRIBUTED SPARSE MATRIX DIRECT SOLVER.
+  Number of equations =      281127,    Maximum wavefront =    324
+
+  Local memory allocated for solver              =    360.163 MB
+  Local memory required for in-core solution     =    347.248 MB
+  Local memory required for out-of-core solution =    211.158 MB
+
+  Total memory allocated for solver              =    707.163 MB
+  Total memory required for in-core solution     =    681.919 MB
+  Total memory required for out-of-core solution =    417.457 MB
+
+ *** NOTE ***                            CP =      12.000   TIME= 20:24:34
+ The Distributed Sparse Matrix Solver is currently running in the        
+ in-core memory mode.  This memory mode uses the most amount of memory   
+ in order to avoid using the hard drive as much as possible, which most  
+ often results in the fastest solution time.  This mode is recommended   
+ if enough physical memory is present to accommodate all of the solver   
+ data.                                                                   
+ Distributed sparse solver maximum pivot= 8.733095763E+10 at node 56340  
+ UY.                                                                     
+ Distributed sparse solver minimum pivot= 264095.526 at node 62670 UZ.   
+ Distributed sparse solver minimum pivot in absolute value= 264095.526   
+ at node 62670 UZ.                                                       
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1     47801  SOLID187      3.438   0.000072
+        2       238  SURF154       0.016   0.000066
+        3       698  SURF154       0.031   0.000045
+        4       253  SURF154       0.016   0.000062
+        5       973  SURF154       0.047   0.000048
+        6      1016  SURF154       0.047   0.000046
+        7       316  SURF154       0.031   0.000099
+        8       178  SURF154       0.000   0.000000
+        9       321  SURF154       0.000   0.000000
+       10       288  SURF154       0.000   0.000000
+       11       266  SURF154       0.031   0.000117
+       12       296  SURF154       0.016   0.000053
+       13       308  SURF154       0.000   0.000000
+       14       303  SURF154       0.000   0.000000
+       15       382  SURF154       0.016   0.000041
+       16       202  SURF154       0.016   0.000077
+       17       400  SURF154       0.016   0.000039
+       18       304  SURF154       0.000   0.000000
+       19       776  SURF154       0.047   0.000060
+       20       882  SURF154       0.031   0.000035
+       21       844  SURF154       0.031   0.000037
+       22       783  SURF154       0.078   0.000100
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1     47801  SOLID187      0.188   0.000004
+        2       238  SURF154       0.000   0.000000
+        3       698  SURF154       0.000   0.000000
+        4       253  SURF154       0.000   0.000000
+        5       973  SURF154       0.000   0.000000
+        6      1016  SURF154       0.000   0.000000
+        7       316  SURF154       0.016   0.000049
+        8       178  SURF154       0.000   0.000000
+        9       321  SURF154       0.000   0.000000
+       10       288  SURF154       0.000   0.000000
+       11       266  SURF154       0.000   0.000000
+       12       296  SURF154       0.000   0.000000
+       13       308  SURF154       0.000   0.000000
+       14       303  SURF154       0.000   0.000000
+       15       382  SURF154       0.000   0.000000
+       16       202  SURF154       0.000   0.000000
+       17       400  SURF154       0.000   0.000000
+       18       304  SURF154       0.000   0.000000
+       19       776  SURF154       0.000   0.000000
+       20       882  SURF154       0.000   0.000000
+       21       844  SURF154       0.000   0.000000
+       22       783  SURF154       0.000   0.000000
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** ANSYS BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+       84.500 MB WRITTEN ON ELEMENT SAVED DATA FILE: file0.esav
+       68.062 MB WRITTEN ON ASSEMBLED MATRIX FILE: file0.full
+       19.562 MB WRITTEN ON RESULTS FILE: file0.rst
+
+   - MAPDL RPC client requesting to continue with MAPDL processing...
+
+ ****************************************************
+ *********** Finished Solve for Load Step 1 ***********
+  
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  CP =        19.000
+
+
+
+ *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE Release 19.1     19.1     ***
+ DISTRIBUTED ANSYS AIM Pro                                     
+
+ 00429955  VERSION=WINDOWS x64   20:24:47  JUN 17, 2019 CP=     19.000
+
+                                                                               
+
+
+
+          ***** ANSYS RESULTS INTERPRETATION (POST1) *****
+
+ *** NOTE ***                            CP =      19.000   TIME= 20:24:47
+ Reading results into the database (SET command) will update the current 
+ displacement and force boundary conditions in the database with the     
+ values from the results file for that load set.  Note that any          
+ subsequent solutions will use these values unless action is taken to    
+ either SAVE the current values or not overwrite them (/EXIT,NOSAVE).    
+
+ EXIT THE ANSYS POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  CP =        19.016
+
+
+
+ *GET  ANSINTER_  FROM  ACTI  ITEM=INT        VALUE=  0.00000000    
+
+ *IF  ANSINTER_                         ( =   0.00000     )  EQ  
+      0                                 ( =   0.00000     )  THEN    
+
+ /OUTPUT FILE= file.success
+
+ *ENDIF
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          1
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
++--------- D I S T R I B U T E D   A N S Y S   S T A T I S T I C S ------------+
+
+Release: Release 19.1       Build: 19.1       Update: UP20180418   Platform: WINDOWS x64 
+Date Run: 06/17/2019   Time: 20:24     Process ID: 1748
+Operating System: Windows 10  (Build: 17763)
+
+Processor Model: AMD FX(tm)-4100 Quad-Core Processor
+
+Compiler: Intel(R) FORTRAN Compiler Version 17.0.4  (Build: 20170411)
+          Intel(R) C/C++ Compiler Version 17.0.4  (Build: 20170411)
+          Intel(R) Math Kernel Library Version 2017.0.3 Product Build 20170413
+ 
+Number of processes requested           :    2
+Number of threads per process requested :    1
+Total number of cores requested         :    2 (Distributed Memory Parallel)               
+MPI Type: INTELMPI
+MPI Version: Intel(R) MPI Library 2017 Update 3 for Windows* OS
+
+
+GPU Acceleration: Not Requested
+
+Job Name: file
+Input File: live.dat
+
+  Core                Machine Name   Working Directory
+ -----------------------------------------------------
+     0             DESKTOP-KO485NP   C:\Users\Phoenix\AppData\Local\Temp\636963998435997919
+     1             DESKTOP-KO485NP   C:\Users\Phoenix\AppData\Local\Temp\636963998435997919
+ 
+Latency time from master to core     1 =    3.665 microseconds
+ 
+Communication speed from master to core     1 =  1018.38 MB/sec
+
+Total CPU time for main thread                    :       17.9 seconds
+Total CPU time summed for all threads             :       19.2 seconds
+
+Elapsed time spent pre-processing model (/PREP7)  :        1.7 seconds
+Elapsed time spent solution - preprocessing       :        2.4 seconds
+Elapsed time spent computing solution             :       21.6 seconds
+Elapsed time spent solution - postprocessing      :        2.2 seconds
+Elapsed time spent post-processing model (/POST1) :        0.1 seconds
+ 
+Equation solver used                              :            Sparse (symmetric)
+Equation solver computational rate                :        2.4 Gflops
+Equation solver effective I/O rate                :        2.6 GB/sec
+
++------ E N D   D I S T R I B U T E D   A N S Y S   S T A T I S T I C S -------+
+
+
+ *---------------------------------------------------------------------------*
+ |                                                                           |
+ |                       DISTRIBUTED ANSYS RUN COMPLETED                     |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Release 19.1            Build 19.1            UP20180418      WINDOWS x64 |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Database Requested(-db)  1024 MB    Scratch Memory Requested      1024 MB |
+ | Maximum Database Used      63 MB    Maximum Scratch Memory Used    413 MB |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ |        CP Time      (sec) =         18.516       Time  =  20:24:47        |
+ |        Elapsed Time (sec) =         32.000       Date  =  06/17/2019      |
+ |                                                                           |
+ *---------------------------------------------------------------------------*

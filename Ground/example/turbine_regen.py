@@ -1,4 +1,3 @@
-
 ## Using windpowerlib ##
 
 import os
