@@ -17,11 +17,11 @@ from power import ThrustCalculator
 
 
 g = 9.80665
-Iyy = 12000
+Iyy = 10750
 theta_dot_dot = 12/57.3
 mu = 0.04
 
-m = 1930
+m = 1668
 
 dCLflap = 0.5
 CL0 = 0.24

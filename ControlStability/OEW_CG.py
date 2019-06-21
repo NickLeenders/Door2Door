@@ -77,3 +77,7 @@ def function_ZCG():
                    w_tail + w_structure \
                    + w_propeller + w_wing + w_drivetrain + w_fuel + w_cell + w_passenger*4 + w_battery + w_tank + w_cargo)
     return (X_CG)
+
+print (function_total_EOW_mass())
+print (function_XCG())
+print (function_ZCG())
