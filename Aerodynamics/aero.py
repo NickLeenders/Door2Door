@@ -253,6 +253,7 @@ class Propellers:
     S = b * c_avg
     A = b / c_avg
 
+    flag = False
 
 
     def __init__(self, thrust, v_infty, rho, cl, stol=0):
@@ -284,7 +285,9 @@ class Propellers:
                 self.thrustHLP = self.numberHLP * rho * (1.0 / 8.0) * math.pi * (self.diameterHLP ** 2) * (
                         self.v_wakeHLP ** 2 - v_infty ** 2)
                 self.powerHLP = self.thrustHLP*v_infty*(1.0 - self.a_HLP) / self.numberHLP
-            assert self.powerHLP <= self.maxpowerHLP*self.efficiencyHLP, "Not enough propeller power for these thrust values"
+            if self.powerHLP > self.maxpowerHLP*self.efficiencyHLP:
+                self.flag = True
+            #assert self.powerHLP <= self.maxpowerHLP*self.efficiencyHLP, "Not enough propeller power for these thrust values"
         elif (stol==1):
             self.powerHLP = self.maxpowerHLP*self.efficiencyHLP
             coefficientsHLP = [1, -2, 1, 2 * self.maxpowerHLP * self.efficiencyHLP / (
@@ -311,7 +314,9 @@ class Propellers:
                 self.powerCP = self.thrustCP*v_infty*(1.0-self.a_CP) / self.numberCP
                 #self.powerCPalt1 = -self.numberCP*(1.0/8.0)*math.pi*(self.diameterCP**2)*rho*(v_infty**2 - self.v_wakeCP**2)*v_infty*(1.0-self.a_CP)
                 #self.powerCPalt2 = -self.numberCP*0.5*rho*math.pi*(self.diameterCP**2)*(v_infty**3)*self.a_CP*(1-self.a_CP)**2
-            assert self.powerCP <= self.maxpowerCP*self.efficiencyCP, "Not enough propeller power for these thrust values"
+            if self.powerCP > self.maxpowerCP*self.efficiencyCP:
+                self.flag = True
+            #assert self.powerCP <= self.maxpowerCP*self.efficiencyCP, "Not enough propeller power for these thrust values"
 
 
         self.lift_powered = cl*0.5*rho*(self.numberHLP*self.diameterHLP*self.c_avg*self.v_wakeHLP**2 +
