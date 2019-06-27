@@ -49,7 +49,7 @@ class ThrustCalculator:
             self.friction = self.mass*9.80665*self.mu
         else:
             self.friction = 0.0
-        self.thrust = self.drag + self.mass*self.acceleration + self.friction
+        self.thrust = self.drag + self.mass*self.acceleration + self.friction + rateOfClimb*self.mass*9.80665/self.velocity
 
 def enginePower(thrust, velocity):
     totalPower = thrust*velocity/0.9 #transmission efficiency = 0.9
@@ -145,18 +145,28 @@ def fuelCalc():
     takeOff_power = []
     takeOff_energy = []
 
-    for t in np.arange(20*dt, 15.0/acc, dt):
-        v = acc*t
+    t = 20*dt
+    v = acc*t
+
+    while (v <= 25.0):
+        v = acc * t
         runway = runway + v*dt + 0.5*acc*dt*dt
+
+        acc = 5.0
         takeOff_t = ThrustCalculator(MTOW - massHydrogen, acc*t, acc*t, acc*t, 0.0, dt, 0, acc, 1)
         takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
                                     takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff + 0.2, 1)
-        temp = takeOff_t
-        temp.thrust = 0.0
-        while (abs(takeOff_t.thrust - temp.thrust) > 0.005):
-            temp = takeOff_t
-            takeOff_t = ThrustCalculator(MTOW - massHydrogen, acc * t, takeOff_l.v_wakeCP, takeOff_l.v_wakeHLP, 0.0, dt, 0, acc, 1)
+        while (takeOff_l.flag == True):
+            acc -= 0.1
+            takeOff_t = ThrustCalculator(MTOW - massHydrogen, acc * t, acc * t, acc * t, 0.0, dt, 0, acc, 1)
             takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
+                                        takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff + 0.2, 1)
+            temp = takeOff_t
+            temp.thrust = 0.0
+            while (abs(takeOff_t.thrust - temp.thrust) > 0.005):
+                temp = takeOff_t
+                takeOff_t = ThrustCalculator(MTOW - massHydrogen, acc * t, takeOff_l.v_wakeCP, takeOff_l.v_wakeHLP, 0.0, dt, 0, acc, 1)
+                takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
                                         takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff + 0.2, 1)
         print("#########################")
         print("Take-off:")
@@ -168,6 +178,8 @@ def fuelCalc():
         takeOff_energy.append((takeOff_l.powerHLP * takeOff_l.numberHLP +
                        takeOff_l.powerCP * takeOff_l.numberCP) * takeOff_t.duration)
         massHydrogen = massHydrogen + ((takeOff_power[-1]/0.6)/SED_hydrogen)*dt
+
+        t += dt
 
     power.append(sum(takeOff_power)/len(takeOff_power))
     energy.append(sum(takeOff_energy))
