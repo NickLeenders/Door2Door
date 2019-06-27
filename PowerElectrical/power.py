@@ -126,6 +126,7 @@ def fuelCalc():
 
     MTOW = mass_calculation.mass_iteration(1630.0)[0]
     SED_hydrogen = (120.0+142.0)*1.0E6/2.0 #Taking average between 120 MJ/kg and 142 MJ/kg
+    print("MTOW: ", MTOW)
 
     power = []
     energy = []
@@ -138,12 +139,15 @@ def fuelCalc():
     massHydrogen = massHydrogen + ((power[-1] / 0.6) / SED_hydrogen) * drive1_t.duration
 
     #TAKE-OFF
-    dt = 1.0
-    acc = 1.1
+    dt = 0.1
+    acc = 2.5
+    runway = 0.0
     takeOff_power = []
     takeOff_energy = []
 
-    for t in np.arange(5*dt, 31.0/acc, dt):
+    for t in np.arange(20*dt, 15.0/acc, dt):
+        v = acc*t
+        runway = runway + v*dt + 0.5*acc*dt*dt
         takeOff_t = ThrustCalculator(MTOW - massHydrogen, acc*t, acc*t, acc*t, 0.0, dt, 0, acc, 1)
         takeOff_l = aero.Propellers(takeOff_t.thrust, takeOff_t.velocity,
                                     takeOff_t.rho, takeOff_t.aero_vals.cl_takeoff + 0.2, 1)
@@ -172,7 +176,7 @@ def fuelCalc():
     print("HLP thrust: ", takeOff_l.thrustHLP, "CP thrust: ", takeOff_l.thrustCP)
 
     print("Wake velocity CP: ", takeOff_l.v_wakeCP, " Wake velocity HLP: ", takeOff_l.v_wakeHLP)
-
+    print("Runway length: ", runway)
     #CLIMB
     climb_t = ThrustCalculator(MTOW - massHydrogen, 45.0, 45.0, 45.0, 750.0, 1500.0/7.44, 7.44)
     climb_l = aero.Propellers(climb_t.thrust, climb_t.velocity,
@@ -198,6 +202,8 @@ def fuelCalc():
     print("HLP eff: ", climb_l.efficiencyHLP, "CP eff: ", climb_l.efficiencyCP)
     print("HLP thrust: ", climb_l.thrustHLP, "CP thrust: ", climb_l.thrustCP)
 
+    print("Wake velocity CP: ", climb_l.v_wakeCP, " Wake velocity HLP: ", climb_l.v_wakeHLP)
+
     #CRUISE
 
     cruiseSpeed = 69.4
@@ -205,6 +211,7 @@ def fuelCalc():
     cruise_t = ThrustCalculator(MTOW - massHydrogen, cruiseSpeed, cruiseSpeed, cruiseSpeed, 1500, 400000.0/cruiseSpeed)
     cruise_l = aero.Propellers(cruise_t.thrust, cruise_t.velocity,
                               cruise_t.rho, cruise_t.aero_vals.cl_cr, 0)
+
     temp = cruise_t
     temp.thrust = 0.0
     while (abs(cruise_t.thrust - temp.thrust) > 0.005):
@@ -251,6 +258,7 @@ def fuelCalc():
     print("Altitude: ", reserve_t.altitude, "Velocity: ", reserve_t.velocity)
     print("HLP eff: ", reserve_l.efficiencyHLP, "CP eff: ", reserve_l.efficiencyCP)
     print("HLP thrust: ", reserve_l.thrustHLP, "CP thrust: ", reserve_l.thrustCP)
+    print("wake CP: ", reserve_l.v_wakeCP, "wake HLP: ", reserve_l.v_wakeHLP)
 
     #DESCENT
     landStart_t = ThrustCalculator(MTOW - massHydrogen, 31.0, 31.0, 31.0, 1500.0, 600)
@@ -275,6 +283,7 @@ def fuelCalc():
     print("Altitude: ", landStart_t.altitude, "Velocity: ", landStart_t.velocity)
     print("HLP eff: ", landStart_l.efficiencyHLP, "CP eff: ", landStart_l.efficiencyCP)
     print("HLP thrust: ", landStart_l.thrustHLP, "CP thrust: ", landStart_l.thrustCP)
+    print("wake CP: ", landStart_l.v_wakeCP, "wake HLP: ", landStart_l.v_wakeHLP)
 
     #LANDING
     landing_t = ThrustCalculator(MTOW - massHydrogen, 39.0, 39.0, 39.0, 750.0, (MTOW - massHydrogen)/(31.0*math.sin(math.atan(1.0/3.0))))
@@ -501,6 +510,24 @@ def fuelCalc():
     plt.xticks(np.arange(3), materials, rotation=10)
     plt.yticks(0.7 + np.arange(3), materialsI, rotation=-20)
     plt.title("Tank Thicknesses for Material Selection")
+
+    figPR, axPR = plt.subplots()
+    masses = [1608.4, 1608.4, 1528.4, 1448.4, 1368.4, 1288.4]
+    ranges = [0, 400000, 415000, 430000, 445000, 460000]
+    passengerNumb = [4, 4, 3, 2, 1, 0]
+
+    axPR.plot(ranges, masses, 'bo-', label='Voltage [V]')
+    axPR.set_ylabel('MTOW [kg]', color='b')
+    axPR.tick_params('y', colors='b')
+
+    axPR2 = axPR.twinx()
+    axPR2.plot(ranges, passengerNumb, 'b+', label='Power [W]')
+    axPR2.set_ylabel('Number of Passengers [-]', color='r')
+    axPR2.tick_params('y', colors='r')
+    plt.yticks([0, 1, 2, 3, 4])
+
+    plt.xlabel('Range [m]')
+    plt.title("Payload Range Diagram")
 
     plt.show()
     return
